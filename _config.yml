@@ -53,17 +53,18 @@ defaults:
       path: ""
     values:
       layout: "default"
+      
+# Add header_pages to control the navigation order
+header_pages:
+  - index.html
+  - blog.html
+  - staff.html
+  - about.markdown
+  
+sass:
+  style: compressed
 
-lsi: false
-safe: true
-source: [https://github.com/Carrie-L/mio70]
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
