@@ -18,24 +18,27 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 编码人生
-email: your-email@example.com
+title: 编码人生澪澪柒
+author: 澪澪柒
+email: carrielib@qq.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  给时光以生命。
 baseurl: "/mio70" # the subpath of your site, e.g. /blog
 url: "https://carrie-l.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  Carrie-L
+csdn_username: CicadaMay
 
 # Build settings
 theme: jekyll-theme-minimal
+
+
 plugins:
   - jekyll-feed
 
 collections:
   authors:
+    output: true
+  android:
     output: true
 
 defaults:
@@ -56,7 +59,8 @@ defaults:
       
 # Add header_pages to control the navigation order
 header_pages:
-  - index.html
+  - android.html
+  - ds.html
   - blog.html
   - staff.html
   - about.markdown

@@ -2,9 +2,16 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-$brand-color: #51e7e7;
+$brand-color: #f48fb1;
+// $content-width: 60%;
 @import "minima";
 
+a:visited {
+    color: #21dddd;
+}
 
+a:hover{
+    color: #e47474;
+}
 
 

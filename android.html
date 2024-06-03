@@ -1,0 +1,12 @@
+---
+title: Android
+---
+<h1>自定义View</h1>
+
+
+{% for article in site.android %}
+    
+      <h2><a href="{{ article.url| relative_url }}">{{ article.title }}</a></h2>
+      {{ article.excerpt }}
+    
+{% endfor %}

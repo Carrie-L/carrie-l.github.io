@@ -1,0 +1,32 @@
+---
+
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var params = new URLSearchParams(window.location.search);
+    var tag = params.get("tag");
+    if (tag) {
+      document.querySelector('title').innerText = "Tag \"" + tag + "\"";
+      document.querySelector('h1').innerText = "Tag \"" + tag + "\"";
+      var posts = document.querySelectorAll(".post-list-item");
+      posts.forEach(function(post) {
+        if (!post.dataset.tags.includes(tag)) {
+          post.style.display = "none";
+        }
+      });
+    }
+  });
+</script>
+
+<h1>Tag "{{ site.data.tag }}"</h1>
+
+
+  {% assign all_posts = site.android %}
+  {% for post in all_posts %}
+    <p class="post-list-item" data-tags="{{ post.tags | join: ',' }}">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span>{{ article.excerpt }}</span>
+    </p>
+  {% endfor %}
+
