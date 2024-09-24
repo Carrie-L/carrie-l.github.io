@@ -1,2 +1,3 @@
 # mio70
-blogs
+blog
+https://carrie-l.github.io/mio70/
