@@ -1,3 +1,10 @@
+---
+layout: android
+title: anki 高亮代码
+tags: ["anki","教程"]
+---
+
+
 https://highlightjs.org/demo
 ------------------------------------------
 背面内容模板，添加到回答<div>后面
