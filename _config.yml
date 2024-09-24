@@ -60,9 +60,7 @@ defaults:
 # Add header_pages to control the navigation order
 header_pages:
   - android.html
-  - ds.html
-  - blog.html
-  - staff.html
+  - dsa.html
   - about.markdown
   
 sass:
