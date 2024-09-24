@@ -11,10 +11,10 @@ title: Home
 </ul>
 
 <ul>
-  {% for post in site.posts %}
+  {% for post in site.categories.Android %}
     <li>
-      <a href="{{ post.url | relative_url}}">{{ post.title }}</a>
-      <span> - {{ post.date | date: "%B %d, %Y" }} (Category: {{ post.category }})</span>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span> - {{ post.date | date: "%B %d, %Y" }}</span>
     </li>
   {% endfor %}
 </ul>
