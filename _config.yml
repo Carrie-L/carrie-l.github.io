@@ -46,6 +46,9 @@ collections:
   DSA:
     output: true
     permalink: /:collection/:path
+  Algorithm:
+    output: true
+    permalink: /:collection/:path
 
 defaults:
   - scope:
