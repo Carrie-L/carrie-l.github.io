@@ -80,28 +80,36 @@ jobs:
       - name: Create New Category HTML Pages
         run: |
           new_collections="${{ steps.detect_categories.outputs.new_categories }}"
-          for category in $new_collections; do
-            echo "Creating ${category}.html"
-            cat <<EOT > "${category}.html"
-            ---
-            layout: list
-            title: ${category}
-            ---
-            <main class="container">
-              <div class="article-list">
-                {% for post in site.${category} %}
-                <article class="post-preview">
-                  <div class="post-content">
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    {{ post.excerpt }}
-                  </div>
-                </article>
-                {% endfor %}
-              </div>
-            </main>
-            {% include categories.html posts=site.${category} %}
-            EOT
-          done
+          echo "new_collections: $new_collections"  # 打印调试信息
+          
+          # 添加检查，确保 new_collections 非空
+          if [[ -n "$new_collections" ]]; then
+            for category in $new_collections; do
+              echo "Creating ${category}.html"
+              # 使用正确格式的 here-document
+              cat <<EOT > "${category}.html"
+---
+layout: list
+title: ${category}
+---
+<main class="container">
+  <div class="article-list">
+    {% for post in site.${category} %}
+    <article class="post-preview">
+      <div class="post-content">
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {{ post.excerpt }}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</main>
+{% include categories.html posts=site.${category} %}
+EOT
+            done
+          else
+            echo "No new categories detected. Skipping category creation."
+          fi
 
       - name: Commit and Push Changes
         run: |
