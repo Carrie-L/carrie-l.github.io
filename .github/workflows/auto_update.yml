@@ -2,8 +2,10 @@ name: Auto Update Jekyll Blog
 
 on:
   push:
-    paths:
-      - '_*/*'  # 监听所有分类文件夹中的文件变化
+    branches:
+      - main  # 确保是你要监听的分支名称
+
+
 
 jobs:
   update_blog:
@@ -104,8 +106,8 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "Carrie-L"
+          git config --global user.email "hedypolly@gmail.com"
           git add _config.yml *.html _includes/categories.html tag.html
           git commit -m "Automatically updated _config.yml, tag.html, and _includes/categories.html for new categories"
           git push
