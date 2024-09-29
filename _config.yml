@@ -129,3 +129,33 @@ sass:
   sass:
     output: true
     permalink: "/:collection/:path"
+  Algorithm:
+    output: true
+    permalink: "/:collection/:path"
+  Android:
+    output: true
+    permalink: "/:collection/:path"
+  DSA:
+    output: true
+    permalink: "/:collection/:path"
+  Python:
+    output: true
+    permalink: "/:collection/:path"
+  authors:
+    output: true
+    permalink: "/:collection/:path"
+  config.yml:
+    output: true
+    permalink: "/:collection/:path"
+  data:
+    output: true
+    permalink: "/:collection/:path"
+  includes:
+    output: true
+    permalink: "/:collection/:path"
+  layouts:
+    output: true
+    permalink: "/:collection/:path"
+  sass:
+    output: true
+    permalink: "/:collection/:path"
