@@ -25,21 +25,17 @@ jobs:
       - name: Detect New Categories
         id: detect_categories
         run: |
-          # 检查 _config.yml 中已有的 collections 配置
-          existing_collections=$(grep 'collections:' _config.yml)
-          # 检查所有 _ 文件夹 (如 _Algorithm)
-          new_collections=$(ls -d _* | sed 's/_//')
-          # 查找新文件夹并更新 _config.yml
-          for category in $new_collections; do
-            if ! grep -q "collections:\n  $category:" _config.yml; then
-              echo "Detected new category: $category"
-              echo "Adding $category to _config.yml"
-              # 手动将新分类添加到 _config.yml 文件中
-              echo "  $category:" >> _config.yml
-              echo "    output: true" >> _config.yml
-              echo "    permalink: \"/:collection/:path\"" >> _config.yml
+          # 查找以 _ 开头且首字母为大写的文件夹，并检查该文件夹中是否存在 .md 文件
+          new_collections=$(for dir in $(find . -maxdepth 1 -type d -name '_*' -exec basename {} \;); do
+            folder_name=${dir#_}  # 去除 _ 前缀
+            if [[ "$folder_name" =~ ^[A-Z] && "$(ls $dir/*.md 2>/dev/null)" ]]; then
+              echo $folder_name
             fi
-          done
+          done | tr '\n' ' ')
+          
+          # 输出检测到的分类文件夹
+          echo "Detected new collections: $new_collections"
+          echo "::set-output name=new_categories::$new_collections"
 
       - name: Update tag.html with new categories
         run: |

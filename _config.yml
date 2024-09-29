@@ -70,6 +70,18 @@ defaults:
       type: "posts"
     values:
       tags: []
+# 排除无关文件夹
+  - scope:
+      path: ""
+      type: ""
+    values:
+      exclude:
+        - _includes
+        - _layouts
+        - _sass
+        - _data
+        - config.yml
+        - _authors
       
 # Add header_pages to control the navigation order
 header_pages:
