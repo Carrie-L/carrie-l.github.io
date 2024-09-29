@@ -102,8 +102,7 @@ jobs:
             assign_statement="${assign_statement% %}"
             # 添加新的集合
             for category in $new_collections; do
-              lowercase_category=$(echo $category | tr '[:upper:]' '[:lower:]')
-              assign_statement="${assign_statement} | concat: site.${lowercase_category}"
+              assign_statement="${assign_statement} | concat: site.${category}"
             done
             # 添加结束符
             assign_statement="${assign_statement} %}"
@@ -121,6 +120,7 @@ jobs:
             if_statement="${if_statement% %}"
             # 添加新的分类页面检查
             for category in $new_collections; do
+              lowercase_category=$(echo $category | tr '[:upper:]' '[:lower:]')
               if_statement="${if_statement} or page.name == '${category}.html'"
             done
             # 添加结束符
