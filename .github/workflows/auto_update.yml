@@ -1,0 +1,111 @@
+name: Auto Update Jekyll Blog
+
+on:
+  push:
+    paths:
+      - '_*/*'  # 监听所有分类文件夹中的文件变化
+
+jobs:
+  update_blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.5'  # 指定你的 Ruby 版本
+
+      - name: Install Bundler and Jekyll
+        run: |
+          gem install bundler jekyll
+          bundle install
+
+      - name: Detect New Categories
+        id: detect_categories
+        run: |
+          # 检查 _config.yml 中已有的 collections 配置
+          existing_collections=$(yq eval '.collections' _config.yml | grep -o '^\w*')
+          # 检查所有 _ 文件夹 (如 _Algorithm)
+          new_collections=$(ls -d _* | sed 's/_//')
+          # 查找新文件夹并更新 _config.yml
+          for category in $new_collections; do
+            if [[ ! " $existing_collections " =~ " $category " ]]; then
+              echo "Detected new category: $category"
+              echo "Adding $category to _config.yml"
+              yq eval --inplace ".collections.${category} = {output: true, permalink: \"/:collection/:path\"}" _config.yml
+            fi
+          done
+          echo "Detected new collections: $new_collections"
+          echo "::set-output name=new_categories::$new_collections"
+
+      - name: Update tag.html with new categories
+        run: |
+          new_collections="${{ steps.detect_categories.outputs.new_categories }}"
+          if [[ -n "$new_collections" ]]; then
+            # 读取现有的 assign 语句
+            assign_statement=$(grep '{% assign all_posts = ' tag.html)
+            # 移除最后的 %} 符号
+            assign_statement="${assign_statement% %}"
+            # 添加新的集合
+            for category in $new_collections; do
+              assign_statement="${assign_statement} | concat: site.${category}"
+            done
+            # 添加结束符
+            assign_statement="${assign_statement} %}"
+            # 替换 tag.html 中的 assign 语句
+            sed -i "s/{% assign all_posts = .*/${assign_statement}/" tag.html
+          fi
+
+      - name: Update _includes/categories.html with new categories
+        run: |
+          new_collections="${{ steps.detect_categories.outputs.new_categories }}"
+          if [[ -n "$new_collections" ]]; then
+            # 读取现有的 if 语句
+            if_statement=$(grep '{% if page.name == ' _includes/categories.html)
+            # 移除最后的 %} 符号
+            if_statement="${if_statement% %}"
+            # 添加新的分类页面检查
+            for category in $new_collections; do
+              if_statement="${if_statement} or page.name == '${category}.html'"
+            done
+            # 添加结束符
+            if_statement="${if_statement} %}"
+            # 替换 _includes/categories.html 中的 if 语句
+            sed -i "s/{% if page.name == .*/${if_statement}/" _includes/categories.html
+          fi
+
+      - name: Create New Category HTML Pages
+        run: |
+          new_collections="${{ steps.detect_categories.outputs.new_categories }}"
+          for category in $new_collections; do
+            echo "Creating ${category}.html"
+            cat <<EOT > "${category}.html"
+            ---
+            layout: list
+            title: ${category}
+            ---
+            <main class="container">
+              <div class="article-list">
+                {% for post in site.${category} %}
+                <article class="post-preview">
+                  <div class="post-content">
+                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                    {{ post.excerpt }}
+                  </div>
+                </article>
+                {% endfor %}
+              </div>
+            </main>
+            {% include categories.html posts=site.${category} %}
+            EOT
+          done
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add _config.yml *.html _includes/categories.html tag.html
+          git commit -m "Automatically updated _config.yml, tag.html, and _includes/categories.html for new categories"
+          git push
