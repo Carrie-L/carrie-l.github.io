@@ -86,26 +86,24 @@ jobs:
           if [[ -n "$new_collections" ]]; then
             for category in $new_collections; do
               echo "Creating ${category}.html"
-              # 使用正确格式的 here-document
-              cat <<EOT > "${category}.html"
----
-layout: list
-title: ${category}
----
-<main class="container">
-  <div class="article-list">
-    {% for post in site.${category} %}
-    <article class="post-preview">
-      <div class="post-content">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        {{ post.excerpt }}
-      </div>
-    </article>
-    {% endfor %}
-  </div>
-</main>
-{% include categories.html posts=site.${category} %}
-EOT
+              # 使用 echo 和 > 替代 cat <<EOT
+              echo "---" > "${category}.html"
+              echo "layout: list" >> "${category}.html"
+              echo "title: ${category}" >> "${category}.html"
+              echo "---" >> "${category}.html"
+              echo "<main class=\"container\">" >> "${category}.html"
+              echo "  <div class=\"article-list\">" >> "${category}.html"
+              echo "    {% for post in site.${category} %}" >> "${category}.html"
+              echo "    <article class=\"post-preview\">" >> "${category}.html"
+              echo "      <div class=\"post-content\">" >> "${category}.html"
+              echo "        <h3><a href=\"{{ post.url | relative_url }}\">{{ post.title }}</a></h3>" >> "${category}.html"
+              echo "        {{ post.excerpt }}" >> "${category}.html"
+              echo "      </div>" >> "${category}.html"
+              echo "    </article>" >> "${category}.html"
+              echo "    {% endfor %}" >> "${category}.html"
+              echo "  </div>" >> "${category}.html"
+              echo "</main>" >> "${category}.html"
+              echo "{% include categories.html posts=site.${category} %}" >> "${category}.html"
             done
           else
             echo "No new categories detected. Skipping category creation."
