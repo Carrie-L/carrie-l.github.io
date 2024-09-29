@@ -1,4 +1,3 @@
-ruby "3.3.4"
 source "https://rubygems.org"
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
@@ -34,4 +33,8 @@ gem "wdm", "~> 0.2.0", :platforms => [:mingw, :x64_mingw, :mswin]
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-gem "webrick", "~> 1.8"
+gem "webrick", "~> 1.8.2"
+
+gem "i18n", "~> 1.14.6"
+gem "rexml", "~> 3.3.7"
+gem "concurrent-ruby", "~> 1.3.4"
