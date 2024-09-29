@@ -76,7 +76,7 @@ jobs:
               echo "---" >> "${lowercase_category}.html"
               echo "<main class=\"container\">" >> "${lowercase_category}.html"
               echo "  <div class=\"article-list\">" >> "${lowercase_category}.html"
-              echo "    {% for post in site.${lowercase_category} %}" >> "${lowercase_category}.html"
+              echo "    {% for post in site.${category} %}" >> "${lowercase_category}.html"
               echo "    <article class=\"post-preview\">" >> "${lowercase_category}.html"
               echo "      <div class=\"post-content\">" >> "${lowercase_category}.html"
               echo "        <h3><a href=\"{{ post.url | relative_url }}\">{{ post.title }}</a></h3>" >> "${lowercase_category}.html"
