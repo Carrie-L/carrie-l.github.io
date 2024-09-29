@@ -23,7 +23,7 @@ author: 澪澪柒
 email: carrielib@qq.com
 description: >- # this means to ignore newlines until "baseurl:"
   给时光以生命。
-baseurl: "/mio70" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://carrie-l.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  Carrie-L
 csdn_username: CicadaMay
