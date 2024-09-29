@@ -35,10 +35,14 @@ theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
 
+# 禁用日期解析
+show_excerpts: false
+
+
 collections:
-  authors:
+  Android:
     output: true
-  android:
+  DSA:
     output: true
 
 defaults:
@@ -65,6 +69,7 @@ header_pages:
   
 sass:
   style: compressed
+
 
 
 

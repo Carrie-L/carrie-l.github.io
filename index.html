@@ -4,19 +4,22 @@ title: Home
 ---
 
 <h1>今天怎么样？</h1>
-<h2>Categories</h2>
-<ul>
-  <li><a href="/mio70/android.html">Android</a></li>
-  <li><a href="/mio70/dsa.html">DSA</a></li>
-</ul>
 
-<ul>
-  {% for post in site.categories.Android %}
-    <li>
+
+  {% for post in site.Android %}
+    
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       <span> - {{ post.date | date: "%B %d, %Y" }}</span>
-    </li>
+      <br />
+    
   {% endfor %}
-</ul>
+
+  {% for post in site.DSA %}
+      <br />
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span> - {{ post.date | date: "%B %d, %Y" }}</span>
+
+  {% endfor %}
+
 
 

@@ -4,10 +4,10 @@ title: 数据结构和算法
 <h1>{{page.title}}</h1>
 
 <ul>
-  {% for post in site.categories.dsa %}
+  {% for article in site.DSA %}
     <li>
-      <a href="{{ post.url | relative_url}}">{{ post.title }}</a>
-      <span> - {{ post.date | date: "%B %d, %Y" }}</span>
+      <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
+      {{ article.excerpt }}
     </li>
   {% endfor %}
 </ul>
