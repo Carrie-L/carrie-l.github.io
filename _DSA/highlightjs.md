@@ -1,5 +1,5 @@
 ---
-layout: android
+layout: article
 title: anki 高亮代码
 tags: ["anki","教程"]
 category: DSA
