@@ -70,18 +70,6 @@ defaults:
       type: "posts"
     values:
       tags: []
-# 排除无关文件夹
-  - scope:
-      path: ""
-      type: ""
-    values:
-      exclude:
-        - _includes
-        - _layouts
-        - _sass
-        - _data
-        - config.yml
-        - _authors
       
 # Add header_pages to control the navigation order
 header_pages:
@@ -115,59 +103,4 @@ sass:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/  Algorithm:
-    output: true
-    permalink: "/:collection/:path"
-  Android:
-    output: true
-    permalink: "/:collection/:path"
-  DSA:
-    output: true
-    permalink: "/:collection/:path"
-  authors:
-    output: true
-    permalink: "/:collection/:path"
-  config.yml:
-    output: true
-    permalink: "/:collection/:path"
-  data:
-    output: true
-    permalink: "/:collection/:path"
-  includes:
-    output: true
-    permalink: "/:collection/:path"
-  layouts:
-    output: true
-    permalink: "/:collection/:path"
-  sass:
-    output: true
-    permalink: "/:collection/:path"
-  Algorithm:
-    output: true
-    permalink: "/:collection/:path"
-  Android:
-    output: true
-    permalink: "/:collection/:path"
-  DSA:
-    output: true
-    permalink: "/:collection/:path"
-  Python:
-    output: true
-    permalink: "/:collection/:path"
-  authors:
-    output: true
-    permalink: "/:collection/:path"
-  config.yml:
-    output: true
-    permalink: "/:collection/:path"
-  data:
-    output: true
-    permalink: "/:collection/:path"
-  includes:
-    output: true
-    permalink: "/:collection/:path"
-  layouts:
-    output: true
-    permalink: "/:collection/:path"
-  sass:
-    output: true
-    permalink: "/:collection/:path"
+
