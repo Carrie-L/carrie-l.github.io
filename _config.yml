@@ -53,11 +53,6 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: "authors"
-    values:
-      layout: "author"
-  - scope:
-      path: ""
       type: "posts"
     values:
       layout: "post"
@@ -65,11 +60,6 @@ defaults:
       path: ""
     values:
       layout: "default"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      tags: []
       
 # Add header_pages to control the navigation order
 header_pages:
