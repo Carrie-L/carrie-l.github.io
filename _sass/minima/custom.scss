@@ -1,0 +1,84 @@
+// 自定义样式
+
+.home-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-list-container {
+  flex: 3;
+  padding-right: 30px;
+}
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+}
+
+.post-list > li {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.post-list-content {
+  flex: 2;
+}
+
+.post-excerpt {
+  color: $text-color;
+  font-size: 0.9em;
+}
+
+.post-list-image {
+  flex: 1;
+  max-width: 200px;
+  object-fit: cover;
+  margin-left: 20px;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.widget {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.category-box, .tag-box {
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.category-box:hover, .tag-box:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 800px) {
+  .home-content {
+    flex-direction: column;
+  }
+
+  .post-list-container, .sidebar {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .post-list > li {
+    flex-direction: column;
+  }
+
+  .post-list-image {
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 15px;
+  }
+}

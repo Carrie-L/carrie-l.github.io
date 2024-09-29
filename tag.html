@@ -1,32 +1,79 @@
 ---
-
+layout: list
 ---
 
+
+
+<main class="container">
+  <!-- 创建一个隐藏的列表，包含所有文章信息 -->
+  <div id="all-posts" style="display: none;">
+    {% assign all_posts = site.DSA | concat: site.Android %}
+    {% for post in all_posts %}
+    
+      <div class="post-item post-content" data-tags="{{ post.tags | join: ' ' }}">
+        <article class="post-preview">
+          <div class="post-content">   
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncatewords: 100 }}</p>
+        </div>
+      </article>
+      </div>
+    {% endfor %}
+  </div>
+
+
+  <!-- 用于动态显示匹配标签的文章列表 -->
+  <div id="matching-posts" class="article-list"></div>
+
+  {% include categories.html posts=site.Android %}
+</main>
+
+
+
+<!-- JavaScript 解析 URL 中的 tag 参数并动态筛选文章 -->
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var params = new URLSearchParams(window.location.search);
-    var tag = params.get("tag");
+  document.addEventListener("DOMContentLoaded", function () {
+    // 获取 URL 中的 tag 参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const tag = urlParams.get('tag');
+    const tagTitleElement = document.getElementById('tag-title');
+    const allPostsElement = document.getElementById('all-posts');
+    const matchingPostsElement = document.getElementById('matching-posts');
+
+    // 清空匹配文章的容器，防止重复添加
+    matchingPostsElement.innerHTML = '';
+
+    // 如果 URL 中包含 tag 参数，则动态筛选文章
     if (tag) {
-      document.querySelector('title').innerText = "Tag \"" + tag + "\"";
-      document.querySelector('h1').innerText = "Tag \"" + tag + "\"";
-      var posts = document.querySelectorAll(".post-list-item");
-      posts.forEach(function(post) {
-        if (!post.dataset.tags.includes(tag)) {
-          post.style.display = "none";
+ 
+      document.querySelector('.list-title').textContent = `标签: ${tag}`;
+
+      // 获取所有文章的 HTML 元素
+      const postItems = allPostsElement.getElementsByClassName('post-item');
+      let matchingPostCount = 0;
+
+      // 遍历每篇文章，检查是否包含指定的标签
+      for (let post of postItems) {
+        const postTags = post.getAttribute('data-tags').split(' ');
+        if (postTags.includes(tag)) {
+          // 克隆元素前，先检查 matchingPostsElement 中是否已经存在该元素
+          if (!matchingPostsElement.contains(post)) {
+            matchingPostsElement.appendChild(post.cloneNode(true));
+          }
+          matchingPostCount++;
         }
-      });
+      }
+
+      // 如果没有匹配的文章，则显示提示信息
+      if (matchingPostCount === 0) {
+        matchingPostsElement.innerHTML = `<p>暂无包含标签 “${tag}” 的文章。</p>`;
+      }
+    } else {
+      tagTitleElement.innerText = '标签：未指定';
+      matchingPostsElement.innerHTML = '<p>未指定要查找的标签，请通过标签链接访问此页面。</p>';
     }
   });
+
+
+
 </script>
-
-<h1>Tag "{{ site.data.tag }}"</h1>
-
-
-  {% assign all_posts = site.android %}
-  {% for post in all_posts %}
-    <p class="post-list-item" data-tags="{{ post.tags | join: ',' }}">
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span>{{ article.excerpt }}</span>
-    </p>
-  {% endfor %}
-

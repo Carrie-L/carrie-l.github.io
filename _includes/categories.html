@@ -1,0 +1,35 @@
+
+  
+  <aside class="sidebar">
+    <div class="widget categories">
+    <h3>分类</h3>
+    {% for page in site.pages %}
+        {% if page.name == 'android.html' or page.name == 'dsa.html' %}
+        <a href="{{ page.url | prepend: site.baseurl }}" class="category-box cate-{{ forloop.index | modulo: 6 | plus: 1 }}">
+            {{ page.title }}
+        </a>
+        {% endif %}
+    {% endfor %}
+    </div>
+    
+    <div class="widget tags">
+    <h3>标签</h3>
+    {% assign all_tags = '' | split: '' %}
+    
+    {% for collection in site.collections %}
+        {% for post in collection.docs %}
+            {% assign post_tags = post.tags | default: empty_array %}
+            {% assign all_tags = all_tags | concat: post_tags %}
+        {% endfor %}
+    {% endfor %}
+    
+    {% assign all_tags = all_tags | uniq | compact | sort %}
+    
+    {% for tag in all_tags %}
+        <a href="{{ site.baseurl }}/tag.html?tag={{ tag | url_encode | escape }}" class="tag-box color-{{ forloop.index | modulo: 20 | plus: 1 }}">
+            {{ tag }}
+        </a>
+        {% endfor %}
+</div>
+
+</aside>

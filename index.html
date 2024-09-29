@@ -1,25 +1,35 @@
 ---
-layout: default
+layout: home
 title: Home
 ---
 
-<h1>今天怎么样？</h1>
 
+<header>
+  <h1>{{ site.title }}</h1>
+  {% comment %} <nav>
+    <a href="/about">关于</a>
+  </nav> {% endcomment %}
+</header>
 
-  {% for post in site.Android %}
-    
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span> - {{ post.date | date: "%B %d, %Y" }}</span>
-      <br />
-    
-  {% endfor %}
+<main class="container">
+    <div class="article-list">
+    {% assign all_posts = site.Android | concat: site.DSA | sort: 'date' | reverse %}
+    {% for post in all_posts  %}
+      <article class="post-preview">
+        <div class="post-content">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        </div>
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-image">
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
 
-  {% for post in site.DSA %}
-      <br />
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span> - {{ post.date | date: "%B %d, %Y" }}</span>
+    {% include categories.html posts=site.Android %}
+</main>
 
-  {% endfor %}
-
-
-
+<footer>
+  <p style="text-align: center; color: #9deef0; font-size: 12px;" >&copy; 2024 Carrie & Mio. 保留所有权利。</p>
+</footer>

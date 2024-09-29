@@ -1,12 +1,25 @@
 ---
+layout: list
 title: Android
 ---
-<h1>自定义View</h1>
 
 
-{% for article in site.Android %}
+
+<main class="container">
+      <div class="article-list">
+      {% for post in site.Android %}
+        <article class="post-preview">
+          <div class="post-content">
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>            
+            {{ post.excerpt }}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  
     
-      <h2><a href="{{ article.url| relative_url }}">{{ article.title }}</a></h2>
-      {{ article.excerpt }}
+      {% include categories.html posts=site.Android %}
     
-{% endfor %}
+  </main>
+
+  

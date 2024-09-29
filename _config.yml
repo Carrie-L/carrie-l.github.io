@@ -42,8 +42,10 @@ show_excerpts: false
 collections:
   Android:
     output: true
+    permalink: /:collection/:path
   DSA:
     output: true
+    permalink: /:collection/:path
 
 defaults:
   - scope:
@@ -60,6 +62,11 @@ defaults:
       path: ""
     values:
       layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      tags: []
       
 # Add header_pages to control the navigation order
 header_pages:
@@ -68,6 +75,7 @@ header_pages:
   - about.markdown
   
 sass:
+  sass_dir: _sass
   style: compressed
 
 

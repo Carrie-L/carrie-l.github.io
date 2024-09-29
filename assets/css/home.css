@@ -1,0 +1,124 @@
+@keyframes backgroundFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+body {
+    background-color: #000000;
+    background-image: url('../images/aniya.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    animation: backgroundFadeIn 1s ease-in-out;
+  }
+
+  
+.content-wrapper {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+  
+  header {
+    background-image: url('../images/aniya.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 2rem 2rem 2rem 180px; 
+    text-align: left;
+    height: 180px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-image: none;
+  }
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem; /* 增加标题大小 */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* 添加文字阴影以增加可读性 */
+}
+  
+nav {
+    margin-top: 2rem;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+  
+.container {
+  background-color: rgb(255, 253, 253,0); 
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2rem;
+  flex: 1;
+}
+
+.article-list {
+  flex: 3;
+  margin-right: 5rem;
+}
+
+
+.post-preview {
+  border-bottom: 1px solid #d8f7ef;
+  display: flex;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+
+  &:last-child {
+      border-bottom: none;
+      margin-bottom: 0; 
+      padding-bottom: 0; 
+    }
+}
+
+.post-content {
+  flex: 2;
+
+  h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      
+      a {
+          color: #4bddb8; 
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+              color: darken(#FF69B4, 10%); 
+          }
+      }
+  }
+
+  p {
+      font-size: 15px; 
+      color: #fff; 
+      line-height: 1.6; 
+  }
+}
+
+.post-image {
+flex: 1;
+max-width: 200px;
+object-fit: cover;
+}
+
+.sidebar {
+flex: 1;
+}
+
