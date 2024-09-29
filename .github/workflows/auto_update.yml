@@ -37,6 +37,61 @@ jobs:
           echo "Detected new collections: $new_collections"
           echo "::set-output name=new_categories::$new_collections"
 
+      - name: Update _config.yml with new categories
+        run: |
+          new_collections="${{ steps.detect_categories.outputs.new_categories }}"
+          if [[ -n "$new_collections" ]]; then
+            for category in $new_collections; do
+              # 将分类文件夹名称转换为小写
+              lowercase_category=$(echo $category | tr '[:upper:]' '[:lower:]')
+              echo "Adding $category (lowercase: $lowercase_category) to _config.yml"
+
+              # 检查 _config.yml 中是否已经包含该分类
+              if ! grep -q "^  $$category:" _config.yml; then
+                # 添加新分类到 _config.yml 的 collections 中
+                echo "collections:" >> _config.yml
+                echo "  $$category:" >> _config.yml
+                echo "    output: true" >> _config.yml
+                echo "    permalink: \"/:collection/:path\"" >> _config.yml
+              fi
+            done
+          else
+            echo "No new categories detected, skipping _config.yml update."
+          fi
+
+      - name: Create New Category HTML Pages
+        run: |
+          new_collections="${{ steps.detect_categories.outputs.new_categories }}"
+          echo "new_collections: $new_collections"  # 打印调试信息
+          
+          # 添加检查，确保 new_collections 非空
+          if [[ -n "$new_collections" ]]; then
+            for category in $new_collections; do
+              lowercase_category=$(echo $category | tr '[:upper:]' '[:lower:]')
+              echo "Creating ${lowercase_category}.html"
+              # 使用 echo 和 > 替代 cat <<EOT
+              echo "---" > "${lowercase_category}.html"
+              echo "layout: list" >> "${lowercase_category}.html"
+              echo "title: ${category}" >> "${lowercase_category}.html"
+              echo "---" >> "${lowercase_category}.html"
+              echo "<main class=\"container\">" >> "${lowercase_category}.html"
+              echo "  <div class=\"article-list\">" >> "${lowercase_category}.html"
+              echo "    {% for post in site.${lowercase_category} %}" >> "${lowercase_category}.html"
+              echo "    <article class=\"post-preview\">" >> "${lowercase_category}.html"
+              echo "      <div class=\"post-content\">" >> "${lowercase_category}.html"
+              echo "        <h3><a href=\"{{ post.url | relative_url }}\">{{ post.title }}</a></h3>" >> "${lowercase_category}.html"
+              echo "        {{ post.excerpt }}" >> "${lowercase_category}.html"
+              echo "      </div>" >> "${lowercase_category}.html"
+              echo "    </article>" >> "${lowercase_category}.html"
+              echo "    {% endfor %}" >> "${lowercase_category}.html"
+              echo "  </div>" >> "${lowercase_category}.html"
+              echo "</main>" >> "${lowercase_category}.html"
+              echo "{% include categories.html posts=site.${category} %}" >> "${lowercase_category}.html"
+            done
+          else
+            echo "No new categories detected. Skipping category creation."
+          fi
+
       - name: Update tag.html with new categories
         run: |
           new_collections="${{ steps.detect_categories.outputs.new_categories }}"
@@ -47,7 +102,8 @@ jobs:
             assign_statement="${assign_statement% %}"
             # 添加新的集合
             for category in $new_collections; do
-              assign_statement="${assign_statement} | concat: site.${category}"
+              lowercase_category=$(echo $category | tr '[:upper:]' '[:lower:]')
+              assign_statement="${assign_statement} | concat: site.${lowercase_category}"
             done
             # 添加结束符
             assign_statement="${assign_statement} %}"
@@ -71,38 +127,6 @@ jobs:
             if_statement="${if_statement} %}"
             # 替换 _includes/categories.html 中的 if 语句
             sed -i "s/{% if page.name == .*/${if_statement}/" _includes/categories.html
-          fi
-
-      - name: Create New Category HTML Pages
-        run: |
-          new_collections="${{ steps.detect_categories.outputs.new_categories }}"
-          echo "new_collections: $new_collections"  # 打印调试信息
-          
-          # 添加检查，确保 new_collections 非空
-          if [[ -n "$new_collections" ]]; then
-            for category in $new_collections; do
-              echo "Creating ${category}.html"
-              # 使用 echo 和 > 替代 cat <<EOT
-              echo "---" > "${category}.html"
-              echo "layout: list" >> "${category}.html"
-              echo "title: ${category}" >> "${category}.html"
-              echo "---" >> "${category}.html"
-              echo "<main class=\"container\">" >> "${category}.html"
-              echo "  <div class=\"article-list\">" >> "${category}.html"
-              echo "    {% for post in site.${category} %}" >> "${category}.html"
-              echo "    <article class=\"post-preview\">" >> "${category}.html"
-              echo "      <div class=\"post-content\">" >> "${category}.html"
-              echo "        <h3><a href=\"{{ post.url | relative_url }}\">{{ post.title }}</a></h3>" >> "${category}.html"
-              echo "        {{ post.excerpt }}" >> "${category}.html"
-              echo "      </div>" >> "${category}.html"
-              echo "    </article>" >> "${category}.html"
-              echo "    {% endfor %}" >> "${category}.html"
-              echo "  </div>" >> "${category}.html"
-              echo "</main>" >> "${category}.html"
-              echo "{% include categories.html posts=site.${category} %}" >> "${category}.html"
-            done
-          else
-            echo "No new categories detected. Skipping category creation."
           fi
 
       - name: Commit and Push Changes
