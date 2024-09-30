@@ -10,8 +10,6 @@ layout: default
 <!-- 创建一个用于显示点击后文字的容器 -->
 <div id="message-container" class="message-container"></div>
 
-<!-- 引入点击音效文件 -->
-<audio id="click-sound" src="../../assets/audio/bird.mp3"></audio>
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -85,9 +83,6 @@ layout: default
     const overlayContainer = document.getElementById('overlay-image-container');
     overlayContainer.appendChild(imgElement);
 
-    // 获取音效元素
-    // const clickSound = document.getElementById('click-sound');
-
     // 图片点击事件，显示随机句子并播放音效
     imgElement.addEventListener('click', () => {
         // 随机选择一条句子
@@ -107,8 +102,6 @@ layout: default
             messageContainer.style.transform = 'scale(1)'; // 恢复原始大小
         }, 3000); // 3秒后消失
 
-        // 播放点击音效
-        // clickSound.play();
 
         
     });

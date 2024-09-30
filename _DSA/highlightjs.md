@@ -23,7 +23,7 @@ https://highlightjs.org/demo
 ```
 
 
-
+```html
 <script src="_highlight.min.js"></script>
 <script>
   document.querySelectorAll('code').forEach(function (block) {
@@ -31,6 +31,7 @@ https://highlightjs.org/demo
   });
   hljs.highlightAll();
 </script>
+```
 ------------------------------------------------
 添加到样式CSS：
 
