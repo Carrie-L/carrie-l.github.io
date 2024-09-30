@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+
+<!-- 创建一个新的覆盖层容器，放置随机 GIF 图片 -->
+<div id="overlay-image-container" class="overlay-image-container">
+    <!-- 图片将通过 JavaScript 动态插入到这里 -->
+</div>
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -17,7 +23,7 @@ layout: default
 		{% endfor %}
       {%- endif -%}</p>
   </header>
-  
+
   
 
   <div class="post-content e-content" itemprop="articleBody">
@@ -30,3 +36,33 @@ layout: default
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+
+<!-- 添加 JavaScript 脚本 -->
+<script>
+    // 创建一个包含 10 张 GIF 图片相对路径的数组
+    const gifImages = [
+        "{{ '../../assets/images/anime1.gif' | relative_url }}",
+        "{{ '../../assets/images/anime2.gif' | relative_url }}",
+        "{{ '../../assets/images/anime3.gif' | relative_url }}",
+        "{{ '../../assets/images/anime4.gif' | relative_url }}",
+        "{{ '../../assets/images/anime5.gif' | relative_url }}",
+        "{{ '../../assets/images/anime6.gif' | relative_url }}",
+        "{{ '../../assets/images/anime7.gif' | relative_url }}",
+        "{{ '../../assets/images/anime8.gif' | relative_url }}",
+        "{{ '../../assets/images/anime9.gif' | relative_url }}",
+        "{{ '../../assets/images/anime10.gif' | relative_url }}"
+    ];
+
+    // 随机选择数组中的一张 GIF 图片
+    const randomGif = gifImages[Math.floor(Math.random() * gifImages.length)];
+
+    // 创建一个 img 元素并设置其 src 为随机选择的 GIF 图片
+    const imgElement = document.createElement('img');
+    imgElement.src = randomGif;
+    imgElement.alt = "Random GIF Image";
+    imgElement.className = "overlay-image"; // 为图片添加样式类
+
+    // 将 img 元素插入到 overlay-image-container 中
+    document.getElementById('overlay-image-container').appendChild(imgElement);
+</script>

@@ -33,7 +33,7 @@ theme: jekyll-theme-minimal
 markdown: kramdown
 kramdown:
   input: GFM  # 兼容 GFM 的输入语法
-  math_engine: katex  # 启用 MathJax 数学公式渲染
+  math_engine: katex
 
 
 

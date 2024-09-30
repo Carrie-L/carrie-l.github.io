@@ -10,3 +10,25 @@ a {
     color: #2eccbf; /* 你想要的悬停颜色 */
   }
   
+
+/* 覆盖层容器的样式 */
+.overlay-image-container {
+  position: absolute;  /* 绝对定位，使其相对于父容器定位 */
+  top: 14px;              /* 顶部对齐 */
+  right: 14px;            /* 右侧对齐 */
+  width: auto;         /* 容器宽度自动适应图片大小 */
+  height: auto;        /* 容器高度自动适应图片大小 */
+  z-index: 10;         /* 设置 z-index，确保其显示在页面内容之上 */
+  pointer-events: none; /* 禁用鼠标事件，使得内容可点击 */
+  
+}
+
+/* 覆盖层中图片的样式 */
+.overlay-image {
+  width: 300px;         /* 保持图片原始宽度 */
+  height: auto;        /* 保持图片原始高度 */
+  display: block;      /* 将图片设置为块级元素 */
+  margin: 0;           /* 移除图片的默认 margin */
+  padding: 0;          /* 移除图片的默认 padding */
+  border-radius: 30px; /* 圆角 */
+}
