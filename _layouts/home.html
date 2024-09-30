@@ -7,7 +7,12 @@
 <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/tab.css' | relative_url }}">
 </head>
+
 <body>
+<!-- 创建一个新的覆盖层容器，放置 GIF 图片 -->
+<div class="overlay-image-container">
+    <img src="{{ '../../assets/images/anime13.gif' | relative_url }}" alt="Header Image" class="overlay-image">
+</div>
 {{ content }}
 </body>
 </html>

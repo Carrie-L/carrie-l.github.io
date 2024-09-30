@@ -41,9 +41,14 @@ body {
   }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5rem; /* 增加标题大小 */
+    margin: 0 20px;
+    font-size: 2rem; /* 增加标题大小 */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* 添加文字阴影以增加可读性 */
+}
+
+.welcome-message{
+  margin:20px 170px;
+  font-size: 14px !important;
 }
   
 nav {
@@ -122,3 +127,25 @@ object-fit: cover;
 flex: 1;
 }
 
+/* 覆盖层容器的样式 */
+.overlay-image-container {
+  position: fixed;     /* 使用 fixed 定位，使其相对于视口定位 */
+  top: 16px;           /* 固定在页面顶部 10px 处 */
+  left: 16px;         /* 固定在页面右侧 10px 处 */
+  width: auto;         /* 宽度自动，适应图片大小 */
+  height: auto;        /* 高度自动，适应图片大小 */
+  z-index: 1000;       /* 设置较高的 z-index 值，确保其显示在页面内容之上 */
+  pointer-events: auto;/* 禁用鼠标事件，使得底层内容可点击 */
+}
+
+/* 覆盖层中图片的样式 */
+.overlay-image {
+  width: 300px;         /* 保持图片原始宽度 */
+  height: auto;        /* 保持图片原始高度 */
+  display: block;      /* 将图片设置为块级元素 */
+  margin: 0;           /* 移除图片的默认 margin */
+  padding: 0;          /* 移除图片的默认 padding */
+  opacity: 1;          /* 设置图片透明度（可选） */
+  border-radius: 30px; /* 圆角 */
+  opacity: 0.8;
+}

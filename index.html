@@ -3,16 +3,48 @@ layout: home
 title: Home
 ---
 
-
 <header>
   <h1>{{ site.title }}</h1>
-  {% comment %} <nav>
-    <a href="/about">关于</a>
-  </nav> {% endcomment %}
+  <!-- 将原有的 class 改为 id 以便 JavaScript 选择器识别 -->
+  <div id="welcome-message" class="welcome-message">“冬天来了，春天还会远吗？” —— 雪莱，《西风颂》</div>
 </header>
 
+<!-- 添加 JavaScript 脚本 -->
+<script>
+  // 定义名人名言数组（共 30 条）
+  const welcomeMessages = [
+      "“人类的一切痛苦，本质上都是对自己无能的愤怒。” —— 列夫·托尔斯泰",
+      "“每个人的内心都住着一个荒原神殿，而那是外人永远无法进入的地方。” —— 卡夫卡",
+      "“在我们心底总有那么一个柔软的地方，容纳着不为人知的悲伤。” —— 纪伯伦",
+      "“冬天来了，春天还会远吗？” —— 雪莱，《西风颂》",
+      "“人的一生是短暂的，但倘若卑劣地度过这一生，就太长了。” —— 莎士比亚",
+      "“从前种种譬如昨日死，以后种种譬如今日生。” —— 《涅槃经》",
+      "“世界是一本书，而不旅行的人只读了其中的一页。” —— 圣奥古斯丁",
+      "“我步入丛林，因为我希望生活得有意义，我希望活得深刻，吸取生命中所有的精华。” —— 梭罗，《瓦尔登湖》",
+      "“人们所说的理想，不过是把自己骗得最远的美丽的谎言。” —— 列夫·托尔斯泰",
+      "“四时可爱唯春日，一事能狂便少年。” ",
+      "“万物皆有裂痕，那是光照进来的地方。” —— 莱昂纳德·科恩",
+      "“我们曾如此期盼外界的认可，到最后才知道，世界是自己的，与他人毫无关系。” —— 《小王子》",
+      "“当你凝视深渊时，深渊也在凝视你。” —— 尼采",
+      "“真正的智慧不是预知未来，而是能够接受不可知的未来。” —— 萨特",
+      "“年轻时我们不懂得如何生活，等到懂得如何生活时，我们已不再年轻。” —— 莫泊桑",
+      "“人类历史是一场永无止境的对自身无知的斗争。” —— 余华，《活着》",
+      "“荒凉与繁华的区别，只在于一颗孤独的心。” —— 村上春树",
+      "“我不知道我为什么活着，但我知道我活着不是为了痛苦。” —— 陀思妥耶夫斯基"
+  ];
+
+  // 随机选择数组中的一句名言
+  const randomMessage = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+
+  // 确保 JavaScript 在 DOM 完全加载后执行
+  document.addEventListener("DOMContentLoaded", function() {
+    // 将随机选择的名言插入到页面中
+    document.getElementById('welcome-message').innerText = randomMessage;
+  });
+</script>
+
 <main class="container">
-    <div class="article-list">
+  <div class="article-list">
     {% assign all_posts = site.Android | concat: site.DSA | sort: 'date' | reverse %}
     {% for post in all_posts  %}
       <article class="post-preview">
@@ -27,7 +59,7 @@ title: Home
     {% endfor %}
   </div>
 
-    {% include categories.html posts=site.Android %}
+  {% include categories.html posts=site.Android %}
 </main>
 
 <footer>
