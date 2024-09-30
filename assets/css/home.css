@@ -3,6 +3,21 @@
   to { opacity: 1; }
 }
 
+@font-face {
+  font-family: 'Space Wham'; /* 自定义字体名称 */
+  src: url('../fonts/space-wham.ttf') format('truetype'); /* 引入字体文件 */
+  font-weight: normal; /* 设置字体粗细 */
+  font-style: normal; /* 设置字体样式 */
+}
+
+/* 定义自定义 CSS 变量 */
+:root {
+  --h3-glow: #755cb2; /* 定义发光颜色 */
+  --text-normal: #ffffff; /* 正常文字颜色 */
+}
+
+
+
 body {
     background-color: #000000;
     background-image: url('../images/aniya.jpg');
@@ -44,12 +59,15 @@ header h1 {
     margin: 0 20px;
     font-size: 2rem; /* 增加标题大小 */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* 添加文字阴影以增加可读性 */
+    font-family: 'Space Wham', sans-serif; /* 设置字体为 Space Wham */
 }
 
 .welcome-message{
   margin:20px 170px;
   font-size: 14px !important;
 }
+
+
   
 nav {
     margin-top: 2rem;
@@ -100,7 +118,7 @@ nav a {
       margin-bottom: 0.5rem;
       
       a {
-          color: #4bddb8; 
+          color: #fff; 
           text-decoration: none;
           transition: color 0.3s ease;
 
@@ -115,7 +133,31 @@ nav a {
       color: #fff; 
       line-height: 1.6; 
   }
+
+  /* 文字发光效果样式 */
+  .glow-text {
+    color: var(--text-normal); /* 使用自定义文字颜色 */
+    text-shadow: 
+        0 0 5px var(--h3-glow), 
+        0 0 10px var(--h3-glow), 
+        0 0 20px var(--h3-glow), 
+        0 0 10px var(--h3-glow); /* 使用自定义变量的颜色作为发光颜色 */
+    transition: all 0.3s ease-in-out; /* 添加过渡效果 */
+  }
+
+  /* 鼠标悬浮时发光效果更加明显 */
+  .glow-text:hover {
+    text-shadow: 
+        0 0 10px var(--h3-glow), 
+        0 0 20px var(--h3-glow), 
+        0 0 30px var(--h3-glow), 
+        0 0 40px var(--h3-glow); /* 鼠标悬浮时，扩大光晕效果 */
+  }
+
+
 }
+
+
 
 .post-image {
 flex: 1;
@@ -149,3 +191,4 @@ flex: 1;
   border-radius: 30px; /* 圆角 */
   opacity: 0.8;
 }
+

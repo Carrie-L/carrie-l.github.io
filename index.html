@@ -6,7 +6,7 @@ title: Home
 <header>
   <h1>{{ site.title }}</h1>
   <!-- 将原有的 class 改为 id 以便 JavaScript 选择器识别 -->
-  <div id="welcome-message" class="welcome-message">“冬天来了，春天还会远吗？” —— 雪莱，《西风颂》</div>
+  <div id="welcome-message" class="welcome-message glow-text">“冬天来了，春天还会远吗？” —— 雪莱，《西风颂》</div>
 </header>
 
 <!-- 添加 JavaScript 脚本 -->
@@ -49,7 +49,7 @@ title: Home
     {% for post in all_posts  %}
       <article class="post-preview">
         <div class="post-content">
-          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <h3 class="glow-text"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
           <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
         </div>
         {% if post.image %}
