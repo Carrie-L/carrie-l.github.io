@@ -8,9 +8,8 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 #gem "jekyll", "~> 4.3.3"
-# gem "github-pages", "~> 232", group: :jekyll_plugins
+gem "github-pages", "~> 232", group: :jekyll_plugins
 
-gem "jekyll", "~> 4.3.4"
 
 group :jekyll_plugins do
   gem "jekyll-timeago", "~> 0.13.1"

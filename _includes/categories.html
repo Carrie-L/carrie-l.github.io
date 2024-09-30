@@ -26,10 +26,12 @@
     {% assign all_tags = all_tags | uniq | compact | sort %}
     
     {% for tag in all_tags %}
-        <a href="{{ site.baseurl }}/tag.html?tag={{ tag | url_encode | escape }}" class="tag-box color-{{ forloop.index | modulo: 20 | plus: 1 }}">
-            {{ tag }}
-        </a>
-        {% endfor %}
+        {% if tag != '' %}
+            <a href="{{ site.baseurl }}/tag.html?tag={{ tag | url_encode | escape }}" class="tag-box color-{{ forloop.index | modulo: 20 | plus: 1 }}">
+                {{ tag }}
+            </a>
+        {% endif %}
+    {% endfor %}
 </div>
 
 </aside>
