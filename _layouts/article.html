@@ -7,6 +7,12 @@ layout: default
     <!-- 图片将通过 JavaScript 动态插入到这里 -->
 </div>
 
+<!-- 创建一个用于显示点击后文字的容器 -->
+<div id="message-container" class="message-container"></div>
+
+<!-- 引入点击音效文件 -->
+<audio id="click-sound" src="../../assets/audio/bird.mp3"></audio>
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -42,16 +48,28 @@ layout: default
 <script>
     // 创建一个包含 10 张 GIF 图片相对路径的数组
     const gifImages = [
-        "{{ '../../assets/images/anime1.gif' | relative_url }}",
-        "{{ '../../assets/images/anime2.gif' | relative_url }}",
-        "{{ '../../assets/images/anime3.gif' | relative_url }}",
-        "{{ '../../assets/images/anime4.gif' | relative_url }}",
-        "{{ '../../assets/images/anime5.gif' | relative_url }}",
-        "{{ '../../assets/images/anime6.gif' | relative_url }}",
-        "{{ '../../assets/images/anime7.gif' | relative_url }}",
-        "{{ '../../assets/images/anime8.gif' | relative_url }}",
-        "{{ '../../assets/images/anime9.gif' | relative_url }}",
-        "{{ '../../assets/images/anime10.gif' | relative_url }}"
+        "../../assets/images/anime1.gif",
+        "../../assets/images/anime2.gif",
+        "../../assets/images/anime3.gif",
+        "../../assets/images/anime4.gif",
+        "../../assets/images/anime5.gif",
+        "../../assets/images/anime6.gif",
+        "../../assets/images/anime7.gif",
+        "../../assets/images/anime8.gif",
+        "../../assets/images/anime9.gif",
+        "../../assets/images/anime10.gif"
+    ];
+
+    // 创建一个包含 10 条俏皮、可爱的句子的数组
+    const messages = [
+        "小熊猫也会大笑哦！保持微笑，开心每一天！😊",
+        "让我们一起跳跃吧，像小兔子一样！🐰🌟",
+        "星星总会为你闪耀，别放弃任何梦想！✨🌟",
+        "向上看，小云朵正在微笑呢！☁️😊",
+        "小猫咪告诉你：每天都是新的冒险！🐱🌟",
+        "向日葵总会向着太阳微笑，你也是！🌻😊",
+        "像小狐狸一样聪明，战胜所有困难！🦊🌟",
+        "和我一起舞动起来，像小企鹅一样快乐！🐧🎶"
     ];
 
     // 随机选择数组中的一张 GIF 图片
@@ -64,5 +82,34 @@ layout: default
     imgElement.className = "overlay-image"; // 为图片添加样式类
 
     // 将 img 元素插入到 overlay-image-container 中
-    document.getElementById('overlay-image-container').appendChild(imgElement);
+    const overlayContainer = document.getElementById('overlay-image-container');
+    overlayContainer.appendChild(imgElement);
+
+    // 获取音效元素
+    // const clickSound = document.getElementById('click-sound');
+
+    // 图片点击事件，显示随机句子并播放音效
+    imgElement.addEventListener('click', () => {
+        // 随机选择一条句子
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+        // 显示句子
+        const messageContainer = document.getElementById('message-container');
+        messageContainer.innerText = randomMessage;
+
+        // 为句子添加动画效果（淡入淡出）
+        messageContainer.style.opacity = 1;
+        messageContainer.style.transform = 'scale(1.2)'; // 放大效果
+
+        // 设置动画效果，3秒后消失
+        setTimeout(() => {
+            messageContainer.style.opacity = 0;
+            messageContainer.style.transform = 'scale(1)'; // 恢复原始大小
+        }, 3000); // 3秒后消失
+
+        // 播放点击音效
+        // clickSound.play();
+
+        
+    });
 </script>

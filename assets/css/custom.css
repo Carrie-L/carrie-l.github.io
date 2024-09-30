@@ -11,17 +11,37 @@ a {
   }
   
 
+
 /* 覆盖层容器的样式 */
 .overlay-image-container {
-  position: absolute;  /* 绝对定位，使其相对于父容器定位 */
-  top: 14px;              /* 顶部对齐 */
-  right: 14px;            /* 右侧对齐 */
-  width: auto;         /* 容器宽度自动适应图片大小 */
-  height: auto;        /* 容器高度自动适应图片大小 */
-  z-index: 10;         /* 设置 z-index，确保其显示在页面内容之上 */
-  pointer-events: none; /* 禁用鼠标事件，使得内容可点击 */
-  
+  position: fixed;     /* 使用 fixed 定位，使其相对于视口定位 */
+  top: 16px;           /* 固定在页面顶部 10px 处 */
+  right: 16px;         /* 固定在页面右侧 10px 处 */
+  width: auto;         /* 宽度自动，适应图片大小 */
+  height: auto;        /* 高度自动，适应图片大小 */
+  z-index: 1000;       /* 设置较高的 z-index 值，确保其显示在页面内容之上 */
+  pointer-events: auto;/* 禁用鼠标事件，使得底层内容可点击 */
 }
+
+/* 修改后的 message-container 样式 */
+.message-container {
+  position: fixed;               /* 固定定位，始终显示在页面顶部 */
+  top: 280px;                    /* 设置距离顶部 100px */
+  right: 40px;                   /* 设置距离右侧 10px */
+  max-width: 400px;              /* 设置最大宽度为 300px，防止文字超出屏幕 */
+  border: 4px solid #fff;     /* 设置边框颜色 */
+  border-radius: 10px;           /* 设置圆角边框 */
+  padding: 10px;            /* 设置内边距 */
+  font-size: 16px;               /* 设置文字大小 */
+  color: #e58fe1;                   /* 设置文字颜色 */
+  overflow-wrap: break-word;     /* 自动换行，防止文字超出容器 */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+  opacity: 0;                    /* 初始状态为透明 */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* 设置淡入淡出和缩放动画 */
+  z-index: 1001;   
+  background: linear-gradient(150deg, #f9e5f7, #efbdec);              /* 确保其显示在图片之上 */
+}
+
 
 /* 覆盖层中图片的样式 */
 .overlay-image {
@@ -30,5 +50,9 @@ a {
   display: block;      /* 将图片设置为块级元素 */
   margin: 0;           /* 移除图片的默认 margin */
   padding: 0;          /* 移除图片的默认 padding */
+  opacity: 1;          /* 设置图片透明度（可选） */
   border-radius: 30px; /* 圆角 */
+  opacity: 0.8;
 }
+
+
