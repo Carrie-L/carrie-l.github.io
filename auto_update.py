@@ -86,41 +86,73 @@ def auto_front_matter():
                     add_front_matter_to_file(md_file)
                 process_markdown_file(md_file)
 
+
 def process_markdown_file(file_path):
-    """处理Markdown文件，提取#标签并修改图片路径格式"""
+    """处理Markdown文件，提取#标签并修改图片路径格式，确保格式正确且不增加多余空行"""
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
 
-    # 提取#标签，确保只匹配那些紧跟在 '#' 后的单词（不是 Markdown 标题）
-    tags_pattern = r"(#\w+)"  # 仅匹配 #标签（即 # 后跟随文字的形式）
-    tags = re.findall(tags_pattern, content)  # 提取所有 #标签
-    tags = list(set([tag[1:] for tag in tags]))  # 删除 # 符号，并去重
-    content = re.sub(tags_pattern, '', content)  # 删除文件中的 #标签
+    # 提取并删除 #标签 (确保只匹配 # 后面的有效文字，避免标题符号)
+    tags_pattern = r"#([^\s#]+)"  # 匹配以#开头且不是标题符号的标签
+    new_tags = re.findall(tags_pattern, content)  # 提取所有 #标签
+    new_tags = list(set(new_tags))  # 去重
+
+    content = re.sub(r"(?<!#)#([^\s#]+)", '', content)  # 删除文件中的 #标签
 
     # 替换 ![[]] 格式图片路径为 ![]() 格式
     image_pattern = r"!\[\[(.*?)\]\]"
     updated_content = re.sub(image_pattern, r'![](\1)', content)
-    updated_content = re.sub(r'!\[]\((.*?)\)', r'![](../assets/blogimages/\1)', updated_content)
+    # 避免重复替换 ../assets/blogimages/ 开头的路径
+    updated_content = re.sub(r'!\[]\((?!../assets/blogimages/)(.*?)\)', r'![](../assets/blogimages/\1)', updated_content)
 
     # 处理 Front Matter，将提取的标签加入到 tags 中
     front_matter_pattern = r"---(.*?)---"
     front_matter = re.search(front_matter_pattern, updated_content, re.DOTALL)
 
     if front_matter:
-        front_matter_content = front_matter.group(1)
-        # 替换或增加 tags 字段
-        new_tags_line = f'tags: {tags}\n'
-        if 'tags:' in front_matter_content:
-            updated_front_matter = re.sub(r'tags: \[.*?\]', new_tags_line, front_matter_content, flags=re.DOTALL)
+        front_matter_content = front_matter.group(1).strip()  # 去掉多余的空行
+
+        # 提取已有的tags
+        existing_tags = []
+        tags_match = re.search(r'tags:\s*\[(.*?)\]', front_matter_content)
+        if tags_match and tags_match.group(1).strip():
+            existing_tags = [tag.strip().strip('"') for tag in tags_match.group(1).split(",")]
+
+        # 合并新旧标签并去重
+        combined_tags = list(set(existing_tags + new_tags))
+
+        # 构建新的tags字段
+        if combined_tags:
+            new_tags_line = f'tags: ["' + '", "'.join(combined_tags) + '"]'
         else:
-            updated_front_matter = front_matter_content + new_tags_line
-        updated_content = updated_content.replace(front_matter.group(1), updated_front_matter)
+            new_tags_line = 'tags: []'
+
+        # 更新 tags 字段
+        if 'tags:' in front_matter_content:
+            updated_front_matter = re.sub(r'tags:\s*\[.*?\]', new_tags_line, front_matter_content, flags=re.DOTALL)
+        else:
+            updated_front_matter = front_matter_content + '\n' + new_tags_line
+
+        updated_content = updated_content.replace(front_matter.group(1), updated_front_matter.strip())
+
+    # 如果没有 Front Matter，添加新的 Front Matter
+    else:
+        front_matter_template = f"---\nlayout: article\ntitle: {file_path}\ndate: 2024-10-13\ntags: {new_tags}\n---\n"
+        updated_content = front_matter_template + updated_content
+
+    # 确保 Front Matter 的开始和结束有正确的换行符，并确保不会在同一行
+    updated_content = re.sub(r"---layout", "---\nlayout", updated_content)  # 确保 layout 前有换行
+    updated_content = re.sub(r"]---", "]\n---", updated_content)  # 确保结束的 --- 前有换行
+
+    # 修复多余图片路径替换，确保不会重复替换
+    updated_content = re.sub(r'\(../assets/blogimages/../assets/blogimages/', r'(../assets/blogimages/', updated_content)
 
     # 保存修改后的文件
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(updated_content)
 
     return updated_content
+
 
 # --- Step 2: 定义 auto_update 的相关函数和逻辑 ---
 def read_existing_collections():

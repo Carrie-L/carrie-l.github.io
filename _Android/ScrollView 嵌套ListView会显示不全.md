@@ -1,14 +1,11 @@
 ---
 layout: article
-title: ScrollView 嵌套ListView会显示不全
+title: ScrollView 嵌套 ListView 显示不全的全解析
 date: 2024-10-13
-tags: ['MeasureSpec', '源码分析', '自定义View']
-
-
+tags: ["源码分析", "自定义View", "MeasureSpec"]
 ---
     
-    
-
+        
 因为ScrollView 传递给ListView时，用的是 `UNSPECIFIED` , ListView 设置了 heightSize
 ```java
 if (heightMode == MeasureSpec.UNSPECIFIED) {  
@@ -25,7 +22,7 @@ if (heightMode == MeasureSpec.AT_MOST) {
 }  
 ```
 
-![](../assets/blogimages/../assets/blogimages/Pasted image 20241013034607.png)
+![](../assets/blogimages/Pasted image 20241013034607.png)
 
  ListView 源码分析
 
