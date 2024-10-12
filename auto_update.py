@@ -84,6 +84,43 @@ def auto_front_matter():
             for md_file in markdown_files:
                 if not has_front_matter(md_file):
                     add_front_matter_to_file(md_file)
+                process_markdown_file(md_file)
+
+def process_markdown_file(file_path):
+    """处理Markdown文件，提取#标签并修改图片路径格式"""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+
+    # 提取#标签，确保只匹配那些紧跟在 '#' 后的单词（不是 Markdown 标题）
+    tags_pattern = r"(#\w+)"  # 仅匹配 #标签（即 # 后跟随文字的形式）
+    tags = re.findall(tags_pattern, content)  # 提取所有 #标签
+    tags = list(set([tag[1:] for tag in tags]))  # 删除 # 符号，并去重
+    content = re.sub(tags_pattern, '', content)  # 删除文件中的 #标签
+
+    # 替换 ![[]] 格式图片路径为 ![]() 格式
+    image_pattern = r"!\[\[(.*?)\]\]"
+    updated_content = re.sub(image_pattern, r'![](\1)', content)
+    updated_content = re.sub(r'!\[]\((.*?)\)', r'![](../assets/blogimages/\1)', updated_content)
+
+    # 处理 Front Matter，将提取的标签加入到 tags 中
+    front_matter_pattern = r"---(.*?)---"
+    front_matter = re.search(front_matter_pattern, updated_content, re.DOTALL)
+
+    if front_matter:
+        front_matter_content = front_matter.group(1)
+        # 替换或增加 tags 字段
+        new_tags_line = f'tags: {tags}\n'
+        if 'tags:' in front_matter_content:
+            updated_front_matter = re.sub(r'tags: \[.*?\]', new_tags_line, front_matter_content, flags=re.DOTALL)
+        else:
+            updated_front_matter = front_matter_content + new_tags_line
+        updated_content = updated_content.replace(front_matter.group(1), updated_front_matter)
+
+    # 保存修改后的文件
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(updated_content)
+
+    return updated_content
 
 # --- Step 2: 定义 auto_update 的相关函数和逻辑 ---
 def read_existing_collections():

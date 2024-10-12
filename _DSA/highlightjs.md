@@ -1,14 +1,16 @@
 ---
 layout: article
 title: anki 高亮代码
-tags: ["anki","教程"]
+tags: []
+
+
 category: DSA
 ---
 
-### 样式地址
+ 样式地址
 https://highlightjs.org/demo
 
-### 背面
+ 背面
 背面内容模板，添加到回答<div>后面
 
 ```html
@@ -37,8 +39,8 @@ https://highlightjs.org/demo
 
 ```css
 pre code {
-  background: #1a1b26;
-  color: #9aa5ce;
+  background: 
+  color: 
   padding: 10px;
   border-radius: 5px;
   display: block;
