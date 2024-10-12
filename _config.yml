@@ -76,6 +76,14 @@ sass:
   sass_dir: _sass
   style: compressed
 
+plugins:
+  - jekyll-toc  # 确保插件启用
+
+toc:
+  min_level: 2  # 最小标题级别 h2
+  max_level: 3  # 最大标题级别 h3
+  ordered: false  # 是否有序列表（false为无序列表）
+
 
 
 

@@ -56,3 +56,72 @@ a {
 }
 
 
+/* 容器使用 flex 布局 */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+/* 文章内容 */
+.post {
+  flex: 1;  /* 自动占据剩余空间 */
+  margin-right: 20px;  /* 与目录之间的间距 */
+  max-width: calc(100% - 100px); /* 最大宽度，避免内容和目录重叠 */
+}
+
+
+/* 目录的样式 */
+.toc {
+  width: 350px; /* 目录的固定宽度 */
+  position: fixed; /* 固定目录位置 */
+  right: 20px; /* 距离页面右侧的距离 */
+  max-height: calc(100vh - 120px); /* 让目录高度不超过视口高度，避免溢出 */
+  overflow-y: auto; /* 当目录内容过多时，显示滚动条 */
+  top:320px;
+}
+
+.toc-title{
+  text-align: center;
+}
+
+.toc h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.toc ul li {
+  margin-bottom: 5px;
+}
+
+.toc ul li a {
+  text-decoration: none;
+  color: #000; /* 自定义颜色 */
+}
+
+.toc ul li a:hover {
+  text-decoration: underline;
+}
+
+/* 当窗口大小改变时，内容自动调整宽度 */
+@media screen and (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;  /* 小屏幕时，内容和目录变为上下布局 */
+  }
+  .toc {
+    width: 100%;  /* 目录在小屏幕时占据全宽 */
+    margin-left: 0;
+  }
+  .post-content {
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
+
+

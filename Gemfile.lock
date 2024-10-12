@@ -208,6 +208,9 @@ GEM
       mini_i18n (>= 0.8.0)
     jekyll-titles-from-headings (0.5.3)
       jekyll (>= 3.3, < 5.0)
+    jekyll-toc (0.19.0)
+      jekyll (>= 3.9)
+      nokogiri (~> 1.12)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     jemoji (0.13.0)
@@ -282,6 +285,7 @@ DEPENDENCIES
   i18n (~> 1.14.6)
   jekyll-feed (~> 0.12)
   jekyll-timeago (~> 0.13.1)
+  jekyll-toc
   minima (~> 2.5)
   rexml (~> 3.3.7)
   tzinfo (>= 1, < 3)

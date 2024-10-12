@@ -44,3 +44,5 @@ gem "webrick", "~> 1.8.2"
 gem "i18n", "~> 1.14.6"
 gem "rexml", "~> 3.3.7"
 gem "concurrent-ruby", "~> 1.3.4"
+
+gem 'jekyll-toc'

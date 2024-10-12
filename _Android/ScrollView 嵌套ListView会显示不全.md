@@ -1,11 +1,12 @@
 ---
 layout: article
-title: ScrollView 嵌套 ListView 显示不全的全解析
+title: ScrollView 嵌套ListView会显示不全
 date: 2024-10-13
-tags: ["源码分析", "自定义View", "MeasureSpec"]
+tags: ["", "源码分析", "自定义View", "MeasureSpec"]
 ---
+
     
-        
+
 因为ScrollView 传递给ListView时，用的是 `UNSPECIFIED` , ListView 设置了 heightSize
 ```java
 if (heightMode == MeasureSpec.UNSPECIFIED) {  
@@ -22,9 +23,7 @@ if (heightMode == MeasureSpec.AT_MOST) {
 }  
 ```
 
-![](../assets/blogimages/Pasted image 20241013034607.png)
-
- ListView 源码分析
+## ListView 源码分析
 
 ```java
 @Override  
@@ -78,9 +77,9 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
 ```
 
- UNSPECIFIED 模式下，heightSize 计算
+### UNSPECIFIED 模式下，heightSize 计算
 
- 1. ListView 默认高度模式 UNSPECIFIED
+#### 1. ListView 默认高度模式 UNSPECIFIED
 
 重写 `ListView` ，在 `onMeasure()` 里获取高度模式：
 ```kotlin
@@ -99,7 +98,7 @@ if (heightMode == MeasureSpec.UNSPECIFIED) {
 ```
 当 `MeasureSpec` 的模式为 `UNSPECIFIED` 时，这段代码的主要作用是给 `ListView` 提供一个合理的高度。
 
- 2. childHeight 为第一个Item的高度
+#### 2. childHeight 为第一个Item的高度
 
 在这个代码段中，`childHeight` 代表了 `ListView` 子项的高度。
 
@@ -115,14 +114,15 @@ int childHeight = child.getMeasuredHeight();  // 获取测量后的高度
 - 如果 `ListView` 有子项（即有内容），`childHeight` 是**第一个可见子项的高度**。
 - 如果 `ListView` 没有子项（即内容为空），则 `childHeight` 通常是 `0`，因为没有任何内容可供测量。
 
- 3. heightSize
+#### 3. heightSize
 
 - `heightSize` 被设定为 `ListView` 的上下内边距 (`mListPadding.top` 和 `mListPadding.bottom`) 加上 `childHeight`（第一个子项的高度），再加上视图淡出长度的两倍（即 `getVerticalFadingEdgeLength()` * 2）。
 
 - **`getVerticalFadingEdgeLength()`**：这是 `ListView` 的垂直淡出边缘长度，即列表项在滚动边缘时淡出的区域长度。乘以 `2` 是因为考虑了上下两个边缘的淡出区域。
 
 
- 重写onMeasure
+
+### 重写onMeasure
 
 通过上面的步骤，我们知道了想要让ListView显示完全，就要修改高度模式为 AT_MOST，因此重写onMeasure()，并设置
 
@@ -133,7 +133,7 @@ override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
 }
 ```
 
- 1. 为什么 makeMeasureSpec ？
+##### 1. 为什么 makeMeasureSpec ？
 
 `makeMeasureSpec()` 是  `View` 系统中用于创建 `MeasureSpec` 的方法，它将大小 (`size`) 和模式 (`mode`) 组合成一个 32 位的 `MeasureSpec` 整数。
 
@@ -163,7 +163,7 @@ public static int makeMeasureSpec(@IntRange(from = 0, to = (1 << MeasureSpec.MOD
 `(size & ~MODE_MASK) | (mode & MODE_MASK)`：
 	将 `size` 的低 30 位与 `mode` 的高 2 位合并在一起，构成完整的 `MeasureSpec` 值。
 
- 2. 为什么是 Int.MAX_VALUE shr 2 ？
+##### 2. 为什么是 Int.MAX_VALUE shr 2 ？
 
 `shr` 是 `右移` 运算符，相当于 `>>` 。
 
@@ -232,7 +232,7 @@ final int measureHeightOfChildren(int widthMeasureSpec, int startPosition, int e
 
 由于 `536870911` 是一个非常大的值，通常情况下 `ListView` 的总高度不会超过这个值，所以传递这个值实际上意味着**允许 `ListView` 测量所有子项的高度而不受限制**。
 
- 3. 为什么不使用 0 或较小的值？
+##### 3. 为什么不使用 0 或较小的值？
 
 如果传递 `0` 或较小的值作为 `maxHeight`，意味着 `ListView` 在测量子项时一旦累加高度达到这个值，便会停止测量，这样 `ListView` 只会显示有限的子项。
 
@@ -242,7 +242,7 @@ final int measureHeightOfChildren(int widthMeasureSpec, int startPosition, int e
 
 因此，为了确保 `ListView` 可以显示所有子项，使用一个足够大的 `maxHeight` 是必不可少的。
 
-  4. Int.MAX_VALUE shr 2 的作用
+#####  4. Int.MAX_VALUE shr 2 的作用
 
 1. **给 `ListView` 足够大的高度限制**：
 	通过使用 `Int.MAX_VALUE shr 2`，给 `ListView` 提供了一个非常大的 `maxHeight`，确保它能够自由测量所有子项的高度而不被过早限制。

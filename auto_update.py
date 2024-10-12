@@ -144,8 +144,7 @@ def process_markdown_file(file_path):
     updated_content = re.sub(r"---layout", "---\nlayout", updated_content)  # 确保 layout 前有换行
     updated_content = re.sub(r"]---", "]\n---", updated_content)  # 确保结束的 --- 前有换行
 
-    # 修复多余图片路径替换，确保不会重复替换
-    updated_content = re.sub(r'\(../assets/blogimages/../assets/blogimages/', r'(../assets/blogimages/', updated_content)
+    
 
     # 保存修改后的文件
     with open(file_path, 'w', encoding='utf-8') as file:
