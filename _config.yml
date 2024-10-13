@@ -81,7 +81,7 @@ plugins:
   - jekyll-toc  # 确保插件启用
 
 toc:
-  min_level: 2  # 最小标题级别 h2
+  min_level: 1  # 最小标题级别 h2
   max_level: 6  # 最大标题级别 h3
   ordered: false  # 是否有序列表（false为无序列表）
 

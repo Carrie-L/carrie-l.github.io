@@ -47,5 +47,5 @@ gem "concurrent-ruby", "~> 1.3.4"
 
 gem 'jekyll-toc'
 
-gem 'faraday-retry'
+gem 'faraday-retry', '~> 2.2'
 
