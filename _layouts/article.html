@@ -16,10 +16,11 @@ toc: true
 <!-- 目录部分 -->
 <nav class="toc">
   <h2 class="toc-title">目录</h2>
-  {{ toc }}
+  {% include toc.html html=content %}
   
 </nav>
 {% comment %} {% include toc.html html=content %} {% endcomment %}
+
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
