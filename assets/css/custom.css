@@ -61,13 +61,15 @@ a {
   display: flex;
   justify-content: space-between;
   margin: 20px;
+  flex-wrap: wrap; /* 当空间不足时，允许内容和目录换行 */
 }
 
 /* 文章内容 */
 .post {
   flex: 1;  /* 自动占据剩余空间 */
   margin-right: 20px;  /* 与目录之间的间距 */
-  max-width: calc(100% - 100px); /* 最大宽度，避免内容和目录重叠 */
+  min-width: 0; /* 确保内容不会超出容器 */
+  max-width: calc(100% - 150px); /* 最大宽度，避免内容和目录重叠 */
 }
 
 
@@ -75,10 +77,36 @@ a {
 .toc {
   width: 350px; /* 目录的固定宽度 */
   position: fixed; /* 固定目录位置 */
-  right: 20px; /* 距离页面右侧的距离 */
+  right: 30px; /* 距离页面右侧的距离 */
   max-height: calc(100vh - 120px); /* 让目录高度不超过视口高度，避免溢出 */
   overflow-y: auto; /* 当目录内容过多时，显示滚动条 */
   top:320px;
+  margin-left: auto; /* 确保目录靠右显示 */
+}
+
+/* 当窗口宽度变小时，确保内容和目录不会重叠 */
+@media screen and (max-width: 1024px) {
+  .post {
+    max-width: 100%; /* 让内容占据整个可用宽度 */
+  }
+}
+
+/* 当窗口宽度更小时，将目录和内容上下排列 */
+@media screen and (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;  /* 小屏幕时，内容和目录变为上下布局 */
+  }
+  .toc {
+    position: relative;  /* 取消 fixed，使目录在小屏幕时滚动 */
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-left: 0;
+  }
+  .post {
+    max-width: 100%; /* 确保内容在小屏幕上占据全宽 */
+    margin-right: 0;
+  }
 }
 
 .toc-title{
@@ -108,20 +136,7 @@ a {
   text-decoration: underline;
 }
 
-/* 当窗口大小改变时，内容自动调整宽度 */
-@media screen and (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column;  /* 小屏幕时，内容和目录变为上下布局 */
-  }
-  .toc {
-    width: 100%;  /* 目录在小屏幕时占据全宽 */
-    margin-left: 0;
-  }
-  .post-content {
-    max-width: 100%;
-    margin-right: 0;
-  }
-}
+
 
 
 
