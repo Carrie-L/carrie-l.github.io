@@ -283,7 +283,7 @@ DEPENDENCIES
   github-pages (~> 232)
   http_parser.rb (~> 0.6.0)
   i18n (~> 1.14.6)
-  jekyll-feed (~> 0.12)
+  jekyll-feed (~> 0.17)
   jekyll-timeago (~> 0.13.1)
   jekyll-toc
   minima (~> 2.5)
