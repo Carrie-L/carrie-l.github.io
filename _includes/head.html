@@ -18,7 +18,7 @@
             defer>
     </script>
 
-  {%- feed_meta -%}
+  {% comment %} {%- feed_meta -%} {% endcomment %}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
   {%- endif -%}
