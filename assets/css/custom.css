@@ -137,6 +137,51 @@ a {
 }
 
 
+/* 修改文章标题的样式 */
+h1.post-title {
+  color: #5e43e0; /* 自定义颜色，例如橙色 */
+  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 800;
+}
 
+h2.post-content {
+  color: #00cbd7; /* 自定义颜色，例如蓝色 */
+  font-size: 2rem; /* 自定义副标题大小 */
+  font-weight: 800;
+}
+
+.post-content h3{
+  color: #00cbd7; /* 自定义颜色，例如蓝色 */
+  font-size: 56px; /* 自定义副标题大小 */
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.post-content h4{
+  color: #000000; /* 自定义颜色，例如蓝色 */
+  font-weight: 700;
+  text-decoration: underline; /* 添加下划线 */
+}
+
+
+.post-content h5, 
+.post-content h6 {
+  color: #000000; /* 替换为你想要的颜色，例如橙色 */
+  font-weight: 700; 
+  font-size: 16px;
+  text-decoration: underline; /* 添加下划线 */
+}
+
+
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content h4, 
+.post-content h5, 
+.post-content h6 {
+  color: #5e43e0;
+  margin-top: 30px;
+}
 
 

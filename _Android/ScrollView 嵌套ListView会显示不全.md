@@ -72,9 +72,6 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
   
     mWidthMeasureSpec = widthMeasureSpec;  
 }
-
-
-
 ```
 
 ### UNSPECIFIED 模式下，heightSize 计算
@@ -153,8 +150,8 @@ public static int makeMeasureSpec(@IntRange(from = 0, to = (1 << MeasureSpec.MOD
 ```
 
 在这个方法中，参数size 指定了范围，表示 `size` 的有效范围是 0 到 `(1 << 30) - 1`，即 0 到 `1073741823`
-```yaml
-1 的二进制为：0000  0000  0000  0000  0000  0000  0000  0001
+```sh
+1 的二进制为： 0000  0000  0000  0000  0000  0000  0000  0001
 左移30位为：   0100  0000  0000  0000  0000  0000  0000  0000
 结果： 1 * 2^30 = 1073741824
 -1： 1073741823
@@ -170,7 +167,7 @@ public static int makeMeasureSpec(@IntRange(from = 0, to = (1 << MeasureSpec.MOD
 `Int.MAX_VALUE shr 2` 表示将 `Int.MAX_VALUE` 右移两位，即将其**除以 4**，得到一个较小的数。右移两位的结果为 `536870911`，即 `2147483647 / 4`。
 
 `Int.MAX_VALUE` 
-```yaml
+```sh
 0111 1111 1111 1111 1111 1111 1111 1111 
 最高位为0，表示正数。
 =  2^31 -1    (相当于 1000  0000  0000  0000  0000  0000  0000  0000  - 1)
