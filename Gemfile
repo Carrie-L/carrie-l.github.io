@@ -46,3 +46,6 @@ gem "rexml", "~> 3.3.7"
 gem "concurrent-ruby", "~> 1.3.4"
 
 gem 'jekyll-toc'
+
+gem 'faraday-retry'
+
