@@ -14,7 +14,7 @@ front_matter_template = """---
 layout: article
 title: {title}
 date: {date}
-tags: [""]
+tags: []
 ---
 """
 
