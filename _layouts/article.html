@@ -15,7 +15,7 @@ toc: true
 
 <!-- 目录部分 -->
 <nav class="toc">
-  <h2 class="toc-title">目录</h2>
+  {% comment %} <h2 class="toc-title">目录</h2> {% endcomment %}
   {% include toc.html html=content %}
   
 </nav>
@@ -34,7 +34,7 @@ toc: true
       {%- if page.tags -%}
 		{% for tag in page.tags %}			
 			• <span itemprop="tags" itemscope itemtype="http://schema.org/Person"><span class="p-tags h-card" itemprop="name"><a href="{{ site.url }}{{ site.baseurl }}/tag.html?tag={{ tag | uri_escape }}">{{ tag }}</a></span></span>
-			{% if forloop.last == false %}, {% endif %}
+			{% if forloop.last == false %}  {% endif %}
 		{% endfor %}
       {%- endif -%}</p>
   </header>
