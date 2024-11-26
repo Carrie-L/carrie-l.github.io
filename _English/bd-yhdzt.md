@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 零基础自学法语到 B2 要花多长时间
+title: bd-yhdzt
 date: 2024-11-27
 tags: ["法语"]
 ---

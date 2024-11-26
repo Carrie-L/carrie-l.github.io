@@ -76,6 +76,7 @@ header_pages:
   - android.html
   - dsa.html
   - about.markdown
+  - english.html
   
 sass:
   sass_dir: _sass
