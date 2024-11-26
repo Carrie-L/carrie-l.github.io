@@ -2,7 +2,10 @@
 setlocal enabledelayedexpansion
 set SCRIPT_PATH="I:\B-MioBlogSites\blog_monitor_service.py"
 
-if "%1"=="install" (
+:: 调试参数
+echo Received parameter: [%1]
+
+if /i "%~1"=="install" (
     echo Installing Blog Monitor Service...
     sc delete BlogMonitorService >nul 2>&1
     python %SCRIPT_PATH% install
@@ -10,42 +13,44 @@ if "%1"=="install" (
     sc config BlogMonitorService start= auto
     echo.
     echo Service installed and set to auto-start.
-    echo NOTE: To start the service, use either:
-    echo       - Windows Services (services.msc)
-    echo       - 'net start BlogMonitorService'
-    echo       - 'sc start BlogMonitorService'
     goto :eof
 )
 
-if "%1"=="remove" (
-    echo Removing Blog Monitor Service...
+if /i "%~1"=="remove" (
+    echo Stopping service...
     sc stop BlogMonitorService >nul 2>&1
+    timeout /t 2 /nobreak >nul
+    echo Removing Blog Monitor Service...
     sc delete BlogMonitorService
+    if %errorlevel% neq 0 (
+        echo Failed to delete the service.
+        goto :eof
+    )
     echo Service removed successfully.
     goto :eof
 )
 
-if "%1"=="status" (
+if /i "%~1"=="status" (
     echo Checking service status...
     sc query BlogMonitorService
     goto :eof
 )
 
-if "%1"=="stop" (
+if /i "%~1"=="stop" (
     echo Stopping service...
     sc stop BlogMonitorService
     echo Service stopped.
     goto :eof
 )
 
-if "%1"=="start" (
+if /i "%~1"=="start" (
     echo Starting service...
     sc start BlogMonitorService
     echo Service started.
     goto :eof
 )
 
-if "%1"=="restart" (
+if /i "%~1"=="restart" (
     echo Restarting service...
     sc stop BlogMonitorService
     timeout /t 2 /nobreak >nul
@@ -54,7 +59,7 @@ if "%1"=="restart" (
     goto :eof
 )
 
-if "%1"=="logs" (
+if /i "%~1"=="logs" (
     echo Opening log file...
     start notepad "I:\B-MioBlogSites\monitor_service.log"
     goto :eof
@@ -62,6 +67,7 @@ if "%1"=="logs" (
 
 echo Blog Monitor Service Manager
 echo ---------------------------
+echo Unknown command: [%1]
 echo Usage:
 echo   manage_service.bat install  - Install the service (auto-start)
 echo   manage_service.bat remove   - Remove the service

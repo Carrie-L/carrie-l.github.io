@@ -12,6 +12,8 @@ import logging
 import subprocess
 from datetime import datetime
 
+print(os.path.expanduser('~'))
+
 # 配置日志
 LOG_FILE = r"I:\B-MioBlogSites\monitor_service.log"
 logging.basicConfig(
@@ -44,6 +46,10 @@ class FolderMonitor(FileSystemEventHandler):
             env = os.environ.copy()
             env['HOME'] = os.path.expanduser('~')
             env['SSH_AUTH_SOCK'] = ''
+            env['GIT_AUTHOR_NAME'] = 'Carrie-L'
+            env['GIT_AUTHOR_EMAIL'] = '982096112@qq.com'
+            env['GIT_COMMITTER_NAME'] = 'Carrie-L'
+            env['GIT_COMMITTER_EMAIL'] = '982096112@qq.com'
             
             # Git 命令列表
             git_commands = [
