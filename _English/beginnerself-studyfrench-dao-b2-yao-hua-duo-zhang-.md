@@ -1,6 +1,6 @@
 ---
 layout: article
-title: bd-yhdzt
+title: beginnerself-studyfrench-dao-b2-yao-hua-duo-zhang-
 date: 2024-11-27
 tags: ["法语"]
 ---

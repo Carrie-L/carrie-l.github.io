@@ -102,21 +102,21 @@ class FolderMonitor(FileSystemEventHandler):
                 new_name = new_name.replace(cn, en)
                 logging.info(f'Replaced "{cn}" with "{en}"')
         
-        # 如果文件名没有被映射表处理（还包含中文），则使用拼音
+        # 如果文件名没有被映射表处理（还包含中文），则使用完整拼音
         if re.search('[\u4e00-\u9fff]', new_name):
-            # 获取拼音首字母
+            # 获取完整拼音
             pinyin_list = lazy_pinyin(new_name)
-            # 只使用每个词的首字母
-            new_name = ''.join([word[0] for word in pinyin_list if word])
-            logging.info(f'Using pinyin abbreviation: {new_name}')
-        
-        # 清理文件名
+            # 使用完整拼音，用连字符连接
+            new_name = '-'.join(pinyin_list)
+            logging.info(f'Using full pinyin: {new_name}')
+
+        # 清理文件名，超出长度则截取
         new_name = new_name.replace(' ', '-')
         new_name = re.sub(r'[^\w\-]', '', new_name)
         new_name = new_name.lower()
         new_name = re.sub(r'-+', '-', new_name)
         new_name = new_name.strip('-')
-        
+
         # 如果文件名过长，截取合适长度
         max_length = 50
         if len(new_name) > max_length:
