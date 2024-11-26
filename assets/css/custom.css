@@ -10,13 +10,15 @@ a {
     color: #2eccbf; /* 你想要的悬停颜色 */
   }
   
-
+:root{
+  --toc-color: #818181;
+}
 
 /* 覆盖层容器的样式 */
 .overlay-image-container {
   position: fixed;     /* 使用 fixed 定位，使其相对于视口定位 */
-  top: 16px;           /* 固定在页面顶部 10px 处 */
-  right: 16px;         /* 固定在页面右侧 10px 处 */
+  bottom: 16px;           /* 固定在页面顶部 10px 处 */
+  left: 16px;         /* 固定在页面右侧 10px 处 */
   width: auto;         /* 宽度自动，适应图片大小 */
   height: auto;        /* 高度自动，适应图片大小 */
   z-index: 1000;       /* 设置较高的 z-index 值，确保其显示在页面内容之上 */
@@ -27,7 +29,7 @@ a {
 .message-container {
   position: fixed;               /* 固定定位，始终显示在页面顶部 */
   top: 280px;                    /* 设置距离顶部 100px */
-  right: 40px;                   /* 设置距离右侧 10px */
+  left: 40px;                   /* 设置距离右侧 10px */
   max-width: 400px;              /* 设置最大宽度为 300px，防止文字超出屏幕 */
   border: 4px solid #fff;     /* 设置边框颜色 */
   border-radius: 10px;           /* 设置圆角边框 */
@@ -73,6 +75,7 @@ a {
 }
 
 
+
 /* 目录的样式 */
 .toc {
   width: 350px; /* 目录的固定宽度 */
@@ -80,8 +83,9 @@ a {
   right: 30px; /* 距离页面右侧的距离 */
   max-height: calc(100vh - 120px); /* 让目录高度不超过视口高度，避免溢出 */
   overflow-y: auto; /* 当目录内容过多时，显示滚动条 */
-  top:320px;
+  top:20px;
   margin-left: auto; /* 确保目录靠右显示 */
+  color: var(--toc-color);
 }
 
 /* 当窗口宽度变小时，确保内容和目录不会重叠 */
@@ -111,6 +115,8 @@ a {
 
 .toc-title{
   text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
 }
 
 .toc h2 {
@@ -129,7 +135,7 @@ a {
 
 .toc ul li a {
   text-decoration: none;
-  color: #000; /* 自定义颜色 */
+  color: var(--toc-color); /* 自定义颜色 */
 }
 
 .toc ul li a:hover {
