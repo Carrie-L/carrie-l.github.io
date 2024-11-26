@@ -1,6 +1,7 @@
 ---
 layout: article
-title: beginnerself-studyfrench-dao-b2-yao-hua-duo-zhang-
+title: "零基础自学法语到 B2 要花多长时间"    # 原始标题，便于阅读
+permalink: /English/beginnerself-studyfrench-dao-b2-yao-hua-duo-zhang-  # URL友好的路径
 date: 2024-11-27
 tags: ["法语"]
 ---

@@ -86,7 +86,8 @@ class FolderMonitor(FileSystemEventHandler):
             'DSA': 'dsa',
             '详解': 'detail',
             '用法': 'usage',
-            '区别': 'vs'
+            '区别': 'vs',
+            '到':'to'
         }
         
         # 获取文件名和扩展名
