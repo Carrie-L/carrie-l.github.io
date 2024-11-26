@@ -7,7 +7,7 @@ layout: list
 <main class="container">
   <!-- 创建一个隐藏的列表，包含所有文章信息 -->
   <div id="all-posts" style="display: none;">
-    {% assign all_posts = site.DSA | concat: site.Android | concat: site.Algorithm %}
+    {% assign all_posts = site.DSA | concat: site.Android | concat: site.Algorithm | concat: site.English %}
     {% for post in all_posts %}
     
       <div class="post-item post-content" data-tags="{{ post.tags | join: ' ' }}">

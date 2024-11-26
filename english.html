@@ -1,0 +1,17 @@
+---
+layout: list
+title: english
+---
+<main class="container">
+  <div class="article-list">
+    {% for post in site.English %}
+    <article class="post-preview">
+      <div class="post-content">
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {{ post.excerpt }}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% include categories.html posts=site.English %}
+</main>

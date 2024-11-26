@@ -184,30 +184,42 @@ from ruamel.yaml import YAML
 
 def update_config_yaml(new_categories):
     """将新的分类添加到 _config.yml 文件的 collections 中，并确保格式正确。"""
-    yaml = YAML()
-    yaml.indent(mapping=2, sequence=4, offset=2)  # 控制映射（字典）和序列（列表）的缩进格式
+    try:
+        # 先读取文件内容
+        with open(config_file, "r", encoding="utf-8") as file:
+            content = file.read()
 
-    with open(config_file, "r", encoding="utf-8") as file:
-        config = yaml.load(file)
+        # 手动解析 collections 部分
+        collections_start = content.find("collections:")
+        if collections_start == -1:
+            # 如果没有 collections，添加它
+            content += "\n\ncollections:\n"
 
-    if "collections" not in config:
-        config["collections"] = {}
+        # 添加新分类
+        for category in new_categories:
+            collection_entry = f"""  {category}:
+    output: true
+    permalink: /:collection/:path
+"""
+            # 检查该分类是否已存在
+            if category not in content:
+                # 找到 collections 部分的末尾
+                collections_end = content.find("\n\n", collections_start)
+                if collections_end == -1:
+                    collections_end = len(content)
+                
+                # 在 collections 部分末尾插入新分类
+                content = content[:collections_end] + "\n" + collection_entry + content[collections_end:]
+                print(f"添加分类到 _config.yml: {category}")
 
-    # 添加新分类到 collections 中
-    for category in new_categories:
-        lowercase_category = category.lower()
-        if lowercase_category not in config["collections"]:
-            config["collections"][category] = {
-                "output": True,
-                "permalink": f"/:collection/:path"
-            }
-            print(f"添加分类到 _config.yml: {category}")
+        # 写回文件
+        with open(config_file, "w", encoding="utf-8") as file:
+            file.write(content)
+        print(f"已更新 _config.yml 文件。")
 
-    # 使用 `ruamel.yaml` 写入时，保持原有格式和缩进
-    with open(config_file, "w", encoding="utf-8") as file:
-        yaml.dump(config, file)
-    print(f"已更新 _config.yml 文件。")
-
+    except Exception as e:
+        print(f"更新 _config.yml 时发生错误: {str(e)}")
+        raise
 
 
 def create_html_files(new_categories):

@@ -55,6 +55,10 @@ collections:
   Algorithm:
     output: true
     permalink: /:collection/:path
+  English:
+    output: true
+    permalink: /:collection/:path
+
 
 defaults:
   - scope:
