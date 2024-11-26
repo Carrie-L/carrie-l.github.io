@@ -86,10 +86,12 @@ plugins:
 
 toc:
   min_level: 1  # 最小标题级别 h2
-  max_level: 6  # 最大标题级别 h3
+  max_level: 4  # 最大标题级别 h3
   ordered: false  # 是否有序列表（false为无序列表）
 
-
+webrick:
+  headers:
+    Content-Security-Policy: "default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'"
 
 
 # Exclude from processing.
