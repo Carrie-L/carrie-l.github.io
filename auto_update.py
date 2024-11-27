@@ -22,6 +22,7 @@ tags: []
 config_file = os.path.join(root_directory, "_config.yml")
 categories_file = os.path.join(root_directory, "_includes/categories.html")
 tag_file = os.path.join(root_directory, "tag.html")
+index_file = os.path.join(root_directory, "index.html")
 
 # --- Step 1: 定义 auto_front_matter 的相关函数和逻辑 ---
 def find_markdown_files(directory):
@@ -300,6 +301,31 @@ def update_tag_html(new_categories):
         file.write(tag_content)
     print(f"已更新 {tag_file} 文件。")
 
+def update_index_html(new_categories):
+    """在 index.html 中更新 all_posts 的 concat 配置。"""
+    with open(index_file, "r", encoding="utf-8") as file:
+        index_content = file.read()
+
+    # 查找并替换 all_posts 变量的 concat 配置
+    match = re.search(r"{% assign all_posts = site\.[\w\W]*? %}", index_content)
+    if match:
+        original_assign = match.group(0)
+        new_assign = original_assign
+
+        # 添加新分类到 all_posts 中，使用大写的分类名，如 `site.Algorithm`
+        for category in new_categories:
+            if f"| concat: site.{category}" not in new_assign:
+                new_assign = new_assign.replace(" %}", f" | concat: site.{category} %}}")
+                print(f"在 tag.html 中添加: | concat: site.{category}")
+
+        # 替换原有 assign 语句
+        index_content = index_content.replace(original_assign, new_assign)
+
+    # 写回 tag.html
+    with open(index_file, "w", encoding="utf-8") as file:
+        file.write(index_content)
+    print(f"已更新 {index_file} 文件。")
+
 def auto_update():
     """自动更新 _config.yml、创建 HTML 文件和更新其他相关文件。"""
     # 从 _config.yml 中读取现有的 collections
@@ -325,6 +351,9 @@ def auto_update():
 
     # 更新 tag.html 文件
     update_tag_html(new_categories)
+
+    # 更新 index.html 文件
+    update_index_html(new_categories)
 
 # --- Main Entry ---
 def main():
