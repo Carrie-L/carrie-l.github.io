@@ -4,29 +4,29 @@ layout: list
 
 
 
-<main class="container">
+
   <!-- 创建一个隐藏的列表，包含所有文章信息 -->
   <div id="all-posts" style="display: none;">
     {% assign all_posts = site.DSA | concat: site.Android | concat: site.Algorithm | concat: site.Language %}
     {% for post in all_posts %}
     
-      <div class="post-item post-content" data-tags="{{ post.tags | join: ' ' }}">
+      <div class="post-item list-post-content" data-tags="{{ post.tags | join: ' ' }}">
         <article class="post-preview">
-          <div class="post-content">   
+          <div class="list-post-content">   
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p>{{ post.excerpt | strip_html | truncatewords: 100 }}</p>
+        <div class="item-text">{{ post.excerpt | strip_html | truncatewords: 100 }}</div>
         </div>
       </article>
       </div>
     {% endfor %}
   </div>
 
-
+ 
   <!-- 用于动态显示匹配标签的文章列表 -->
   <div id="matching-posts" class="article-list"></div>
-
+  </div>
   {% include categories.html %}
-</main>
+
 
 
 

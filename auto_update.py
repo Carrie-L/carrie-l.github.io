@@ -231,19 +231,16 @@ def create_html_files(new_categories):
 layout: list
 title: {lowercase_category}
 ---
-<main class="container">
-  <div class="article-list">
     {{% for post in site.{category} %}}
     <article class="post-preview">
-      <div class="post-content">
+      <div class="list-post-content">
         <h3><a href="{{{{ post.url | relative_url }}}}">{{{{ post.title }}}}</a></h3>
-        {{{{ post.excerpt }}}}
+        <div class="item-text">{{{{ post.excerpt | strip_html | truncatewords: 100 }}}}</div>
       </div>
     </article>
     {{% endfor %}}
   </div>
   {{% include categories.html posts=site.{category} %}}
-</main>
 """
         # 写入新的 HTML 文件
         with open(f"{lowercase_category}.html", "w", encoding="utf-8") as file:

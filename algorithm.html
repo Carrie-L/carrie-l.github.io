@@ -3,21 +3,17 @@ layout: list
 title: 算法
 ---
 
-<main class="container">
-      <div class="article-list">
-      {% for post in site.Algorithm %}
-        <article class="post-preview">
-          <div class="post-content">
-            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>            
-            {{ post.excerpt }}
-          </div>
-        </article>
-      {% endfor %}
+{% for post in site.Algorithm %}
+  <article class="post-preview">
+    <div class="list-post-content">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>            
+      <div class="item-text">{{ post.excerpt }}</div>
     </div>
-  
-    
-      {% include categories.html %}
-    
-  </main>
+  </article>
+{% endfor %}
+</div>
+
+
+{% include categories.html %}
 
   

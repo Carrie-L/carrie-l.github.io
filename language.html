@@ -2,16 +2,13 @@
 layout: list
 title: 语言学习
 ---
-<main class="container">
-  <div class="article-list">
-    {% for post in site.Language %}
-    <article class="post-preview">
-      <div class="post-content">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        {{ post.excerpt }}
-      </div>
-    </article>
-    {% endfor %}
-  </div>
-  {% include categories.html posts=site.Language %}
-</main>
+{% for post in site.Language %}
+  <article class="post-preview">
+    <div class="list-post-content">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <div class="item-text">{{ post.excerpt | strip_html | truncatewords: 100}}</div>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% include categories.html posts=site.Language %}

@@ -1,5 +1,4 @@
 /* assets/css/custom.css */
-
 /* 更改普通链接的颜色 */
 a {
     color: hsl(83, 70%, 53%); /* 你想要的颜色 */
@@ -12,7 +11,14 @@ a {
   
 :root{
   --toc-color: #818181;
+  --h2-color:#b2d45e;
+
+  --header-height: 90px;        /* header 高度 */
+  --toc-top:100px;
 }
+
+
+
 
 /* 覆盖层容器的样式 */
 .overlay-image-container {
@@ -21,7 +27,7 @@ a {
   left: 16px;         /* 固定在页面右侧 10px 处 */
   width: auto;         /* 宽度自动，适应图片大小 */
   height: auto;        /* 高度自动，适应图片大小 */
-  z-index: 1000;       /* 设置较高的 z-index 值，确保其显示在页面内容之上 */
+  z-index: 999;       /* 设置较高的 z-index 值，确保其显示在页面内容之上 */
   pointer-events: auto;/* 禁用鼠标事件，使得底层内容可点击 */
 }
 
@@ -40,7 +46,7 @@ a {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
   opacity: 0;                    /* 初始状态为透明 */
   transition: opacity 0.5s ease, transform 0.5s ease; /* 设置淡入淡出和缩放动画 */
-  z-index: 1001;   
+  z-index: 999;   
   background: linear-gradient(150deg, #f9e5f7, #efbdec);              /* 确保其显示在图片之上 */
 }
 
@@ -62,30 +68,38 @@ a {
 .content-wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
-  flex-wrap: wrap; /* 当空间不足时，允许内容和目录换行 */
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  padding-top: 100px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 /* 文章内容 */
 .post {
-  flex: 1;  /* 自动占据剩余空间 */
-  margin-right: 20px;  /* 与目录之间的间距 */
-  min-width: 0; /* 确保内容不会超出容器 */
-  max-width: calc(100% - 150px); /* 最大宽度，避免内容和目录重叠 */
+  flex: 1;
+  margin-right: 20px;
+  min-width: 0;
+  max-width: calc(100% - 150px);
+  position: relative;
+  z-index: 1;
 }
-
 
 
 /* 目录的样式 */
 .toc {
-  width: 350px; /* 目录的固定宽度 */
-  position: fixed; /* 固定目录位置 */
-  right: 30px; /* 距离页面右侧的距离 */
-  max-height: calc(100vh - 120px); /* 让目录高度不超过视口高度，避免溢出 */
-  overflow-y: auto; /* 当目录内容过多时，显示滚动条 */
-  top:20px;
-  margin-left: auto; /* 确保目录靠右显示 */
+  width: 350px;
+  position: fixed;
+  right: 40px;
+  max-height: calc(100vh - 100px); /* 减去header高度和一些间距 */
+  overflow-y: auto;
+  top: var(--toc-top); /* header高度 + 间距 */
+  margin-left: auto;
   color: var(--toc-color);
+  background-color: rgba(255, 255, 255, 0.9); /* 添加半透明背景 */
+  padding: 20px;
+  border-radius: 8px;
 }
 
 /* 当窗口宽度变小时，确保内容和目录不会重叠 */
@@ -142,32 +156,46 @@ a {
   text-decoration: underline;
 }
 
+.post-content{
+  color: #212121;
+}
 
 /* 修改文章标题的样式 */
 h1.post-title {
-  color: #5e43e0; /* 自定义颜色，例如橙色 */
+  color: #f39dc0; /* 自定义颜色，例如橙色 */
   font-weight: 600;
   font-size: 2rem;
   font-weight: 800;
 }
 
-h2.post-content {
-  color: #00cbd7; /* 自定义颜色，例如蓝色 */
-  font-size: 2rem; /* 自定义副标题大小 */
-  font-weight: 800;
+
+.post-content h2{
+  color: var(--h2-color); /* 自定义颜色，例如蓝色 */
+  font-size: 20px !important; /* 自定义副标题大小 */
+  margin: 40px !important;
+  font-weight: 700;
+  text-align: center;
+  background-image: url('../images/titlebar.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain; /* 或者 cover，取决于图片比例 */
+    text-align: center;
+    padding: 12px 0 !important;
+
 }
 
 .post-content h3{
-  color: #00cbd7; /* 自定义颜色，例如蓝色 */
-  font-size: 56px; /* 自定义副标题大小 */
+  color: #f39dc0; /* 自定义颜色，例如蓝色 */
+  font-size: 18px !important; /* 自定义副标题大小 */
   font-weight: 700;
-  margin-top: 30px;
+  
 }
 
 .post-content h4{
   color: #000000; /* 自定义颜色，例如蓝色 */
   font-weight: 700;
   text-decoration: underline; /* 添加下划线 */
+  font-size: 18px !important;
 }
 
 
@@ -181,12 +209,11 @@ h2.post-content {
 
 
 .post-content h1, 
-.post-content h2, 
 .post-content h3, 
 .post-content h4, 
 .post-content h5, 
 .post-content h6 {
-  color: #5e43e0;
+
   margin-top: 30px;
 }
 

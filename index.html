@@ -45,12 +45,12 @@ title: Coding a Life with Mi07
 
 <main class="container">
   <div class="article-list">
-    {% assign all_posts = site.Android | concat: site.DSA | sort: 'date' | reverse | concat: site.Language %}
+    {% assign all_posts = site.Android | concat: site.DSA | concat: site.Language | sort: 'date' | reverse  %}
     {% for post in all_posts  %}
       <article class="post-preview">
         <div class="post-content">
           <h3 class="glow-text"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-          <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          <p class="item-text">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
         </div>
         {% if post.image %}
           <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-image">

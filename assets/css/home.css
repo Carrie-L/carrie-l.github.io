@@ -12,9 +12,10 @@
 
 /* 定义自定义 CSS 变量 */
 :root {
-  --h3-glow: #7954db; /* 定义发光颜色 */
+  --h3-glow: #562365; /* 定义发光颜色 */
   --copyright-glow: #e697ab; /* 定义发光颜色 */
   --text-normal: #ffffff; /* 正常文字颜色 */
+  --border-color: #e8d2fd; /*item分割线颜色*/
 }
 
 
@@ -99,10 +100,10 @@ nav a {
 
 
 .post-preview {
-  border-bottom: 1px solid #d8f7ef;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+  margin-bottom: 1.3rem;
+  padding-bottom: 0.5rem;
 
   &:last-child {
       border-bottom: none;
@@ -117,6 +118,7 @@ nav a {
   h3 {
       margin-top: 0;
       margin-bottom: 0.5rem;
+      font-size: 18px;
       
       a {
           color: #fff; 
@@ -156,9 +158,17 @@ nav a {
         0 0 40px var(--h3-glow); /* 鼠标悬浮时，扩大光晕效果 */
   }
   
-
+  .item-text{
+    font-size: 14px;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;  /* 限制为1行 */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
 
 }
+
 
 
 

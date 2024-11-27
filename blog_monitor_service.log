@@ -80,3 +80,26 @@ and the repository exists.
 2024-11-27 10:56:51,034 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
 2024-11-27 10:56:51,034 - Script path: I:\B-MioBlogSites\auto_update.py
 2024-11-27 10:56:51,034 - Working directory: I:\B-MioBlogSites
+2024-11-27 10:56:51,185 - Script executed successfully
+2024-11-27 10:56:51,264 - Executing Git command: git add .
+2024-11-27 10:56:51,385 - Executing Git command: git commit -m Auto update at 2024-11-27 10:56:51
+2024-11-27 10:56:51,484 - Git output: [main 8899c55] Auto update at 2024-11-27 10:56:51
+ 5 files changed, 211 insertions(+), 3 deletions(-)
+ create mode 100644 "_Language/Conserve vs. Conservative vs. Conventional \350\257\246\350\247\243\347\224\250\346\263\225.md"
+
+2024-11-27 10:56:51,484 - Executing Git command: git pull --no-rebase origin main
+2024-11-27 10:56:54,971 - Git output: Already up to date.
+
+2024-11-27 10:56:54,971 - Git error: From github.com:Carrie-L/carrie-l.github.io
+ * branch            main       -> FETCH_HEAD
+
+2024-11-27 10:56:54,971 - Executing Git command: git push origin main
+2024-11-27 10:56:58,244 - Git error: To github.com:Carrie-L/carrie-l.github.io.git
+   f17dfb2..8899c55  main -> main
+
+2024-11-27 10:56:58,244 - Git commit and push completed successfully
+2024-11-27 19:01:18,557 - Detected new file: I:\B-MioBlogSites\_Language\建立知识体系.md
+2024-11-27 19:01:18,557 - Starting auto_update.py execution...
+2024-11-27 19:01:18,557 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2024-11-27 19:01:18,557 - Script path: I:\B-MioBlogSites\auto_update.py
+2024-11-27 19:01:18,557 - Working directory: I:\B-MioBlogSites

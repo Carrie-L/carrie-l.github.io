@@ -1,0 +1,114 @@
+:root{
+    --bg-color: #b6f18d;
+    --border-color:#e8d2fd;
+}
+/* b6f18d */
+
+/* 文章列表容器布局 */
+.container {  
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    flex: 1;
+    margin-top: 100px;
+}
+
+/* 文章列表区域 */
+.article-list {
+    flex: 3;
+    margin-right: 3rem;
+}
+
+.list-title {
+    color: #fff;
+    padding: 1px 12px;
+
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: var(--bg-color);
+
+    
+}
+
+/* 文章内容区样式 */
+.post-preview {
+    border-bottom: 1px dashed var(--border-color) !important;
+    display: flex;
+    margin-bottom: 1rem;
+
+    &:last-child {
+        border-bottom: none;
+        margin-bottom: 0; 
+        padding-bottom: 0; 
+      }
+}
+
+/* 使用更高优先级的选择器来移除最后一个文章的边框 */
+.post-preview:last-of-type {
+    padding-top: 0 !important;         
+    margin-top: 0 !important;
+    border-bottom: none !important;
+    margin-bottom: 30px !important;
+    padding-bottom: 0 !important;
+}
+
+/* 重置标题的默认margin */
+.list-post-content h3,
+.list-post-content h3.post-link {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.2 !important;
+}
+
+/* 标题链接样式 */
+.list-post-content h3 a {
+    color: #000000 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    &:hover{
+        color: var(--bg-color) !important;
+    }
+}
+
+/* 摘要样式 */
+.item-text {
+    font-size: 13px !important;
+    color: #212121 !important;
+    line-height: 1.6 !important;
+    margin-top: 0.7rem !important;
+    margin-bottom: 0.7rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;  /* 限制为1行 */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+
+/* 覆盖摘要中的标题样式 */
+.item-text h1,
+.item-text h2,
+.item-text h3,
+.item-text h4,
+.item-text h5,
+.item-text h6 {
+    font-size: 13px !important;
+    color: #212121 !important;
+    font-weight: normal !important;
+    margin: 0.5em 0 !important;
+}
+
+/* 移除其他可能的边框样式 */
+/* .post-preview {
+    
+} */

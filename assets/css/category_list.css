@@ -1,51 +1,15 @@
 
 
-.container {  
-    display: flex;
-    margin: 0 auto;
-    max-width: 1200px;
-    flex: 1;
-}
-
-.article-list {
-    flex: 3;
-    margin-right: 3rem;
-}
-
-.list-title {
-    color: #fff;
-    padding: 1px 12px;
-
-    border-radius: 8px;
-    display: inline-block;
-    font-weight: 500;
-    font-size: 12px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-decoration: none;
-    background-color: #cce647;
-
-    &:hover{
-        color: #a8b901;
-    }
-}
 
 
-.post-preview {
-    border-bottom: 2px solid #dcf7c3 !important;
-    display: flex;
-    margin-bottom: 2rem;
 
 
-    &:last-child {
-        border-bottom: none;
-        margin-bottom: 0; 
-        padding-bottom: 0; 
-      }
-}
+
+
 
 .post-content {
     flex: 2;
+    height:50px;
 
     h3 {
         margin-top: 0;
@@ -64,7 +28,27 @@
         color: #212121; 
         line-height: 1.6; 
     }
+
+    .post-list {
+        margin: 20px 0;
+      }
+      
+      .post-item {
+        margin: 10px 0;
+      }
+      
+      .post-link {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.1em;
+      }
+      
+      .post-link:hover {
+        color: #0366d6;
+      }
 }
+
+
 
 .sidebar {
     flex: 1;
