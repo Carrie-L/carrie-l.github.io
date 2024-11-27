@@ -1,0 +1,11 @@
+2024-11-27 10:47:42,697 - Service starting...
+2024-11-27 10:47:42,697 - Monitoring folder: I:\B-MioBlogSites\_Language
+2024-11-27 10:47:42,697 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2024-11-27 10:47:42,697 - Monitoring folder: I:\B-MioBlogSites\_Android
+2024-11-27 10:47:42,697 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2024-11-27 10:47:42,697 - Monitor started successfully
+2024-11-27 10:47:57,342 - Detected new file: I:\B-MioBlogSites\_Language\184. Elementary ‐Daily Life ‐ Fresh Start.md
+2024-11-27 10:47:57,342 - Starting auto_update.py execution...
+2024-11-27 10:47:57,342 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2024-11-27 10:47:57,342 - Script path: I:\B-MioBlogSites\auto_update.py
+2024-11-27 10:47:57,342 - Working directory: I:\B-MioBlogSites
