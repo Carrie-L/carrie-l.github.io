@@ -45,7 +45,7 @@ title: Coding a Life with Mi07
 
 <main class="container">
   <div class="article-list">
-    {% assign all_posts = site.Android | concat: site.DSA | sort: 'date' | reverse %}
+    {% assign all_posts = site.Android | concat: site.DSA | sort: 'date' | reverse | concat: site.Language %}
     {% for post in all_posts  %}
       <article class="post-preview">
         <div class="post-content">
@@ -59,7 +59,7 @@ title: Coding a Life with Mi07
     {% endfor %}
   </div>
 
-  {% comment %} {% include categories.html posts=site.Android %} {% endcomment %}
+  {% include categories.html posts=site.Android %}
 </main>
 
 <footer>

@@ -55,9 +55,10 @@ collections:
   Algorithm:
     output: true
     permalink: /:collection/:path
-  English:
+  Language:
     output: true
     permalink: /:collection/:path
+
 
 
 defaults:
@@ -75,8 +76,8 @@ defaults:
 header_pages:
   - android.html
   - dsa.html
+  - language.html
   - about.markdown
-  - english.html
   
 sass:
   sass_dir: _sass
