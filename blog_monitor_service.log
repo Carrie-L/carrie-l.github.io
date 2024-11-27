@@ -58,3 +58,25 @@ and the repository exists.
 2024-11-27 10:55:20,602 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
 2024-11-27 10:55:20,602 - Script path: I:\B-MioBlogSites\auto_update.py
 2024-11-27 10:55:20,602 - Working directory: I:\B-MioBlogSites
+2024-11-27 10:55:20,718 - Script executed successfully
+2024-11-27 10:55:20,782 - Executing Git command: git add .
+2024-11-27 10:55:20,872 - Executing Git command: git commit -m Auto update at 2024-11-27 10:55:20
+2024-11-27 10:55:20,962 - Git output: [main f17dfb2] Auto update at 2024-11-27 10:55:20
+ 4 files changed, 15 insertions(+), 3 deletions(-)
+
+2024-11-27 10:55:20,962 - Executing Git command: git pull --no-rebase origin main
+2024-11-27 10:55:24,342 - Git output: Already up to date.
+
+2024-11-27 10:55:24,342 - Git error: From github.com:Carrie-L/carrie-l.github.io
+ * branch            main       -> FETCH_HEAD
+
+2024-11-27 10:55:24,342 - Executing Git command: git push origin main
+2024-11-27 10:55:27,712 - Git error: To github.com:Carrie-L/carrie-l.github.io.git
+   7d10739..f17dfb2  main -> main
+
+2024-11-27 10:55:27,712 - Git commit and push completed successfully
+2024-11-27 10:56:51,034 - Detected new file: I:\B-MioBlogSites\_Language\Conserve vs. Conservative vs. Conventional 详解用法.md
+2024-11-27 10:56:51,034 - Starting auto_update.py execution...
+2024-11-27 10:56:51,034 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2024-11-27 10:56:51,034 - Script path: I:\B-MioBlogSites\auto_update.py
+2024-11-27 10:56:51,034 - Working directory: I:\B-MioBlogSites
