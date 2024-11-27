@@ -289,8 +289,7 @@ h1.post-title {
   /* 确保内边距不影响宽度 */
 }
 
-.footer-item {
-
+.foot-wrapper1 .footer-item {
   text-align: center;
   /* 内容居中 */
   box-sizing: border-box;
@@ -307,24 +306,16 @@ h1.post-title {
   }
 }
 
-.foot-user{
+.foot-wrapper1 .foot-user{
   list-style: none !important; /* 去掉默认的黑点 */
   padding: 0; /* 移除默认的内边距 */
   margin: 0; /* 移除默认的外边距 */
   text-align: left; /* 左对齐 */
 }
 
-.site-footer {
-  margin-top: 20px;
-  background-color: #eaeaea;
-  padding: 10px 0;
-  /* 减少顶部和底部内边距 */
-  width: 100%;
-  overflow-x: hidden;
-  /* 确保没有水平滚动条 */
-}
 
-.footer-item a {
+
+.foot-wrapper1 .footer-item a {
   text-decoration: none !important;
   /* 去掉下划线 */
   color: #f2c4ff !important;
@@ -332,7 +323,7 @@ h1.post-title {
   /* 链接颜色 */
 }
 
-.footer-item ul{
+.foot-wrapper1 .footer-item ul{
   list-style: none !important; 
   padding: 0; /* 移除默认的内边距 */
   margin: 0; /* 移除默认的外边距 */
@@ -343,20 +334,20 @@ h1.post-title {
   
 }
 
-.footer-item .user{
+.foot-wrapper1 .footer-item .user{
   font-size: 14px;
   font-weight: 600;
   vertical-align: middle;
 }
 
-.footer-item img {
+.foot-wrapper1 .footer-item img {
   max-height: 82px;
   /* 限制图标高度 */
   vertical-align: middle;
   /* 图标和文字垂直对齐 */
 }
 
-.user-img{
+.foot-wrapper1 .user-img{
   width: 24px; /* 缩小图片宽度 */
   height: 24px; /* 设置高度，与宽度一致可以保持图片比例 */
   border-radius: 50%; /* 实现圆角 */
