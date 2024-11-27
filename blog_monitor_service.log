@@ -103,3 +103,31 @@ and the repository exists.
 2024-11-27 19:01:18,557 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
 2024-11-27 19:01:18,557 - Script path: I:\B-MioBlogSites\auto_update.py
 2024-11-27 19:01:18,557 - Working directory: I:\B-MioBlogSites
+2024-11-27 19:01:18,839 - Script executed successfully
+2024-11-27 19:01:19,104 - Executing Git command: git add .
+2024-11-27 19:01:19,667 - Executing Git command: git commit -m Auto update at 2024-11-27 19:01:19
+2024-11-27 19:01:19,931 - Git output: [main baa7ff2] Auto update at 2024-11-27 19:01:19
+ 22 files changed, 505 insertions(+), 140 deletions(-)
+ create mode 100644 "_Language/\345\273\272\347\253\213\347\237\245\350\257\206\344\275\223\347\263\273.md"
+ create mode 100644 "_Language/\350\247\243\345\206\263\345\255\246-\345\277\230-\345\255\246\347\232\204\345\233\260\345\242\203.md"
+ create mode 100644 _layouts/articlelayout.html
+ create mode 100644 assets/css/default.css
+ create mode 100644 assets/images/titlebar.png
+ create mode 100644 assets/images/titlebar1.png
+
+2024-11-27 19:01:19,932 - Executing Git command: git pull --no-rebase origin main
+2024-11-27 19:01:23,620 - Git output: Already up to date.
+
+2024-11-27 19:01:23,620 - Git error: From github.com:Carrie-L/carrie-l.github.io
+ * branch            main       -> FETCH_HEAD
+
+2024-11-27 19:01:23,620 - Executing Git command: git push origin main
+2024-11-27 19:01:27,438 - Git error: To github.com:Carrie-L/carrie-l.github.io.git
+   8899c55..baa7ff2  main -> main
+
+2024-11-27 19:01:27,438 - Git commit and push completed successfully
+2024-11-27 19:01:27,438 - Detected new file: I:\B-MioBlogSites\_Language\解决学-忘-学的困境.md
+2024-11-27 19:01:27,438 - Starting auto_update.py execution...
+2024-11-27 19:01:27,438 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2024-11-27 19:01:27,438 - Script path: I:\B-MioBlogSites\auto_update.py
+2024-11-27 19:01:27,438 - Working directory: I:\B-MioBlogSites
