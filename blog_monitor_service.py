@@ -54,9 +54,6 @@ class FolderMonitor(FileSystemEventHandler):
                 ['git', 'add', '.'],
                 ['git', 'commit', '-m', commit_message],
                 ['git', 'pull', '--no-rebase', 'origin', 'main'],
-                ['git', 'push', 'origin', 'main'],
-                # 添加空提交并推送来触发重建
-                ['git', 'commit', '--allow-empty', '-m', "Trigger rebuild"],
                 ['git', 'push', 'origin', 'main']
             ]
             
