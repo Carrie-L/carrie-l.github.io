@@ -18,8 +18,14 @@
     
     {% for collection in site.collections %}
         {% for post in collection.docs %}
-            {% assign post_tags = post.tags | default: empty_array %}
-            {% assign all_tags = all_tags | concat: post_tags %}
+            {% if post.tags %}
+                {% if post.tags.first %}
+                    {% assign post_tags = post.tags %}
+                {% else %}
+                    {% assign post_tags = post.tags | split: ',' %}
+                {% endif %}
+                {% assign all_tags = all_tags | concat: post_tags %}
+            {% endif %}
         {% endfor %}
     {% endfor %}
     
