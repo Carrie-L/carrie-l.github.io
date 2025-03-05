@@ -970,3 +970,17 @@ and the repository exists.
 2025-03-06 00:57:07,240 - Script path: I:\B-MioBlogSites\auto_update.py
 2025-03-06 00:57:07,240 - Working directory: I:\B-MioBlogSites
 2025-03-06 00:57:07,573 - Script executed successfully
+2025-03-06 00:57:08,476 - Executing Git command: git add .
+2025-03-06 00:57:08,591 - Executing Git command: git commit -m Auto update at 2025-03-06 00:57:08
+2025-03-06 00:57:08,839 - Git output: [main 8aa023e] Auto update at 2025-03-06 00:57:08
+ 5 files changed, 931 insertions(+), 3 deletions(-)
+ create mode 100644 "_Android/Cold flow & Hot flow \350\247\243\351\207\212.md"
+
+2025-03-06 00:57:08,840 - Executing Git command: git pull --no-rebase origin main
+2025-03-06 00:57:09,942 - Git error: Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+2025-03-06 00:57:09,942 - Git command failed: git pull --no-rebase origin main
