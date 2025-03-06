@@ -1024,3 +1024,14 @@ Please make sure you have the correct access rights
 and the repository exists.
 
 2025-03-06 02:49:05,074 - Git command failed: git pull --no-rebase origin main
+2025-03-06 21:38:45,366 - Service starting...
+2025-03-06 21:38:45,366 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-06 21:38:45,366 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-06 21:38:45,366 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-06 21:38:45,366 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-06 21:38:45,366 - Monitor started successfully
+2025-03-06 21:40:44,152 - Detected new file: I:\B-MioBlogSites\_Android\属性委托Property Delegation 和 KProperty.md
+2025-03-06 21:40:44,152 - Starting auto_update.py execution...
+2025-03-06 21:40:44,152 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2025-03-06 21:40:44,152 - Script path: I:\B-MioBlogSites\auto_update.py
+2025-03-06 21:40:44,152 - Working directory: I:\B-MioBlogSites

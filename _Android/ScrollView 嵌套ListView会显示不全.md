@@ -1,8 +1,9 @@
 ---
 layout: article
-title: ScrollView 嵌套ListView会显示不全
+title: "ScrollView 嵌套ListView会显示不全"
 date: 2024-10-13
-tags: ["MeasureSpec", "自定义View", "源码分析"]
+tags: ["源码分析", "自定义View", "MeasureSpec", "Android"]
+permalink: /android/scrollview-qian-tao-listview-hui-xian-shi-bu-quan/
 ---
 
     
@@ -116,8 +117,6 @@ int childHeight = child.getMeasuredHeight();  // 获取测量后的高度
 - `heightSize` 被设定为 `ListView` 的上下内边距 (`mListPadding.top` 和 `mListPadding.bottom`) 加上 `childHeight`（第一个子项的高度），再加上视图淡出长度的两倍（即 `getVerticalFadingEdgeLength()` * 2）。
 
 - **`getVerticalFadingEdgeLength()`**：这是 `ListView` 的垂直淡出边缘长度，即列表项在滚动边缘时淡出的区域长度。乘以 `2` 是因为考虑了上下两个边缘的淡出区域。
-
-
 
 ### 重写onMeasure
 

@@ -1,11 +1,10 @@
 ---
 layout: article
-title: "零基础自学法语到 B2 要花多长时间"    # 原始标题，便于阅读
-permalink: /English/beginnerself-studyfrench-dao-b2-yao-hua-duo-zhang-  # URL友好的路径
+title: "beginnerself-studyfrench-dao-b2-yao-hua-duo-zhang-"
+permalink: /language/beginnerself-studyfrench-dao-b2-yao-hua-duo-zhang/
 date: 2024-11-27
-tags: ["法语"]
+tags: ["Language", "法语"]
 ---
-
 
 零基础自学法语到 B2 水平，每天学习 30 分钟，需要有系统的学习计划，并将学习目标分解为以下几个阶段：
 

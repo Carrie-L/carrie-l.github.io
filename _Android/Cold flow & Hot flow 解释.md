@@ -1,8 +1,9 @@
 ---
 layout: article
-title: Cold flow & Hot flow 解释
+title: "Cold flow & Hot flow 解释"
 date: 2025-03-06
-tags: []
+tags: ["Android"]
+permalink: /android/cold-flow-hot-flow-jie-shi/
 ---
 
 在 Kotlin 的 Flow 协程中，“冷流”（Cold Flow）和“热流”（Hot Flow）是两种不同类型的数据流，它们在行为和使用场景上有着显著的区别。理解这些区别对于有效地使用 Flow 至关重要。
@@ -102,5 +103,4 @@ tags: []
 - 适用场景：适用于处理需要共享和广播的数据，如实时事件、状态更新等。
 - `**SharedFlow，StateFlow**` 都是热流。
 - **多点消费：** 多个收集器可以同时监听数据。
-
 

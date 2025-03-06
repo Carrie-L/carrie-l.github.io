@@ -1,15 +1,17 @@
 ---
 layout: article
-title: highlightjs
+title: "highlightjs"
 date: 2024-10-13
-tags: [""]
+tags: ["DSA"]
+permalink: /dsa/highlightjs/
 ---
 
 ---
 layout: article
 title: anki 高亮代码
 tags: []
-category: DSA---
+category: DSA
+---
 
  样式地址
 https://highlightjs.org/demo
@@ -28,7 +30,6 @@ https://highlightjs.org/demo
 </script>
 ```
 
-
 ```html
 <script src="_highlight.min.js"></script>
 <script>
@@ -38,7 +39,9 @@ https://highlightjs.org/demo
   hljs.highlightAll();
 </script>
 ```
-------------------------------------------------
+---------------------------------------------
+---
+
 添加到样式CSS：
 
 ```css
