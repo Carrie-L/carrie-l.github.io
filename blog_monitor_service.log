@@ -1035,3 +1035,23 @@ and the repository exists.
 2025-03-06 21:40:44,152 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
 2025-03-06 21:40:44,152 - Script path: I:\B-MioBlogSites\auto_update.py
 2025-03-06 21:40:44,152 - Working directory: I:\B-MioBlogSites
+2025-03-06 21:40:44,668 - Script executed successfully
+2025-03-06 21:40:44,735 - Executing Git command: git add .
+2025-03-06 21:40:44,963 - Executing Git command: git commit -m Auto update at 2025-03-06 21:40:44
+2025-03-06 21:40:45,178 - Git output: [main 1fd0956] Auto update at 2025-03-06 21:40:44
+ 22 files changed, 633 insertions(+), 142 deletions(-)
+ create mode 100644 "_Android/\345\261\236\346\200\247\345\247\224\346\211\230Property Delegation \345\222\214 KProperty.md"
+
+2025-03-06 21:40:45,178 - Executing Git command: git pull --no-rebase origin main
+2025-03-06 21:40:46,144 - Git error: Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+2025-03-06 21:40:46,144 - Git command failed: git pull --no-rebase origin main
+2025-03-06 21:41:36,466 - Detected new file: I:\B-MioBlogSites\_Android\Cold flow & Hot flow 解释.md
+2025-03-06 21:41:36,466 - Starting auto_update.py execution...
+2025-03-06 21:41:36,466 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2025-03-06 21:41:36,466 - Script path: I:\B-MioBlogSites\auto_update.py
+2025-03-06 21:41:36,466 - Working directory: I:\B-MioBlogSites

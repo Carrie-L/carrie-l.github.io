@@ -2,10 +2,11 @@
 layout: article
 title: "Cold flow & Hot flow 解释"
 date: 2025-03-06
-tags: ["Android"]
 permalink: /android/cold-flow-hot-flow-jie-shi/
+tags: ["Android", "Kotlin"]
 ---
 
+ 
 在 Kotlin 的 Flow 协程中，“冷流”（Cold Flow）和“热流”（Hot Flow）是两种不同类型的数据流，它们在行为和使用场景上有着显著的区别。理解这些区别对于有效地使用 Flow 至关重要。
 
 ## 1. 简单比喻理解冷流和热流的区别
