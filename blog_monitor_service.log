@@ -1062,3 +1062,21 @@ and the repository exists.
  15 files changed, 40 insertions(+), 15 deletions(-)
 
 2025-03-06 21:41:37,658 - Executing Git command: git pull --no-rebase origin main
+2025-03-06 21:41:38,642 - Git error: Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+2025-03-06 21:41:38,642 - Git command failed: git pull --no-rebase origin main
+2025-03-07 09:35:47,823 - Service starting...
+2025-03-07 09:35:47,857 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-07 09:35:47,858 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-07 09:35:47,858 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-07 09:35:47,858 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-07 09:35:47,900 - Monitor started successfully
+2025-03-08 00:22:27,365 - Detected new file: I:\B-MioBlogSites\_Android\operator运算符重载和suspend挂起函数.md
+2025-03-08 00:22:27,399 - Starting auto_update.py execution...
+2025-03-08 00:22:27,399 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2025-03-08 00:22:27,399 - Script path: I:\B-MioBlogSites\auto_update.py
+2025-03-08 00:22:27,399 - Working directory: I:\B-MioBlogSites
