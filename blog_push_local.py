@@ -34,14 +34,14 @@ def publish_to_blog(article_name: str, target_dir: str = r"I:\B-MioBlogSites\_An
     # 定义路径
     vault_path = r"I:\B-1 笔记\Android\Android"  # Obsidian 本地目录
     attachments_path = os.path.join(vault_path, "z. attachments")  # 图片源目录
-    images_target_dir = r"I:\B-MioBlogSites\assets\images"  # 图片目标目录
+    images_target_dir = r"I:\B-MioBlogSites\assets\blogimages"  # 图片目标目录
     
     log_progress(f"开始处理文章: {article_name}")
 
     if "B-1 笔记" in article_name:
         source_file = article_name
         article_filename = os.path.basename(source_file)
-        print(article_filename)
+        log_progress(f"找到文章: {article_filename}")
     else:
         log_progress(f"在 {vault_path} 中搜索文章...")
 

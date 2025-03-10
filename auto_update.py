@@ -369,9 +369,6 @@ def auto_front_matter():
                     if not has_front_matter(file_path):
                         # 只为没有Front Matter的文件添加Front Matter
                         add_front_matter_to_file(file_path, original_title)
-                    else:
-                        # 对于已有Front Matter的文件，只在原有基础上修改
-                        print(f"文件 {file_path} 已有Front Matter，修改现有内容...")
                     
                     # 处理文件内容
                     process_markdown_file(file_path, original_title)
