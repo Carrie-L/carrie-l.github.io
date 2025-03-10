@@ -55,13 +55,13 @@ def publish_to_blog(article_name: str, dir: str = "Android") -> str:
 
 通过这种方式，客户端的`tools` 里就能看到可用的工具了，如下所示：
 
-![Pasted image 20250310144459.png](../assets/images/Pasted image 20250310144459.png)
+![](../../assets/blogimages/Pasted image 20250310144459.png)
 
 使用 `tools/call` 调用工具，服务器执行请求操作，并返回结果。
 
 ### 4. 添加服务器启动代码 
 
-完整代码见Github仓库。
+完整代码见Github仓库 [blog_push.py](https://github.com/Carrie-L/blog_publisher_mcp_server/blob/main/blog_push.py)。
 
 ### 5. 测试和部署
 
@@ -100,7 +100,7 @@ python blog_push.py
 
 在`任务管理器`结束Claude，再重新打开Claude，就能看到配置成功了。
 
-![Pasted image 20250310155646.png](../assets/images/Pasted image 20250310155646.png)
+![](../../assets/blogimages/Pasted image 20250310155646.png)
 
 在上面图片里，我们看到的工具描述是通过如下方式添加的：
 ```python
@@ -115,7 +115,7 @@ async def blog_command(article_name: str, dir: str = "_Android") -> str:
 
 同时在设置页里我们也可以看到有两个服务：
 
-![Pasted image 20250310155718.png](../assets/images/Pasted image 20250310155718.png)
+![](../../assets/blogimages/Pasted image 20250310155718.png)
 
 #### 2. 在Claude使用服务
 
@@ -143,9 +143,13 @@ blog MCP QuickStart Guide --dir=MCP
 }
 ```
 
+如果是第一次运行，会弹出以下对话框，点击 `允许` ：
+
+![](../../assets/blogimages/Pasted image 20250310162530.png)
+
 最终输出结果：
 
-![Pasted image 20250310155819.png](../assets/images/Pasted image 20250310155819.png)
+![](../../assets/blogimages/Pasted image 20250310155819.png)
 
 我们在Claude成功调用了blog_publisher服务！
 
@@ -153,7 +157,7 @@ blog MCP QuickStart Guide --dir=MCP
 
 打开 **Cursor设置 —— MCP —— Add new MCP server**
 
-![Pasted image 20250310160725.png](../assets/images/Pasted image 20250310160725.png)
+![](../../assets/blogimages/Pasted image 20250310160725.png)
 
 它需要我们填写几个参数，在上一步的Claude配置里，我们在json文件中添加了如下配置：
 
@@ -177,13 +181,13 @@ blog MCP QuickStart Guide --dir=MCP
 - **`Type`** : 选择 `command`
 - **`Command`** : `uv --directory T:\PythonProject\MCPServer run blog_push.py` 
 
-![Pasted image 20250310160938.png](../assets/images/Pasted image 20250310160938.png)
+![](../../assets/blogimages/Pasted image 20250310160938.png)
 
 点击 `Save` 保存。
 
 然后我们就能在Cursor看到已成功配置服务了，绿点表示已启用。
 
-![Pasted image 20250310161340.png](../assets/images/Pasted image 20250310161340.png)
+![](../../assets/blogimages/Pasted image 20250310161340.png)
 
 运行服务：
 ```python
@@ -198,15 +202,19 @@ blog MCP QuickStart Guide --dir=MCP
 
 选择 `Agent` , `claude-3.7-thinking` 模型。
 
-![Pasted image 20250310162217.png](../assets/images/Pasted image 20250310162217.png)
+![](../../assets/blogimages/Pasted image 20250310162217.png)
 
 返回结果如下：
 
-![Pasted image 20250310162143.png](../assets/images/Pasted image 20250310162143.png)
+![](../../assets/blogimages/Pasted image 20250310162143.png)
 
 虽然Cursor返回消息说因为超时而提交失败，但实际上我们的任务已经提供成功了，github上收到了新的提交：
 
-![Pasted image 20250310162118.png](../assets/images/Pasted image 20250310162118.png)
+![](../../assets/blogimages/Pasted image 20250310162118.png)
+
+把这个命令复制到 Claude 也试一下：
+
+![](../../assets/blogimages/Pasted image 20250310162605.png)
 
 （完）
 
