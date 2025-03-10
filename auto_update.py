@@ -155,12 +155,17 @@ def process_markdown_file(file_path, original_title=None):
     # 删除文件中的 #标签（避免误删其他内容）
     content = re.sub(r"(?<!\S)#([a-zA-Z0-9_\u4e00-\u9fa5]+)", '', content)
 
-    # 替换 ![[]] 格式图片路径为 ![]() 格式
+    # 替换图片格式 - 修改这部分
+    # 1. 替换 ![[Pasted image...]] 格式为正确的格式
     image_pattern = r"!\[\[(.*?)\]\]"
-    updated_content = re.sub(image_pattern, r'![](\1)', content)
-    # 避免重复替换 ../assets/blogimages/ 开头的路径
-    # updated_content = re.sub(r'!\[]\((?!../assets/blogimages/)(.*?)\)', r'![](../assets/blogimages/\1)', updated_content)
-    updated_content = re.sub(r'!\[.+?\]\(../assets/blogimages/(.*?)\)', r'![](../../assets/blogimages/\1)', updated_content)
+    updated_content = re.sub(image_pattern, r'![](../../assets/blogimages/\1)', content)
+    
+    # 2. 处理其他可能的图片格式，确保它们也使用正确的格式
+    # 如果图片链接不是以 ../../assets/blogimages/ 开头，则添加
+    updated_content = re.sub(r'!\[\]\((?!../../assets/blogimages/)(.*?)\)', r'![](../../assets/blogimages/\1)', updated_content)
+    
+    # 3. 确保所有图片都使用空的 [] 
+    updated_content = re.sub(r'!\[.+?\]\((../../assets/blogimages/.*?)\)', r'![](../../assets/blogimages/\1)', updated_content)
 
     # 检查是否有Front Matter
     has_front_matter = False

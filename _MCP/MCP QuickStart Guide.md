@@ -456,3 +456,14 @@ uv run client.py T:/PythonProject/weather/weather.py
 
 至此，我们的第一个MCP服务端和客户端编写完成。
 
+---
+
+```sh
+cd T:\PythonProject\MCPServer
+
+# 激活虚拟环境
+.venv\Scripts\activate
+
+# 执行命令
+python blog_push.py "MCP QuickStart Guide" "_MCP"
+```
