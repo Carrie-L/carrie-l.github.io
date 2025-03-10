@@ -1151,3 +1151,18 @@ and the repository exists.
 2025-03-10 13:18:15,526 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
 2025-03-10 13:18:15,526 - Script path: I:\B-MioBlogSites\auto_update.py
 2025-03-10 13:18:15,526 - Working directory: I:\B-MioBlogSites
+2025-03-10 13:18:16,211 - Script executed successfully
+2025-03-10 13:18:16,280 - Executing Git command: git add .
+2025-03-10 13:18:16,507 - Executing Git command: git commit -m Auto update at 2025-03-10 13:18:16
+2025-03-10 13:18:16,780 - Git output: [main bf6d0be] Auto update at 2025-03-10 13:18:16
+ 13 files changed, 16 insertions(+), 11 deletions(-)
+ create mode 100644 _Android/obsidian_blog_publish.py
+
+2025-03-10 13:18:16,780 - Executing Git command: git pull --no-rebase origin main
+2025-03-10 13:18:17,822 - Git error: Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+2025-03-10 13:18:17,822 - Git command failed: git pull --no-rebase origin main
