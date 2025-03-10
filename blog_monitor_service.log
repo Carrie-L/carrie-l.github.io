@@ -1166,3 +1166,8 @@ Please make sure you have the correct access rights
 and the repository exists.
 
 2025-03-10 13:18:17,822 - Git command failed: git pull --no-rebase origin main
+2025-03-10 14:16:47,556 - Detected new file: I:\B-MioBlogSites\_Language\MCP服务示例：运行本地Python脚本，将文章推送到Github博客.md
+2025-03-10 14:16:47,558 - Starting auto_update.py execution...
+2025-03-10 14:16:47,558 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2025-03-10 14:16:47,558 - Script path: I:\B-MioBlogSites\auto_update.py
+2025-03-10 14:16:47,558 - Working directory: I:\B-MioBlogSites
