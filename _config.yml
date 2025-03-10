@@ -57,6 +57,10 @@ collections:
   Language:
     output: true
     permalink: /:collection/:path
+  MCP:
+    output: true
+    permalink: /:collection/:path
+
 
 
 

@@ -348,7 +348,7 @@ def find_new_categories(existing_collections):
 
             # 检查文件夹中是否存在 .md 文件
             md_files = [f for f in os.listdir(folder_path) if f.endswith(".md")]
-            if md_files and category not in existing_collections:
+            if category not in existing_collections:
                 categories.append(category)
     return categories
 
