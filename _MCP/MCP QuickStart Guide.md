@@ -61,14 +61,18 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 ```
 C:\Users\windows\.local\bin
 ```
+
 ![](../../assets/blogimages/Pasted image 20250309142611.png)
+
 重启 Powershell 。
 在命令行输入 `uv --version` ， 能返回版本信息就算安装成功了:
+
 ![](../../assets/blogimages/Pasted image 20250309142737.png)
 
 ### 2. 创建和设置项目
 
 打开 **Powershell** ， `cd` 到你想要创建项目的目录位置，如:
+
 ![](../../assets/blogimages/Pasted image 20250309142936.png)
 
 接着依次输入以下命令：
@@ -221,17 +225,21 @@ if __name__ == "__main__":
 重新打开 **Claude for Desktop** 。
 
 如果在Claude的对话框下看到了一把**锤子**，说明我们的MCP服务配置成功了。
+
 ![](../../assets/blogimages/Pasted image 20250309144616.png)
 
 点击锤子能看到：
+
 ![](../../assets/blogimages/Pasted image 20250309144830.png)
 
 在设置页显示如下：
+
 ![](../../assets/blogimages/Pasted image 20250309144513.png)
 
 **下面测试服务：**
 
 在对话框输入：*what's the weather in NY*
+
 ![](../../assets/blogimages/Pasted image 20250309144742.png)
 
 服务配置成功啦！

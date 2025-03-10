@@ -123,6 +123,52 @@ def add_front_matter_to_file(file_path, original_title=None):
     except UnicodeDecodeError:
         print(f"无法解码文件：{file_path}，跳过该文件。")
 
+# 确保图片链接前后都有空行
+def ensure_image_spacing(content):
+    # 查找所有图片标记
+    image_patterns = [
+        r'!\[\]\(../../assets/blogimages/.*?\)',  # 处理 ![](...) 格式
+        r'!\[\[(.*?)\]\]'                         # 处理 ![[...]] 格式(如果仍有)
+    ]
+    
+    # 对于每种图片模式
+    for pattern in image_patterns:
+        # 找到所有匹配项
+        matches = re.finditer(pattern, content)
+        
+        # 从后向前替换，避免位置变化影响
+        replacements = []
+        for match in matches:
+            start, end = match.span()
+            img_text = match.group(0)
+            
+            # 确定是否需要前置空行
+            needs_leading_newline = False
+            if start == 0 or content[start-1] != '\n' or (start >= 2 and content[start-2:start] != '\n\n'):
+                needs_leading_newline = True
+            
+            # 确定是否需要后置空行
+            needs_trailing_newline = False
+            if end == len(content) or content[end] != '\n' or (end + 1 < len(content) and content[end:end+2] != '\n\n'):
+                needs_trailing_newline = True
+            
+            # 创建替换文本
+            replacement = ""
+            if needs_leading_newline:
+                replacement += "\n\n"
+            replacement += img_text
+            if needs_trailing_newline:
+                replacement += "\n\n"
+            
+            # 保存替换信息
+            replacements.append((start, end, replacement))
+        
+        # 从后向前应用替换
+        for start, end, replacement in reversed(replacements):
+            content = content[:start] + replacement + content[end:]
+    
+    return content
+
 def process_markdown_file(file_path, original_title=None):
     """处理Markdown文件，提取#标签并修改图片路径格式，确保格式正确"""
     # 获取文件所在的文件夹名称作为类别标签
@@ -252,6 +298,8 @@ def process_markdown_file(file_path, original_title=None):
         
         # 替换原有Front Matter
         updated_content = updated_content.replace(front_matter.group(0), f"---\n{new_front_matter_content}\n---\n\n")
+        # 确保图片前后添加空行，以免成为内联图片
+        updated_content = ensure_image_spacing(updated_content)
         
     else:
         # 如果没有Front Matter，添加新的Front Matter
