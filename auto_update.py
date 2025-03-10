@@ -159,7 +159,8 @@ def process_markdown_file(file_path, original_title=None):
     image_pattern = r"!\[\[(.*?)\]\]"
     updated_content = re.sub(image_pattern, r'![](\1)', content)
     # 避免重复替换 ../assets/blogimages/ 开头的路径
-    updated_content = re.sub(r'!\[]\((?!../assets/blogimages/)(.*?)\)', r'![](../assets/blogimages/\1)', updated_content)
+    # updated_content = re.sub(r'!\[]\((?!../assets/blogimages/)(.*?)\)', r'![](../assets/blogimages/\1)', updated_content)
+    updated_content = re.sub(r'!\[.+?\]\(../assets/blogimages/(.*?)\)', r'![](../../assets/blogimages/\1)', updated_content)
 
     # 检查是否有Front Matter
     has_front_matter = False

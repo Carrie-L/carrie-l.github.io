@@ -45,7 +45,7 @@ title: Coding a Life with Mi07
 
 <main class="container">
   <div class="article-list">
-    {% assign all_posts = site.Android | concat: site.DSA | concat: site.Language | sort: 'date' | reverse  | concat: site.MCP %}
+    {% assign all_posts = site.Android | concat: site.DSA | concat: site.Language | concat: site.MCP | sort: 'date' | reverse %}
     {% for post in all_posts  %}
       <article class="post-preview">
         <div class="post-content">

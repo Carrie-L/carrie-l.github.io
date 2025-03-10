@@ -80,6 +80,7 @@ header_pages:
   - android.html
   - dsa.html
   - language.html
+  - mcp.html
   - about.markdown
   
 sass:
