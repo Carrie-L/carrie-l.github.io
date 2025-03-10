@@ -1,4 +1,11 @@
-#MCP
+---
+layout: article
+title: "MCP QuickStart Guide"
+date: 2025-03-10
+permalink: /mcp/mcp-quickstart-guide/
+tags: ["MCP"]
+---
+
 ## MCP是什么？
 
 ### 1. MCP的基本概念
@@ -23,7 +30,7 @@ MCP的核心组件包括：
     3. 服务器提供资源、提示或工具。
     4. LLM使用这些信息生成响应。
 
-![[Pasted image 20250309141722.png]]
+![Pasted image 20250309141722.png](../assets/images/Pasted image 20250309141722.png)
 
 ### 3. MCP的原语
 
@@ -54,15 +61,15 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 ```
 C:\Users\windows\.local\bin
 ```
-![[Pasted image 20250309142611.png]]
+![Pasted image 20250309142611.png](../assets/images/Pasted image 20250309142611.png)
 重启 Powershell 。
 在命令行输入 `uv --version` ， 能返回版本信息就算安装成功了:
-![[Pasted image 20250309142737.png]]
+![Pasted image 20250309142737.png](../assets/images/Pasted image 20250309142737.png)
 
 ### 2. 创建和设置项目
 
 打开 **Powershell** ， `cd` 到你想要创建项目的目录位置，如:
-![[Pasted image 20250309142936.png]]
+![Pasted image 20250309142936.png](../assets/images/Pasted image 20250309142936.png)
 
 接着依次输入以下命令：
 ```sh
@@ -208,29 +215,26 @@ if __name__ == "__main__":
 
 保存文件。
 
-
 ### 5. 在Claude中使用服务
 
 打开**任务管理器**，将 Claude **结束任务**，彻底关掉。
 重新打开 **Claude for Desktop** 。
 
 如果在Claude的对话框下看到了一把**锤子**，说明我们的MCP服务配置成功了。
-![[Pasted image 20250309144616.png]]
+![Pasted image 20250309144616.png](../assets/images/Pasted image 20250309144616.png)
 
 点击锤子能看到：
-![[Pasted image 20250309144830.png]]
+![Pasted image 20250309144830.png](../assets/images/Pasted image 20250309144830.png)
 
 在设置页显示如下：
-![[Pasted image 20250309144513.png]]
+![Pasted image 20250309144513.png](../assets/images/Pasted image 20250309144513.png)
 
 **下面测试服务：**
 
 在对话框输入：*what's the weather in NY*
-![[Pasted image 20250309144742.png]]
+![Pasted image 20250309144742.png](../assets/images/Pasted image 20250309144742.png)
 
 服务配置成功啦！
-
-
 
 ## MCP Client
 
@@ -446,7 +450,7 @@ if __name__ == "__main__":
 uv run client.py T:/PythonProject/weather/weather.py
 ```
 
-![[Pasted image 20250309153533.png]]
+![Pasted image 20250309153533.png](../assets/images/Pasted image 20250309153533.png)
 
 接着，我们就可以在 Query 输入问题了。
 
