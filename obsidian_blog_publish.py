@@ -97,7 +97,7 @@ class DirSelector:
             return
         
         # 执行发布命令
-        script_dir = r"T:\PythonProject\MCPServer"
+        script_dir = r"I:\B-MioBlogSites"
         os.chdir(script_dir)
         
         cmd = f'call .venv\\Scripts\\activate.bat && python blog_push_local.py "{self.article_name}" --dir={self.selected_dir}'
