@@ -1146,3 +1146,8 @@ and the repository exists.
 2025-03-10 12:15:07,554 - Monitoring folder: I:\B-MioBlogSites\_Android
 2025-03-10 12:15:07,554 - Monitoring folder: I:\B-MioBlogSites\_DSA
 2025-03-10 12:15:07,555 - Monitor started successfully
+2025-03-10 13:18:15,523 - Detected new file: I:\B-MioBlogSites\_Android\obsidian_blog_publish.py
+2025-03-10 13:18:15,526 - Starting auto_update.py execution...
+2025-03-10 13:18:15,526 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2025-03-10 13:18:15,526 - Script path: I:\B-MioBlogSites\auto_update.py
+2025-03-10 13:18:15,526 - Working directory: I:\B-MioBlogSites
