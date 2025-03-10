@@ -2,7 +2,7 @@
 layout: article
 title: "Conserve vs. Conservative vs. Conventional 详解用法"
 date: 2024-11-27
-tags: ["words", "Language"]
+tags: ["Language", "words"]
 permalink: /language/conserve-vs-conservative-vs-conventional-xiang-jie/
 ---
 
