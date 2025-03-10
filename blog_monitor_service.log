@@ -1124,3 +1124,5 @@ and the repository exists.
 2025-03-10 09:22:38,482 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
 2025-03-10 09:22:38,482 - Script path: I:\B-MioBlogSites\auto_update.py
 2025-03-10 09:22:38,482 - Working directory: I:\B-MioBlogSites
+2025-03-10 09:22:39,700 - Script executed successfully
+2025-03-10 09:22:41,107 - Executing Git command: git add .
