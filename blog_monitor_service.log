@@ -1174,3 +1174,15 @@ and the repository exists.
 2025-03-10 14:16:48,078 - Script executed successfully
 2025-03-10 14:16:48,400 - Executing Git command: git add .
 2025-03-10 14:16:48,595 - Executing Git command: git commit -m Auto update at 2025-03-10 14:16:48
+2025-03-10 14:16:48,966 - Git output: [main 65dd54d] Auto update at 2025-03-10 14:16:48
+ 12 files changed, 138 insertions(+), 36 deletions(-)
+ create mode 100644 "_Language/MCP\346\234\215\345\212\241\347\244\272\344\276\213\357\274\232\350\277\220\350\241\214\346\234\254\345\234\260Python\350\204\232\346\234\254\357\274\214\345\260\206\346\226\207\347\253\240\346\216\250\351\200\201\345\210\260Github\345\215\232\345\256\242.md"
+
+2025-03-10 14:16:48,966 - Executing Git command: git pull --no-rebase origin main
+2025-03-10 14:16:49,971 - Git error: Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+2025-03-10 14:16:49,971 - Git command failed: git pull --no-rebase origin main
