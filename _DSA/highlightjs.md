@@ -39,7 +39,9 @@ https://highlightjs.org/demo
   hljs.highlightAll();
 </script>
 ```
-------------------
+---------------
+---
+
 ---
 
 ---
