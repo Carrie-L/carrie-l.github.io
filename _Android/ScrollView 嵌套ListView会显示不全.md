@@ -2,7 +2,7 @@
 layout: article
 title: "ScrollView 嵌套ListView会显示不全"
 date: 2024-10-13
-tags: ["自定义View", "MeasureSpec", "Android", "源码分析"]
+tags: ["Android", "MeasureSpec", "自定义View", "源码分析"]
 permalink: /android/scrollview-qian-tao-listview-hui-xian-shi-bu-quan/
 ---
 

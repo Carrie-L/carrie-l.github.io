@@ -1139,3 +1139,10 @@ Please make sure you have the correct access rights
 and the repository exists.
 
 2025-03-10 09:22:43,037 - Git command failed: git pull --no-rebase origin main
+2025-03-10 12:14:58,761 - Service stopping...
+2025-03-10 12:15:07,553 - Service starting...
+2025-03-10 12:15:07,554 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-10 12:15:07,554 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-10 12:15:07,554 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-10 12:15:07,554 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-10 12:15:07,555 - Monitor started successfully
