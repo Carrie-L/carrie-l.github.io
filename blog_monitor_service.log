@@ -1516,3 +1516,17 @@ and the repository exists.
 2025-04-20 09:46:29,637 - Script path: I:\B-MioBlogSites\auto_update.py
 2025-04-20 09:46:29,650 - Working directory: I:\B-MioBlogSites
 2025-04-20 09:46:31,042 - Script executed successfully
+2025-04-20 09:46:32,984 - Executing Git command: git add .
+2025-04-20 09:46:33,191 - Executing Git command: git commit -m Auto update at 2025-04-20 09:46:32
+2025-04-20 09:46:33,690 - Git output: [main dfb3267] Auto update at 2025-04-20 09:46:32
+ 20 files changed, 6804 insertions(+), 17 deletions(-)
+ create mode 100644 "_Android/80\351\201\223\351\235\242\350\257\225\351\242\230\347\255\224\346\241\210.md"
+
+2025-04-20 09:46:33,690 - Executing Git command: git pull --no-rebase origin main
+2025-04-20 09:46:37,899 - Git error: ssh: connect to host github.com port 22: Connection refused
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+2025-04-20 09:46:37,899 - Git command failed: git pull --no-rebase origin main
