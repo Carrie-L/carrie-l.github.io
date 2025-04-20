@@ -78,3 +78,39 @@
 2025-03-10 20:18:27,381 - INFO - 图片复制完成，图片链接将由auto_update.py处理
 2025-03-10 20:18:27,383 - INFO - 执行auto_update.py脚本...
 2025-03-10 20:18:27,383 - INFO - 使用虚拟环境Python执行脚本
+2025-03-10 20:18:27,812 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_Algorithm
+2025-03-10 20:18:27,813 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_Android
+2025-03-10 20:18:27,813 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_DSA
+2025-03-10 20:18:27,813 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_Language
+2025-03-10 20:18:27,813 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_MCP
+2025-03-10 20:18:27,813 - INFO - 脚本输出: 已为文件 I:\B-MioBlogSites\_MCP\Obsidian面板里实现自动推送笔记到Github.md 添加 Front Matter 信息。
+2025-03-10 20:18:27,813 - INFO - 脚本输出: 现有的 collections: ['Android', 'DSA', 'Algorithm', 'Language', 'MCP']
+2025-03-10 20:18:27,813 - INFO - 脚本输出: 未检测到新的分类文件夹，脚本终止。
+2025-03-10 20:18:27,814 - INFO - auto_update.py脚本执行完成
+2025-03-10 20:18:27,814 - INFO - 开始Git操作: 切换到仓库目录 I:\B-MioBlogSites
+2025-03-10 20:18:27,814 - INFO - 执行: git add .
+2025-03-10 20:18:28,286 - INFO - 执行: git commit -m "Add article: Obsidian面板里实现自动推送笔记到Github"
+2025-03-10 20:18:29,078 - INFO - 执行: git push
+2025-03-10 20:18:32,512 - INFO - Git操作完成
+2025-03-10 20:18:32,514 - INFO - 全部操作完成!
+2025-03-10 20:18:32,514 - INFO - 成功将文章 Obsidian面板里实现自动推送笔记到Github (来自 Git\Blog\Obsidian面板里实现自动推送笔记到Github.md) 发布到博客并推送到 GitHub
+2025-04-20 09:46:29,549 - INFO - 开始处理文章: 80道面试题答案
+2025-04-20 09:46:29,563 - INFO - 在 I:\B-1 笔记\Android\Android 中搜索文章...
+2025-04-20 09:46:29,583 - INFO - 找到文章: I:\B-1 笔记\Android\Android\面试\70道面试题\80道面试题答案.md
+2025-04-20 09:46:29,609 - INFO - 复制文件到: I:\B-MioBlogSites\_Android\80道面试题答案.md
+2025-04-20 09:46:29,617 - INFO - 处理文章中的图片...
+2025-04-20 09:46:29,625 - INFO - 文章中没有找到图片链接
+2025-04-20 09:46:29,625 - INFO - 图片复制完成，图片链接将由auto_update.py处理
+2025-04-20 09:46:29,625 - INFO - 执行auto_update.py脚本...
+2025-04-20 09:46:29,625 - INFO - 使用虚拟环境Python执行脚本
+2025-04-20 09:46:31,718 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_Algorithm
+2025-04-20 09:46:31,718 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_Android
+2025-04-20 09:46:31,718 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_DSA
+2025-04-20 09:46:31,718 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_Language
+2025-04-20 09:46:31,718 - INFO - 脚本输出: 正在处理文件夹：I:\B-MioBlogSites\_MCP
+2025-04-20 09:46:31,718 - INFO - 脚本输出: 现有的 collections: ['Android', 'DSA', 'Algorithm', 'Language', 'MCP']
+2025-04-20 09:46:31,719 - INFO - 脚本输出: 未检测到新的分类文件夹，脚本终止。
+2025-04-20 09:46:31,719 - INFO - auto_update.py脚本执行完成
+2025-04-20 09:46:31,719 - INFO - 开始Git操作: 切换到仓库目录 I:\B-MioBlogSites
+2025-04-20 09:46:31,719 - INFO - 执行: git add .
+2025-04-20 09:46:31,745 - INFO - Git操作失败: Command '['git', 'add', '.']' returned non-zero exit status 128.

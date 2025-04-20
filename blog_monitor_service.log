@@ -1186,3 +1186,333 @@ Please make sure you have the correct access rights
 and the repository exists.
 
 2025-03-10 14:16:49,971 - Git command failed: git pull --no-rebase origin main
+2025-03-11 20:13:07,137 - Service starting...
+2025-03-11 20:13:07,169 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-11 20:13:07,169 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-11 20:13:07,169 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-11 20:13:07,169 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-11 20:13:07,169 - Monitor started successfully
+2025-03-12 23:35:16,610 - Service starting...
+2025-03-12 23:35:16,646 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-12 23:35:16,646 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-12 23:35:16,647 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-12 23:35:16,647 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-12 23:35:16,678 - Monitor started successfully
+2025-03-13 08:07:39,008 - Service starting...
+2025-03-13 08:07:39,062 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-13 08:07:39,062 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-13 08:07:39,062 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-13 08:07:39,062 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-13 08:07:39,062 - Monitor started successfully
+2025-03-16 01:04:17,088 - Service starting...
+2025-03-16 01:04:17,124 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-16 01:04:17,124 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-16 01:04:17,124 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-16 01:04:17,124 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-16 01:04:17,150 - Monitor started successfully
+2025-03-16 09:08:05,121 - Service starting...
+2025-03-16 09:08:05,157 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-16 09:08:05,157 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-16 09:08:05,157 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-16 09:08:05,157 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-16 09:08:05,179 - Monitor started successfully
+2025-03-19 19:44:02,184 - Service starting...
+2025-03-19 19:44:02,236 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-19 19:44:02,236 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-19 19:44:02,236 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-19 19:44:02,236 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-19 19:44:02,250 - Monitor started successfully
+2025-03-19 19:46:35,762 - Service starting...
+2025-03-19 19:46:35,787 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-19 19:46:35,787 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-19 19:46:35,787 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-19 19:46:35,787 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-19 19:46:35,790 - Monitor started successfully
+2025-03-19 20:02:37,234 - Service starting...
+2025-03-19 20:02:37,262 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-19 20:02:37,264 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-19 20:02:37,264 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-19 20:02:37,264 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-19 20:02:37,277 - Monitor started successfully
+2025-03-19 20:07:13,190 - Service starting...
+2025-03-19 20:07:13,217 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-19 20:07:13,217 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-19 20:07:13,219 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-19 20:07:13,219 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-19 20:07:13,235 - Monitor started successfully
+2025-03-19 20:30:39,777 - Service starting...
+2025-03-19 20:30:39,809 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-19 20:30:39,809 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-19 20:30:39,809 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-19 20:30:39,809 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-19 20:30:39,809 - Monitor started successfully
+2025-03-20 12:24:13,746 - Service starting...
+2025-03-20 12:24:13,793 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-20 12:24:13,793 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-20 12:24:13,793 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-20 12:24:13,793 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-20 12:24:13,793 - Monitor started successfully
+2025-03-22 22:57:34,504 - Service starting...
+2025-03-22 22:57:34,617 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-22 22:57:34,617 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-22 22:57:34,617 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-22 22:57:34,617 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-22 22:57:34,617 - Monitor started successfully
+2025-03-22 23:03:49,160 - Service starting...
+2025-03-22 23:03:49,230 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-22 23:03:49,230 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-22 23:03:49,230 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-22 23:03:49,230 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-22 23:03:49,230 - Monitor started successfully
+2025-03-25 21:30:05,786 - Service starting...
+2025-03-25 21:30:05,866 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-25 21:30:05,866 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-25 21:30:05,866 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-25 21:30:05,866 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-25 21:30:05,866 - Monitor started successfully
+2025-03-25 22:15:19,889 - Service starting...
+2025-03-25 22:15:20,694 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-25 22:15:20,694 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-25 22:15:20,694 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-25 22:15:20,694 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-25 22:15:20,694 - Monitor started successfully
+2025-03-26 20:27:06,940 - Service starting...
+2025-03-26 20:27:06,979 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-26 20:27:06,979 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-26 20:27:06,979 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-26 20:27:06,979 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-26 20:27:06,985 - Monitor started successfully
+2025-03-29 07:11:24,489 - Service starting...
+2025-03-29 07:11:24,530 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-29 07:11:24,530 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-29 07:11:24,530 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-29 07:11:24,530 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-29 07:11:24,530 - Monitor started successfully
+2025-03-29 17:57:05,773 - Service starting...
+2025-03-29 17:57:06,381 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-29 17:57:06,381 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-29 17:57:06,381 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-29 17:57:06,381 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-29 17:57:06,386 - Monitor started successfully
+2025-03-29 18:13:42,911 - Service starting...
+2025-03-29 18:13:42,943 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-29 18:13:42,943 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-29 18:13:42,943 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-29 18:13:42,943 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-29 18:13:42,943 - Monitor started successfully
+2025-03-29 19:32:16,038 - Service starting...
+2025-03-29 19:32:16,070 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-29 19:32:16,070 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-29 19:32:16,070 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-29 19:32:16,070 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-29 19:32:16,086 - Monitor started successfully
+2025-03-29 22:11:00,393 - Service starting...
+2025-03-29 22:11:00,444 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-29 22:11:00,444 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-29 22:11:00,444 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-29 22:11:00,444 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-29 22:11:00,448 - Monitor started successfully
+2025-03-30 09:36:36,190 - Service starting...
+2025-03-30 09:36:36,262 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-30 09:36:36,262 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-30 09:36:36,262 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-30 09:36:36,262 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-30 09:36:36,262 - Monitor started successfully
+2025-03-30 09:52:41,430 - Service starting...
+2025-03-30 09:52:41,495 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-30 09:52:41,495 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-30 09:52:41,495 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-30 09:52:41,495 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-30 09:52:41,495 - Monitor started successfully
+2025-03-30 10:02:21,596 - Service starting...
+2025-03-30 10:02:21,660 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-30 10:02:21,660 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-30 10:02:21,660 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-30 10:02:21,660 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-30 10:02:21,660 - Monitor started successfully
+2025-03-30 10:02:31,360 - Service starting...
+2025-03-30 10:02:31,414 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-30 10:02:31,414 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-30 10:02:31,414 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-30 10:02:31,414 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-30 10:02:31,414 - Monitor started successfully
+2025-03-30 10:23:54,610 - Service starting...
+2025-03-30 10:23:54,649 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-30 10:23:54,649 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-30 10:23:54,649 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-30 10:23:54,649 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-30 10:23:54,649 - Monitor started successfully
+2025-03-30 15:15:31,704 - Service starting...
+2025-03-30 15:15:31,756 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-03-30 15:15:31,756 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-03-30 15:15:31,756 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-03-30 15:15:31,756 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-03-30 15:15:31,760 - Monitor started successfully
+2025-04-04 02:37:21,992 - Service starting...
+2025-04-04 02:37:22,038 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-04 02:37:22,038 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-04 02:37:22,038 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-04 02:37:22,038 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-04 02:37:22,039 - Monitor started successfully
+2025-04-04 09:01:34,510 - Service starting...
+2025-04-04 09:01:34,555 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-04 09:01:34,555 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-04 09:01:34,555 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-04 09:01:34,555 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-04 09:01:34,557 - Monitor started successfully
+2025-04-05 11:58:14,045 - Service starting...
+2025-04-05 11:58:14,141 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-05 11:58:14,141 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-05 11:58:14,141 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-05 11:58:14,141 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-05 11:58:14,141 - Monitor started successfully
+2025-04-05 17:16:47,149 - Service starting...
+2025-04-05 17:16:47,193 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-05 17:16:47,193 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-05 17:16:47,193 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-05 17:16:47,193 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-05 17:16:47,211 - Monitor started successfully
+2025-04-07 17:12:59,366 - Service starting...
+2025-04-07 17:12:59,413 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-07 17:12:59,413 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-07 17:12:59,413 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-07 17:12:59,413 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-07 17:12:59,413 - Monitor started successfully
+2025-04-09 11:38:21,855 - Service starting...
+2025-04-09 11:38:21,907 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-09 11:38:21,907 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-09 11:38:21,907 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-09 11:38:21,907 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-09 11:38:21,907 - Monitor started successfully
+2025-04-09 13:03:52,299 - Service starting...
+2025-04-09 13:03:52,348 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-09 13:03:52,348 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-09 13:03:52,348 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-09 13:03:52,348 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-09 13:03:52,350 - Monitor started successfully
+2025-04-10 18:43:58,893 - Service starting...
+2025-04-10 18:43:58,936 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-10 18:43:58,936 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-10 18:43:58,936 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-10 18:43:58,936 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-10 18:43:58,961 - Monitor started successfully
+2025-04-10 22:00:36,021 - Service starting...
+2025-04-10 22:00:36,064 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-10 22:00:36,064 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-10 22:00:36,064 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-10 22:00:36,064 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-10 22:00:36,067 - Monitor started successfully
+2025-04-12 01:49:13,119 - Service starting...
+2025-04-12 01:49:13,164 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-12 01:49:13,164 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-12 01:49:13,164 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-12 01:49:13,164 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-12 01:49:13,168 - Monitor started successfully
+2025-04-12 09:57:34,073 - Service starting...
+2025-04-12 09:57:34,125 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-12 09:57:34,125 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-12 09:57:34,125 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-12 09:57:34,125 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-12 09:57:34,133 - Monitor started successfully
+2025-04-12 10:38:39,671 - Service starting...
+2025-04-12 10:38:39,735 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-12 10:38:39,735 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-12 10:38:39,735 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-12 10:38:39,735 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-12 10:38:39,735 - Monitor started successfully
+2025-04-13 13:26:07,035 - Service starting...
+2025-04-13 13:26:07,075 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-13 13:26:07,075 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-13 13:26:07,075 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-13 13:26:07,075 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-13 13:26:07,080 - Monitor started successfully
+2025-04-14 02:28:00,105 - Service starting...
+2025-04-14 02:28:00,147 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-14 02:28:00,147 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-14 02:28:00,150 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-14 02:28:00,150 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-14 02:28:00,154 - Monitor started successfully
+2025-04-14 11:00:31,054 - Service starting...
+2025-04-14 11:00:31,084 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-14 11:00:31,086 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-14 11:00:31,086 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-14 11:00:31,086 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-14 11:00:31,094 - Monitor started successfully
+2025-04-16 14:07:59,165 - Service starting...
+2025-04-16 14:07:59,219 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-16 14:07:59,219 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-16 14:07:59,219 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-16 14:07:59,219 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-16 14:07:59,231 - Monitor started successfully
+2025-04-17 15:52:01,811 - Service starting...
+2025-04-17 15:52:01,864 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-17 15:52:01,864 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-17 15:52:01,864 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-17 15:52:01,864 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-17 15:52:01,864 - Monitor started successfully
+2025-04-18 00:29:18,712 - Service starting...
+2025-04-18 00:29:18,761 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-18 00:29:18,761 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-18 00:29:18,761 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-18 00:29:18,761 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-18 00:29:18,761 - Monitor started successfully
+2025-04-18 13:22:39,287 - Service starting...
+2025-04-18 13:22:39,541 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-18 13:22:39,541 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-18 13:22:39,541 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-18 13:22:39,541 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-18 13:22:39,541 - Monitor started successfully
+2025-04-18 15:40:52,853 - Service starting...
+2025-04-18 15:40:52,901 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-18 15:40:52,901 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-18 15:40:52,901 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-18 15:40:52,901 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-18 15:40:52,901 - Monitor started successfully
+2025-04-18 19:57:17,622 - Service starting...
+2025-04-18 19:57:17,667 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-18 19:57:17,667 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-18 19:57:17,667 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-18 19:57:17,667 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-18 19:57:17,667 - Monitor started successfully
+2025-04-19 01:37:06,193 - Service starting...
+2025-04-19 01:37:06,247 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-19 01:37:06,247 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-19 01:37:06,247 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-19 01:37:06,247 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-19 01:37:06,303 - Monitor started successfully
+2025-04-19 13:06:43,259 - Service starting...
+2025-04-19 13:06:43,311 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-19 13:06:43,311 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-19 13:06:43,311 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-19 13:06:43,311 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-19 13:06:43,311 - Monitor started successfully
+2025-04-19 15:21:00,551 - Service starting...
+2025-04-19 15:21:00,595 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-19 15:21:00,595 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-19 15:21:00,595 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-19 15:21:00,595 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-19 15:21:00,598 - Monitor started successfully
+2025-04-19 20:07:07,778 - Service starting...
+2025-04-19 20:07:07,842 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-19 20:07:07,842 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-19 20:07:07,842 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-19 20:07:07,842 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-19 20:07:07,842 - Monitor started successfully
+2025-04-19 20:18:51,952 - Service starting...
+2025-04-19 20:18:51,985 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-19 20:18:51,985 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-19 20:18:51,986 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-19 20:18:51,986 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-19 20:18:51,988 - Monitor started successfully
+2025-04-20 09:23:11,848 - Service starting...
+2025-04-20 09:23:11,892 - Monitoring folder: I:\B-MioBlogSites\_Language
+2025-04-20 09:23:11,892 - Monitoring folder: I:\B-MioBlogSites\_Algorithm
+2025-04-20 09:23:11,892 - Monitoring folder: I:\B-MioBlogSites\_Android
+2025-04-20 09:23:11,893 - Monitoring folder: I:\B-MioBlogSites\_DSA
+2025-04-20 09:23:11,914 - Monitor started successfully
+2025-04-20 09:46:29,635 - Detected new file: I:\B-MioBlogSites\_Android\80道面试题答案.md
+2025-04-20 09:46:29,636 - Starting auto_update.py execution...
+2025-04-20 09:46:29,637 - Using Python: C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-20 09:46:29,637 - Script path: I:\B-MioBlogSites\auto_update.py
+2025-04-20 09:46:29,650 - Working directory: I:\B-MioBlogSites
+2025-04-20 09:46:31,042 - Script executed successfully
