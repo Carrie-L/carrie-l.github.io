@@ -4,3 +4,4 @@ _site
 .jekyll-metadata
 vendor
 monitor_service.log 
+blog_push_local.log
