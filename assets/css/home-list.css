@@ -5,45 +5,85 @@
 }
 
 .post-preview {
-  border-bottom: 1px solid rgba(232, 210, 253, 0.1);  /* 更淡的分割线 */
+  border: 1px solid rgba(228, 206, 253, 0.85);
   display: flex;
   margin-bottom: 1.5rem;
-  padding: 1rem 0.8rem;
+  padding: 1rem 1.2rem;
   transition: all 0.3s ease;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.03);  /* 微弱的背景 */
+  background: rgba(rgb(203,203,229), 0.15);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.1);
+}
+
+/* 赛博朋克边框发光效果 */
+.post-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  padding: 1px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 192, 203, 0.3),
+    rgba(147, 112, 219, 0.2),
+    rgba(255, 192, 203, 0)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .post-preview:hover {
-  background: rgba(255, 255, 255, 0.07);  /* 悬浮时背景微亮 */
-  transform: translateX(5px);  /* 轻微的位移效果 */
+  background: rgba(0, 0, 0, 0.35);
+  transform: translateX(5px);
+  border-color: rgba(228, 206, 253, 0.9);
+  box-shadow: 0 0 25px rgba(228, 206, 253, 0.25);
 }
 
 .post-preview:last-child {
-  border-bottom: none;
+  border-bottom-style: solid;
 }
 
 .post-content {
   flex: 2;
   padding-right: 1.5rem;
+  font-family: 'Roboto_slab', sans-serif;
 }
 
 .post-content h3 {
   margin: 0 0 0.8rem 0;
-  font-size: 1.1rem;  /* 减小字体大小 */
+  font-size: 1rem;
   line-height: 1.4;
+ 
 }
 
 .post-content h3 a {
-  color: #e6e6fa;  /* 使用淡紫色 */
+  color: rgba(255, 255, 255, 1);
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
   padding-bottom: 2px;
+ 
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  
+  
 }
 
+
 .post-content h3 a:hover {
-  color: #fff;
+  color: #e5cefe;
+  text-shadow: 
+    0 0 15px rgba(255, 192, 203, 0.7),
+    0 0 25px rgba(255, 192, 203, 0.5);
 }
 
 .post-content h3 a::after {
@@ -53,8 +93,13 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, rgba(230,230,250,0.8), rgba(230,230,250,0));  /* 修改渐变颜色为淡紫色 */
+  background: linear-gradient(90deg, 
+    rgba(255, 192, 203, 0.8),
+    rgba(147, 112, 219, 0.8),
+    rgba(255, 192, 203, 0)
+  );
   transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.5);
 }
 
 .post-content h3 a:hover::after {
@@ -63,7 +108,7 @@
 
 .item-text {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
   line-height: 1.6;
   display: -webkit-box;
@@ -85,7 +130,7 @@
   }
   
   .post-content h3 {
-    font-size: 1rem;  /* 移动端更小的字体 */
+    font-size: 1rem;
   }
   
   .item-text {

@@ -12,7 +12,7 @@
 
 /* 定义自定义 CSS 变量 */
 :root {
-  --h3-glow: #562365; /* 定义发光颜色 */
+  --h3-glow: #522931; /* 定义发光颜色 */
   --copyright-glow: #e697ab; /* 定义发光颜色 */
   --text-normal: #ffffff; /* 正常文字颜色 */
   --border-color: #e8d2fd; /*item分割线颜色*/
@@ -139,24 +139,24 @@ nav a {
 
 
   /* 文字发光效果样式 */
-  .glow-text {
-    color: var(--text-normal); /* 使用自定义文字颜色 */
+  /* .glow-text {
+    color: var(--text-normal); 
     text-shadow: 
         0 0 5px var(--h3-glow), 
         0 0 10px var(--h3-glow), 
         0 0 20px var(--h3-glow), 
-        0 0 10px var(--h3-glow); /* 使用自定义变量的颜色作为发光颜色 */
-    transition: all 0.3s ease-in-out; /* 添加过渡效果 */
-  }
+        0 0 10px var(--h3-glow); 
+    transition: all 0.3s ease-in-out; 
+  } */
 
   /* 鼠标悬浮时发光效果更加明显 */
-  .glow-text:hover {
+  /* .glow-text:hover {
     text-shadow: 
         0 0 10px var(--h3-glow), 
         0 0 20px var(--h3-glow), 
         0 0 30px var(--h3-glow), 
-        0 0 40px var(--h3-glow); /* 鼠标悬浮时，扩大光晕效果 */
-  }
+        0 0 40px var(--h3-glow); 
+  } */
   
   .item-text{
     font-size: 14px;
@@ -228,6 +228,6 @@ transition: all 0.3s ease-in-out; /* 添加过渡效果 */
 }
 
 .glow-title {
-  animation: glowAnimation 1.5s ease-in-out infinite alternate; /* 呼吸光动画 */
+  animation: glowAnimation 1.5s ease-in-out infinite alternate; 
 }
 
