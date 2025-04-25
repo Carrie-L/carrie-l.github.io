@@ -13,7 +13,7 @@ import subprocess
 from datetime import datetime
 
 # 配置日志
-LOG_FILE = r"I:\B-MioBlogSites\blog_monitor_service.log"
+LOG_FILE = r"I:\B-BlogScripts\blog_monitor_service.log"
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(message)s',
