@@ -1,0 +1,94 @@
+/* 文章列表样式优化 */
+.article-list {
+  flex: 3;
+  margin-right: 5rem;
+}
+
+.post-preview {
+  border-bottom: 1px solid rgba(232, 210, 253, 0.1);  /* 更淡的分割线 */
+  display: flex;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0.8rem;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);  /* 微弱的背景 */
+}
+
+.post-preview:hover {
+  background: rgba(255, 255, 255, 0.07);  /* 悬浮时背景微亮 */
+  transform: translateX(5px);  /* 轻微的位移效果 */
+}
+
+.post-preview:last-child {
+  border-bottom: none;
+}
+
+.post-content {
+  flex: 2;
+  padding-right: 1.5rem;
+}
+
+.post-content h3 {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.1rem;  /* 减小字体大小 */
+  line-height: 1.4;
+}
+
+.post-content h3 a {
+  color: #e6e6fa;  /* 使用淡紫色 */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.post-content h3 a:hover {
+  color: #fff;
+}
+
+.post-content h3 a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(230,230,250,0.8), rgba(230,230,250,0));  /* 修改渐变颜色为淡紫色 */
+  transition: width 0.3s ease;
+}
+
+.post-content h3 a:hover::after {
+  width: 100%;
+}
+
+.item-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 适配移动端 */
+@media (max-width: 768px) {
+  .article-list {
+    margin-right: 0;
+  }
+  
+  .post-preview {
+    margin-bottom: 1rem;
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .post-content h3 {
+    font-size: 1rem;  /* 移动端更小的字体 */
+  }
+  
+  .item-text {
+    font-size: 0.85rem;
+  }
+} 

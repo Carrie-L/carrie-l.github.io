@@ -1,0 +1,63 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
+
+[博客文件和样式说明.md](mdc:博客文件和样式说明.md)
+[我的博客操作方法.md](mdc:我的博客操作方法.md)
+
+# Jekyll 博客操作规则
+
+## 核心原则
+请严格遵守用户为其 Jekyll 博客定义的特殊文件结构和工作流程。
+
+## 1. 文章分类与存放
+-   **禁止使用 `_posts` 文件夹**：新的博客文章 **必须** 存放在根目录下以 `_` 开头且首字母大写的分类文件夹中，例如 `_Android`, `_DSA`, `_Algorithm`。
+-   **创建新分类**: 如果需要创建新的博客分类，请创建一个新的 `_CategoryName` 文件夹（例如 `_Python`）。
+
+## 2. 配置文件 (`_config.yml`)
+-   **同步 `collections`**: 当创建新的分类文件夹 (如 `_NewCategory`) 时，必须在 `_config.yml` 文件的 `collections` 部分添加相应的配置：
+    ```yaml
+    collections:
+      NewCategory: # 对应文件夹名称，去掉下划线
+        output: true
+        permalink: /:collection/:path
+      # ... 其他分类 ...
+    ```
+
+## 3. Markdown 文件规范 (Front Matter)
+-   **必须包含 Front Matter**: 每篇新的 Markdown 文章开头 **必须** 包含以下 Front Matter 字段：
+    ```yaml
+    ---
+    layout: <布局名称> # 通常是分类名的小写，或根据具体情况指定
+    title: <文章标题>
+    tags: ["<标签1>", "<标签2>"]
+    category: <分类名称> # 必须与文件夹名称对应，去掉下划线，首字母大写 (例如: Android)
+    date: <YYYY-MM-DD>
+    ---
+    ```
+-   **`category` 字段**: 确保 `category` 字段的值与文章所在的 `_CategoryName` 文件夹名称（去掉 `_`）完全一致。
+
+## 4. 分类列表页面
+-   **创建分类 HTML**: 每个分类都需要在网站根目录下有一个对应的 HTML 文件（例如 `android.html`, `dsa.html`）用于展示该分类下的文章列表。
+-   **HTML 文件内容**: 这些 HTML 文件通常使用 `layout: list`，并通过 `{% for post in site.CategoryName %}` (例如 `site.Android`) 来遍历文章。
+-   **更新 `includes`**: 创建新分类后，可能需要根据 `我的博客操作方法.md` 中的说明，手动更新 `_includes/categories.html` 和 `tag.html` 文件以包含新的分类页面或集合。
+
+## 5. 页面优化建议
+-   **遵循现有结构**: 在提供页面优化建议（例如 CSS 样式调整、布局修改）时，请参考 `博客文件和样式说明.md` 中描述的文件和 CSS 类名，确保建议与现有结构兼容。 例如：
+    -   首页样式涉及 `index.html`, `layout/home.html`, `home.css`。
+    -   列表页样式涉及 `layout/list.html`, `css/default.css`, `category_list.css`, `tab.css` 等。
+    -   文章页样式涉及 `article.html`, `custom.css`。
+
+## 6. 注意自动化脚本
+-   **`auto_update.py`**: 用户有一个名为 `auto_update.py` 的自动化脚本，该脚本会自动处理部分新分类和新文章的配置工作（如添加 Front Matter、创建分类 HTML）。 提出的修改或操作建议应考虑到此脚本的存在，避免冲突，或在必要时提示用户运行此脚本。
+
+## 7. 工作流程提醒
+-   用户的标准操作流程包括：将 Markdown 文件放入分类文件夹 -> （可能运行 `auto_update.py`） -> 本地测试 (`bundle exec jekyll serve`) -> Git 推送。
+
