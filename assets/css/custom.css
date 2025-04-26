@@ -12,7 +12,7 @@ a:hover {
 }
 
 :root {
-  --toc-color: #818181;
+  --toc-color: #313030;
   --h2-color: #b2d45e;
 
   --header-height: 90px;
@@ -134,6 +134,8 @@ a:hover {
   /* 添加半透明背景 */
   padding: 20px;
   border-radius: 8px;
+  font-weight: 300;
+  font-size: 13px;
 }
 
 /* 当窗口宽度变小时，确保内容和目录不会重叠 */
@@ -199,6 +201,10 @@ a:hover {
 
 .post-content {
   color: #212121;
+  font-size: 16px !important;
+  letter-spacing: 0.012rem;
+  line-height: 2.5;
+  font-weight: 350;
 }
 
 /* 修改文章标题的样式 */
@@ -232,7 +238,7 @@ h1.post-title {
 .post-content h3 {
   color: #f39dc0;
   /* 自定义颜色，例如蓝色 */
-  font-size: 18px !important;
+  font-size: 26px !important;
   /* 自定义副标题大小 */
   font-weight: 700;
 
@@ -242,9 +248,9 @@ h1.post-title {
   color: #000000;
   /* 自定义颜色，例如蓝色 */
   font-weight: 700;
-  text-decoration: underline;
+  
   /* 添加下划线 */
-  font-size: 18px !important;
+  font-size: 22px !important;
 }
 
 

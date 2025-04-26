@@ -13,6 +13,7 @@ gem "github-pages", "~> 232", group: :jekyll_plugins
 
 group :jekyll_plugins do
   gem "jekyll-timeago", "~> 0.13.1"
+  gem "jekyll-paginate-v2"
 end
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.

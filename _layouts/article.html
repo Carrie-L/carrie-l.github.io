@@ -17,29 +17,24 @@ toc: true
 <nav class="toc">
   <h3 class="toc-title">目录</h3>
   {% include toc.html html=content %}
-  
 </nav>
-{% comment %} {% include toc.html html=content %} {% endcomment %}
-
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
-      {% comment %} <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time> {% endcomment %}
       {%- if page.tags -%}
-		{% for tag in page.tags %}			
-			• <span itemprop="tags" itemscope itemtype="http://schema.org/Person"><span class="p-tags h-card" itemprop="name"><a href="{{ site.url }}{{ site.baseurl }}/tag.html?tag={{ tag | uri_escape }}">{{ tag }}</a></span></span>
-			{% if forloop.last == false %}  {% endif %}
-		{% endfor %}
-      {%- endif -%}</p>
+        {% for tag in page.tags %}			
+          • <span itemprop="tags" itemscope itemtype="http://schema.org/Person">
+              <span class="p-tags h-card" itemprop="name">
+                <a href="{{ site.url }}{{ site.baseurl }}/tag.html?tag={{ tag | uri_escape }}">{{ tag }}</a>
+              </span>
+            </span>
+          {% if forloop.last == false %}  {% endif %}
+        {% endfor %}
+      {%- endif -%}
+    </p>
   </header>
-
-  
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
@@ -51,8 +46,6 @@ toc: true
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
-
-
 
 </div>
 
@@ -115,8 +108,5 @@ toc: true
             messageContainer.style.opacity = 0;
             messageContainer.style.transform = 'scale(1)'; // 恢复原始大小
         }, 3000); // 3秒后消失
-
-
-        
     });
 </script>
