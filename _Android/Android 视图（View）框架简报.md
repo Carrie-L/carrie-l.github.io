@@ -2,7 +2,7 @@
 layout: article
 title: "Android 视图（View）框架简报"
 date: 2025-03-06
-tags: ["getPaddingBottom()},", "getPaddingEnd()}.", "getPaddingTop()},", "getPaddingStart()},", "Android", "getPaddingLeft()},", "getPaddingRight()},"]
+tags: ["getPaddingBottom()},", "Android", "getPaddingEnd()}.", "getPaddingRight()},", "getPaddingLeft()},", "getPaddingTop()},", "getPaddingStart()},"]
 permalink: /android/android-shi-tu-view-kuang-jia-jian-bao/
 ---
 
