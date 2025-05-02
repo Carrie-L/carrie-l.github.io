@@ -59,6 +59,10 @@ pagination:
   OperatingSystem:
     output: true
     permalink: /:collection/:path
+  OS:
+    output: true
+    permalink: /:collection/:path
+
 
 
 
