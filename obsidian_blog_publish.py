@@ -113,7 +113,7 @@ class DirSelector:
         if custom_dir:
             # 验证自定义输入格式
             if not custom_dir.startswith('_'):
-                messagebox.showerror("格式错误", "自定义分类必须以_开头")
+                messagebox.showerror("格式错误", "自定义分类必须以_开头", parent=self.selector)
                 return
             
             # 移除_前缀并获取分类名
@@ -121,13 +121,17 @@ class DirSelector:
             
             # 验证首字母是否大写
             if not category_name[0].isupper():
-                messagebox.showerror("格式错误", "分类名称首字母必须大写")
+                messagebox.showerror("格式错误", "分类名称首字母必须大写", parent=self.selector)
+                return
+            
+            # 检查分类名是否已存在
+            if category_name in dirs:
+                messagebox.showerror("分类已存在", f"分类 '{category_name}' 已存在，请直接在上方选择或使用其他分类名", parent=self.selector)
                 return
                 
-            # 如果是新的分类名，添加到dirs数组
-            if category_name not in dirs:
-                dirs.append(category_name)
-                print(f"新增分类: {category_name}")
+            # 添加新的分类名到dirs数组
+            dirs.append(category_name)
+            print(f"新增分类: {category_name}")
             
             self.selected_dir = category_name
         else:
