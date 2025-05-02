@@ -1,11 +1,11 @@
 import os
 import sys
 import tkinter as tk
-from tkinter import Toplevel, Label, Button, Radiobutton, StringVar
+from tkinter import Toplevel, Label, Button, Radiobutton, StringVar, Frame, Canvas, Scrollbar
 import subprocess
 
 # 预设目录列表
-dirs = ["Android", "Algorithm", "DSA", "MCP", "Language"]
+dirs = ["Android", "Algorithm", "DSA", "MCP", "Language","OS"]
 
 class DirSelector:
     def __init__(self, file_path):
@@ -29,44 +29,53 @@ class DirSelector:
         # 创建顶层窗口
         self.selector = Toplevel(self.root)
         self.selector.title("选择博客分类")
-        self.selector.geometry("300x400")
-        self.selector.resizable(False, False)
+        self.selector.resizable(True, True)
         
         # 使窗口置顶
         self.selector.attributes('-topmost', True)
         
-        # 窗口居中
-        screen_width = self.selector.winfo_screenwidth()
-        screen_height = self.selector.winfo_screenheight()
-        x = (screen_width - 300) // 2
-        y = (screen_height - 400) // 2
-        self.selector.geometry(f"300x400+{x}+{y}")
+        # 创建Canvas和Scrollbar
+        canvas = Canvas(self.selector)
+        scrollbar = Scrollbar(self.selector, orient="vertical", command=canvas.yview)
+        scrollable_frame = Frame(canvas)
+        
+        # 配置Canvas
+        canvas.configure(yscrollcommand=scrollbar.set)
+        
+        # 绑定滚动框架大小变化事件
+        scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        
+        # 在Canvas中创建窗口
+        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         
         # 显示文章名
-        Label(self.selector, text=f"文章: {self.article_name}", 
+        Label(scrollable_frame, text=f"文章: {self.article_name}", 
               font=("Arial", 10), pady=5).pack(pady=10)
         
         # 标题
-        Label(self.selector, text="选择要发布到的博客分类:", 
+        Label(scrollable_frame, text="选择要发布到的博客分类:", 
               font=("Arial", 12, "bold")).pack(pady=10)
         
         # 创建单选按钮组
         self.dir_var = StringVar(value=dirs[0])  # 默认选择第一个
         
         for dir_name in dirs:
-            Radiobutton(self.selector, text=dir_name, variable=self.dir_var,
+            Radiobutton(scrollable_frame, text=dir_name, variable=self.dir_var,
                        value=dir_name, font=("Arial", 11),
                        pady=5, padx=20, anchor="w").pack(fill="x")
         
         # 自定义选项
-        Label(self.selector, text="或输入自定义分类:", 
+        Label(scrollable_frame, text="或输入自定义分类\n（_前缀 + 首字母大写的英文名）:", 
               font=("Arial", 10)).pack(pady=(15, 5), anchor="w", padx=20)
         
-        self.custom_var = tk.Entry(self.selector, font=("Arial", 10))
+        self.custom_var = tk.Entry(scrollable_frame, font=("Arial", 10))
         self.custom_var.pack(fill="x", padx=20, pady=5)
         
         # 按钮区域
-        button_frame = tk.Frame(self.selector)
+        button_frame = tk.Frame(scrollable_frame)
         button_frame.pack(pady=20)
         
         Button(button_frame, text="确认", font=("Arial", 11),
@@ -75,6 +84,28 @@ class DirSelector:
         
         Button(button_frame, text="取消", font=("Arial", 11),
               width=10, command=self.cancel).pack(side="left", padx=10)
+        
+        # 布局Canvas和Scrollbar
+        canvas.pack(side="left", fill="both", expand=True, padx=5)
+        scrollbar.pack(side="right", fill="y")
+        
+        # 设置初始窗口大小和最大高度
+        self.selector.update()
+        content_height = scrollable_frame.winfo_reqheight()
+        window_width = 300
+        window_height = min(content_height + 20, 600)  # 最大高度600像素
+        
+        # 窗口居中
+        screen_width = self.selector.winfo_screenwidth()
+        screen_height = self.selector.winfo_screenheight()
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+        self.selector.geometry(f"{window_width}x{window_height}+{x}+{y}")
+        
+        # 绑定鼠标滚轮事件
+        def _on_mousewheel(event):
+            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        canvas.bind_all("<MouseWheel>", _on_mousewheel)
     
     def confirm(self):
         # 优先使用自定义输入
