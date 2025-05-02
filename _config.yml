@@ -43,28 +43,6 @@ plugins:
 # 禁用日期解析
 show_excerpts: false
 
-# 分页设置
-
-pagination:
-  enabled: true             # 启用分页
-  per_page: 30               # 每页显示的文章数量 (您可以自行调整)
-  permalink: '/page:num/'   # 分页页面的 URL 格式，例如 /page2/
-  # collections: all        # 如果想包含所有 _config.yml 中定义的 collections
-  # 或者明确指定你想在首页分页的 collections:
-  collections: all
-  sort_field: 'date'        # 按日期排序
-  sort_reverse: true        # 日期降序（最新的在前）
-  # title: ':title - Page :num' # 可选：为分页页面设置标题格式
-  # limit: 0                # 可选：0 表示包含所有匹配的文章，不受数量限制
-  OperatingSystem:
-    output: true
-    permalink: /:collection/:path
-  OS:
-    output: true
-    permalink: /:collection/:path
-
-
-
 
 gems:
   - jekyll-paginate
@@ -85,6 +63,10 @@ collections:
   MCP:
     output: true
     permalink: /:collection/:path
+  OS:
+    output: true
+    permalink: /:collection/:path
+
 
 defaults:
   - scope:

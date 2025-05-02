@@ -45,7 +45,7 @@ title: Coding a Life with Mi07
 
 <main class="container">
   <div class="article-list">
-    {% assign all_posts = site.Android | concat: site.DSA | concat: site.Language | concat: site.MCP | sort: 'date' | reverse | concat: site.OperatingSystem | concat: site.OS %}
+    {% assign all_posts = site.Android | concat: site.DSA | concat: site.Language | concat: site.MCP  | concat: site.OS | sort: 'date' | reverse %}
     {% for post in all_posts  %}
       <article class="post-preview">
         <div class="post-content">
@@ -66,5 +66,5 @@ title: Coding a Life with Mi07
 
 
 <footer>
-  <p  class="copyright glow-text">&copy; 2024 Carrie . Mio. 保留所有权利。</p>
+  <p  class="copyright glow-text">&copy; 2025 Carrie . Mio. 保留所有权利。</p>
 </footer>
