@@ -56,6 +56,10 @@ pagination:
   sort_reverse: true        # 日期降序（最新的在前）
   # title: ':title - Page :num' # 可选：为分页页面设置标题格式
   # limit: 0                # 可选：0 表示包含所有匹配的文章，不受数量限制
+  OperatingSystem:
+    output: true
+    permalink: /:collection/:path
+
 
 
 gems:

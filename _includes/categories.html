@@ -4,7 +4,7 @@
     <div class="widget categories">
     <h3>分类</h3>
     {% for page in site.pages %}
-        {% if page.name == 'android.html' or page.name == 'mcp.html' or page.name == 'language.html' or page.name == 'english.html' or page.name == 'dsa.html' or page.name == 'algorithm.html' %}
+        {% if page.name == 'android.html' or page.name == 'operatingsystem.html' or page.name == 'mcp.html' or page.name == 'language.html' or page.name == 'english.html' or page.name == 'dsa.html' or page.name == 'algorithm.html' %}
         <a href="{{ page.url | prepend: site.baseurl }}" class="category-box cate-{{ forloop.index | modulo: 6 | plus: 1 }}">
             {{ page.title }}
         </a>
