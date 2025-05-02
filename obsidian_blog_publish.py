@@ -1,7 +1,7 @@
 import os
 import sys
 import tkinter as tk
-from tkinter import Toplevel, Label, Button, Radiobutton, StringVar, Frame, Canvas, Scrollbar
+from tkinter import Toplevel, Label, Button, Radiobutton, StringVar, Frame, Canvas, Scrollbar, messagebox
 import subprocess
 
 # 预设目录列表
@@ -111,7 +111,25 @@ class DirSelector:
         # 优先使用自定义输入
         custom_dir = self.custom_var.get().strip()
         if custom_dir:
-            self.selected_dir = custom_dir
+            # 验证自定义输入格式
+            if not custom_dir.startswith('_'):
+                messagebox.showerror("格式错误", "自定义分类必须以_开头")
+                return
+            
+            # 移除_前缀并获取分类名
+            category_name = custom_dir[1:]
+            
+            # 验证首字母是否大写
+            if not category_name[0].isupper():
+                messagebox.showerror("格式错误", "分类名称首字母必须大写")
+                return
+                
+            # 如果是新的分类名，添加到dirs数组
+            if category_name not in dirs:
+                dirs.append(category_name)
+                print(f"新增分类: {category_name}")
+            
+            self.selected_dir = category_name
         else:
             self.selected_dir = self.dir_var.get()
         
