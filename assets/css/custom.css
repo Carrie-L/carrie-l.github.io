@@ -136,6 +136,11 @@ a:hover {
   border-radius: 8px;
   font-weight: 300;
   font-size: 13px;
+  line-height: 1.7;
+
+  strong{
+    font-weight: 300;
+  }
 }
 
 /* 当窗口宽度变小时，确保内容和目录不会重叠 */
@@ -170,14 +175,18 @@ a:hover {
 }
 
 .toc-title {
-  text-align: center;
-  font-weight: 700;
+  text-align: left;
+  font-weight: 500;
+  color: #000000;
   letter-spacing: 0.5rem;
+  padding-left: 25px;
+  font-size: 30px;
 }
 
 .toc h2 {
   font-size: 18px;
   margin-bottom: 10px;
+  
 }
 
 .toc ul {
@@ -205,6 +214,12 @@ a:hover {
   letter-spacing: 0.012rem;
   line-height: 2.5;
   font-weight: 350;
+  
+  strong {
+    font-weight: 450;
+    font-family: 'SourceHanSerifSC-Regular';
+    
+  }
 }
 
 /* 修改文章标题的样式 */
@@ -214,6 +229,8 @@ h1.post-title {
   font-weight: 600;
   font-size: 2rem;
   font-weight: 800;
+  font-family: 'SourceHanSerifSC-Regular';
+  letter-spacing: 0.05rem;
 }
 
 
