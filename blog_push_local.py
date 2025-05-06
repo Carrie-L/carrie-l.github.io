@@ -172,6 +172,16 @@ def publish_to_blog(article_name: str, target_dir: str = r"I:\B-MioBlogSites\_An
         log_progress(f"开始Git操作: 切换到仓库目录 {git_repo_dir}")
         os.chdir(git_repo_dir)
         
+        # 检查并删除可能存在的.git/index.lock文件
+        index_lock_file = os.path.join(git_repo_dir, ".git", "index.lock")
+        if os.path.exists(index_lock_file):
+            log_progress(f"发现.git/index.lock文件，尝试删除...")
+            try:
+                os.remove(index_lock_file)
+                log_progress("成功删除.git/index.lock文件")
+            except Exception as e:
+                log_progress(f"删除.git/index.lock文件失败: {str(e)}")
+        
         log_progress("执行: git add .")
         subprocess.run(["git", "add", "."], check=True)
         
