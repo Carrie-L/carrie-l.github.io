@@ -3,7 +3,7 @@ layout: article
 title: "属性委托Property Delegation 和 KProperty"
 date: 2025-03-06
 permalink: /android/shu-xing-wei-tuo-property-delegation-he-kproperty/
-tags: ["Android", "Kotlin"]
+tags: ["Kotlin", "Android"]
 ---
 
  
