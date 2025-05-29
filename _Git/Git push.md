@@ -3,7 +3,7 @@ layout: article
 title: "Git push"
 date: 2025-05-29
 permalink: /git/git-push/
-tags: ["Git", "基础知识"]
+tags: ["基础知识", "Git"]
 ---
 
  
