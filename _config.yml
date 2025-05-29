@@ -66,6 +66,10 @@ collections:
   OS:
     output: true
     permalink: /:collection/:path
+  Git:
+    output: true
+    permalink: /:collection/:path
+
 
 
 defaults:
