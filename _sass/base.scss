@@ -1,0 +1,68 @@
+// Define CSS variables for the entire site based on Sass variables
+:root {
+  // Colors
+  --color-text: #{$color-text};
+  --color-text-light: #{$color-text-light};
+  --color-text-heading: #{$color-text};
+  --color-link: #{$color-link};
+  --color-link-hover: #{$color-link-hover};
+  --color-accent: #{$color-accent};
+  --color-primary: #{$color-primary};
+  --color-border: #{$color-border};
+  --color-background-light: #{$color-background-light};
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+
+  // Typography
+  --font-family-base: #{$font-family-base};
+  --font-size-base: #{$font-size-base};
+  --line-height-base: #{$line-height-base};
+
+  // Layout & Spacing
+  --spacing-unit: #{$spacing-unit};
+  --max-width: #{$max-width};
+  --border-radius: #{$border-radius};
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: var(--spacing-unit);
+  margin-bottom: calc(var(--spacing-unit) / 2);
+  font-weight: 600;
+}
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}

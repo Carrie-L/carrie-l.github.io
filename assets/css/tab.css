@@ -1,4 +1,3 @@
-
 .widget.categories {
     display: flex;
     flex-direction: column;
@@ -34,6 +33,11 @@
     .cate-4 { background-image: linear-gradient(145deg, #fcebed, #e49a96 50%); color: #d6756e; } 
     .cate-5 { background-image: linear-gradient(45deg, #b7eeed, #89e2e2 50%); color: #30c4cd; }
     .cate-6 { background-image: linear-gradient(45deg, #e0f3cc, #b6e289 50%); color: #95d455; } 
+}
+
+.widget-title {
+    font-size: 21px !important  ;
+    color: #212121 !important;
 }
 
 
@@ -77,4 +81,21 @@
 .color-19 { background: linear-gradient(150deg, #c1dfc4, #deecdd); }
 .color-20 { background: linear-gradient(150deg, #f0f2f0, #bdbbbe); } 
 
+}
+
+/* =============================================================================
+   Fixed Sidebar Layout
+   ========================================================================== */
+.sidebar {
+    position: fixed;
+    top: 90px; /* Distance from the top of the viewport */
+    right: 350px; /* Distance from the right of the viewport */
+    width: 300px;
+    height: calc(100vh - 215px); /* Calculate height to prevent overlapping footer */
+    overflow-y: auto; /* Add a scrollbar if content is too long */
+    padding: 1rem; /* Add some internal spacing */
+    background-color: #ffffff; /* Give it a background */
+    border-radius: 12px;
+    scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;
 }

@@ -1,3 +1,15 @@
-.current {
-  color: green;
-}
+// _sass/main.scss
+
+// Our new modular structure
+
+// 1. Variables - Must be imported first
+@import "variables";
+
+// 2. Base styles
+@import "base";
+
+// 3. Layout
+@import "layout";
+
+// 4. Components
+@import "components";

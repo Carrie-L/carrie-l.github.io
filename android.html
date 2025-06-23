@@ -2,19 +2,16 @@
 layout: list
 title: Android
 ---
-
-
-
       {% for post in site.Android %}
-        <article class="post-preview">
+        <article class="post-list">
           <div class="list-post-content">
             <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>            
             <div class="item-text">{{ post.excerpt | strip_html | truncatewords: 100 }}</div>
           </div>
         </article>
       {% endfor %}
-      </div>
-      {% include categories.html posts=site.Android %}
+  
+      
     
 
 

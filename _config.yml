@@ -23,9 +23,9 @@ author: 泠 |
 email: carrielib@qq.com
 description: >- # this means to ignore newlines until "baseurl:"
   飘风不终朝，骤雨不终日。
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://carrie-l.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  Carrie-L
+baseurl: '' # the subpath of your site, e.g. /blog
+url: https://carrie-l.github.io   # the base hostname & protocol for your site, e.g. http://example.com
+github_username: Carrie-L
 csdn_username: CicadaMay
 
 # Build settings
@@ -36,16 +36,16 @@ kramdown:
   math_engine: katex
 
 plugins:
-  - jekyll-feed
-  - jekyll-paginate-v2
-  - jekyll-toc
+- jekyll-feed
+- jekyll-paginate-v2
+- jekyll-toc
 
 # 禁用日期解析
 show_excerpts: false
 
 
 gems:
-  - jekyll-paginate
+- jekyll-paginate
 
 collections:
   Android:
@@ -66,9 +66,6 @@ collections:
   OS:
     output: true
     permalink: /:collection/:path
-  Git:
-    output: true
-    permalink: /:collection/:path
   Others:
     output: true
     permalink: /:collection/:path
@@ -77,24 +74,24 @@ collections:
 
 
 defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-  - scope:
-      path: ""
-    values:
-      layout: "default"
-      
+- scope:
+    path: ''
+    type: posts
+  values:
+    layout: post
+- scope:
+    path: ''
+  values:
+    layout: default
+
 # Add header_pages to control the navigation order
 header_pages:
-  - android.html
-  - dsa.html
-  - language.html
-  - mcp.html
-  - about.markdown
-  
+- android.html
+- dsa.html
+- language.html
+- mcp.html
+- about.markdown
+
 sass:
   sass_dir: _sass
   style: compressed
@@ -106,4 +103,7 @@ toc:
 
 webrick:
   headers:
-    Content-Security-Policy: "default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'"
+    Content-Security-Policy: "default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src
+      'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src
+      'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https:; connect-src 'self'"

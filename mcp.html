@@ -2,13 +2,11 @@
 layout: list
 title: MCP
 ---
-    {% for post in site.MCP %}
-    <article class="post-preview">
-      <div class="list-post-content">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <div class="item-text">{{ post.excerpt | strip_html | truncatewords: 100 }}</div>
-      </div>
-    </article>
-    {% endfor %}
+{% for post in site.MCP %}
+<article class="post-list">
+  <div class="list-post-content">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <div class="item-text">{{ post.excerpt | strip_html | truncatewords: 100 }}</div>
   </div>
-  {% include categories.html posts=site.MCP %}
+</article>
+{% endfor %}

@@ -3,18 +3,23 @@ layout: default
 ---
 
 <main class="container">
+
+
+
+  <!-- Column 1: Main Content Area -->
   <div class="article-list">
-  <article class="post-list">
-
+    <!-- The loop from category pages (e.g., mcp.html) will be injected here -->
     <header class="post-header">
-    <div class="list-title">{{ page.title | escape }}</div>
-      <link rel="stylesheet" href="{{ '/assets/css/category_list.css' | relative_url }}">
-     <link rel="stylesheet" href="{{ '/assets/css/tab.css' | relative_url }}">
-    </header>
-  
+  <div class="list-title">{{ page.title | escape }}</div>
+  </header>
     {{ content }}
-  
-  </article>
-
   </div>
-  </main>
+
+  <!-- Column 2: Sidebar -->
+  <aside class="sidebar">
+    {% include categories.html %}
+  </aside>
+  
+</main>
+
+

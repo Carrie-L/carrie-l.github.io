@@ -3,7 +3,9 @@
 
 
 
-
+.container {
+  flex-wrap: nowrap !important;
+}
 
 
 
@@ -51,7 +53,9 @@
 
 
 .sidebar {
-    flex: 1;
+    flex: 1 !important;
+    min-width: 280px;  /* 增加这一行！ */
+    max-width: 320px;  /* 最好也加上这一行 */
 }
 
 .sidebar .widget h3 {

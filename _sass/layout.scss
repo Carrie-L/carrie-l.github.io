@@ -1,0 +1,155 @@
+// _sass/layout.scss
+
+// Main container that wraps content
+.wrapper {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-unit;
+  padding-right: $spacing-unit;
+  
+}
+
+// Header styles
+.site-header {
+  max-height: 70px;
+}
+
+// Footer styles
+.site-footer {
+  border-top: 1px solid #e8e8e8;
+  padding: $spacing-unit 0;
+}
+
+// Page content
+.page-content {
+  padding: $spacing-unit 0;
+}
+
+// =============================================================================
+// Layout for List Page (Category/Tag listings)
+// This specifically targets the structure in _layouts/list.html
+// where .container wraps .article-list and .sidebar
+// =============================================================================
+.list-title {
+  color: #fff !important;
+  padding: 1px 6px   !important;
+  border-radius: 8px !important;
+  display: inline-block !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: var(--bg-color);
+  margin-top: 80px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  padding-right: 380px;
+  
+}
+
+.article-list {
+  flex: 1;
+  min-width: 0;
+}
+
+// All .sidebar styling is now exclusively managed by assets/css/tab.css
+// to prevent layout conflicts.
+
+// Header for the list page that contains the title
+
+
+
+
+// =============================================================================
+// Responsive Design: 响应式设计
+// =============================================================================
+
+// 平板设备 (宽度小于 1024px)
+@media (max-width: 1024px) {
+  .sidebar {
+    flex-basis: 260px;
+    width: 260px;
+  }
+}
+
+// 移动设备 (宽度小于 768px)
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; // 改为垂直堆叠
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static; // 取消粘性定位
+    max-height: none;
+    overflow-y: visible;
+    margin-top: 2.5rem;
+  }
+}
+
+// Article-specific layout
+// =====================================================
+.layout-article {
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; // Use nowrap to prevent wrapping
+    position: relative;
+    z-index: 1;
+    padding-top: $spacing-unit;
+    margin: 0 auto;
+    max-width: $max-width;
+  }
+
+  .post {
+    flex: 1;
+    margin-right: $spacing-unit;
+    min-width: 0; // Important for flex shrinking
+  }
+
+  .toc {
+    width: 350px;
+    position: sticky; // Make it sticky
+    top: $spacing-unit;
+    align-self: flex-start;
+    max-height: calc(100vh - #{$spacing-unit} * 2);
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: $border-radius;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+}
+
+// Responsive adjustments for article layout
+@media screen and (max-width: 1024px) {
+  .layout-article .post {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .layout-article .content-wrapper {
+    flex-direction: column;
+  }
+
+  .layout-article .toc {
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: $spacing-unit;
+    max-height: 400px; // Limit height on mobile
+  }
+
+  .layout-article .post {
+    margin-right: 0;
+  }
+}
+
