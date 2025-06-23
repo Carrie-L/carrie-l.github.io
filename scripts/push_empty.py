@@ -5,11 +5,12 @@ import logging
 # 创建空提交，当页面404时，执行这个git命令，使github actions重建
 
 # 配置日志
+LOG_FILE = r"I:\Z-logs\push_empty.log"
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(message)s',
     handlers=[
-        logging.FileHandler('push_empty.log', encoding='utf-8'),
+        logging.FileHandler(LOG_FILE, encoding='utf-8'),
         logging.StreamHandler()
     ]
 )

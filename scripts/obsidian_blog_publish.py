@@ -5,7 +5,7 @@ from tkinter import Toplevel, Label, Button, Radiobutton, StringVar, Frame, Canv
 import subprocess
 
 # 预设目录列表
-dirs = ["Android", "Algorithm", "DSA", "MCP", "Language","OS"]
+dirs = ["Android", "Algorithm", "DSA", "MCP", "Language","OS","Others"]
 
 class DirSelector:
     def __init__(self, file_path):
@@ -150,7 +150,7 @@ class DirSelector:
             return
         
         # 执行发布命令
-        script_dir = r"I:\B-MioBlogSites"
+        script_dir = r"I:\B-MioBlogSites\scripts"
         os.chdir(script_dir)
         
         cmd = f'call .venv\\Scripts\\activate.bat && python blog_push_local.py "{self.article_name}" --dir={self.selected_dir}'

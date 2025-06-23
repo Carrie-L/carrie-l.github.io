@@ -11,11 +11,9 @@ from watchdog.events import FileSystemEventHandler
 import logging
 import subprocess
 from datetime import datetime
-import re
-from pypinyin import lazy_pinyin
 
 # 配置日志
-LOG_FILE = r"I:\B-MioBlogSites\monitor_service.log"
+LOG_FILE = r"I:\Z-logs\blog_monitor_service.log"
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(message)s',
@@ -27,138 +25,11 @@ logging.basicConfig(
 
 class FolderMonitor(FileSystemEventHandler):
     def __init__(self):
-        self.script_path = r"I:\B-MioBlogSites\auto_update.py"
+        self.script_path = r"I:\B-MioBlogSites\scripts\auto_update.py"
         self.git_dir = r"I:\B-MioBlogSites"
         self.last_run_time = 0
         self.cooldown = 5
         self.python_path = r"C:\Users\windows\AppData\Local\Programs\Python\Python312\python.exe"
-        
-    def sanitize_filename(self, filename):
-        """
-        处理文件名，生成简短的英文文件名
-        """
-        # 预定义的中文关键词映射
-        keyword_map = {
-            '零基础': 'beginner',
-            '自学': 'self-study',
-            '法语': 'french',
-            '英语': 'english',
-            '算法': 'algo',
-            '数据结构': 'ds',
-            '编程': 'coding',
-            '学习': 'study',
-            '练习': 'practice',
-            '项目': 'project',
-            '教程': 'tutorial',
-            '实践': 'practice',
-            '指南': 'guide',
-            '入门': 'begin',
-            '高级': 'advanced',
-            '中级': 'intermediate',
-            '基础': 'basic',
-            '总结': 'summary',
-            '笔记': 'notes',
-            '示例': 'example',
-            '问题': 'problem',
-            '解决': 'solve',
-            '方案': 'solution',
-            '对比': 'vs',
-            '时间': 'time',
-            '方法': 'method',
-            '工具': 'tool',
-            '框架': 'framework',
-            '原理': 'principle',
-            '分析': 'analysis',
-            '开发': 'dev',
-            '测试': 'test',
-            '优化': 'optimize',
-            '改进': 'improve',
-            '源码': 'source',
-            '设计': 'design',
-            '架构': 'arch',
-            '模式': 'pattern',
-            '实现': 'impl',
-            '应用': 'app',
-            '服务': 'service',
-            'Android': 'android',
-            'Python': 'python',
-            'Java': 'java',
-            'DSA': 'dsa',
-            '详解': 'detail',
-            '用法': 'usage',
-            '区别': 'vs',
-            '到':'to'
-        }
-        
-        # 获取文件名和扩展名
-        name, ext = os.path.splitext(filename)
-        
-        # 记录原始文件名
-        logging.info(f'Processing filename: {name}')
-        
-        # 替换映射中的关键词
-        new_name = name
-        for cn, en in keyword_map.items():
-            if cn in new_name:
-                new_name = new_name.replace(cn, en)
-                logging.info(f'Replaced "{cn}" with "{en}"')
-        
-        # 如果文件名没有被映射表处理（还包含中文），则使用完整拼音
-        if re.search('[\u4e00-\u9fff]', new_name):
-            # 获取完整拼音
-            pinyin_list = lazy_pinyin(new_name)
-            # 使用完整拼音，用连字符连接
-            new_name = '-'.join(pinyin_list)
-            logging.info(f'Using full pinyin: {new_name}')
-
-        # 清理文件名，超出长度则截取
-        new_name = new_name.replace(' ', '-')
-        new_name = re.sub(r'[^\w\-]', '', new_name)
-        new_name = new_name.lower()
-        new_name = re.sub(r'-+', '-', new_name)
-        new_name = new_name.strip('-')
-
-        # 如果文件名过长，截取合适长度
-        max_length = 50
-        if len(new_name) > max_length:
-            new_name = new_name[:max_length]
-            logging.info(f'Truncated filename to: {new_name}')
-        
-        # 添加时间戳如果需要确保唯一性
-        if os.path.exists(os.path.join(os.path.dirname(filename), new_name + ext)):
-            timestamp = datetime.now().strftime('%m%d')
-            new_name = f"{new_name}-{timestamp}"
-        
-        final_name = new_name + ext
-        logging.info(f'Final filename: {final_name}')
-        return final_name
-
-    def process_new_file(self, file_path):
-        """处理新文件名"""
-        try:
-            dir_path = os.path.dirname(file_path)
-            old_filename = os.path.basename(file_path)
-            new_filename = self.sanitize_filename(old_filename)
-            new_file_path = os.path.join(dir_path, new_filename)
-            
-            # 如果文件名需要更改
-            if old_filename != new_filename:
-                logging.info(f'Renaming file: {old_filename} -> {new_filename}')
-                if os.path.exists(new_file_path):
-                    # 如果目标文件已存在，添加时间戳
-                    timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-                    name, ext = os.path.splitext(new_filename)
-                    new_filename = f"{name}-{timestamp}{ext}"
-                    new_file_path = os.path.join(dir_path, new_filename)
-                
-                os.rename(file_path, new_file_path)
-                logging.info(f'File renamed successfully')
-                return new_file_path
-            
-            return file_path
-        except Exception as e:
-            logging.error(f'Error processing file name: {str(e)}')
-            return file_path
 
     def git_commit_and_push(self):
         """执行Git提交和推送操作"""
@@ -272,12 +143,7 @@ class FolderMonitor(FileSystemEventHandler):
             
         self.last_run_time = current_time
         logging.info(f'Detected new file: {event.src_path}')
-        
-        # 处理文件名
-        new_file_path = self.process_new_file(event.src_path)
-        if new_file_path:
-            logging.info(f'Using processed file: {new_file_path}')
-            self.execute_update()
+        self.execute_update()
 
 class BlogMonitorService(win32serviceutil.ServiceFramework):
     _svc_name_ = "BlogMonitorService"
@@ -308,10 +174,13 @@ class BlogMonitorService(win32serviceutil.ServiceFramework):
 
     def main(self):
         folders_to_monitor = [
-            r"I:\B-MioBlogSites\_English",
+            r"I:\B-MioBlogSites\_Language",
             r"I:\B-MioBlogSites\_Algorithm",
             r"I:\B-MioBlogSites\_Android",
-            r"I:\B-MioBlogSites\_DSA"
+            r"I:\B-MioBlogSites\_DSA",
+            r"I:\B-MioBlogSites\_MCP",
+            r"I:\B-MioBlogSites\_OS",
+            r"I:\B-MioBlogSites\_Others"
         ]
 
         # 验证文件夹

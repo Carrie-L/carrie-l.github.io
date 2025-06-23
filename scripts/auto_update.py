@@ -30,6 +30,7 @@ config_file = os.path.join(root_directory, "_config.yml")
 categories_file = os.path.join(root_directory, "_includes/categories.html")
 tag_file = os.path.join(root_directory, "tag.html")
 index_file = os.path.join(root_directory, "index.html")
+monitor_service_file = os.path.join(root_directory, "scripts/blog_monitor_service.py")  # 新增监控服务文件路径
 
 def convert_to_pinyin(text):
     """将中文文本转换为拼音，用短横线连接"""
@@ -545,6 +546,92 @@ def update_index_html(new_categories):
         file.write(index_content)
     print(f"已更新 {index_file} 文件。")
 
+"""
+🎉 新增功能说明 2025/06/23
+✨ 新增函数：update_monitor_service()
+该函数会：
+读取监控服务文件：自动读取 blog_monitor_service.py 文件内容
+智能定位列表：使用正则表达式精确定位 folders_to_monitor 列表的开始和结束位置
+检查重复项：避免添加已存在的文件夹路径
+格式化添加：按照原有格式添加新的文件夹路径，保持代码美观
+错误处理：完善的异常处理机制，确保操作安全
+🔧 功能特点
+精确匹配：使用括号计数器确保找到正确的列表结束位置
+格式一致：新添加的文件夹路径与现有格式完全一致
+去重检查：自动检查并避免重复添加
+详细日志：提供详细的操作反馈信息
+📋 工作流程
+现在当运行 auto_update.py 时，如果检测到新的分类文件夹（如 _Python、_Web 等），脚本将：
+✅ 更新 _config.yml 中的 collections
+✅ 创建对应的 HTML 文件
+✅ 更新 categories.html
+✅ 更新 tag.html
+✅ 更新 index.html
+✅ 自动更新 blog_monitor_service.py 中的监控文件夹列表
+"""
+def update_monitor_service(new_categories):
+    """更新 blog_monitor_service.py 中的 folders_to_monitor 列表，添加新的分类文件夹。"""
+    try:
+        with open(monitor_service_file, "r", encoding="utf-8") as file:
+            service_content = file.read()
+
+        # 查找 folders_to_monitor 列表的开始和结束位置
+        start_pattern = r"folders_to_monitor = \["
+        end_pattern = r"\]"
+        
+        start_match = re.search(start_pattern, service_content)
+        if not start_match:
+            print("未找到 folders_to_monitor 列表，跳过更新监控服务文件。")
+            return
+            
+        # 从 folders_to_monitor 开始位置向后查找第一个 ]
+        start_pos = start_match.end()
+        bracket_count = 1
+        end_pos = start_pos
+        
+        # 查找匹配的右括号
+        while end_pos < len(service_content) and bracket_count > 0:
+            if service_content[end_pos] == '[':
+                bracket_count += 1
+            elif service_content[end_pos] == ']':
+                bracket_count -= 1
+            end_pos += 1
+        
+        if bracket_count != 0:
+            print("无法找到 folders_to_monitor 列表的结束位置。")
+            return
+            
+        # 提取现有的文件夹列表内容
+        folders_section = service_content[start_pos-1:end_pos]
+        
+        # 为新分类添加监控文件夹路径
+        new_folders = []
+        for category in new_categories:
+            folder_path = f'r"I:\\B-MioBlogSites\\_{category}"'
+            if folder_path not in folders_section:
+                new_folders.append(f'            {folder_path}')
+                print(f"添加监控文件夹: _{category}")
+        
+        if new_folders:
+            # 在列表末尾添加新文件夹（在最后一个 ] 之前）
+            insert_pos = end_pos - 1  # ] 符号的位置
+            new_folders_str = ',\n' + ',\n'.join(new_folders)
+            
+            # 插入新的文件夹路径
+            service_content = service_content[:insert_pos] + new_folders_str + service_content[insert_pos:]
+            
+            # 写回文件
+            with open(monitor_service_file, "w", encoding="utf-8") as file:
+                file.write(service_content)
+            print(f"已更新 {monitor_service_file} 文件，添加了 {len(new_folders)} 个新监控文件夹。")
+        else:
+            print("所有新分类文件夹已在监控列表中，无需更新。")
+            
+    except Exception as e:
+        print(f"更新监控服务文件时发生错误: {str(e)}")
+        import traceback
+        print(f"错误详情:\n{traceback.format_exc()}")
+
 def auto_update():
     """自动更新 _config.yml、创建 HTML 文件和更新其他相关文件。"""
     # 从 _config.yml 中读取现有的 collections
@@ -573,6 +660,9 @@ def auto_update():
 
     # 更新 index.html 文件
     update_index_html(new_categories)
+
+    # 更新监控服务文件  # 新增
+    update_monitor_service(new_categories)
 
 # --- Main Entry ---
 def main():

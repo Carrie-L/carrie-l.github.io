@@ -1,6 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
-set SCRIPT_PATH="I:\B-MioBlogSites\blog_monitor_service.py"
+set SCRIPT_PATH="I:\B-MioBlogSites\scripts\blog_monitor_service.py"
 
 if "%1"=="install" (
     echo Installing Blog Monitor Service...
@@ -51,13 +51,13 @@ if "%1"=="restart" (
 
 if "%1"=="logs" (
     echo Opening log file...
-    start notepad "I:\B-MioBlogSites\blog_monitor_service.log"
+    start notepad "I:\Z-logs\blog_monitor_service.log"
     goto :eof
 )
 
 if "%1"=="push" (
     echo Executing empty commit...
-    python "I:\B-MioBlogSites\push_empty.py"
+    python "I:\B-MioBlogSites\scripts\push_empty.py"
     goto :eof
 )
 

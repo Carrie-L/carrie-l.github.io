@@ -9,11 +9,12 @@ import argparse
 import sys
 
 # 配置日志
+LOG_FILE = r"I:\Z-logs\blog_push_local.log"
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('blog_push_local.log'),
+        logging.FileHandler(LOG_FILE, encoding='utf-8'),
         logging.StreamHandler(sys.stdout)  # 同时输出到控制台
     ]
 )
