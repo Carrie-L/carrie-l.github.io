@@ -30,6 +30,18 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  line-height: $base-line-height;
+  -webkit-text-size-adjust: 100%;
+  overflow-y: scroll;
+  
+  /* Firefox custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #fbc2eb #fdebf1; /* thumb and track color */
+}
+
 body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
@@ -65,4 +77,38 @@ img {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
+}
+
+/*-----------------------------------------------*/
+// Radiant Animated Scrollbar (for Webkit)
+/*-----------------------------------------------*/
+
+@keyframes radiant-scrollbar {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdebf1; /* A very light, soft pink for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ff9a9e, #fbc2eb, #a18cd1, #fad0c4, #ff9a9e);
+  background-size: 400% 400%;
+  border-radius: 10px;
+  animation: radiant-scrollbar 10s ease infinite;
+  border: 2px solid #fdebf1;
+  transition: background 0.3s ease;
+}
+
+/* Style for the scrollbar thumb when active (being clicked) */
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(45deg, #e73c7e, #a18cd1, #e73c7e) !important;
+  animation: none;
 }

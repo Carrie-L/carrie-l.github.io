@@ -2,16 +2,21 @@
 layout: default
 ---
 
+<header class="page-header">
+  <div class="list-title">
+    {% if page.title == "Tags" %}
+      <!-- This will be populated by the script in tag.html -->
+    {% else %}
+      {{ page.title | escape }}
+    {% endif %}
+  </div>
+</header>
+
 <main class="container">
-
-
 
   <!-- Column 1: Main Content Area -->
   <div class="article-list">
-    <!-- The loop from category pages (e.g., mcp.html) will be injected here -->
-    <header class="post-header">
-  <div class="list-title">{{ page.title | escape }}</div>
-  </header>
+    <!-- The loop from category pages OR the script output from tag.html will be injected here -->
     {{ content }}
   </div>
 

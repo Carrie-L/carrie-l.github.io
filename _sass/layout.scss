@@ -153,3 +153,73 @@
   }
 }
 
+/* =============================================================================
+   Article Page Layout (from legacy custom.css)
+   ========================================================================== */
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  position: relative;
+  z-index: 1;
+  padding-top: 100px;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.post {
+  flex: 1;
+  min-width: 0;
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+}
+
+.toc {
+  width: 300px;
+  position: fixed;
+  right: 80px;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 1200px) {
+  .toc {
+    display: none;
+  }
+  .overlay-image-container {
+    display: none;
+  }
+  .post {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+.sidebar .categories a {
+  // ... existing styles ...
+}
+
+.sidebar .categories {
+  margin-bottom: 2rem;
+}
+
+/* Category color styles based on pre-assigned classes - Aesthetic Order */
+.sidebar .categories .cate-1 { background-color: var(--cate1); } /* 粉红 */
+.sidebar .categories .cate-2 { background-color: var(--cate4); } /* 柔黄 */
+.sidebar .categories .cate-3 { background-color: var(--cate2); } /* 薄荷绿 */
+.sidebar .categories .cate-4 { background-color: var(--cate5); } /* 天蓝 */
+.sidebar .categories .cate-5 { background-color: var(--cate6); } /* 薰衣草紫 */
+.sidebar .categories .cate-6 { background-color: var(--cate3); } /* 珊瑚橙 */
+
+.sidebar .tags {
+  a {
+    // ... existing code ...
+  }
+}
+

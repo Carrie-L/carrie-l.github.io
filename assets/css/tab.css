@@ -89,7 +89,7 @@
 .sidebar {
     position: fixed;
     top: 90px; /* Distance from the top of the viewport */
-    right: 350px; /* Distance from the right of the viewport */
+    right: 300px; /* Distance from the right of the viewport */
     width: 300px;
     height: calc(100vh - 215px); /* Calculate height to prevent overlapping footer */
     overflow-y: auto; /* Add a scrollbar if content is too long */

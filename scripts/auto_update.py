@@ -462,8 +462,6 @@ title: {lowercase_category}
       </div>
     </article>
     {{% endfor %}}
-  </div>
-  {{% include categories.html posts=site.{category} %}}
 """
         # 写入新的 HTML 文件
         with open(f"{lowercase_category}.html", "w", encoding="utf-8") as file:

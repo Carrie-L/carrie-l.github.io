@@ -93,16 +93,31 @@ nav a {
   background-color: rgb(255, 253, 253,0); 
   display: flex;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1350px;
   padding: 2rem;
   flex: 1;
 }
 
 .article-list {
-  flex: 3;
-  margin-right: 5rem;
+  margin-top: -30px !important;
+  margin-right: 300px !important;
 }
 
+
+.sidebar {
+  position: fixed !important;
+  top: 170px  !important; /* Distance from the top of the viewport */
+  right: 100px !important; /* Distance from the right of the viewport */
+  width: 300px !important;
+  height: calc(100vh - 250px) !important; /* Calculate height to prevent overlapping footer */
+  overflow-y: auto !important; /* Add a scrollbar if content is too long */
+  padding: 1rem !important; /* Add some internal spacing */
+  background-color: #ffffff; /* Give it a background */
+  border-radius: 12px;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;
+  flex: 1 !important;
+}
 
 .post-preview {
   border-bottom: 1px solid var(--border-color);
@@ -184,9 +199,14 @@ max-width: 200px;
 object-fit: cover;
 }
 
-.sidebar {
-flex: 1;
-}
+
+/* 
+.home-sidebar {
+  flex: 1;
+  margin-right: 5rem;
+} */
+
+
 
 /* 覆盖层容器的样式 */
 .overlay-image-container {

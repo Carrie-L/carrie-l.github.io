@@ -3,12 +3,12 @@
   <aside class="sidebar">
     <div class="widget categories">
     <h3 class="widget-title">分类</h3>
-    {% for page in site.pages %}
-        {% if page.name == 'android.html' or page.name == 'others.html' or page.name == 'git-list.html' or page.name == 'os.html' or page.name == 'mcp.html' or page.name == 'language.html' or page.name == 'english.html' or page.name == 'dsa.html' or page.name == 'algorithm.html' %}
-        <a href="{{ page.url | prepend: site.baseurl }}" class="category-box cate-{{ forloop.index | modulo: 6 | plus: 1 }}">
-            {{ page.title }}
-        </a>
-        {% endif %}
+    {% assign category_names = "android.html,others.html,git-list.html,os.html,mcp.html,language.html,english.html,dsa.html,algorithm.html" | split: "," %}
+    {% assign category_pages = site.pages | where_exp: "item", "category_names contains item.name" %}
+    {% for page in category_pages %}
+      <a href="{{ page.url | prepend: site.baseurl }}" class="category-box cate-{{ forloop.index0 | modulo: 6 | plus: 1 }}">
+          {{ page.title }}
+      </a>
     {% endfor %}
     </div>
     
