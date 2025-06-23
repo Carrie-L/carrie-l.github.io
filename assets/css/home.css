@@ -100,15 +100,15 @@ nav a {
 
 .article-list {
   margin-top: -30px !important;
-  margin-right: 300px !important;
+  margin-right: 50px !important;
 }
 
 
 .sidebar {
   position: fixed !important;
   top: 170px  !important; /* Distance from the top of the viewport */
-  right: 100px !important; /* Distance from the right of the viewport */
-  width: 300px !important;
+  right: 120px !important; /* Distance from the right of the viewport */
+  width: 320px !important;
   height: calc(100vh - 250px) !important; /* Calculate height to prevent overlapping footer */
   overflow-y: auto !important; /* Add a scrollbar if content is too long */
   padding: 1rem !important; /* Add some internal spacing */

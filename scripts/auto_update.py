@@ -530,11 +530,12 @@ def update_index_html(new_categories):
         original_assign = match.group(0)
         new_assign = original_assign
 
-        # 添加新分类到 all_posts 中，使用大写的分类名，如 `site.Algorithm`
+        # 添加新分类到 all_posts 中，确保在 sort 之前
         for category in new_categories:
             if f"| concat: site.{category}" not in new_assign:
-                new_assign = new_assign.replace(" %}", f" | concat: site.{category} %}}")
-                print(f"在 tag.html 中添加: | concat: site.{category}")
+                # 在 | sort: 'date' 前插入新分类，使其参与排序
+                new_assign = new_assign.replace(" | sort: 'date'", f" | concat: site.{category} | sort: 'date'")
+                print(f"在 index.html 中添加: | concat: site.{category}")
 
         # 替换原有 assign 语句
         index_content = index_content.replace(original_assign, new_assign)

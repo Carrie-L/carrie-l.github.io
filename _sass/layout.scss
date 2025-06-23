@@ -223,3 +223,20 @@
   }
 }
 
+/*-----------------------------------------------*/
+// Mobile-specific overrides
+/*-----------------------------------------------*/
+@media screen and (max-width: 768px) {
+  // 隐藏首页的GIF和侧边栏
+  .overlay-image-container,
+  .sidebar {
+    display: none !important;
+  }
+
+  // 调整首页文章列表的布局
+  .container {
+    flex-direction: column !important;
+    padding-right: 0 !important; // 移除为侧边栏留出的空间
+  }
+}
+
