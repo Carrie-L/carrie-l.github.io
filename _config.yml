@@ -54,9 +54,6 @@ collections:
   DSA:
     output: true
     permalink: /:collection/:path
-  Algorithm:
-    output: true
-    permalink: /:collection/:path
   Language:
     output: true
     permalink: /:collection/:path

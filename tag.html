@@ -4,7 +4,7 @@ layout: list
 
 <!-- This hidden div contains all posts, with a simplified structure -->
 <div id="all-posts" style="display: none;">
-  {% assign all_posts = site.DSA | concat: site.Android | concat: site.Algorithm | concat: site.Language | concat: site.MCP | concat: site.OS | concat: site.Others %}
+  {% assign all_posts = site.DSA | concat: site.Android | concat: site.Language | concat: site.MCP | concat: site.OS | concat: site.Others %}
   {% for post in all_posts %}
     <article class="post-list" data-tags="{{ post.tags | join: ' ' }}">
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
