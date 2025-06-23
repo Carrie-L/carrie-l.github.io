@@ -69,6 +69,10 @@ collections:
   Git:
     output: true
     permalink: /:collection/:path
+  Others:
+    output: true
+    permalink: /:collection/:path
+
 
 
 
