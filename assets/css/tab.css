@@ -1,3 +1,19 @@
+/* 桌面端显示site-nav，平板端隐藏 */
+@media screen and (max-width: 1440px) {
+  .site-nav {
+    display: none !important;
+  }
+  
+}
+
+/* 这个只在手机端显示，作为 汉堡菜单 点击后的分类导航 */
+@media screen and (min-width: 1440px) {
+    .mobile-categories{
+        display: none !important;
+    }
+}
+
+
 .widget.categories {
     display: flex;
     flex-direction: column;
@@ -99,3 +115,158 @@
     scrollbar-width: none;          /* Firefox */
   -ms-overflow-style: none;
 }
+
+/* 平板端样式调整 - 分类页面 */
+@media screen and (max-width: 1440px) and (min-width: 769px) {
+  /* 调整header布局，确保导航栏不换行 */
+  .site-header {
+    padding: 0 20px !important; /* 增加左右内边距 */
+  }
+  
+  .site-header .wrapper {
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important; /* 防止换行 */
+  }
+  
+  /* 调整侧边栏在平板端的位置 */
+  .sidebar {
+    right: 40px !important; /* 侧边栏靠右，边距50px */
+    width: 280px !important; /* 稍微减小宽度 */
+    top: 95px !important;
+    height: calc(100vh - 215px) !important;
+  }
+  
+  /* 调整容器布局 */
+  .container {
+    padding-right: 0 !important; /* 移除右边距，让文章列表自适应 */
+    padding-left: 20px !important; /* 左边小边距 */
+  }
+  
+  /* 调整文章列表 */
+  .article-list {
+    margin-left: 0 !important; /* 靠左对齐 */
+    margin-right: 350px !important; /* 为侧边栏留出空间：50px(侧边栏右边距) + 280px(侧边栏宽度) + 20px(间距) */
+    max-width: none !important; /* 移除最大宽度限制，让右边距决定动态宽度 */
+    width: auto !important; /* 自动宽度 */
+  }
+}
+
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: black;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/*  手机布局 分类页面 (单列布局) */
+@media screen and (max-width: 768px)  {
+    .site-nav {
+      display: block !important;
+    }
+
+    .menu-icon {
+        display: block !important; /* 显示汉堡图标 */
+        cursor: pointer;
+        font-size: 1.5rem; /* 调整 emoji 大小 */
+        line-height: 1; /* 防止 emoji 周围的额外空间 */
+        margin-top: 6px;
+      }
+    
+    /* 默认隐藏trigger内容 */
+    .site-nav .trigger {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important;
+        right: -20px !important;
+        background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.98), 
+        rgba(248, 249, 250, 0.95)
+      ) !important;
+      backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(228, 206, 253, 0.3) !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+      padding: 1rem !important;
+        min-width: 180px !important;
+        z-index: 1000 !important;
+        margin-top: 25px !important;
+      }
+
+    /* 当checkbox被选中时显示trigger */
+    .site-nav input:checked ~ .trigger {
+      display: block !important;
+    }
+
+    .category-link {
+      display: block !important;
+      padding: 0.2rem 0.8rem !important;
+      margin: 0.2rem 0 !important;
+      color: #7ec57f !important;
+      text-decoration: none !important;
+      border-radius: 6px !important;
+      font-size: 1rem !important;
+      font-weight: 500 !important;
+      transition: all 0.2s ease !important;
+      border-left: 3px solid transparent !important;
+    }
+
+    .category-link:hover {
+      background: linear-gradient(90deg, 
+        rgba(228, 206, 253, 0.15), 
+        rgba(228, 206, 253, 0.05)
+      ) !important;
+      color: #f093fb !important;
+      border-left-color: #d57eeb !important;
+      transform: translateX(3px) !important;
+    }
+
+    .site-nav .page-link:not(.category-link) {
+        display: none !important;
+      }
+  
+    .sidebar {
+      display: none !important;
+    }
+
+    
+  /* 调整容器为单列布局 */
+  .container {
+    flex-direction: column !important;
+    padding: 0 0.5rem !important; /* 更小的左右内边距 */
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* 调整文章列表充满屏幕 */
+  .article-list {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+    /* 调整页面标题 */
+    .page-header {
+      padding: 1rem 15px !important;
+      text-align: left !important; /* 左对齐 */
+    }
+    
+    .list-title {
+        font-size: 14px !important;
+        margin-top: 40px !important;
+        padding: 0 0.5rem !important;
+      }
+    
+
+  }
+
+
