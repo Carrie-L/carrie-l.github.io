@@ -183,7 +183,7 @@ nav a {
 
 .article-list .post-preview:hover {
   transform: translateX(8px) !important;
-  background: rgba(228, 206, 253, 0.1) !important; /* 悬停时紫色背景 */
+ 
   border-radius: 8px !important;
   padding-left: 1rem !important;
   padding-right: 1rem !important;
@@ -321,7 +321,7 @@ nav a {
   background-color: transparent !important;
   background-image: none !important;
   transform: translateX(5px) !important;
-  border-color: rgba(228, 206, 253, 0.9) !important;
+ 
   box-shadow: none !important;
 }
 
@@ -347,8 +347,8 @@ nav a {
 }
 
 .article-list .post-preview:hover {
-  background: rgba(84, 114, 121, 0.15) !important; /* hover时稍微加深背景，但仍然很淡 */
-  border-color: rgba(228, 206, 253, 0.15) !important; /* hover时稍微加强边框 */
+  border-color: rgba(228, 206, 253, 0.5) !important;
+  background: rgba(228, 206, 253, 0.2) !important;
   transform: translateY(-1px) !important; /* 轻微上移效果 */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important; /* hover时更自然的阴影 */
   backdrop-filter: blur(1.5px) !important;
