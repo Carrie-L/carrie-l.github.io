@@ -53,9 +53,7 @@ title: Coding a Life with Mi07
           <h3 class="glow-text"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
           <p class="item-text">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
         </div>
-        {% if post.image %}
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-image">
-        {% endif %}
+       
       </article>
     {% endfor %}
   </div>

@@ -74,6 +74,18 @@
 
 // Styles for the article content itself (from custom.css)
 .post-content {
+  // 强制代码块内的长字符串换行
+  code {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    // 如果背景和颜色需要调整，可以在这里添加
+    // background-color: #f5f5f5;
+    // color: #333;
+    // padding: 2px 4px;
+    // border-radius: 4px;
+  }
+
   color: #212121;
   font-size: 16px;
   letter-spacing: 0.012rem;
@@ -119,6 +131,7 @@
     color: #f39dc0;
     font-size: 26px !important;
     font-weight: 700;
+
   }
 
   h4 {
@@ -140,8 +153,15 @@ h1.post-title {
   color: #f39dc0;
   font-weight: 800;
   font-size: 2rem;
-  // font-family: 'SourceHanSerifSC-Regular'; // Ensure this font is loaded or comment out
+  font-family: 'SourceHanSerifSC-Regular';
   letter-spacing: 0.05rem;
+  word-wrap: break-word;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-top: 4rem;
+  }
 }
 
 /*-----------------------------------------------*/
@@ -241,6 +261,12 @@ h1.post-title {
   font-size: 2rem;
   font-family: 'SourceHanSerifSC-Regular';
   letter-spacing: 0.05rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-top: 4rem;
+  }
 }
 
 // Post content
@@ -254,6 +280,13 @@ h1.post-title {
   strong {
     font-weight: 450;
     font-family: 'SourceHanSerifSC-Regular';
+  }
+
+  h1 {
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem !important;
+      line-height: 1.3 !important;
+    }
   }
 
   h2 {
@@ -278,5 +311,12 @@ h1.post-title {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: 600;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.25rem !important;
+      line-height: 1.3 !important;
+    }
   }
+
+
 }

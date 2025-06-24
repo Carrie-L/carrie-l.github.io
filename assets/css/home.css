@@ -23,10 +23,8 @@
   --disabled-color: #999999;
 }
 
-
-
 body {
-    background-color: #000000;
+    background-color: #000000 !important; /* 强制覆盖base.scss中的白色背景 */
     background-image: url('../images/aniya.jpg');
     background-size: cover;
     background-position: center;
@@ -34,21 +32,30 @@ body {
     background-repeat: no-repeat;
     min-height: 100vh;
     font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+    line-height: 1.1;
     margin: 0;
     padding: 0;
     animation: backgroundFadeIn 1s ease-in-out;
-  }
+    overflow-x: hidden; /* 禁止水平滚动 */
+    width: 100vw; /* 确保body宽度不超过视窗 */
+    box-sizing: border-box; /* 包含padding和border在内的盒模型 */
+}
 
-  
+/* 确保所有元素使用border-box */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 .content-wrapper {
     background-color: rgba(255, 255, 255, 0.8); 
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
-  }
-  
-  header {
+    max-width: 100%; /* 防止超出视窗 */
+    box-sizing: border-box;
+}
+
+header {
     background-image: url('../images/aniya.jpg');
     background-size: cover;
     background-position: center;
@@ -60,22 +67,26 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     background-image: none;
-  }
+    max-width: 100vw; /* 防止超出视窗宽度 */
+    overflow: hidden; /* 隐藏溢出内容 */
+}
 
 header h1 {
     margin: 0 20px;
     font-size: 2rem; /* 增加标题大小 */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* 添加文字阴影以增加可读性 */
     font-family: 'Space Wham', sans-serif; /* 设置字体为 Space Wham */
+    max-width: calc(100vw - 220px); /* 确保标题不超出视窗 */
+    word-wrap: break-word; /* 长单词自动换行 */
 }
 
 .welcome-message{
-  margin:20px 170px;
+  margin: 20px 170px;
   font-size: 14px !important;
+  max-width: calc(100vw - 220px); /* 防止超出视窗 */
+  word-wrap: break-word;
 }
 
-
-  
 nav {
     margin-top: 2rem;
 }
@@ -90,123 +101,158 @@ nav a {
 }
   
 .container {
-  background-color: rgb(255, 253, 253,0); 
   display: flex;
   margin: 0 auto;
-  max-width: 1350px;
+  max-width: 100vw; /* 改为100vw防止超出视窗 */
+  width: 100%; /* 确保宽度不超过父容器 */
   padding: 2rem;
   flex: 1;
+  box-sizing: border-box;
+  overflow: hidden; /* 隐藏溢出内容 */
+  background: transparent !important; /* 强制透明背景 */
 }
 
 .article-list {
+  flex: 3;
   margin-top: -30px !important;
-  margin-right: 50px !important;
+  margin-right: 20rem;
+  align-items: center !important;
+  max-width: calc(100vw - 400px); /* 为侧边栏留出空间 */
+  overflow: hidden; /* 防止内容溢出 */
+  margin-left: 310px;
+  border-radius: 12px !important;
+ 
+  padding: 1.5rem !important;
 }
-
 
 .sidebar {
   position: fixed !important;
   top: 170px  !important; /* Distance from the top of the viewport */
-  right: 120px !important; /* Distance from the right of the viewport */
-  width: 320px !important;
-  height: calc(100vh - 250px) !important; /* Calculate height to prevent overlapping footer */
+  right: 120px !important; /* 减少右边距，防止超出视窗 */
+  width: 300px !important; /* 稍微减小宽度 */
+  max-width: 25vw !important; /* 确保不超过视窗的25% */
+  height: calc(100vh - 240px) !important; /* Calculate height to prevent overlapping footer */
   overflow-y: auto !important; /* Add a scrollbar if content is too long */
+  overflow-x: hidden !important; /* 禁止水平滚动 */
   padding: 1rem !important; /* Add some internal spacing */
-  background-color: #ffffff; /* Give it a background */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(203, 203, 229, 0.08),
+    rgba(255, 192, 203, 0.05)
+  ) !important; /* 改为半透明渐变背景 */
+  border: 1px solid rgba(228, 206, 253, 0.3) !important; /* 添加微妙边框 */
   border-radius: 12px;
   scrollbar-width: none;          /* Firefox */
   -ms-overflow-style: none;
   flex: 1 !important;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px) !important; /* 添加毛玻璃效果 */
+  box-shadow: 
+    0 4px 15px rgba(228, 206, 253, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.1) !important; /* 添加阴影 */
 }
 
-.post-preview {
-  border-bottom: 1px solid var(--border-color);
-  display: flex;
-  margin-bottom: 1.3rem;
-  padding-bottom: 0.5rem;
+/* 单个卡片透明背景 + 分割线 */
+.post-preview,
+.article-list .post-preview {
+  background: transparent !important;
+  border: 1px solid #e5cefe !important; /* 添加微妙边框 */
+  border-radius: 12px;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  /* 添加底部分割线 */
+  border-bottom: 0px solid #e5cefe !important;
+  padding: 1.2rem 0 !important;
+  margin-bottom: 0 !important;
+}
 
-  &:last-child {
-      border-bottom: none;
-      margin-bottom: 0; 
-      padding-bottom: 0; 
-    }
+/* 最后一个卡片不显示分割线 */
+.article-list .post-preview:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.article-list .post-preview:hover {
+  transform: translateX(8px) !important;
+  background: rgba(228, 206, 253, 0.1) !important; /* 悬停时紫色背景 */
+  border-radius: 8px !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 
 .post-content {
-  flex: 2;
-
-  h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 18px;
-      
-      a {
-          color: #fff; 
-          text-decoration: none;
-          transition: color 0.3s ease;
-
-          &:hover {
-              color: darken(#FF69B4, 10%); 
-          }
-      }
-  }
-
-  p {
-      font-size: 15px; 
-      color: #fff; 
-      line-height: 1.6; 
-  }
-
-
-  /* 文字发光效果样式 */
-  /* .glow-text {
-    color: var(--text-normal); 
-    text-shadow: 
-        0 0 5px var(--h3-glow), 
-        0 0 10px var(--h3-glow), 
-        0 0 20px var(--h3-glow), 
-        0 0 10px var(--h3-glow); 
-    transition: all 0.3s ease-in-out; 
-  } */
-
-  /* 鼠标悬浮时发光效果更加明显 */
-  /* .glow-text:hover {
-    text-shadow: 
-        0 0 10px var(--h3-glow), 
-        0 0 20px var(--h3-glow), 
-        0 0 30px var(--h3-glow), 
-        0 0 40px var(--h3-glow); 
-  } */
-  
-  .item-text{
-    font-size: 14px;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 1 !important;  /* 限制为1行 */
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
+  width: 100%; /* 占满整个卡片宽度 */
+  padding: 1.2rem 1.2rem; /* 内边距移到这里 */
+  font-family: 'Roboto_slab', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直居中内容 */
+  height: 100%; /* 占满父容器高度 */
 }
 
-
-
-
-
-.post-image {
-flex: 1;
-max-width: 200px;
-object-fit: cover;
+.post-content h3.glow-text {
+  margin: 0 0 0.2rem 0; /* 标题下边距最小化 */
+  font-size: 1.2rem !important;
+  line-height: 1.7  !important; /* 减小行高 */
 }
 
+.post-content h3 a {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 2px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.post-content h3 a:hover {
+  color: #e5cefe;
+  text-shadow: 
+    0 0 15px rgba(255, 192, 203, 0.7),
+    0 0 25px rgba(255, 192, 203, 0.5);
+}
+
+.post-content h3 a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(255, 192, 203, 0.8),
+    rgba(228, 206, 253, 0.8),
+    rgba(255, 192, 203, 0)
+  );
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.5);
+}
+
+.post-content h3 a:hover::after {
+  width: 100%;
+}
+
+.post-content .item-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0; /* 确保没有额外边距 */
+  line-height: 1.3; /* 减小行高 */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 16px !important;
+}
 
 /* 
 .home-sidebar {
   flex: 1;
   margin-right: 5rem;
 } */
-
-
 
 /* 覆盖层容器的样式 */
 .overlay-image-container {
@@ -226,8 +272,6 @@ object-fit: cover;
   display: block;      /* 将图片设置为块级元素 */
   margin: 0;           /* 移除图片的默认 margin */
   padding: 0;          /* 移除图片的默认 padding */
-  opacity: 1;          /* 设置图片透明度（可选） */
-  border-radius: 30px; /* 圆角 */
   opacity: 0.8;
 }
 
@@ -240,7 +284,7 @@ object-fit: cover;
   0 0 10px var(--copyright-glow), 
   0 0 20px var(--copyright-glow), 
   0 0 10px var(--copyright-glow); /* 使用自定义变量的颜色作为发光颜色 */
-transition: all 0.3s ease-in-out; /* 添加过渡效果 */
+  transition: all 0.3s ease-in-out; /* 添加过渡效果 */
 }
 
 @keyframes glowAnimation {
@@ -252,57 +296,337 @@ transition: all 0.3s ease-in-out; /* 添加过渡效果 */
   }
 }
 
-.glow-title {
-  animation: glowAnimation 1.5s ease-in-out infinite alternate; 
+
+/* 适配移动端 */
+@media (max-width: 768px) {
+  .article-list {
+    margin-right: 0;
+  }
+  
+  .post-preview {
+    margin-bottom: 1rem;
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .post-content h3.glow-text {
+    font-size: 1rem;
+  }
+  
+  .item-text {
+    font-size: 0.85rem;
+  }
 }
 
-/* 分页样式 */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem 0;
-  gap: 0.8rem;
-  padding: 1rem;
+/* 强制移除所有可能的背景 */
+.article-list, 
+.article-list *,
+.article-list .post-preview,
+.article-list .post-preview *,
+.article-list .post-preview::before,
+.article-list .post-preview::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
 }
 
-.pagination-item {
-  padding: 0.8rem 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+/* 确保卡片悬停时也没有背景 */
+.article-list .post-preview:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  transform: translateX(5px) !important;
+  border-color: rgba(228, 206, 253, 0.9) !important;
+  box-shadow: none !important;
 }
 
-.pagination-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* 首页专用样式 - 使用高特异性覆盖其他样式 */
+.article-list .post-preview {
+  border: 1px solid rgba(228, 206, 253, 0.08) !important; /* 更淡的边框，更好融合 */
+  border-bottom: 1px solid rgba(228, 206, 253, 0.08) !important;
+  margin-bottom: 0.6rem !important; /* 减少间距，更紧凑 */
+  padding: 0 !important; /* 移除所有内边距，让 post-content 完全控制 */
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important; /* 精致的圆角 */
+ 
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important; /* 更轻微的阴影 */
+  min-height: 70px !important; /* 稍微减小高度，更精致 */
+  display: flex !important; /* 使用 flex 布局 */
+  align-items: center !important; /* 垂直居中 */
 }
 
-.pagination-active {
-  background-color: rgba(255, 255, 255, 0.25);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.5);
-  font-weight: bold;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+.article-list .post-preview::before {
+  display: none !important; /* 完全隐藏伪元素 */
 }
 
-.pagination-disabled {
-  color: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.1);
-  cursor: not-allowed;
-  opacity: 0.6;
+.article-list .post-preview:hover {
+  background: rgba(0, 0, 0, 0.15) !important; /* hover时稍微加深背景，但仍然很淡 */
+  border-color: rgba(228, 206, 253, 0.15) !important; /* hover时稍微加强边框 */
+  transform: translateY(-1px) !important; /* 轻微上移效果 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important; /* hover时更自然的阴影 */
 }
 
-.pagination-disabled:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: none;
-  box-shadow: none;
+.article-list .post-preview:last-child {
+  margin-bottom: 0 !important;
 }
+
+.article-list .post-preview .post-content {
+  width: 100% !important; /* 占满整个卡片宽度 */
+  padding: 1rem 1.2rem !important; /* 调整内边距，更精致 */
+  font-family: 'Roboto_slab', sans-serif !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important; /* 垂直居中内容 */
+  height: 100% !important; /* 占满父容器高度 */
+  margin: 0 !important;
+  color: inherit !important; /* 继承颜色而不是使用components.scss中的设置 */
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  font-weight: inherit !important;
+}
+
+.article-list .post-preview .post-content h3.glow-text {
+  margin: 0 0 0.5rem 0 !important; /* 减少标题下边距，更紧凑 */
+  font-size: 1.1rem !important; /* 稍微减小字体大小 */
+  line-height: 1.3 !important; /* 稍微增加行高，更易读 */
+  color: inherit !important; /* 不使用components.scss中的颜色 */
+  font-weight: 500 !important;
+}
+
+.article-list .post-preview .post-content h3 a {
+  color: rgba(255, 255, 255, 0.95) !important; /* 稍微降低不透明度，更柔和 */
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  padding-bottom: 2px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important; /* 减少字间距 */
+  font-size: 1.1rem !important; /* 与h3保持一致 */
+}
+
+.article-list .post-preview .post-content h3 a:hover {
+  color: #e5cefe !important;
+  text-shadow: 
+    0 0 15px rgba(255, 192, 203, 0.7),
+    0 0 25px rgba(255, 192, 203, 0.5) !important;
+}
+
+.article-list .post-preview .post-content h3 a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(255, 192, 203, 0.8),
+    rgba(228, 206, 253, 0.8),
+    rgba(255, 192, 203, 0)
+  );
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.5);
+}
+
+.article-list .post-preview .post-content h3 a:hover::after {
+  width: 100%;
+}
+
+.article-list .post-preview .post-content .item-text {
+  font-size: 0.85rem !important; /* 使用rem单位，更一致 */
+  color: rgba(255, 255, 255, 0.75) !important; /* 稍微降低不透明度 */
+  margin: 0 !important; /* 确保没有额外边距 */
+  line-height: 1.4 !important; /* 保持良好的行高 */
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-weight: 400 !important; /* 稍微减轻字重 */
+  letter-spacing: 0.2px !important; /* 添加轻微字间距 */
+}
+
+/* 移动端样式调整 */
+@media screen and (max-width: 768px) {
+  /* 防止水平滚动 */
+  body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    background-color: #000000 !important; /* 确保移动端也是黑色背景 */
+  }
+  
+  /* 调整header在移动端的样式 */
+  header {
+    padding: 1rem !important;
+    height: auto !important;
+    min-height: 120px !important;
+    background: transparent !important; /* 确保header背景透明 */
+  }
+  
+  header h1 {
+    margin: 0 !important;
+    font-size: 1.5rem !important;
+    max-width: 100% !important;
+  }
+  
+  .welcome-message {
+    margin: 10px 0 !important;
+    max-width: 100% !important;
+    font-size: 12px !important;
+  }
+  
+  /* 调整容器 */
+  .container {
+    flex-direction: column !important;
+    padding: 1rem 0.5rem !important;
+    margin-top: 80px !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+    background: transparent !important; /* 确保容器背景透明 */
+  }
+  
+  /* 隐藏侧边栏 */
+  .sidebar {
+    display: none !important;
+  }
+  
+  /* 调整文章列表 */
+  .article-list {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background: transparent !important; /* 确保文章列表背景透明 */
+  }
+  
+  /* 调整卡片的左右边距 */
+  .article-list .post-preview {
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    min-height: 75px !important; /* 移动端稍微减小高度 */
+    max-width: calc(100vw - 1rem) !important; /* 确保不超出视窗 */
+  }
+  
+  /* 调整内容区域的左右内边距 */
+  .article-list .post-preview .post-content {
+    padding: 1rem 1rem !important; /* 减少左右内边距 */
+  }
+  
+  /* 调整标题字体大小 */
+  .article-list .post-preview .post-content h3.glow-text {
+    font-size: 1.1rem !important; /* 移动端稍微减小字体 */
+    margin: 0 0 0.6rem 0 !important; /* 稍微减少下边距 */
+    line-height: 1.3 !important;
+  }
+  
+  .article-list .post-preview .post-content h3 a {
+    font-size: 1.1rem !important;
+    letter-spacing: 0.5px !important; /* 减少字间距 */
+  }
+  
+  /* 调整摘要文本 */
+  .article-list .post-preview .post-content .item-text {
+    font-size: 12px !important; /* 移动端稍微减小字体 */
+    line-height: 1.3 !important;
+  }
+}
+
+/* 超小屏幕（手机竖屏）*/
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0.5rem 0.25rem !important;
+  }
+  
+  .article-list .post-preview {
+    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
+    min-height: 70px !important; /* 更小的高度 */
+    max-width: calc(100vw - 0.5rem) !important;
+  }
+  
+  .article-list .post-preview .post-content {
+    padding: 0.8rem 0.8rem !important; /* 进一步减少内边距 */
+  }
+  
+  .article-list .post-preview .post-content h3.glow-text {
+    font-size: 1rem !important;
+    margin: 0 0 0.5rem 0 !important;
+  }
+  
+  .article-list .post-preview .post-content h3 a {
+    font-size: 1rem !important;
+  }
+  
+  .article-list .post-preview .post-content .item-text {
+    font-size: 11px !important;
+  }
+}
+
+/* 侧边栏内容样式 */
+.sidebar .widget {
+  margin-bottom: 1.5rem !important;
+}
+
+.sidebar .widget-title {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.8rem !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  border-bottom: 1px solid rgba(228, 206, 253, 0.3) !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.sidebar .category-box {
+  display: inline-block !important;
+  padding: 0.4rem 0.8rem !important;
+  margin: 0.2rem !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(228, 206, 253, 0.2) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+.sidebar .tag-box {
+  display: inline-block !important;
+  padding: 0.4rem 0.8rem !important;
+  margin: 0.2rem !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(236, 190, 190, 0.85) !important;
+  border: 1px solid rgba(228, 206, 253, 0.2) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+.sidebar .category-box:hover,
+.sidebar .tag-box:hover {
+  background: rgba(228, 206, 253, 0.2) !important;
+ 
+  border-color: rgba(228, 206, 253, 0.5) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(228, 206, 253, 0.3) !important;
+}
+
+/* 隐藏侧边栏滚动条 */
+.sidebar::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* 确保所有主要容器元素都没有背景 */
+main, main.container {
+  background: transparent !important;
+}
+
 

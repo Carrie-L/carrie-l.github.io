@@ -21,6 +21,13 @@
   padding: $spacing-unit 0;
 }
 
+.foot-wrapper1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; // 允许在需要时换行
+}
+
 // Page content
 .page-content {
   padding: $spacing-unit 0;
@@ -42,7 +49,11 @@
   cursor: pointer;
   text-decoration: none;
   background-color: var(--bg-color);
-  margin-top: 80px;
+  margin-top: 0;
+}
+
+.page-header {
+  padding-top: 90px; // 为 fixed header 留出空间
 }
 
 .container {
@@ -239,4 +250,51 @@
     padding-right: 0 !important; // 移除为侧边栏留出的空间
   }
 }
+
+/*-----------------------------------------------*/
+// Article Page Mobile Overrides
+/*-----------------------------------------------*/
+@media screen and (max-width: 768px) {
+  // 在手机上隐藏目录和GIF
+  .toc,
+  .overlay-image-container {
+    display: none !important;
+  }
+
+  // 让文章内容占满屏幕
+  .post {
+    max-width: 100% !important;
+    padding: 0 1rem !important; // 在屏幕边缘保留一点间距
+  }
+
+  .content-wrapper {
+    padding-top: 2rem;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // 缩小标题字体以适应单行
+  .site-title {
+    font-size: 1rem !important; // 调整为你认为合适的尺寸
+  }
+
+  /*-----------------------------------------------*/
+// Footer Mobile Overrides
+/*-----------------------------------------------*/
+  .site-footer {
+    padding: 0.8rem 0;
+  }
+  .foot-wrapper1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .footer-item {
+    text-align: center;
+  }
+}
+
+
 
