@@ -1,0 +1,43 @@
+
+  
+  <aside class="sidebar">
+    <div class="widget categories">
+    <h3 class="widget-title">分类</h3>
+    {% assign category_names = "android.html,others.html,git-list.html,os.html,mcp.html,language.html,english.html,dsa.html,algorithm.html" | split: "," %}
+    {% assign category_pages = site.pages | where_exp: "item", "category_names contains item.name" %}
+    {% for page in category_pages %}
+      <a href="{{ page.url | prepend: site.baseurl }}" class="category-box cate-{{ forloop.index0 | modulo: 6 | plus: 1 }}">
+          {{ page.title }}
+      </a>
+    {% endfor %}
+    </div>
+    
+    <div class="widget tags">
+    <h3 class="widget-title">标签</h3>
+    {% assign all_tags = '' | split: '' %}
+    
+    {% for collection in site.collections %}
+        {% for post in collection.docs %}
+            {% if post.tags %}
+                {% if post.tags.first %}
+                    {% assign post_tags = post.tags %}
+                {% else %}
+                    {% assign post_tags = post.tags | split: ',' %}
+                {% endif %}
+                {% assign all_tags = all_tags | concat: post_tags %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    
+    {% assign all_tags = all_tags | uniq | compact | sort %}
+    
+    {% for tag in all_tags %}
+        {% if tag != '' %}
+            <a href="{{ site.baseurl }}/tag.html?tag={{ tag | url_encode | escape }}" class="tag-box color-{{ forloop.index | modulo: 20 | plus: 1 }}">
+                {{ tag }}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+</aside>

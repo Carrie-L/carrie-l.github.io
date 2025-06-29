@@ -15,18 +15,43 @@ logging.basicConfig(
     ]
 )
 
+def get_git_config():
+    """从系统环境变量或git配置中获取用户信息"""
+    try:
+        # 尝试从环境变量获取
+        git_name = os.environ.get('GIT_AUTHOR_NAME')
+        git_email = os.environ.get('GIT_AUTHOR_EMAIL')
+        
+        # 如果环境变量没有设置，从git全局配置读取
+        if not git_name or not git_email:
+            try:
+                name_result = subprocess.run(['git', 'config', '--global', 'user.name'], 
+                                           capture_output=True, text=True)
+                email_result = subprocess.run(['git', 'config', '--global', 'user.email'], 
+                                            capture_output=True, text=True)
+                
+                git_name = git_name or name_result.stdout.strip()
+                git_email = git_email or email_result.stdout.strip()
+            except Exception as e:
+                logging.warning(f'Failed to get git config: {e}')
+        
+        return git_name, git_email
+    except Exception as e:
+        logging.error(f'Error getting git config: {e}')
+        return None, None
+
 def push_empty_commit():
     try:
         git_dir = r"I:\B-MioBlogSites"
         
-        # 设置环境变量
+       # 设置环境变量
         env = os.environ.copy()
         env['HOME'] = os.path.expanduser('~')
         env['SSH_AUTH_SOCK'] = ''
-        env['GIT_AUTHOR_NAME'] = 'Carrie-L'
-        env['GIT_AUTHOR_EMAIL'] = '11453154+Carrie-L@users.noreply.github.com'
-        env['GIT_COMMITTER_NAME'] = 'Carrie-L'
-        env['GIT_COMMITTER_EMAIL'] = '11453154+Carrie-L@users.noreply.github.com'
+        env['GIT_AUTHOR_NAME'] = git_name
+        env['GIT_AUTHOR_EMAIL'] = git_email
+        env['GIT_COMMITTER_NAME'] = git_name
+        env['GIT_COMMITTER_EMAIL'] = git_email
         
         # Git 命令列表
         git_commands = [

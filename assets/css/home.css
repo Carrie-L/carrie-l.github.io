@@ -683,6 +683,43 @@ nav a {
 }
 
 /* 侧边栏内容样式 */
+.widget.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+
+
+  .category-box {
+      padding: 10px 15px;
+      border-radius: 12px;
+      display: block;
+      font-weight: 500;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background-size: 200% 100%;
+      background-position: 0 0;
+      font-weight: 800;
+      
+      
+  }
+  
+  .category-box:hover {
+      transform: translateY(-1px);
+      background-position: 100% 0;
+      color: #fff !important;
+  }
+  
+  
+  .cate-1 { background-image: linear-gradient(45deg, #fbe6ef, #f399be 50%); color: #f071a4; }
+  .cate-2 { background-image: linear-gradient(145deg, #f8f5ca, #f1e88a 50%); color: #e8ce5c; }
+  .cate-3 { background-image: linear-gradient(145deg, #ccccf3, #ababeb 50%); color: #8989e2; }
+  .cate-4 { background-image: linear-gradient(145deg, #fcebed, #e49a96 50%); color: #d6756e; } 
+  .cate-5 { background-image: linear-gradient(45deg, #b7eeed, #89e2e2 50%); color: #30c4cd; }
+  .cate-6 { background-image: linear-gradient(45deg, #e0f3cc, #b6e289 50%); color: #95d455; } 
+}
+
 .sidebar .widget {
   margin-bottom: 1.5rem !important;
 }

@@ -69,15 +69,8 @@
     transition: all 0.3s ease !important;
     cursor: pointer;
 
-    /* Styles for the box itself */
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(228, 206, 253, 0.2) !important;
-    backdrop-filter: blur(5px) !important;
-
-    /* Styles for gradient text */
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    color: transparent !important;
+   /* 应用渐变文字的关键样式 */
+    color: #fff !important;
   }
 
   .tag-box:hover {
@@ -88,26 +81,50 @@
   }
 
   /* Gradient colors for text */
-  .color-1 { background-image: linear-gradient(150deg, #ffd699, #ffa500) !important; }
-  .color-2 { background-image: linear-gradient(150deg, #a7f3f0, #5ee7df) !important; }
-  .color-3 { background-image: linear-gradient(150deg, #e1e7f0, #c3cfe2) !important; }
-  .color-4 { background-image: linear-gradient(150deg, #f0e1fd, #e0c3fc) !important; }
-  .color-5 { background-image: linear-gradient(150deg, #f7c9fd, #f093fb) !important; }
-  .color-6 { background-image: linear-gradient(150deg, #c6e6e6, #75c8c7) !important; }
-  .color-7 { background-image: linear-gradient(150deg, #ffecd2, #fcb69f) !important; }
-  .color-8 { background-image: linear-gradient(150deg, #d4fc79, #96e6a1) !important; }
-  .color-9 { background-image: linear-gradient(150deg, #84fab0, #8fd3f4) !important; }
-  .color-10 { background-image: linear-gradient(150deg, #fccb90, #d57eeb) !important; }
-  .color-11 { background-image: linear-gradient(150deg, #f6d365, #fda085) !important; }
-  .color-12 { background-image: linear-gradient(150deg, #ccccf3, #8989e2) !important; }
-  .color-13 { background-image: linear-gradient(150deg, #fdcbf1, #e6dee9) !important; }
-  .color-14 { background-image: linear-gradient(150deg, #a1c4fd, #c2e9fb) !important; }
-  .color-15 { background-image: linear-gradient(150deg, #d4fc79, #96e6a1) !important; }
+  .cate-1 { background-image: linear-gradient(45deg, #fbe6ef, #f399be 50%); color: #f071a4; }
+
+
+  /* .color-1 { background-image: linear-gradient(150deg, #ffd699, #ffa500 50%) !important; }
+  .color-2 { background-image: linear-gradient(150deg, #a7f3f0, #5ee7df 50%) !important; }
+  .color-3 { background-image: linear-gradient(150deg, #e1e7f0, #c3cfe2 50%) !important; }
+  .color-4 { background-image: linear-gradient(150deg, #f0e1fd, #e0c3fc 50%) !important; }
+  .color-5 { background-image: linear-gradient(150deg, #f7c9fd, #f093fb 50%) !important; }
+  .color-6 { background-image: linear-gradient(150deg, #c6e6e6, #75c8c7 50%) !important; }
+  .color-7 { background-image: linear-gradient(150deg, #ffecd2, #fcb69f 50%) !important; }
+  .color-8 { background-image: linear-gradient(150deg, #d4fc79, #96e6a1 50%) !important; }
+  .color-9 { background-image: linear-gradient(150deg, #84fab0, #8fd3f4 50%) !important; }
+  .color-10 { background-image: linear-gradient(150deg, #fccb90, #d57eeb 50%) !important; }
+  .color-11 { background-image: linear-gradient(150deg, #f6d365, #fda085 50%) !important; }
+  .color-12 { background-image: linear-gradient(45deg, #ccccf3, #8989e2 50%) !important; }
+  .color-13 { background-image: linear-gradient(150deg, #fdcbf1, #e6dee9 50%) !important; }
+  .color-14 { background-image: linear-gradient(150deg, #a1c4fd, #c2e9fb 50%) !important; }
+  .color-15 { background-image: linear-gradient(150deg, #d4fc79, #96e6a1 50%) !important; }
   .color-16 { background-image: linear-gradient(150deg, #ff9a9e, #fecfef) !important; }
   .color-17 { background-image: linear-gradient(150deg, #f6d5f7, #fbe9d7) !important; }
   .color-18 { background-image: linear-gradient(150deg, #c6e6c6, #7ec57f) !important; }
   .color-19 { background-image: linear-gradient(150deg, #c1dfc4, #deecdd) !important; }
-  .color-20 { background-image: linear-gradient(150deg, #f0f2f0, #bdbbbe) !important; } 
+  .color-20 { background-image: linear-gradient(150deg, #f0f2f0, #bdbbbe) !important; }  */
+
+.color-1  { background-color: #ffa500 !important; }
+.color-2  { background-color: #5ee7df !important; }
+.color-3  { background-color: #c3cfe2 !important; }
+.color-4  { background-color: #e0c3fc !important; }
+.color-5  { background-color: #f093fb !important; }
+.color-6  { background-color: #75c8c7 !important; }
+.color-7  { background-color: #fcb69f !important; }
+.color-8  { background-color: #96e6a1 !important; }
+.color-9  { background-color: #8fd3f4 !important; }
+.color-10 { background-color: #fccb90 !important; }
+.color-11 { background-color: #fda085 !important; }
+.color-12 { background-color: #8989e2 !important; }
+.color-13 { background-color: #e6dee9 !important; }
+.color-14 { background-color: #c2e9fb !important; }
+.color-15 { background-color: #96e6a1 !important; }
+.color-16 { background-color: #fecfef !important; }
+.color-17 { background-color: #fbe9d7 !important; }
+.color-18 { background-color: #7ec57f !important; }
+.color-19 { background-color: #deecdd !important; }
+.color-20 { background-color: #bdbbbe !important; }
 }
 
 /* =============================================================================
