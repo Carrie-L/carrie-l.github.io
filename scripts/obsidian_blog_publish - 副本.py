@@ -149,27 +149,15 @@ class DirSelector:
         if not self.selected_dir:
             return
 
-        # 执行发布命令
+            # 执行发布命令
         script_dir = r"I:\B-MioBlogSites\scripts"
-        # 切换到脚本目录
         os.chdir(script_dir)
         # activate = r"..\.venv\Scripts\activate.bat"  # 相对 scripts 目录
 
-        # 关键修改：对文章名中的特殊字符 & 进行转义
-        # 在 cmd.exe 中，^ 是转义字符
-        escaped_article_name = self.article_name.replace('&', '^&')
+        cmd = f'call ..\\.venv\\Scripts\\activate.bat && python blog_push_local.py "{self.article_name}" --dir="{self.selected_dir}"'
 
-        # 构建将在新 cmd 窗口中执行的完整命令字符串
-        cmd_to_run_in_new_window = (
-            f'cd /d "{script_dir}" & '
-            f'call "..\\.venv\\Scripts\\activate.bat" & '
-            # 使用转义后的文章名
-            f'python blog_push_local.py "{escaped_article_name}" --dir="{self.selected_dir}"'
-        )
-
-        # 使用 `start cmd /k` 来在新窗口中执行上面构建好的命令字符串
-        subprocess.run(f'start cmd /k "{cmd_to_run_in_new_window}"', shell=True, check=True)
-        
+        # 在新窗口中执行命令
+        subprocess.run(f'start cmd /k "cd /d {script_dir} && {cmd}"', shell=True)
         print(f"正在发布：{self.article_name} 到 {self.selected_dir} 目录")
 
 def main():

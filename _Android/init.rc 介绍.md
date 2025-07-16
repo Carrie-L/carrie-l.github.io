@@ -3,7 +3,7 @@ layout: article
 title: "init.rc 介绍"
 date: 2025-05-06
 permalink: /android/init-rc-jie-shao/
-tags: ["Android", "AOSP"]
+tags: ["AOSP", "Android"]
 ---
 
   
