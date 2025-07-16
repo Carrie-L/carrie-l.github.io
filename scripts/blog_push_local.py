@@ -121,7 +121,7 @@ def publish_to_blog(article_name: str, target_dir: str = r"I:\B-MioBlogSites\_An
     log_progress("图片复制完成，图片链接将由auto_update.py处理")
     
     # 执行auto_update.py脚本
-    auto_update_script = r"I:\B-MioBlogSites\auto_update.py"
+    auto_update_script = r"I:\B-MioBlogSites\scripts\auto_update.py"
     log_progress(f"执行auto_update.py脚本...")
     
     try:

@@ -149,14 +149,32 @@ class DirSelector:
         if not self.selected_dir:
             return
         
+
+        # os.chdir(script_dir)
+        
+        # cmd = f'call .venv\\Scripts\\activate.bat && python blog_push_local.py "{self.article_name}" --dir={self.selected_dir}'
+
         # 执行发布命令
-        script_dir = r"I:\B-MioBlogSites\scripts"
-        os.chdir(script_dir)
-        
-        cmd = f'call .venv\\Scripts\\activate.bat && python blog_push_local.py "{self.article_name}" --dir={self.selected_dir}'
-        
-        # 在新窗口中执行命令
-        subprocess.run(f'start cmd /k "cd /d {script_dir} && {cmd}"', shell=True)
+        root_dir = r"I:\B-MioBlogSites"
+        venv_py = rf"{root_dir}\.venv\Scripts\python.exe"
+        script_dir = rf"{root_dir}\scripts"
+
+        #  参数全部放进列表，完全不用手动加引号
+        cmd = [
+            venv_py,
+            "blog_push_local.py",
+            self.article_name,  # 保留完整空格与短横线
+            "--dir", self.selected_dir
+        ]
+
+        # 🪟 另开窗口：Windows 专属 flag
+        subprocess.run(
+            cmd,
+            cwd=script_dir,
+            creationflags=subprocess.CREATE_NEW_CONSOLE
+        )
+
+        # subprocess.run(f'start cmd /k "cd /d {script_dir} && {cmd}"', shell=True)
         print(f"正在发布：{self.article_name} 到 {self.selected_dir} 目录")
 
 def main():
