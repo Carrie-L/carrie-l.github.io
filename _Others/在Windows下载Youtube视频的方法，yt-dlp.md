@@ -3,7 +3,7 @@ layout: article
 title: "在Windows下载Youtube视频的方法，yt-dlp"
 date: 2025-06-23
 permalink: /others/zai-windows-xia-zai-youtube-shi-pin-de-fang-fa-yt/
-tags: ["Tools", "Others"]
+tags: ["Others", "Tools"]
 ---
 
 简单介绍一下使用 `yt-dlp` 下载youtube视频的方法。

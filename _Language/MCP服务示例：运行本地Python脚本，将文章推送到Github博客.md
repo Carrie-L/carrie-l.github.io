@@ -3,7 +3,7 @@ layout: article
 title: "MCP服务示例：运行本地Python脚本，将文章推送到Github博客"
 date: 2025-03-10
 permalink: /language/mcp-fu-wu-shi-li-yun-xing-ben-di-python-jiao-ben-j/
-tags: ["MCP", "Language"]
+tags: ["Language", "MCP"]
 ---
 
  
