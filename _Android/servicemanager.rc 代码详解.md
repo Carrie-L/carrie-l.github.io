@@ -3,7 +3,7 @@ layout: article
 title: "servicemanager.rc 代码详解"
 date: 2025-05-06
 permalink: /android/servicemanager-rc-dai-ma-xiang-jie/
-tags: ["源码分析", "AOSP", "Android"]
+tags: ["源码分析", "Android", "AOSP"]
 ---
 
    

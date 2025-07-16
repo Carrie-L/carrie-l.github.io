@@ -3,7 +3,7 @@ layout: article
 title: "Easy-从开机到打开 App 的整个大旅程"
 date: 2025-05-01
 permalink: /android/easy-cong-kai-ji-dao-da-kai-app-de-zheng-ge-da-lv/
-tags: ["Activity", "Android"]
+tags: ["Android", "Activity"]
 ---
 
  
