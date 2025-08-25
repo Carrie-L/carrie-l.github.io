@@ -3,7 +3,7 @@ layout: article
 title: "K-字节码是什么？DEX字节码是什么？"
 date: 2025-05-01
 permalink: /android/k-zi-jie-ma-shi-shen-me-dex-zi-jie-ma-shi-shen-me/
-tags: ["OS", "Android"]
+tags: ["Android", "OS"]
 ---
 
  
