@@ -222,8 +222,10 @@ def process_markdown_file(file_path, original_title=None):
     if front_matter:
         front_matter_content = front_matter.group(1).strip()
 
-        # 提取已有的tags - 更精确的正则表达式处理
+        # 提取已有的tags - 支持两种格式：数组格式和YAML列表格式
         existing_tags = []
+        
+        # 首先尝试匹配数组格式：tags: ["tag1", "tag2"]
         tags_match = re.search(r'tags:\s*\[(.*?)\]', front_matter_content, re.DOTALL)
         if tags_match and tags_match.group(1).strip():
             # 使用更可靠的方式拆分标签
@@ -235,6 +237,18 @@ def process_markdown_file(file_path, original_title=None):
             else:
                 # 尝试普通拆分
                 existing_tags = [tag.strip().strip('"').strip("'") for tag in tag_content.split(",") if tag.strip()]
+        else:
+            # 如果没有找到数组格式，尝试匹配YAML列表格式
+            # tags:
+            #   - tag1
+            #   - tag2
+            yaml_tags_pattern = r'tags:\s*\n((?:\s*-\s*.+\n?)*)'
+            yaml_match = re.search(yaml_tags_pattern, front_matter_content, re.MULTILINE)
+            if yaml_match:
+                yaml_tags_content = yaml_match.group(1)
+                # 提取每个 - tag 项
+                tag_lines = re.findall(r'\s*-\s*(.+)', yaml_tags_content)
+                existing_tags = [tag.strip() for tag in tag_lines if tag.strip()]
         
         # 添加分类文件夹名称作为标签（如果不存在）
         if category_tag and category_tag not in existing_tags:
@@ -260,26 +274,47 @@ def process_markdown_file(file_path, original_title=None):
         title_escaped = original_title.replace('"', '\\"')
         title_line = f'title: "{title_escaped}"'
         
-        # 处理标题和tags
+        # 处理标题和tags - 支持多行YAML列表格式
         new_front_matter = []
         lines = front_matter_content.split('\n')
         title_added = False
         tags_added = False
         permalink_added = False
+        skip_yaml_tag_lines = False
         
-        for line in lines:
+        i = 0
+        while i < len(lines):
+            line = lines[i]
+            
             if line.strip().startswith('title:'):
                 new_front_matter.append(title_line)
                 title_added = True
             elif line.strip().startswith('tags:'):
-                new_front_matter.append(new_tags_line)
-                tags_added = True
+                # 检查是否为YAML列表格式
+                if i + 1 < len(lines) and lines[i + 1].strip().startswith('-'):
+                    # YAML列表格式，跳过所有相关的标签行
+                    new_front_matter.append(new_tags_line)
+                    tags_added = True
+                    # 跳过后续的 - tag 行
+                    i += 1
+                    while i < len(lines) and lines[i].strip().startswith('-'):
+                        i += 1
+                    i -= 1  # 回退一步，因为外层循环会再次增加
+                else:
+                    # 数组格式，直接替换
+                    new_front_matter.append(new_tags_line)
+                    tags_added = True
             elif line.strip().startswith('permalink:'):
                 permalink = f"/{category_lower}/{file_name_pinyin}/"
                 new_front_matter.append(f"permalink: {permalink}")
                 permalink_added = True
+            elif line.strip().startswith('-') and not tags_added:
+                # 这可能是孤立的YAML标签行，跳过
+                pass
             else:
                 new_front_matter.append(line)
+            
+            i += 1
         
         # 如果没有添加标题，添加标题
         if not title_added:

@@ -1,12 +1,9 @@
 ---
-title: "谷歌的这款图像模型火了！Gemini 2.5 Flash Image (nano-banana) 体验心得分享"
 created: 2025-08-27
-tags: ["Others"]
+tags:
   - 公众号
   - ai
-permalink: /others/gu-ge-de-zhe-kuan-tu-xiang-mo-xing-huo-le-gemini-2/
 ---
-
 今天，我看到了一个让我觉得激动人心的重大更新，**Gemini 2.5 Flash Image** （也叫 `nano-banana` ) 在 **Gemini API** 和 **Google AI Studio**（面向开发者）以及 **Vertex AI**（面向企业）提供。定价为 **每百万输出 token $30**，每张图像约为 **1290 输出 token**（约 $0.039/张图像）。
 
 目前可以免费有限的体验。
@@ -31,19 +28,19 @@ permalink: /others/gu-ge-de-zhe-kuan-tu-xiang-mo-xing-huo-le-gemini-2/
 
 打开 **Gemini App / Web** , 把模型切换成 **2.5 Flash**，点击**图片**图标，输入提示词，等待生成。
 
-![](../../assets/blogimages/Pasted image 20250827034815.png)
+![[Pasted image 20250827034815.png]]
 
 ### 2. Google AI Studio
 
 打开 **Google AI Studio**，在聊天界面选择 **Gemini 2.5 Flash Image Preview** 模型。
 
-![](../../assets/blogimages/Pasted image 20250827032546.png)
+![[Pasted image 20250827032546.png]]
 
 ### 生成封面图
 
 我让它总结一篇英语文章的内容，生成封面图，效果不错：
 
-![](../../assets/blogimages/Pasted image 20250827035029.png)
+![[Pasted image 20250827035029.png]]
 
 以下是提示词：
 
@@ -60,7 +57,7 @@ permalink: /others/gu-ge-de-zhe-kuan-tu-xiang-mo-xing-huo-le-gemini-2/
 
 X上 **ZHO** 大佬的手办提示词这几天都火了吧，我把它改了一下，一次上传3张图，让它生成：
 
-![](../../assets/blogimages/Pasted image 20250827040000.png)
+![[Pasted image 20250827040000.png]]
 
 看起来还是挺真实的。以下是提示词：
 
@@ -72,10 +69,10 @@ turn this photo[图1] into a character figure. Behind it, place a box with the c
 
 但是，让我沮丧的是，对于**非英文文字生成的支持**还不是很好，比如我让它根据提供的文字生成逻辑图。
 
-![](../../assets/blogimages/Pasted image 20250827032511.png)
+![[Pasted image 20250827032511.png]]
 
 它生成的图片是：
 
-![](../../assets/blogimages/Pasted image 20250827034252.png)
+![[Pasted image 20250827034252.png]]
 
 期待以后能在文字支持上更多样化~

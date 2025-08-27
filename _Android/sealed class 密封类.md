@@ -3,7 +3,7 @@ layout: article
 title: "sealed class 密封类"
 date: 2025-07-16
 permalink: /android/sealed-class-mi-feng-lei/
-tags: ["Android", "kotlin"]
+tags: ["kotlin", "Android"]
 ---
 
  
