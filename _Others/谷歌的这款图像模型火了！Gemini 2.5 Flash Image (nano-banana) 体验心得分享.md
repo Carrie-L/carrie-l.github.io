@@ -2,9 +2,10 @@
 layout: article
 title: "谷歌的这款图像模型火了！Gemini 2.5 Flash Image (nano-banana) 体验心得分享"
 date: 2025-08-27
-tags: ["Others", "公众号", "ai"]
+tags: ["Others", "ai", "公众号"]
 permalink: /others/gu-ge-de-zhe-kuan-tu-xiang-mo-xing-huo-le-gemini-2/
 ---
+
 今天，我看到了一个让我觉得激动人心的重大更新，**Gemini 2.5 Flash Image** （也叫 `nano-banana` ) 在 **Gemini API** 和 **Google AI Studio**（面向开发者）以及 **Vertex AI**（面向企业）提供。定价为 **每百万输出 token $30**，每张图像约为 **1290 输出 token**（约 $0.039/张图像）。
 
 目前可以免费有限的体验。
