@@ -7,6 +7,11 @@ $brand-color: #f48fb1;
 @import "minima";
 @import "main";
 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 // a:visited {
 //     color: #21dddd;
 // }
