@@ -1,0 +1,364 @@
+---
+layout: article
+title: "Jetpack Compose 布局"
+date: 2025-9-15
+tags: ["Android", "Compose"]
+permalink: /android/Jetpack-Compose-layout/
+---
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetpack Compose 布局速通指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; /* gray-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563; /* gray-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* gray-500 */
+        }
+
+        /* Basic Syntax Highlighting Styles */
+        pre {
+            background-color: #111827; /* gray-900, slightly darker */
+            border: 1px solid #374151; /* gray-700 */
+            color: #d1d5db; /* gray-300 */
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        code {
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+        }
+        pre code .token.keyword { color: #818cf8; } /* indigo-400 */
+        pre code .token.function { color: #a78bfa; } /* violet-400 */
+        pre code .token.type { color: #60a5fa; } /* blue-400 */
+        pre code .token.string { color: #facc15; } /* yellow-400 */
+        pre code .token.number { color: #4ade80; } /* green-400 */
+        pre code .token.comment { color: #9ca3af; } /* gray-400 */
+        pre code .token.annotation { color: #fb7185; } /* rose-400 */
+        pre code .token.parameter { color: #34d399; } /* emerald-400 */
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <!-- Main Container -->
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 lg:w-72 bg-gray-800/50 backdrop-blur-sm md:h-screen md:sticky md:top-0 border-b md:border-b-0 md:border-r border-gray-700">
+            <div class="p-5 overflow-y-auto h-full">
+                <h2 class="text-lg font-bold text-white mb-4">目录</h2>
+                <nav class="text-sm">
+                    <ul class="space-y-2">
+                        <li><a href="#intro" class="font-semibold text-gray-200 hover:text-blue-400">导言</a></li>
+                        <li><a href="#section-1" class="font-semibold text-gray-200 hover:text-blue-400">第一节：三大支柱</a>
+                            <ul class="pl-4 mt-2 space-y-2 text-gray-400">
+                                <li><a href="#s1-1" class="hover:text-blue-400">1.1 Column</a></li>
+                                <li><a href="#s1-2" class="hover:text-blue-400">1.2 Row</a></li>
+                                <li><a href="#s1-3" class="hover:text-blue-400">1.3 Box</a></li>
+                                <li><a href="#s1-4" class="hover:text-blue-400">1.4 嵌套的艺术</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#section-2" class="font-semibold text-gray-200 hover:text-blue-400">第二节：精通 Modifier</a>
+                            <ul class="pl-4 mt-2 space-y-2 text-gray-400">
+                                <li><a href="#s2-4" class="hover:text-blue-400">2.4 顺序的至关重要性</a></li>
+                                <li><a href="#s2-5" class="hover:text-blue-400">2.5 性能洞察</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#section-3" class="font-semibold text-gray-200 hover:text-blue-400">第三节：Arrangement & Alignment</a>
+                            <ul class="pl-4 mt-2 space-y-2 text-gray-400">
+                                <li><a href="#s3-1" class="hover:text-blue-400">3.1 核心原则</a></li>
+                                <li><a href="#s3-4" class="hover:text-blue-400">3.4 作用域内对齐</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#section-4" class="font-semibold text-gray-200 hover:text-blue-400">第四节：高级布局</a>
+                            <ul class="pl-4 mt-2 space-y-2 text-gray-400">
+                                <li><a href="#s4-1" class="hover:text-blue-400">4.1 LazyColumn & LazyRow</a></li>
+                                <li><a href="#s4-2" class="hover:text-blue-400">4.2 ConstraintLayout</a></li>
+                                <li><a href="#s4-3" class="hover:text-blue-400">4.3 FlowRow & FlowColumn</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#section-5" class="font-semibold text-gray-200 hover:text-blue-400">第五节：实战与性能</a>
+                             <ul class="pl-4 mt-2 space-y-2 text-gray-400">
+                                <li><a href="#s5-1" class="hover:text-blue-400">5.1 案例研究</a></li>
+                                <li><a href="#s5-2" class="hover:text-blue-400">5.2 性能清单</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-8 lg:p-12">
+            <div class="max-w-4xl mx-auto space-y-12">
+                <header class="border-b border-gray-700 pb-8">
+                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">Jetpack Compose 布局</h1>
+                    <p class="mt-4 text-lg text-gray-400">开发者的精通速成指南</p>
+                </header>
+                
+                <section id="intro">
+                    <h2 class="text-3xl font-bold text-white mb-4">导言：Android UI 的声明式范式转变</h2>
+                    <p class="text-gray-400 leading-relaxed">Jetpack Compose 代表了 Android UI 开发领域的一次根本性变革，其核心是从传统的命令式 XML 布局转向了现代的声明式方法。对于习惯了通过 <code>findViewById()</code> 手动查找视图并更新其属性的开发者来说，理解这一转变是掌握 Compose 布局的第一步，也是最关键的一步。</p>
+                    <p class="mt-4 text-gray-400 leading-relaxed">Compose 引入了一个更为简洁和强大的心智模型：UI 是状态的函数，即 $UI = f(state)$。这意味着开发者只需描述在特定状态下 UI 应该呈现的样子，而 Compose 框架则负责在状态变化时自动、高效地更新 UI。这个过程被称为“重组”（Recomposition）。</p>
+                </section>
+
+                <section id="section-1">
+                    <h2 class="text-3xl font-bold text-white mb-4 border-t border-gray-700 pt-8">第一节：Compose 布局的三大支柱</h2>
+                    <p class="text-gray-400 leading-relaxed">几乎所有的 Compose UI 都是由三个基本布局组件构建而成的：<code>Column</code>、<code>Row</code> 和 <code>Box</code>。它们是构成复杂界面的基础原子，理解它们的特性和组合方式是布局工作的核心。</p>
+                    
+                    <article id="s1-1" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">1.1 `Column`：掌握垂直排列</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4"><code>Column</code> 是一个布局容器，它将其子组件沿垂直方向自上而下依次排列。这是构建垂直列表、表单或任何需要纵向堆叠元素的界面的首选组件。</p>
+<pre><code class="language-kotlin"><span class="token keyword">import</span> androidx.compose.foundation.layout.Column
+<span class="token keyword">import</span> androidx.compose.material3.Text
+<span class="token keyword">import</span> androidx.compose.runtime.Composable
+
+<span class="token annotation">@Composable</span>
+<span class="token keyword">fun</span> <span class="token function">ArtistCardColumn</span>() {
+    <span class="token type">Column</span> {
+        <span class="token function">Text</span>(<span class="token string">"Alfred Sisley"</span>)
+        <span class="token function">Text</span>(<span class="token string">"3 minutes ago"</span>)
+    }
+}</code></pre>
+                    </article>
+
+                    <article id="s1-2" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">1.2 `Row`：掌握水平排列</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">与 <code>Column</code> 对应，<code>Row</code> 将其子组件沿水平方向自左向右依次排列。它适用于创建工具栏、列表项中的并排元素或任何需要横向布局的场景。</p>
+<pre><code class="language-kotlin"><span class="token keyword">import</span> androidx.compose.foundation.layout.Row
+<span class="token keyword">import</span> androidx.compose.ui.Alignment
+
+<span class="token annotation">@Composable</span>
+<span class="token keyword">fun</span> <span class="token function">ArtistCardRow</span>(<span class="token parameter">artist</span>: <span class="token type">Artist</span>) {
+    <span class="token comment">// Row 会将其子项水平排列</span>
+    <span class="token function">Row</span>(<span class="token parameter">verticalAlignment</span> = <span class="token type">Alignment</span>.CenterVertically) {
+        <span class="token function">Image</span>(<span class="token parameter">bitmap</span> = artist.image, <span class="token parameter">contentDescription</span> = <span class="token string">"Artist image"</span>)
+        <span class="token type">Column</span> {
+            <span class="token function">Text</span>(artist.name)
+            <span class="token function">Text</span>(artist.lastSeenOnline)
+        }
+    }
+}</code></pre>
+                    </article>
+
+                    <article id="s1-3" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">1.3 `Box`：掌握堆叠、覆盖和对齐</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4"><code>Box</code> 是一个独特的布局组件，它将其子组件像画板上的图层一样堆叠在一起。第一个子组件位于最底层，后续的子组件依次覆盖在上方。这使得 <code>Box</code> 成为实现覆盖效果、浮动操作按钮或需要精确定位单个元素的理想选择。</p>
+<pre><code class="language-kotlin"><span class="token keyword">import</span> androidx.compose.foundation.layout.Box
+<span class="token keyword">import</span> androidx.compose.ui.Modifier
+<span class="token keyword">import</span> androidx.compose.ui.unit.dp
+
+<span class="token annotation">@Composable</span>
+<span class="token keyword">fun</span> <span class="token function">BoxExample</span>() {
+    <span class="token function">Box</span>(<span class="token type">Modifier</span>.fillMaxSize()) {
+        <span class="token comment">// 这个 Text 会被绘制在最底层，并对齐到顶部中心</span>
+        <span class="token function">Text</span>(<span class="token string">"This text is drawn first"</span>, <span class="token parameter">modifier</span> = <span class="token type">Modifier</span>.<span class="token function">align</span>(<span class="token type">Alignment</span>.TopCenter))
+        
+        <span class="token comment">// FAB 会被绘制在最顶层，并对齐到右下角</span>
+        <span class="token function">FloatingActionButton</span>(
+            <span class="token parameter">modifier</span> = <span class="token type">Modifier</span>.<span class="token function">align</span>(<span class="token type">Alignment</span>.BottomEnd).<span class="token function">padding</span>(<span class="token number">12</span>.dp),
+            <span class="token parameter">onClick</span> = {}
+        ) {
+            <span class="token function">Text</span>(<span class="token string">"+"</span>)
+        }
+    }
+}</code></pre>
+                    </article>
+                     <article id="s1-4" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">1.4 嵌套的艺术：用简单原语构建复杂结构</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">Compose 布局的真正威力在于将这些简单的原语进行嵌套组合。一个复杂的屏幕界面，本质上可能只是一个包含多个 <code>Row</code> 的 <code>Column</code>。这种组合式的构建方式，取代了传统 XML 布局中基于 ID 的、扁平化的关系模型。</p>
+                    </article>
+                </section>
+
+                <section id="section-2">
+                    <h2 class="text-3xl font-bold text-white mb-4 border-t border-gray-700 pt-8">第二节：精通 Modifier - 定制的 DNA</h2>
+                    <p class="text-gray-400 leading-relaxed">如果说 <code>Column</code>、<code>Row</code> 和 <code>Box</code> 是 Compose 布局的骨架，那么 <code>Modifier</code>（修饰符）就是其血肉和灵魂。它是一个通用的定制语言，允许开发者改变任何可组合项的大小、布局、外观和行为。</p>
+                    
+                    <article id="s2-4" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">2.4 顺序的至关重要性：视觉与技术剖析</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4"><code>Modifier</code> 链的执行顺序是一个常见且关键的知识点。由于每个修饰符都作用于前一个修饰符产生的结果，因此顺序的改变会直接导致视觉效果的巨大差异。</p>
+<pre><code class="language-kotlin"><span class="token comment">// 示例 A: 先 padding 后 background</span>
+<span class="token type">Modifier</span>.<span class="token function">padding</span>(<span class="token number">16</span>.dp).<span class="token function">background</span>(<span class="token type">Color</span>.Blue)
+
+<span class="token comment">// 示例 B: 先 background 后 padding</span>
+<span class="token type">Modifier</span>.<span class="token function">background</span>(<span class="token type">Color</span>.Blue).<span class="token function">padding</span>(<span class="token number">16</span>.dp)</code></pre>
+                        <ul class="list-disc list-inside space-y-2 mt-4 text-gray-400">
+                           <li><b>示例 A:</b> 首先创建 16.dp 的空白区域，然后将包括空白区域在内的整个区域背景设为蓝色。</li>
+                           <li><b>示例 B:</b> 首先将组件原有区域背景设为蓝色，然后在这个蓝色区域的外部再添加 16.dp 的透明空白区域。</li>
+                        </ul>
+                    </article>
+
+                    <article id="s2-5" class="mt-8">
+                         <h3 class="text-2xl font-semibold text-blue-300 mb-3">2.5 性能洞察：提取和重用 Modifier</h3>
+                         <p class="text-gray-400 leading-relaxed mb-4">一个关键的性能优化技巧是将 <code>Modifier</code> 实例提升（hoist）到函数外部，作为一个常量或记忆化的变量，从而在多次重组之间复用同一个实例，避免不必要的性能开销。</p>
+<pre><code class="language-kotlin"><span class="token comment">// 推荐：Modifier 被提取并重用</span>
+<span class="token keyword">private</span> <span class="token keyword">val</span> reusableItemModifier = <span class="token type">Modifier</span>.fillMaxWidth().<span class="token function">padding</span>(<span class="token number">16</span>.dp)
+
+<span class="token annotation">@Composable</span>
+<span class="token keyword">fun</span> <span class="token function">GoodPracticeListItem</span>(<span class="token parameter">text</span>: <span class="token type">String</span>) {
+    <span class="token function">Text</span>(
+        <span class="token parameter">text</span> = text,
+        <span class="token parameter">modifier</span> = reusableItemModifier <span class="token comment">// 重用同一个实例</span>
+    )
+}</code></pre>
+                    </article>
+                </section>
+
+                <section id="section-3">
+                     <h2 class="text-3xl font-bold text-white mb-4 border-t border-gray-700 pt-8">第三节：使用 Arrangement 和 Alignment 进行精确定位</h2>
+                     <p class="text-gray-400 leading-relaxed"><code>Arrangement</code> 和 <code>Alignment</code> 参数是实现复杂对齐和间距需求的核心工具。</p>
+                    
+                    <article id="s3-1" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">3.1 核心原则：主轴 (`Arrangement`) vs. 交叉轴 (`Alignment`)</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-400">
+                           <li><b>主轴 (Main Axis):</b> 布局组件排列其子项的主要方向 (<code>Row</code> 是水平，<code>Column</code> 是垂直)。</li>
+                           <li><b>交叉轴 (Cross Axis):</b> 与主轴垂直的方向。</li>
+                           <li><b><code>Arrangement</code></b> 用于控制子项在<b>主轴</b>上的分布和间距。</li>
+                           <li><b><code>Alignment</code></b> 用于控制子项在<b>交叉轴</b>上的对齐方式。</li>
+                        </ul>
+                    </article>
+                    
+                    <article id="s3-4" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">3.4 作用域内对齐：使用 `Modifier.align()`</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">除了在父布局上为所有子项设置统一的对齐方式外，还可以通过 <code>Modifier.align()</code> 为单个子项覆盖对齐设置。</p>
+<pre><code class="language-kotlin"><span class="token annotation">@Composable</span>
+<span class="token keyword">fun</span> <span class="token function">ScopedAlignmentExample</span>() {
+    <span class="token type">Column</span>(
+        <span class="token parameter">modifier</span> = <span class="token type">Modifier</span>.fillMaxSize(),
+        <span class="token parameter">horizontalAlignment</span> = <span class="token type">Alignment</span>.CenterHorizontally
+    ) {
+        <span class="token function">Text</span>(<span class="token string">"Centered Text"</span>)
+        <span class="token function">Text</span>(
+            <span class="token string">"This text is aligned to the end"</span>,
+            <span class="token parameter">modifier</span> = <span class="token type">Modifier</span>.<span class="token function">align</span>(<span class="token type">Alignment</span>.End) <span class="token comment">// 覆盖父级的对齐设置</span>
+        )
+    }
+}</code></pre>
+                    </article>
+
+                    <article id="table-1" class="mt-8">
+                         <h3 class="text-2xl font-semibold text-blue-300 mb-3">表 1：Arrangement 与 Alignment 视觉速查表</h3>
+                         <div class="overflow-x-auto">
+                            <table class="w-full text-left border border-gray-700 rounded-lg">
+                                <thead class="bg-gray-800">
+                                    <tr>
+                                        <th class="p-3">Arrangement in Row</th>
+                                        <th class="p-3">视觉效果 (LTR)</th>
+                                        <th class="p-3">描述</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-700">
+                                    <tr><td class="p-3"><code>Start</code></td><td class="p-3 font-mono">[O O O&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</td><td class="p-3">子项向左侧紧密排列。</td></tr>
+                                    <tr><td class="p-3"><code>Center</code></td><td class="p-3 font-mono">[&nbsp;&nbsp;&nbsp;O O O&nbsp;&nbsp;&nbsp;]</td><td class="p-3">子项作为一个整体在水平方向居中。</td></tr>
+                                    <tr><td class="p-3"><code>End</code></td><td class="p-3 font-mono">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O O O]</td><td class="p-3">子项向右侧紧密排列。</td></tr>
+                                    <tr><td class="p-3"><code>SpaceBetween</code></td><td class="p-3 font-mono">[O&nbsp;&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;O]</td><td class="p-3">子项之间空间相等，两端无空间。</td></tr>
+                                    <tr><td class="p-3"><code>SpaceAround</code></td><td class="p-3 font-mono">[&nbsp;O&nbsp;&nbsp;O&nbsp;&nbsp;O&nbsp;]</td><td class="p-3">每个子项两侧空间相等。</td></tr>
+                                    <tr><td class="p-3"><code>SpaceEvenly</code></td><td class="p-3 font-mono">[&nbsp;O&nbsp;O&nbsp;O&nbsp;]</td><td class="p-3">所有间距（包括两端）完全相等。</td></tr>
+                                </tbody>
+                            </table>
+                         </div>
+                    </article>
+                </section>
+                
+                <section id="section-4">
+                    <h2 class="text-3xl font-bold text-white mb-4 border-t border-gray-700 pt-8">第四节：应对真实场景的高级布局</h2>
+                    <p class="text-gray-400 leading-relaxed">Compose 提供了一套高级布局组件，以优雅地解决真实世界的场景，例如处理大量数据的性能问题、复杂的相对定位需求以及响应式设计。</p>
+                    <article id="s4-1" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">4.1 高效处理动态内容：LazyColumn 和 LazyRow</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">它们的功能类似于传统视图系统中的 `RecyclerView`，核心优势在于“懒加载”：只组合和布局当前视口中可见的列表项，从而极大地节省了内存和计算资源。</p>
+                    </article>
+                    <article id="s4-2" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">4.2 用 ConstraintLayout 驯服复杂性</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">当布局中的元素之间存在复杂的相对定位关系时，`ConstraintLayout` 提供了一个强大的替代方案。它允许开发者创建一个扁平的视图层次结构，并通过约束来定义组件之间的关系。</p>
+                    </article>
+                     <article id="s4-3" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">4.3 构建响应式 UI：FlowRow 和 FlowColumn</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">当容器空间不足以在单行或单列中容纳所有子项时，`FlowRow` 会自动将子项“流”到下一行，而 `FlowColumn` 则会流到下一列，非常适合用于展示标签云、筛选器选项等。</p>
+                    </article>
+                </section>
+                
+                <section id="section-5">
+                    <h2 class="text-3xl font-bold text-white mb-4 border-t border-gray-700 pt-8">第五节：实战应用与性能最佳实践</h2>
+                    <article id="s5-1" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">5.1 案例研究：构建一个可重用的个人资料卡片</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">这个案例将演示如何通过组合不同的布局和修饰符来创建一个符合 Material Design 规范的个人资料卡片。</p>
+<pre><code class="language-kotlin"><span class="token keyword">import</span> androidx.compose.foundation.Image
+<span class="token keyword">import</span> androidx.compose.foundation.layout.*
+<span class="token keyword">import</span> androidx.compose.foundation.shape.CircleShape
+<span class="token keyword">import</span> androidx.compose.material3.*
+<span class="token keyword">import</span> androidx.compose.runtime.Composable
+<span class="token keyword">import</span> androidx.compose.ui.Modifier
+<span class="token keyword">import</span> androidx.compose.ui.draw.clip
+<span class="token keyword">import</span> androidx.compose.ui.unit.dp
+
+<span class="token annotation">@Composable</span>
+<span class="token keyword">fun</span> <span class="token function">UserProfileCard</span>() {
+    <span class="token function">ElevatedCard</span>(
+        <span class="token parameter">modifier</span> = <span class="token type">Modifier</span>
+           .<span class="token function">fillMaxWidth</span>()
+           .<span class="token function">padding</span>(<span class="token number">16</span>.dp)
+    ) {
+        <span class="token function">Row</span>(
+            <span class="token parameter">modifier</span> = <span class="token type">Modifier</span>.<span class="token function">padding</span>(<span class="token number">16</span>.dp),
+            <span class="token parameter">verticalAlignment</span> = <span class="token type">Alignment</span>.CenterVertically
+        ) {
+            <span class="token function">Image</span>(
+                <span class="token parameter">painter</span> = <span class="token function">painterResource</span>(id = R.drawable.profile_picture),
+                <span class="token parameter">contentDescription</span> = <span class="token string">"User profile picture"</span>,
+                <span class="token parameter">modifier</span> = <span class="token type">Modifier</span>
+                   .<span class="token function">size</span>(<span class="token number">64</span>.dp)
+                   .<span class="token function">clip</span>(<span class="token type">CircleShape</span>)
+            )
+            <span class="token function">Spacer</span>(<span class="token parameter">modifier</span> = <span class="token type">Modifier</span>.<span class="token function">width</span>(<span class="token number">16</span>.dp))
+            <span class="token type">Column</span> {
+                <span class="token function">Text</span>(<span class="token string">"Android Developer"</span>, <span class="token parameter">fontWeight</span> = <span class="token type">FontWeight</span>.Bold)
+                <span class="token function">Text</span>(<span class="token string">"Online"</span>, <span class="token parameter">color</span> = <span class="token type">MaterialTheme</span>.colorScheme.onSurfaceVariant)
+            }
+        }
+    }
+}</code></pre>
+                    </article>
+                    <article id="s5-2" class="mt-8">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-3">5.2 布局性能清单：速成者的优化指南</h3>
+                        <ol class="list-decimal list-inside space-y-3 text-gray-400">
+                           <li><b>为任务选择正确的工具</b>：为长列表使用了 <code>LazyColumn</code>/<code>LazyRow</code> 吗？</li>
+                           <li><b>最小化重组</b>：应用状态是否被正确地提升了？</li>
+                           <li><b>在 <code>Lazy</code> 布局中使用 <code>key</code></b>：为 <code>items</code> 提供了稳定且唯一的 <code>key</code> 吗？</li>
+                           <li><b>提取修饰符</b>：将复杂或频繁使用的修饰符链提取到函数外部了吗？</li>
+                           <li><b>保持层级扁平</b>：布局嵌套是否过深？是否可以考虑使用 <code>ConstraintLayout</code>？</li>
+                           <li><b>检查参数稳定性</b>：传递给可组合函数的参数是稳定的吗？</li>
+                        </ol>
+                    </article>
+                </section>
+                
+                <footer class="border-t border-gray-700 pt-8 text-center text-gray-500">
+                     <p>你的 Compose 布局精通之路从这里开始。</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
