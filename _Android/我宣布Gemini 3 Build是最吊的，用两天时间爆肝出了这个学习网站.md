@@ -84,7 +84,7 @@ tags: ["Android"]
 
 这是一个完整的包含Makdown知识点、小测验和代码实践的内容界面。
 
-![](../../assets/blogimages/Pasted image 20251123130639.png)
+![](../../assets/blogimages/Pasted image 20251123173812.png)
 
 但是我看着界面，感觉还是不满意。只有文字讲解，未免有些太枯燥了。这和其它的知识型网站有什么区别？还能不能更有意思一点？
 

@@ -2,7 +2,7 @@
 layout: article
 title: "谷歌的这款图像模型火了！Gemini 2.5 Flash Image (nano-banana) 体验心得分享"
 date: 2025-08-27
-tags: ["公众号", "Others", "ai"]
+tags: ["ai", "Others", "公众号"]
 permalink: /others/gu-ge-de-zhe-kuan-tu-xiang-mo-xing-huo-le-gemini-2/
 ---
 

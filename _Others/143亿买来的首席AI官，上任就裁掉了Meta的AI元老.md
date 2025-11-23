@@ -3,7 +3,7 @@ layout: article
 title: "143亿买来的首席AI官，上任就裁掉了Meta的AI元老"
 date: 2025-10-23
 permalink: /others/143-yi-mai-lai-de-shou-xi-ai-guan-shang-ren-jiu-ca/
-tags: ["公众号", "AI资讯", "Others"]
+tags: ["AI资讯", "Others", "公众号"]
 ---
 
   
