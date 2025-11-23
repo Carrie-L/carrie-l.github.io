@@ -3,7 +3,7 @@ layout: article
 title: "什么是 Bootloader？——“点火钥匙 + 发动机自检”"
 date: 2025-05-01
 permalink: /android/shen-me-shi-bootloader-dian-huo-yao-shi-fa-dong-ji/
-tags: ["Activity", "Android"]
+tags: ["Android", "Activity"]
 ---
 
  

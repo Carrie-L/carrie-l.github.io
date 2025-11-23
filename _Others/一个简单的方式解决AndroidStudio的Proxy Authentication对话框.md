@@ -3,7 +3,7 @@ layout: article
 title: "一个简单的方式解决AndroidStudio的Proxy Authentication对话框"
 date: 2025-09-14
 permalink: /others/yi-ge-jian-dan-de-fang-shi-jie-jue-androidstudio-d/
-tags: ["工具", "Others"]
+tags: ["Others", "工具"]
 ---
 
  

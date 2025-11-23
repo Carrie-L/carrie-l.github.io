@@ -3,7 +3,7 @@ layout: article
 title: "Obsidian面板里实现自动推送笔记到Github"
 date: 2025-03-10
 permalink: /mcp/obsidian-mian-ban-li-shi-xian-zi-dong-tui-song-bi/
-tags: ["Obsidian", "MCP"]
+tags: ["MCP", "Obsidian"]
 ---
 
  

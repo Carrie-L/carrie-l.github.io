@@ -236,7 +236,7 @@ Vercel的项目可以绑定自己域名，我添加后，用域名打开却总�
 
 ![](../../assets/blogimages/Pasted image 20251123170501.png)
 
-所以，现在你能通过网址 `carriecat.cc`  来访问我用两天时间爆肝出来的渐进式学习网站了。
+所以，现在你能通过网址 [carriecat.cc](https://www.carriecat.cc/)  来访问我用两天时间爆肝出来的渐进式学习网站了。
 
 前段时间，X上很流行一种论调，前端已死。
 
