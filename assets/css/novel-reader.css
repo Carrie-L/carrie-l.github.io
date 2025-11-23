@@ -1,0 +1,426 @@
+/* 小说阅读器样式 */
+
+/* 整体布局容器 */
+.novel-layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 左侧目录 - 完全参考 compose layout.html */
+.novel-sidebar {
+  width: 100%;
+  background: rgba(31, 41, 55, 0.5);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(55, 65, 81, 1);
+}
+
+@media (min-width: 768px) {
+  .novel-sidebar {
+    width: 256px;
+    min-width: 256px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    border-bottom: none;
+    border-right: 1px solid rgba(55, 65, 81, 1);
+  }
+}
+
+@media (min-width: 1024px) {
+  .novel-sidebar {
+    width: 288px;
+    min-width: 288px;
+  }
+}
+
+.novel-sidebar-content {
+  padding: 20px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.novel-sidebar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.novel-sidebar-nav {
+  font-size: 14px;
+}
+
+/* 右侧面板：Bar + 内容 + Footer */
+.novel-right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* 顶部樱花条幅 - 固定在右侧面板顶部 */
+.novel-header-banner {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255, 240, 245, 1) 0%,
+    rgba(255, 228, 225, 1) 50%,
+    rgba(255, 240, 245, 1) 100%
+  ) !important;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 192, 203, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(255, 218, 225, 0.2) 0%, transparent 50%) !important;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2);
+  padding: 20px 0;
+  z-index: 9999 !important;
+  flex-shrink: 0;
+  /* 确保Bar始终在最上层 */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.banner-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.sakura-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,182,193,0.3)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,192,203,0.3)"/><circle cx="50" cy="60" r="2" fill="rgba(255,182,193,0.25)"/><circle cx="30" cy="80" r="1.5" fill="rgba(255,192,203,0.3)"/><circle cx="70" cy="70" r="2" fill="rgba(255,182,193,0.25)"/></svg>');
+  background-repeat: repeat;
+  opacity: 0.6;
+  animation: sakuraFloat 20s infinite linear;
+}
+
+@keyframes sakuraFloat {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-10px) translateX(5px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #d63384;
+}
+
+.novel-main-title {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(255, 182, 193, 0.3);
+}
+
+.novel-subtitle {
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0 0;
+  color: #c2185b;
+  font-weight: 400;
+}
+
+/* 导航栏样式 */
+.novel-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.novel-nav-link {
+  color: #d63384;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.novel-nav-link:hover {
+  background: rgba(255, 182, 193, 0.3);
+  color: #c2185b;
+}
+
+
+.novel-sidebar-title {
+  font-size: 18px; /* text-lg */
+  font-weight: 700; /* font-bold */
+  color: #ffffff; /* text-white */
+  margin-bottom: 16px; /* mb-4 */
+}
+
+.novel-sidebar-nav {
+  font-size: 14px; /* text-sm */
+}
+
+/* 正文内容区域 */
+.novel-main-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  min-height: 0;
+  position: relative;
+  z-index: 1;
+  /* 确保内容在Bar下方 */
+  transform: none;
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .novel-main-content {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .novel-main-content {
+    padding: 48px;
+  }
+}
+
+/* 底部Footer包装器 */
+.novel-footer-wrapper {
+  flex-shrink: 0;
+  border-top: 1px solid rgba(255, 182, 193, 0.3);
+  background: transparent;
+}
+
+.novel-footer-wrapper .site-footer {
+  padding: 20px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .novel-main-content {
+    padding: 32px; /* md:p-8 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .novel-main-content {
+    padding: 48px; /* lg:p-12 */
+  }
+}
+
+.novel-content-wrapper {
+  max-width: 896px;
+  margin: 0 auto;
+}
+
+.novel-article-header {
+  border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+  padding-bottom: 32px;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1; /* 确保在Bar下方 */
+}
+
+.novel-article-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #d63384;
+  line-height: 1.2;
+  margin: 0;
+  position: relative;
+  z-index: 1; /* 确保在Bar下方 */
+}
+
+@media (min-width: 768px) {
+  .novel-article-title {
+    font-size: 40px;
+  }
+}
+
+.novel-article-content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  position: relative;
+  z-index: 1; /* 确保在Bar下方 */
+}
+
+.novel-article-content h1,
+.novel-article-content h2,
+.novel-article-content h3 {
+  color: #d63384;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.novel-article-content h2 {
+  font-size: 24px;
+  border-top: 1px solid rgba(255, 182, 193, 0.3);
+  padding-top: 32px;
+}
+
+.novel-article-content h3 {
+  font-size: 20px;
+  color: #ff6b9d;
+}
+
+.novel-article-content p {
+  margin-bottom: 16px;
+  color: #555;
+}
+
+.novel-article-content a {
+  color: hsl(83, 70%, 53%);
+}
+
+.novel-article-content a:hover {
+  color: #2eccbf;
+}
+
+.chapter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* space-y-2 */
+.chapter-item {
+  margin-bottom: 8px; /* space-y-2 */
+}
+
+.chapter-item:last-child {
+  margin-bottom: 0;
+}
+
+/* font-semibold text-gray-200 hover:text-blue-400 */
+.chapter-link {
+  display: block;
+  padding: 0;
+  color: #e5e7eb; /* text-gray-200 */
+  text-decoration: none;
+  font-size: 14px; /* text-sm */
+  font-weight: 600; /* font-semibold */
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+.chapter-link:hover {
+  color: #60a5fa; /* hover:text-blue-400 */
+}
+
+.chapter-link.active {
+  color: #60a5fa; /* active状态也用蓝色 */
+  font-weight: 600;
+}
+
+/* 子列表样式 - pl-4 mt-2 space-y-2 text-gray-400 */
+.chapter-item ul {
+  list-style: none;
+  padding-left: 16px; /* pl-4 */
+  margin-top: 8px; /* mt-2 */
+  margin-bottom: 0;
+}
+
+.chapter-item ul li {
+  margin-bottom: 8px; /* space-y-2 */
+}
+
+.chapter-item ul li:last-child {
+  margin-bottom: 0;
+}
+
+.chapter-item ul .chapter-link {
+  color: #9ca3af; /* text-gray-400 */
+  font-weight: 400;
+}
+
+.chapter-item ul .chapter-link:hover {
+  color: #60a5fa; /* hover:text-blue-400 */
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .novel-header-banner {
+    min-height: 120px;
+    padding: 15px 0;
+  }
+  
+  .banner-wrapper {
+    padding: 0 15px;
+  }
+  
+  .novel-main-title {
+    font-size: 1.5rem;
+  }
+  
+  .novel-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .novel-nav {
+    gap: 10px;
+  }
+  
+  .novel-nav-link {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+  
+  .novel-layout-wrapper {
+    flex-direction: column;
+  }
+  
+  .novel-sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    position: relative;
+  }
+  
+  .novel-sidebar-content {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .novel-main-content {
+    padding: 20px;
+  }
+  
+  .novel-article-title {
+    font-size: 28px;
+  }
+  
+  .novel-article-content {
+    font-size: 15px;
+  }
+}
+
+/* 滚动条样式 */
+.novel-sidebar-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.novel-sidebar-content::-webkit-scrollbar-track {
+  background: rgba(255, 182, 193, 0.1);
+  border-radius: 3px;
+}
+
+.novel-sidebar-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 182, 193, 0.5);
+  border-radius: 3px;
+}
+
+.novel-sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 182, 193, 0.7);
+}
+

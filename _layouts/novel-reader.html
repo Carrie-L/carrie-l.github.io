@@ -1,0 +1,108 @@
+---
+layout: base
+---
+
+<!-- 整体布局容器 -->
+<div class="novel-layout-wrapper">
+  <!-- 左侧目录 -->
+  <aside class="novel-sidebar">
+    <div class="novel-sidebar-content">
+      <h2 class="novel-sidebar-title">目录</h2>
+      <nav class="novel-sidebar-nav">
+        <ul class="chapter-list">
+          {% comment %} 获取当前分部下的所有章节并排序 {% endcomment %}
+          {% assign part_path = page.part_path | default: page.path | remove: '.html' %}
+          {% assign all_chapters = site.Novel | where_exp: 'post', 'post.path contains part_path' %}
+          {% assign sorted_chapters = all_chapters | sort: 'chapter_order' %}
+          
+          {% for chapter in sorted_chapters %}
+            {% assign chapter_name = chapter.path | split: '/' | last | remove: '.md' %}
+            {% assign chapter_url = chapter.url | relative_url %}
+            <li class="chapter-item">
+              <a href="{{ chapter_url }}" 
+                 class="chapter-link {% if page.url == chapter.url %}active{% endif %}"
+                 data-chapter-url="{{ chapter_url }}">
+                {{ chapter.title | default: chapter_name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- 右侧内容区域：顶部Bar + 正文 + Footer -->
+  <div class="novel-right-panel">
+    <!-- 顶部樱花条幅（固定，包含导航） -->
+    <div class="novel-header-banner">
+      <div class="sakura-pattern"></div>
+      <div class="banner-wrapper">
+        <div class="banner-content">
+          <h1 class="novel-main-title">{{ page.novel_title | default: '小说专栏' }}</h1>
+          <p class="novel-subtitle">{{ page.part_title | default: page.title }}</p>
+        </div>
+        <!-- 导航栏 -->
+        <nav class="novel-nav">
+          {%- assign default_paths = site.pages | map: "path" -%}
+          {%- assign page_paths = site.header_pages | default: default_paths -%}
+          {%- if page_paths -%}
+            {%- for path in page_paths -%}
+              {%- assign my_page = site.pages | where: "path", path | first -%}
+              {%- if my_page.title -%}
+              <a class="novel-nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+        </nav>
+      </div>
+    </div>
+
+    <!-- 正文内容 -->
+    <main class="novel-main-content">
+      <div class="novel-content-wrapper">
+        <article class="novel-article" itemscope itemtype="http://schema.org/BlogPosting">
+          {% comment %} 如果是分部索引页，显示第一个章节 {% endcomment %}
+          {% if page.part_path and page.path contains '.html' %}
+            {% assign part_path = page.part_path %}
+            {% assign all_chapters_for_content = site.Novel | where_exp: 'post', 'post.path contains part_path' %}
+            {% assign sorted_chapters_for_content = all_chapters_for_content | sort: 'chapter_order' %}
+            {% assign first_chapter = sorted_chapters_for_content | first %}
+            {% if first_chapter %}
+              <header class="novel-article-header">
+                <h1 class="novel-article-title" itemprop="name headline">{{ first_chapter.title | default: first_chapter.name | escape }}</h1>
+              </header>
+              <div class="novel-article-content" itemprop="articleBody">
+                {{ first_chapter.content }}
+              </div>
+            {% else %}
+              <header class="novel-article-header">
+                <h1 class="novel-article-title" itemprop="name headline">{{ page.title | escape }}</h1>
+              </header>
+              <div class="novel-article-content" itemprop="articleBody">
+                {{ content }}
+              </div>
+            {% endif %}
+          {% else %}
+            <header class="novel-article-header">
+              <h1 class="novel-article-title" itemprop="name headline">{{ page.title | escape }}</h1>
+            </header>
+            <div class="novel-article-content" itemprop="articleBody">
+              {{ content }}
+            </div>
+          {% endif %}
+          <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+        </article>
+      </div>
+    </main>
+
+    <!-- 底部 Footer -->
+    <div class="novel-footer-wrapper">
+      {%- include footer2.html -%}
+    </div>
+  </div>
+</div>
+
+<!-- 样式和脚本 -->
+<link rel="stylesheet" href="{{ '/assets/css/novel-reader.css' | relative_url }}">
+<script src="{{ '/assets/js/novel-reader.js' | relative_url }}"></script>
+

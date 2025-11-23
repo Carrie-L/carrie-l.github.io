@@ -3,7 +3,7 @@ layout: article
 title: "K.1-Dalvik 虚拟机 和 ART"
 date: 2025-05-01
 permalink: /android/k-1-dalvik-xu-ni-ji-he-art/
-tags: ["Android", "OS"]
+tags: ["OS", "Android"]
 ---
 
  

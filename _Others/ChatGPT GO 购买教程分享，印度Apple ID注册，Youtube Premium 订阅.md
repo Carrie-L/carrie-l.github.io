@@ -3,7 +3,7 @@ layout: article
 title: "ChatGPT GO 购买教程分享，印度Apple ID注册，Youtube Premium 订阅"
 date: 2025-08-26
 permalink: /others/chatgpt-go-gou-mai-jiao-cheng-fen-xiang-yin-du-app/
-tags: ["Others", "ai", "教程"]
+tags: ["教程", "Others", "ai"]
 ---
 
   

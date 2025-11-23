@@ -66,6 +66,9 @@ collections:
   Others:
     output: true
     permalink: /:collection/:path
+  Novel:
+    output: true
+    permalink: /:collection/:path
 
 
 
@@ -87,6 +90,7 @@ header_pages:
 - dsa.html
 - language.html
 - mcp.html
+- novel.html
 - about.markdown
 
 sass:

@@ -1,0 +1,60 @@
+---
+layout: default
+title: 小说专栏
+---
+
+<header class="page-header">
+  <div class="list-title">
+    {{ page.title | escape }}
+  </div>
+</header>
+
+<main class="container">
+  <div class="novel-shelf">
+    {% comment %} 获取所有小说文件夹 {% endcomment %}
+    {% assign novel_groups = '' | split: '' %}
+    {% for post in site.Novel %}
+      {% assign path_parts = post.path | split: '/' %}
+      {% if path_parts.size >= 2 %}
+        {% assign novel_name = path_parts[1] %}
+        {% unless novel_groups contains novel_name %}
+          {% assign novel_groups = novel_groups | push: novel_name %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+    
+    {% comment %} 按小说分组显示 {% endcomment %}
+    {% for novel_name in novel_groups %}
+      {% assign novel_posts = site.Novel | where_exp: 'post', 'post.path contains novel_name' %}
+      {% assign parts = '' | split: '' %}
+      {% for post in novel_posts %}
+        {% assign path_parts = post.path | split: '/' %}
+        {% if path_parts.size >= 3 %}
+          {% assign part = path_parts[2] %}
+          {% unless parts contains part %}
+            {% assign parts = parts | push: part %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+      
+      <div class="novel-item">
+        <h2 class="novel-title">{{ novel_name }}</h2>
+        <div class="novel-parts">
+          {% for part in parts %}
+            {% assign part_posts = novel_posts | where_exp: 'post', 'post.path contains part' %}
+            {% assign part_url = '/Novel/' | append: novel_name | append: '/' | append: part | append: '/' %}
+            <a href="{{ part_url | relative_url }}" class="part-link">
+              <div class="part-card">
+                <h3>{{ part }}</h3>
+                <p class="chapter-count">{{ part_posts.size }} 章</p>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</main>
+
+<link rel="stylesheet" href="{{ '/assets/css/novel-shelf.css' | relative_url }}">
+
