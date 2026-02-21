@@ -1,0 +1,13 @@
+#!/bin/sh
+# pre-push hook: review all chapters in the push range
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File \
+  "AndroidDeveloperGuideStory/review/scripts/review_changed_chapters.ps1" \
+  -Mode range
+rc=$?
+if [ $rc -ne 0 ]; then
+  echo "pre-push blocked: chapter review failed."
+  exit $rc
+fi
+
+exit 0

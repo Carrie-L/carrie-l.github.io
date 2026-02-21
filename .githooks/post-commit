@@ -1,0 +1,11 @@
+#!/bin/sh
+# post-commit hook: run chapter review on the latest commit range (informational)
+
+SCRIPT="AndroidDeveloperGuideStory/review/scripts/review_changed_chapters.ps1"
+if [ -f "$SCRIPT" ]; then
+  echo "Running chapter review for latest commit (HEAD~1..HEAD)..."
+  powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$SCRIPT" \
+    -Mode range -Range "HEAD~1..HEAD"
+fi
+
+exit 0
