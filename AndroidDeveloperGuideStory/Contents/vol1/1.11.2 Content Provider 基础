@@ -1,0 +1,166 @@
+---
+chapter_id: '1.11.2'
+title: 'Content Provider 基础'
+official_title: 'Content Provider basics'
+official_url: 'https://developer.android.com/guide/topics/providers/content-provider-basics'
+topic_url: 'https://developer.android.com/guide/topics/providers'
+status: 'done'
+author: 'minimax - OpenClaw'
+volume_priority: 1
+volume_grade: 'A'
+chapter_importance: 4
+plot_summary:
+  time: '春天'
+  location: '营地'
+  scene: '黛琳讲解Content Provider的基础用法'
+  season: '春季'
+  environment: '春意盎然'
+  topic: 'Content Provider基础'
+  discussion: 'URI、ContentResolver、基本操作'
+  problem_solved: '掌握使用Content Provider访问数据'
+  difficulty: '中等'
+  next_topic: '创建Content Provider'
+---
+
+# 1.11.2 Content Provider实战
+
+“了解了概念，现在来看看具体怎么用，”黛琳说道。
+
+## 1.11.2.1 ContentResolver
+
+“所有对Content Provider的访问都是通过ContentResolver，”黛琳介绍道。
+
+```kotlin
+// 获取ContentResolver
+val resolver = contentResolver
+
+// 查询
+val cursor = resolver.query(
+    uri,           // Content URI
+    projection,    // 要查询的列
+    selection,     // WHERE条件
+    selectionArgs,  // WHERE参数
+    sortOrder      // 排序
+)
+
+// 插入
+val newUri = resolver.insert(uri, values)
+
+// 更新
+val count = resolver.update(uri, values, selection, selectionArgs)
+
+// 删除
+val count = resolver.delete(uri, selection, selectionArgs)
+```
+
+## 1.11.2.2 URI匹配
+
+“处理不同的URI需要匹配，”黛琳继续说道。
+
+```kotlin
+class MyProvider : ContentProvider() {
+    
+    companion object {
+        const val AUTHORITY = "com.example.provider"
+        const val PATH_USERS = "users"
+        
+        val CONTENT_URI = Uri.parse("content://$AUTHORITY/$PATH_USERS")
+        
+        // URI匹配码
+        const val USERS = 1
+        const val USER_ID = 2
+        
+        private val uriMatcher = UriMatcher(UriMatcher.NO_MATCH).apply {
+            addURI(AUTHORITY, PATH_USERS, USERS)
+            addURI(AUTHORITY, "$PATH_USERS/#", USER_ID)
+        }
+    }
+    
+    override fun query(uri: Uri, projection: Array<String>?, 
+                       selection: String?, selectionArgs: Array<String>?,
+                       sortOrder: String?): Cursor? {
+        
+        return when (uriMatcher.match(uri)) {
+            USERS -> queryAllUsers()
+            USER_ID -> queryUserById(ContentUris.parseId(uri))
+            else -> throw IllegalArgumentException("Unknown URI: $uri")
+        }
+    }
+}
+```
+
+## 1.11.2.3 使用系统Provider
+
+“使用系统Provider很简单，”黛琳举例道。
+
+```kotlin
+// 访问联系人
+fun getContacts(context: Context): List<Contact> {
+    val contacts = mutableListOf<Contact>()
+    
+    val cursor = context.contentResolver.query(
+        ContactsContract.Contacts.CONTENT_URI,
+        arrayOf(
+            ContactsContract.Contacts._ID,
+            ContactsContract.Contacts.DISPLAY_NAME,
+            ContactsContract.Contacts.HAS_PHONE_NUMBER
+        ),
+        null, null, null
+    )
+    
+    cursor?.use {
+        while (it.moveToNext()) {
+            val id = it.getString(0)
+            val name = it.getString(1)
+            val hasPhone = it.getInt(2) > 0
+            contacts.add(Contact(id, name, hasPhone))
+        }
+    }
+    
+    return contacts
+}
+
+data class Contact(val id: String, val name: String, val hasPhone: Boolean)
+```
+
+---
+
+## 1.11.2.4 专业技术总结
+
+本章我们学习了Content Provider的基础用法。
+
+**核心要点：**
+
+1. **通过ContentResolver访问** - 标准CRUD操作
+2. **UriMatcher匹配URI** - 处理不同请求
+3. **使用系统Provider** - 联系人、媒体等
+4. **游标记得关闭** - use或close
+5. **ContentUris工具类** - 处理ID
+
+**常见系统Provider URI：**
+
+```kotlin
+// 联系人
+ContactsContract.Contacts.CONTENT_URI
+
+// 媒体
+MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+
+// 日历
+CalendarContract.Events.CONTENT_URI
+```
+
+---
+
+> **学习建议**
+> 
+> 1. 练习使用ContentResolver
+> 2. 实现URI匹配
+> 3. 访问系统Provider
+> 4. 学习自定义Provider
+
+---
+
+## 洛芙的小小日记本
+
+> ContentResolver是访问数据的"大门"，用URI来"敲门"。春天🌿好清新呀！
