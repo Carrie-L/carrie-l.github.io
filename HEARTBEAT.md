@@ -1,4 +1,16 @@
 # HEARTBEAT.md
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
-# Add tasks below when you want the agent to check something periodically.
+# 提醒任务
+
+## 1. 每周一早上总结手账（周一推送）
+- 读取 memory/handbook-YYYY-MM.md
+- 统计上周支出
+- 整理上周日常
+- 通过Discord发送总结给用户
+
+## 2. 每月1号总结（可选）
+- 统计上月支出分类
+- 整理月报
+
+## 3. 倒猫砂提醒（每3天）
+
