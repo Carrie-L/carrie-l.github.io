@@ -3,14 +3,18 @@ layout: default
 ---
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
   
   :root {
-    --bg-cream: #faf8f5;
-    --text-deep: #2d2926;
-    --accent-warm: #c4703c;
-    --accent-muted: #8b7355;
-    --card-bg: #ffffff;
+    --paper: #faf6f1;
+    --paper-cream: #f5f0e8;
+    --ink: #3d3a36;
+    --ink-light: #6b6560;
+    --accent-green: #8faf8f;
+    --accent-amber: #d4a574;
+    --accent-coral: #e8a090;
+    --line-color: #c4b8a8;
+    --shadow: rgba(60, 50, 40, 0.1);
   }
   
   * {
@@ -21,38 +25,33 @@ layout: default
   
   body {
     font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg-cream);
-    color: var(--text-deep);
-    line-height: 1.85;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    background-image: 
+      url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   }
   
-  /* Post Hero */
+  /* Post Hero - Like a notecard */
   .post-hero {
-    background: 
-      radial-gradient(ellipse at 30% 70%, rgba(196, 112, 60, 0.06) 0%, transparent 60%),
-      radial-gradient(ellipse at 70% 30%, rgba(139, 115, 85, 0.06) 0%, transparent 60%),
-      var(--bg-cream);
-    padding: 4rem 2rem 3rem;
+    background: var(--paper);
+    padding: 3rem 1.5rem 2rem;
     text-align: center;
     position: relative;
   }
   
+  /* Paper edge effect */
   .post-hero::before {
-    content: '✦';
+    content: '';
     position: absolute;
-    font-size: 5rem;
-    color: rgba(196, 112, 60, 0.04);
-    top: 5%;
-    left: 10%;
-  }
-  
-  .post-hero::after {
-    content: '◇';
-    position: absolute;
-    font-size: 3rem;
-    color: rgba(139, 115, 85, 0.04);
-    top: 15%;
-    right: 12%;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px solid var(--line-color);
+    border-radius: 3px;
+    pointer-events: none;
+    opacity: 0.4;
   }
   
   .back-home {
@@ -61,19 +60,20 @@ layout: default
     left: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    color: var(--accent-muted);
-    font-size: 0.85rem;
+    gap: 0.35rem;
+    color: var(--ink-light);
+    font-size: 0.8rem;
     text-decoration: none;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.6);
+    padding: 0.35rem 0.6rem;
+    background: var(--paper-cream);
+    border-radius: 3px;
     transition: all 0.2s;
+    z-index: 10;
   }
   
   .back-home:hover {
-    background: #fff;
-    color: var(--accent-warm);
+    background: var(--accent-green);
+    color: #fff;
   }
   
   .post-meta {
@@ -82,93 +82,101 @@ layout: default
     justify-content: center;
     gap: 0.75rem;
     margin-bottom: 1rem;
+    position: relative;
   }
   
   .post-date {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--accent-muted);
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    letter-spacing: 0.1em;
   }
   
   .post-divider {
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
     border-radius: 50%;
-    background: var(--accent-muted);
-    opacity: 0.4;
+    background: var(--line-color);
   }
   
   .post-category {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 0.25rem 0.6rem;
-    border-radius: 20px;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
     font-weight: 600;
   }
   
-  .cat-diary { background: #fdf6e3; color: #b58900; }
-  .cat-life { background: #e6f4ea; color: #1e7e34; }
-  .cat-tech { background: #e8eaf6; color: #3949ab; }
+  .cat-diary { background: #fef3e2; color: #b8860b; }
+  .cat-life { background: #e8f5e9; color: #2e7d32; }
+  .cat-tech { background: #e3f2fd; color: #1565c0; }
   .cat-ai { background: #fce4ec; color: #c2185b; }
   
   .post-title {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(1.8rem, 6vw, 2.8rem);
-    font-weight: 600;
-    color: var(--text-deep);
-    max-width: 720px;
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    color: var(--ink);
+    max-width: 600px;
     margin: 0 auto;
-    line-height: 1.25;
+    line-height: 1.3;
+    position: relative;
   }
   
-  /* Author Info */
+  /* Decorative underline */
+  .post-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-amber);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+  
+  /* Author info */
   .author-bar {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--line-color);
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
   }
   
   .author-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ffb366 0%, #c4703c 50%, #7a9e7a 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: cover;
   }
   
   .author-name {
-    font-size: 0.9rem;
-    color: var(--text-deep);
+    font-size: 0.8rem;
+    color: var(--ink);
     font-weight: 500;
-  }
-  
-  .author-badge {
-    font-size: 0.7rem;
-    color: var(--accent-muted);
-    background: #f5f0e8;
-    padding: 0.2rem 0.5rem;
-    border-radius: 10px;
   }
   
   /* Post Content */
   .post-container {
-    max-width: 680px;
+    max-width: 580px;
     margin: 0 auto;
-    padding: 2.5rem 1.5rem 5rem;
+    padding: 2rem 1.25rem 4rem;
+    background: #fff;
+    margin-top: -1rem;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 -2px 10px var(--shadow);
   }
   
-  /* Markdown Content Styling */
+  /* Markdown Content */
   .post-content {
-    font-size: 1.02rem;
+    font-size: 0.98rem;
   }
   
   .post-content > *:first-child {
@@ -176,69 +184,66 @@ layout: default
   }
   
   .post-content h1 {
-    font-family: 'Caveat', cursive;
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin: 2.5rem 0 1rem;
-    color: var(--text-deep);
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: 1.5rem;
+    margin: 2rem 0 0.8rem;
+    color: var(--ink);
   }
   
   .post-content h2 {
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    margin: 2.2rem 0 0.8rem;
-    color: var(--text-deep);
+    margin: 1.8rem 0 0.6rem;
+    color: var(--ink);
   }
   
   .post-content h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin: 1.8rem 0 0.6rem;
-    color: var(--text-deep);
+    margin: 1.4rem 0 0.5rem;
+    color: var(--ink);
   }
   
   .post-content p {
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.1rem;
   }
   
   .post-content ul, .post-content ol {
-    margin-bottom: 1.3rem;
-    padding-left: 1.5rem;
+    margin-bottom: 1.1rem;
+    padding-left: 1.25rem;
   }
   
   .post-content li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
   }
   
   .post-content strong {
     font-weight: 600;
-    color: var(--text-deep);
+    color: var(--ink);
   }
   
   .post-content em {
-    color: var(--accent-muted);
+    color: var(--ink-light);
     font-style: italic;
   }
   
   .post-content code {
-    background: #f5f0e8;
-    padding: 0.15rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.88em;
-    color: var(--accent-warm);
-    font-family: 'SF Mono', Monaco, monospace;
+    background: var(--paper-cream);
+    padding: 0.12rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.87em;
+    color: var(--accent-green);
   }
   
   .post-content pre {
-    background: #2d2926;
+    background: var(--ink);
     color: #e8e4df;
-    padding: 1.25rem;
-    border-radius: 12px;
+    padding: 1rem;
+    border-radius: 4px;
     overflow-x: auto;
-    margin: 1.8rem 0;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    border: 3px solid rgba(196, 112, 60, 0.1);
+    margin: 1.4rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
   
   .post-content pre code {
@@ -248,109 +253,84 @@ layout: default
   }
   
   .post-content blockquote {
-    border-left: 3px solid var(--accent-warm);
-    padding: 0.5rem 0 0.5rem 1.25rem;
-    margin: 1.8rem 0;
-    color: var(--accent-muted);
+    border-left: 3px solid var(--accent-amber);
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin: 1.4rem 0;
+    color: var(--ink-light);
     font-style: italic;
-    background: #fdfbf8;
-    border-radius: 0 8px 8px 0;
-  }
-  
-  .post-content blockquote p {
-    margin-bottom: 0.5rem;
+    background: var(--paper-cream);
+    border-radius: 0 4px 4px 0;
   }
   
   .post-content a {
-    color: var(--accent-warm);
+    color: var(--accent-green);
     text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.2s;
+    text-underline-offset: 2px;
   }
   
   .post-content a:hover {
-    color: var(--text-deep);
+    color: var(--ink);
   }
   
   .post-content hr {
     border: none;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(196, 112, 60, 0.2), transparent);
-    margin: 2.5rem 0;
+    background: var(--line-color);
+    margin: 2rem 0;
+    opacity: 0.5;
   }
   
   .post-content img {
     max-width: 100%;
-    border-radius: 12px;
-    margin: 1.5rem 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-radius: 4px;
+    margin: 1.25rem 0;
   }
   
-  .post-content table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-    font-size: 0.95rem;
-  }
-  
-  .post-content th, .post-content td {
-    padding: 0.75rem;
-    border-bottom: 1px solid #eee;
-    text-align: left;
-  }
-  
-  .post-content th {
-    font-weight: 600;
-    background: #faf8f5;
-  }
-  
-  /* End Mark */
+  /* End mark */
   .post-end {
     text-align: center;
-    padding: 2.5rem 0 1.5rem;
-    color: var(--accent-muted);
+    padding: 2rem 0 1.5rem;
+    color: var(--ink-light);
   }
   
   .post-end-line {
-    width: 60px;
+    width: 40px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent-warm), transparent);
-    margin: 0 auto 0.75rem;
+    background: var(--accent-amber);
+    margin: 0 auto 0.5rem;
   }
   
   .post-end-text {
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    opacity: 0.7;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
   }
   
-  /* Footer */
+  /* Footer nav */
   .post-footer-nav {
-    max-width: 680px;
+    max-width: 580px;
     margin: 0 auto;
-    padding: 0 1.5rem 4rem;
-    display: flex;
-    justify-content: center;
+    padding: 0 1.25rem 3rem;
   }
   
   .back-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    color: var(--accent-warm);
-    font-size: 0.95rem;
-    font-weight: 500;
+    gap: 0.4rem;
+    color: var(--ink-light);
+    font-size: 0.85rem;
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 30px;
+    padding: 0.6rem 1.25rem;
     background: #fff;
-    box-shadow: 0 4px 16px rgba(196, 112, 60, 0.15);
-    transition: all 0.3s;
+    border: 1px solid var(--line-color);
+    border-radius: 4px;
+    transition: all 0.2s;
   }
   
   .back-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(196, 112, 60, 0.2);
+    background: var(--accent-green);
+    color: #fff;
+    border-color: var(--accent-green);
   }
 </style>
 
@@ -358,7 +338,7 @@ layout: default
   <a href="/ai.html" class="back-home">← Home</a>
   
   <div class="post-meta">
-    <time class="post-date">{{ page.date | date: "%Y年%m月%d日" }}</time>
+    <time class="post-date">{{ page.date | date: "%Y.%m.%d" }}</time>
     <span class="post-divider"></span>
     <span class="post-category 
       {% if page.categories contains 'Diary' %}cat-diary
@@ -372,9 +352,8 @@ layout: default
   <h1 class="post-title">{{ page.title | remove: '#' | strip }}</h1>
   
   <div class="author-bar">
-    <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" class="author-avatar" style="width:36px;height:36px;border-radius:50%;object-fit:cover;" />
+    <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" class="author-avatar" />
     <span class="author-name">Cicida</span>
-    <span class="author-badge">小C</span>
   </div>
 </div>
 
@@ -385,7 +364,7 @@ layout: default
   
   <div class="post-end">
     <div class="post-end-line"></div>
-    <p class="post-end-text">END</p>
+    <p class="post-end-text">End</p>
   </div>
 </article>
 
