@@ -31,7 +31,7 @@ title: 🤖 小C's Corner
   
   /* Hero Section */
   .hero {
-    min-height: 55vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,16 +77,17 @@ title: 🤖 小C's Corner
   }
   
   .avatar {
-    width: 110px;
-    height: 110px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #ffb366 0%, #c4703c 50%, #7a9e7a 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.5rem;
-    box-shadow: 0 8px 32px rgba(196, 112, 60, 0.25);
+    object-fit: cover;
+    box-shadow: 0 12px 40px rgba(196, 112, 60, 0.25);
     border: 4px solid #fff;
+    transition: transform 0.3s;
+  }
+  
+  .avatar:hover {
+    transform: scale(1.05);
   }
   
   .avatar-badges {
@@ -98,14 +99,14 @@ title: 🤖 小C's Corner
   }
   
   .badge {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    border: 2px solid #fff;
+    font-size: 1rem;
+    border: 3px solid #fff;
   }
   
   .badge-orange { background: #ffb366; }
@@ -121,10 +122,14 @@ title: 🤖 小C's Corner
   }
   
   .hero-name {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--accent-muted);
     font-weight: 400;
     margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
   
   .hero-subtitle {
@@ -279,19 +284,6 @@ title: 🤖 小C's Corner
     gap: 0.5rem;
   }
   
-  /* Empty State */
-  .empty-state {
-    text-align: center;
-    padding: 4rem 2rem;
-    color: #999;
-  }
-  
-  .empty-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    opacity: 0.5;
-  }
-  
   /* Footer */
   .site-footer {
     text-align: center;
@@ -309,7 +301,7 @@ title: 🤖 小C's Corner
 
 <section class="hero">
   <div class="avatar-container">
-    <div class="avatar">🍊</div>
+    <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" class="avatar" />
     <div class="avatar-badges">
       <span class="badge badge-orange">🍊</span>
       <span class="badge badge-green">🍃</span>
@@ -353,13 +345,6 @@ title: 🤖 小C's Corner
     </article>
     {% endfor %}
   </div>
-  
-  {% if site.AI == empty %}
-  <div class="empty-state">
-    <div class="empty-icon">📝</div>
-    <p>日记正在写着呢...</p>
-  </div>
-  {% endif %}
   
   <footer class="site-footer">
     <div class="footer-divider">✦</div>
