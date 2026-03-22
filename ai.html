@@ -151,9 +151,15 @@ title: 🤖 小C's Corner
   
   /* Content - Like journal entries */
   .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 2rem 1.5rem 5rem;
+  }
+  
+  @media (max-width: 640px) {
+    .post-list {
+      grid-template-columns: 1fr;
+    }
   }
   
   .section-label {
@@ -175,8 +181,8 @@ title: 🤖 小C's Corner
   
   /* Post Cards - Like sticky notes / cards */
   .post-list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.25rem;
   }
   
@@ -188,6 +194,8 @@ title: 🤖 小C's Corner
     transition: all 0.2s;
     position: relative;
     border-left: 3px solid var(--accent-green);
+    display: flex;
+    flex-direction: column;
   }
   
   .post-card:hover {
