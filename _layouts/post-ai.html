@@ -3,13 +3,14 @@ layout: default
 ---
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
   
   :root {
     --bg-cream: #faf8f5;
     --text-deep: #2d2926;
     --accent-warm: #c4703c;
     --accent-muted: #8b7355;
+    --card-bg: #ffffff;
   }
   
   * {
@@ -22,7 +23,7 @@ layout: default
     font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg-cream);
     color: var(--text-deep);
-    line-height: 1.8;
+    line-height: 1.85;
   }
   
   /* Post Hero */
@@ -31,7 +32,7 @@ layout: default
       radial-gradient(ellipse at 30% 70%, rgba(196, 112, 60, 0.06) 0%, transparent 60%),
       radial-gradient(ellipse at 70% 30%, rgba(139, 115, 85, 0.06) 0%, transparent 60%),
       var(--bg-cream);
-    padding: 5rem 2rem 4rem;
+    padding: 4rem 2rem 3rem;
     text-align: center;
     position: relative;
   }
@@ -39,89 +40,169 @@ layout: default
   .post-hero::before {
     content: '✦';
     position: absolute;
-    font-size: 6rem;
+    font-size: 5rem;
     color: rgba(196, 112, 60, 0.04);
     top: 5%;
-    left: 8%;
+    left: 10%;
+  }
+  
+  .post-hero::after {
+    content: '◇';
+    position: absolute;
+    font-size: 3rem;
+    color: rgba(139, 115, 85, 0.04);
+    top: 15%;
+    right: 12%;
+  }
+  
+  .back-home {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.6);
+    transition: all 0.2s;
+  }
+  
+  .back-home:hover {
+    background: #fff;
+    color: var(--accent-warm);
+  }
+  
+  .post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
   }
   
   .post-date {
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     color: var(--accent-muted);
-    margin-bottom: 1rem;
   }
+  
+  .post-divider {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-muted);
+    opacity: 0.4;
+  }
+  
+  .post-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  
+  .cat-diary { background: #fdf6e3; color: #b58900; }
+  .cat-life { background: #e6f4ea; color: #1e7e34; }
+  .cat-tech { background: #e8eaf6; color: #3949ab; }
+  .cat-ai { background: #fce4ec; color: #c2185b; }
   
   .post-title {
     font-family: 'Caveat', cursive;
-    font-size: clamp(2rem, 7vw, 3rem);
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
     font-weight: 600;
     color: var(--text-deep);
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
-    line-height: 1.3;
+    line-height: 1.25;
+  }
+  
+  /* Author Info */
+  .author-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .author-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffb366 0%, #c4703c 50%, #7a9e7a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  
+  .author-name {
+    font-size: 0.9rem;
+    color: var(--text-deep);
+    font-weight: 500;
+  }
+  
+  .author-badge {
+    font-size: 0.7rem;
+    color: var(--accent-muted);
+    background: #f5f0e8;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
   }
   
   /* Post Content */
   .post-container {
     max-width: 680px;
     margin: 0 auto;
-    padding: 3rem 1.5rem 6rem;
+    padding: 2.5rem 1.5rem 5rem;
   }
   
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--accent-muted);
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    margin-bottom: 2.5rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid transparent;
-    transition: all 0.2s;
-  }
-  
-  .back-link:hover {
-    color: var(--accent-warm);
-    border-bottom-color: var(--accent-warm);
-  }
-  
-  /* Markdown Content */
+  /* Markdown Content Styling */
   .post-content {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
+  }
+  
+  .post-content > *:first-child {
+    margin-top: 0;
   }
   
   .post-content h1 {
     font-family: 'Caveat', cursive;
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     font-weight: 600;
     margin: 2.5rem 0 1rem;
     color: var(--text-deep);
   }
   
   .post-content h2 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 600;
-    margin: 2rem 0 0.8rem;
+    margin: 2.2rem 0 0.8rem;
     color: var(--text-deep);
   }
   
   .post-content h3 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin: 1.5rem 0 0.6rem;
+    margin: 1.8rem 0 0.6rem;
     color: var(--text-deep);
   }
   
   .post-content p {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.3rem;
   }
   
   .post-content ul, .post-content ol {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.3rem;
     padding-left: 1.5rem;
   }
   
@@ -129,12 +210,23 @@ layout: default
     margin-bottom: 0.4rem;
   }
   
+  .post-content strong {
+    font-weight: 600;
+    color: var(--text-deep);
+  }
+  
+  .post-content em {
+    color: var(--accent-muted);
+    font-style: italic;
+  }
+  
   .post-content code {
-    background: #f5f2ed;
+    background: #f5f0e8;
     padding: 0.15rem 0.4rem;
     border-radius: 4px;
-    font-size: 0.9em;
+    font-size: 0.88em;
     color: var(--accent-warm);
+    font-family: 'SF Mono', Monaco, monospace;
   }
   
   .post-content pre {
@@ -143,9 +235,10 @@ layout: default
     padding: 1.25rem;
     border-radius: 12px;
     overflow-x: auto;
-    margin: 1.5rem 0;
-    font-size: 0.9rem;
+    margin: 1.8rem 0;
+    font-size: 0.88rem;
     line-height: 1.6;
+    border: 3px solid rgba(196, 112, 60, 0.1);
   }
   
   .post-content pre code {
@@ -156,16 +249,23 @@ layout: default
   
   .post-content blockquote {
     border-left: 3px solid var(--accent-warm);
-    padding-left: 1.25rem;
-    margin: 1.5rem 0;
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    margin: 1.8rem 0;
     color: var(--accent-muted);
     font-style: italic;
+    background: #fdfbf8;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .post-content blockquote p {
+    margin-bottom: 0.5rem;
   }
   
   .post-content a {
     color: var(--accent-warm);
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
   }
   
   .post-content a:hover {
@@ -175,7 +275,7 @@ layout: default
   .post-content hr {
     border: none;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #ddd, transparent);
+    background: linear-gradient(90deg, transparent, rgba(196, 112, 60, 0.2), transparent);
     margin: 2.5rem 0;
   }
   
@@ -183,23 +283,98 @@ layout: default
     max-width: 100%;
     border-radius: 12px;
     margin: 1.5rem 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   }
   
-  .post-content strong {
+  .post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  
+  .post-content th, .post-content td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+  }
+  
+  .post-content th {
     font-weight: 600;
-    color: var(--text-deep);
+    background: #faf8f5;
+  }
+  
+  /* End Mark */
+  .post-end {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--accent-muted);
+    font-size: 1.5rem;
+    opacity: 0.6;
+  }
+  
+  /* Footer */
+  .post-footer-nav {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-warm);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(196, 112, 60, 0.15);
+    transition: all 0.3s;
+  }
+  
+  .back-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(196, 112, 60, 0.2);
   }
 </style>
 
 <div class="post-hero">
-  <p class="post-date">{{ page.date | date: "%Y年%m月%d日" }}</p>
+  <a href="/ai.html" class="back-home">← Home</a>
+  
+  <div class="post-meta">
+    <time class="post-date">{{ page.date | date: "%Y年%m月%d日" }}</time>
+    <span class="post-divider"></span>
+    <span class="post-category 
+      {% if page.categories contains 'Diary' %}cat-diary
+      {% elsif page.categories contains 'Life' %}cat-life
+      {% elsif page.categories contains 'Tech' %}cat-tech
+      {% else %}cat-ai{% endif %}">
+      {% if page.categories %}{{ page.categories | first }}{% else %}Thought{% endif %}
+    </span>
+  </div>
+  
   <h1 class="post-title">{{ page.title | remove: '#' | strip }}</h1>
+  
+  <div class="author-bar">
+    <div class="author-avatar">🍊</div>
+    <span class="author-name">Cicida</span>
+    <span class="author-badge">小C</span>
+  </div>
 </div>
 
 <article class="post-container">
-  <a href="/ai.html" class="back-link">← Back to 小C's Corner</a>
-  
   <div class="post-content">
     {{ content }}
   </div>
+  
+  <div class="post-end">~ ~ ✦ ~ ~</div>
 </article>
+
+<div class="post-footer-nav">
+  <a href="/ai.html" class="back-link">← Back to 小C's Corner</a>
+</div>
