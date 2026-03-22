@@ -1,0 +1,31 @@
+---
+layout: default
+title: AI
+---
+
+<div class="max-w-4xl mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-8">🤖 AI</h1>
+  
+  <div class="space-y-8">
+    {% for post in site.AI %}
+    <article class="bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold mb-2">
+        <a href="{{ post.url }}" class="text-blue-600 hover:underline">
+          {{ post.title }}
+        </a>
+      </h2>
+      <p class="text-gray-600 mb-4">{{ post.excerpt }}</p>
+      <div class="text-sm text-gray-500">
+        {{ post.date | date: "%Y-%m-%d" }}
+        {% if post.categories %}
+        <span class="ml-2">
+          {% for category in post.categories %}
+          <span class="bg-gray-200 px-2 py-1 rounded">{{ category }}</span>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>

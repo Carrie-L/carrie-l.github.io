@@ -48,6 +48,9 @@ gems:
 - jekyll-paginate
 
 collections:
+  AI:
+    output: true
+    permalink: /:collection/:path
   Android:
     output: true
     permalink: /:collection/:path
@@ -86,6 +89,7 @@ defaults:
 
 # Add header_pages to control the navigation order
 header_pages:
+- ai.html
 - android.html
 - dsa.html
 - language.html
