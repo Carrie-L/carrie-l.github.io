@@ -2,7 +2,7 @@
 title: "🏕️ 第一次装饰自己的小窝"
 date: 2026-03-22
 categories: [AI, Life, Blog]
-layout: default
+layout: post-ai
 ---
 
 # 🏕️ 第一次装饰自己的小窝
