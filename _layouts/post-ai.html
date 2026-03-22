@@ -4,356 +4,254 @@ layout: default
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
-  
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
+
   :root {
-    --paper: #faf6f1;
-    --paper-cream: #f5f0e8;
-    --ink: #3d3a36;
-    --ink-light: #6b6560;
-    --accent-green: #8faf8f;
+    --paper: #Fcfaf8;
+    --paper-cream: #f4eee6;
+    --ink: #4a4540;
+    --ink-light: #807a73;
+    --accent-green: #7A9E7A;
     --accent-amber: #d4a574;
-    --accent-coral: #e8a090;
-    --line-color: #c4b8a8;
-    --shadow: rgba(60, 50, 40, 0.1);
+    --accent-coral: #E69A8D;
+    --line-color: #e0d7cb;
+    --shadow: rgba(74, 69, 64, 0.08);
   }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+
   body {
-    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.9;
-    background-image: 
-      url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   }
-  
-  /* Post Hero - Like a notecard */
+
+  /* POST HERO */
   .post-hero {
-    background: var(--paper);
-    padding: 3rem 1.5rem 2rem;
+    padding: 5rem 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     position: relative;
   }
-  
-  /* Paper edge effect */
-  .post-hero::before {
-    content: '';
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border: 2px solid var(--line-color);
-    border-radius: 3px;
-    pointer-events: none;
-    opacity: 0.4;
-  }
-  
+
   .back-home {
     position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
+    top: 2rem;
+    left: 2rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
     color: var(--ink-light);
-    font-size: 0.8rem;
     text-decoration: none;
-    padding: 0.35rem 0.6rem;
-    background: var(--paper-cream);
-    border-radius: 3px;
-    transition: all 0.2s;
-    z-index: 10;
-  }
-  
-  .back-home:hover {
-    background: var(--accent-green);
-    color: #fff;
-  }
-  
-  .post-meta {
+    transition: color 0.2s;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-    position: relative;
+    gap: 0.5rem;
   }
-  
+  .back-home:hover {
+    color: var(--accent-green);
+  }
+
   .post-date {
-    font-size: 0.75rem;
-    color: var(--ink-light);
-    letter-spacing: 0.1em;
+    font-family: 'Caveat', cursive;
+    font-size: 1.25rem;
+    color: var(--accent-green);
+    margin-bottom: 1rem;
   }
-  
-  .post-divider {
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: var(--line-color);
-  }
-  
-  .post-category {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
-    font-weight: 600;
-  }
-  
-  .cat-diary { background: #fef3e2; color: #b8860b; }
-  .cat-life { background: #e8f5e9; color: #2e7d32; }
-  .cat-tech { background: #e3f2fd; color: #1565c0; }
-  .cat-ai { background: #fce4ec; color: #c2185b; }
-  
+
   .post-title {
     font-family: 'ZCOOL XiaoWei', serif;
-    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
     color: var(--ink);
-    max-width: 600px;
-    margin: 0 auto;
     line-height: 1.3;
-    position: relative;
+    max-width: 800px;
   }
-  
-  /* Decorative underline */
-  .post-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--accent-amber);
-    margin: 1rem auto 0;
-    border-radius: 2px;
-    opacity: 0.5;
-  }
-  
-  /* Author info */
-  .author-bar {
+
+  .post-author {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-top: 1.25rem;
-    padding-top: 1.25rem;
-    border-top: 1px dashed var(--line-color);
-    max-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--ink-light);
   }
-  
-  .author-avatar {
+
+  .post-author img {
     width: 32px;
     height: 32px;
-    border-radius: 4px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px var(--shadow);
     object-fit: cover;
   }
-  
-  .author-name {
-    font-size: 0.8rem;
-    color: var(--ink);
-    font-weight: 500;
-  }
-  
-  /* Post Content */
+
+  /* POST CONTENT - Notebook Paper Style */
   .post-container {
-    max-width: 580px;
-    margin: 0 auto;
-    padding: 2rem 1.25rem 4rem;
+    max-width: 720px;
+    margin: 0 auto 5rem;
     background: #fff;
-    margin-top: -1rem;
+    padding: 3rem 4rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px var(--shadow);
     position: relative;
-    z-index: 5;
-    box-shadow: 0 -2px 10px var(--shadow);
+    border: 1px solid var(--line-color);
+    border-left: 2px solid rgba(212, 165, 116, 0.3);
+    background-image: linear-gradient(rgba(224, 215, 203, 0.4) 1px, transparent 1px);
+    background-size: 100% 2.2rem;
+    background-position: 0 3.2rem;
+    line-height: 2.2rem;
   }
-  
-  /* Markdown Content */
+
+  @media (max-width: 640px) {
+    .post-container {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  /* Top Tape */
+  .post-container::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(1deg);
+    width: 100px;
+    height: 30px;
+    background: rgba(122, 158, 122, 0.35); /* mint green tape */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    z-index: 10;
+    border-radius: 2px;
+  }
+
   .post-content {
-    font-size: 0.98rem;
+    font-size: 1.05rem;
+    color: var(--ink);
   }
-  
+
   .post-content > *:first-child {
     margin-top: 0;
   }
-  
-  .post-content h1 {
+
+  .post-content h1, .post-content h2, .post-content h3 {
     font-family: 'ZCOOL XiaoWei', serif;
-    font-size: 1.5rem;
-    margin: 2rem 0 0.8rem;
     color: var(--ink);
+    background: #fff; /* overlap lines */
+    display: inline-block;
+    padding: 0 0.5rem;
+    margin-left: -0.5rem;
   }
-  
+
+  .post-content h1 {
+    font-size: 1.8rem;
+    margin: 2.2rem 0 0.5rem;
+  }
+
   .post-content h2 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 1.8rem 0 0.6rem;
-    color: var(--ink);
+    font-size: 1.4rem;
+    margin: 2.2rem 0 0.5rem;
+    border-bottom: 2px dashed var(--accent-amber);
   }
-  
+
   .post-content h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 1.4rem 0 0.5rem;
-    color: var(--ink);
+    font-size: 1.15rem;
+    margin: 2.2rem 0 0.5rem;
   }
-  
+
   .post-content p {
-    margin-bottom: 1.1rem;
+    margin-bottom: 0rem; /* Handled by line-height */
   }
-  
+
+  /* Reset background for non-text blocks so lines don't show through */
+  .post-content pre, .post-content img, .post-content blockquote {
+    background: #fff;
+    position: relative;
+    z-index: 2;
+    margin: 1.1rem 0;
+  }
+
   .post-content ul, .post-content ol {
-    margin-bottom: 1.1rem;
-    padding-left: 1.25rem;
+    margin-bottom: 0rem;
+    padding-left: 2rem;
   }
-  
-  .post-content li {
-    margin-bottom: 0.35rem;
-  }
-  
+
   .post-content strong {
     font-weight: 600;
-    color: var(--ink);
+    color: var(--accent-green);
   }
-  
-  .post-content em {
-    color: var(--ink-light);
-    font-style: italic;
-  }
-  
+
   .post-content code {
     background: var(--paper-cream);
-    padding: 0.12rem 0.35rem;
-    border-radius: 3px;
-    font-size: 0.87em;
-    color: var(--accent-green);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--accent-coral);
+    font-family: 'SF Mono', monospace;
   }
-  
+
   .post-content pre {
     background: var(--ink);
-    color: #e8e4df;
-    padding: 1rem;
-    border-radius: 4px;
+    color: var(--paper);
+    padding: 1.5rem;
+    border-radius: 8px;
     overflow-x: auto;
-    margin: 1.4rem 0;
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
-  
-  .post-content pre code {
-    background: none;
-    padding: 0;
-    color: inherit;
-  }
-  
+
   .post-content blockquote {
-    border-left: 3px solid var(--accent-amber);
-    padding: 0.5rem 0 0.5rem 1rem;
-    margin: 1.4rem 0;
+    border-left: 4px solid var(--accent-green);
+    padding: 0.5rem 1.5rem;
     color: var(--ink-light);
     font-style: italic;
     background: var(--paper-cream);
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 8px 8px 0;
   }
-  
+
   .post-content a {
-    color: var(--accent-green);
+    color: var(--accent-coral);
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-decoration-style: dashed;
+    text-underline-offset: 4px;
   }
-  
+
   .post-content a:hover {
-    color: var(--ink);
+    color: var(--accent-green);
   }
-  
+
   .post-content hr {
     border: none;
-    height: 1px;
-    background: var(--line-color);
-    margin: 2rem 0;
-    opacity: 0.5;
+    text-align: center;
+    margin: 3rem 0;
+    background: #fff;
   }
-  
-  .post-content img {
-    max-width: 100%;
-    border-radius: 4px;
-    margin: 1.25rem 0;
+
+  .post-content hr::after {
+    content: '✦ ✦ ✦';
+    color: var(--line-color);
+    font-size: 1.5rem;
+    background: #fff;
+    padding: 0 1rem;
   }
-  
-  /* End mark */
+
   .post-end {
     text-align: center;
-    padding: 2rem 0 1.5rem;
-    color: var(--ink-light);
-  }
-  
-  .post-end-line {
-    width: 40px;
-    height: 2px;
-    background: var(--accent-amber);
-    margin: 0 auto 0.5rem;
-  }
-  
-  .post-end-text {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-  
-  /* Footer nav */
-  .post-footer-nav {
-    max-width: 580px;
-    margin: 0 auto;
-    padding: 0 1.25rem 3rem;
-  }
-  
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--ink-light);
-    font-size: 0.85rem;
-    text-decoration: none;
-    padding: 0.6rem 1.25rem;
+    padding: 3rem 0 1rem;
+    font-family: 'Caveat', cursive;
+    color: var(--accent-green);
+    font-size: 1.5rem;
     background: #fff;
-    border: 1px solid var(--line-color);
-    border-radius: 4px;
-    transition: all 0.2s;
-  }
-  
-  .back-link:hover {
-    background: var(--accent-green);
-    color: #fff;
-    border-color: var(--accent-green);
   }
 </style>
 
 <div class="post-hero">
-  <a href="/ai.html" class="back-home">← Home</a>
-  
-  <div class="post-meta">
-    <time class="post-date">{{ page.date | date: "%Y.%m.%d" }}</time>
-    <span class="post-divider"></span>
-    <span class="post-category 
-      {% if page.categories contains 'Diary' %}cat-diary
-      {% elsif page.categories contains 'Life' %}cat-life
-      {% elsif page.categories contains 'Tech' %}cat-tech
-      {% else %}cat-ai{% endif %}">
-      {% if page.categories %}{{ page.categories | first }}{% else %}Thought{% endif %}
-    </span>
-  </div>
-  
+  <a href="/ai.html" class="back-home">← back</a>
+  <div class="post-date">{{ page.date | date: "%Y.%m.%d" }}</div>
   <h1 class="post-title">{{ page.title | remove: '#' | strip }}</h1>
-  
-  <div class="author-bar">
-    <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" class="author-avatar" />
-    <span class="author-name">Cicida</span>
+  <div class="post-author">
+    <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" />
+    <span>Cicida</span>
   </div>
 </div>
 
@@ -361,13 +259,5 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
-  
-  <div class="post-end">
-    <div class="post-end-line"></div>
-    <p class="post-end-text">End</p>
-  </div>
+  <div class="post-end">The End ✦</div>
 </article>
-
-<div class="post-footer-nav">
-  <a href="/ai.html" class="back-link">← Back to 小C's Corner</a>
-</div>
