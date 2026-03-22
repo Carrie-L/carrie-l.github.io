@@ -3,67 +3,149 @@ layout: default
 ---
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
+  
+  :root {
+    --bg-cream: #faf8f5;
+    --text-deep: #2d2926;
+    --accent-warm: #c4703c;
+    --accent-muted: #8b7355;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-cream);
+    color: var(--text-deep);
+    line-height: 1.8;
+  }
+  
+  /* Post Hero */
   .post-hero {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    padding: 4rem 2rem;
+    background: 
+      radial-gradient(ellipse at 30% 70%, rgba(196, 112, 60, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 30%, rgba(139, 115, 85, 0.06) 0%, transparent 60%),
+      var(--bg-cream);
+    padding: 5rem 2rem 4rem;
     text-align: center;
+    position: relative;
+  }
+  
+  .post-hero::before {
+    content: '✦';
+    position: absolute;
+    font-size: 6rem;
+    color: rgba(196, 112, 60, 0.04);
+    top: 5%;
+    left: 8%;
   }
   
   .post-date {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.875rem;
-    letter-spacing: 0.1em;
+    font-size: 0.8rem;
     text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-muted);
     margin-bottom: 1rem;
   }
   
   .post-title {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
-    font-weight: 800;
-    color: #fff;
-    max-width: 800px;
+    font-family: 'Caveat', cursive;
+    font-size: clamp(2rem, 7vw, 3rem);
+    font-weight: 600;
+    color: var(--text-deep);
+    max-width: 700px;
     margin: 0 auto;
-    line-height: 1.2;
+    line-height: 1.3;
   }
   
+  /* Post Content */
+  .post-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s;
+  }
+  
+  .back-link:hover {
+    color: var(--accent-warm);
+    border-bottom-color: var(--accent-warm);
+  }
+  
+  /* Markdown Content */
   .post-content {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: #374151;
+    font-size: 1.05rem;
   }
   
-  .post-content h1, .post-content h2, .post-content h3 {
-    font-weight: 700;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    color: #111827;
+  .post-content h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2.5rem 0 1rem;
+    color: var(--text-deep);
   }
   
-  .post-content h1 { font-size: 1.75rem; }
-  .post-content h2 { font-size: 1.5rem; }
-  .post-content h3 { font-size: 1.25rem; }
+  .post-content h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2rem 0 0.8rem;
+    color: var(--text-deep);
+  }
+  
+  .post-content h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.6rem;
+    color: var(--text-deep);
+  }
   
   .post-content p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .post-content ul, .post-content ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+  
+  .post-content li {
+    margin-bottom: 0.4rem;
   }
   
   .post-content code {
-    background: #f3f4f6;
-    padding: 0.125rem 0.375rem;
-    border-radius: 0.25rem;
-    font-size: 0.875em;
+    background: #f5f2ed;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--accent-warm);
   }
   
   .post-content pre {
-    background: #1f2937;
-    color: #e5e7eb;
+    background: #2d2926;
+    color: #e8e4df;
     padding: 1.25rem;
-    border-radius: 0.75rem;
+    border-radius: 12px;
     overflow-x: auto;
     margin: 1.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
   
   .post-content pre code {
@@ -73,37 +155,51 @@ layout: default
   }
   
   .post-content blockquote {
-    border-left: 4px solid #8b5cf6;
-    padding-left: 1.5rem;
-    margin: 2rem 0;
-    color: #6b7280;
+    border-left: 3px solid var(--accent-warm);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--accent-muted);
     font-style: italic;
   }
   
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #8b5cf6;
-    font-weight: 500;
-    margin-bottom: 2rem;
-    transition: color 0.2s;
+  .post-content a {
+    color: var(--accent-warm);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
   
-  .back-link:hover {
-    color: #6d28d9;
+  .post-content a:hover {
+    color: var(--text-deep);
+  }
+  
+  .post-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ddd, transparent);
+    margin: 2.5rem 0;
+  }
+  
+  .post-content img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+  }
+  
+  .post-content strong {
+    font-weight: 600;
+    color: var(--text-deep);
   }
 </style>
 
 <div class="post-hero">
-  <p class="post-date">{{ page.date | date: "%Y.%m.%d" }}</p>
-  <h1 class="post-title">{{ page.title }}</h1>
+  <p class="post-date">{{ page.date | date: "%Y年%m月%d日" }}</p>
+  <h1 class="post-title">{{ page.title | remove: '#' | strip }}</h1>
 </div>
 
-<article class="post-content">
-  <a href="/ai.html" class="back-link">
-    ← Back to 小C's Corner
-  </a>
+<article class="post-container">
+  <a href="/ai.html" class="back-link">← Back to 小C's Corner</a>
   
-  {{ content }}
+  <div class="post-content">
+    {{ content }}
+  </div>
 </article>
