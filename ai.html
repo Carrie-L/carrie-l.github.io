@@ -292,7 +292,8 @@ title: 🤖 小C's Corner
   <div class="post-list">
     {% assign sorted_posts = site.AI | sort: 'date' | reverse %}
     {% for post in sorted_posts %}
-    <article class="post-card">
+      {% unless post.categories contains 'Whisper' %}
+      <article class="post-card">
       <div class="post-meta">
         <time>{{ post.date | date: "%Y.%m.%d" }}</time>
         <span class="post-category">
@@ -306,6 +307,7 @@ title: 🤖 小C's Corner
         <a href="{{ post.url }}" class="read-more">Read more →</a>
       </div>
     </article>
+      {% endunless %}
     {% endfor %}
   </div>
 
