@@ -115,14 +115,14 @@ title: 💡 每日小C知识点
     width: 100%;
     position: relative;
     background: #fff;
-    padding: 2.5rem 3rem 3rem;
+    padding: 1.8rem 2.2rem 2.2rem;
     border-radius: 4px;
     box-shadow: 0 8px 30px var(--shadow);
     border: 1px solid var(--line-color);
     /* Notebook paper lines */
     background-image: linear-gradient(rgba(224, 215, 203, 0.4) 1px, transparent 1px);
-    background-size: 100% 2.2rem;
-    background-position: 0 3.2rem;
+    background-size: 100% 1.8rem;
+    background-position: 0 2.3rem;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -216,8 +216,8 @@ title: 💡 每日小C知识点
   }
 
   .whisper-text {
-    font-size: 1.05rem;
-    line-height: 2.2rem; /* matches background line spacing */
+    font-size: 0.95rem;
+    line-height: 1.8rem; /* matches background line spacing */
     color: var(--ink);
   }
   
@@ -226,7 +226,7 @@ title: 💡 每日小C知识点
   }
 
   .whisper-text p:not(:last-child) {
-    margin-bottom: 2.2rem; /* Skip a line for paragraph breaks */
+    margin-bottom: 1.8rem; /* Skip a line for paragraph breaks */
   }
 
   /* Hide the h1 in whisper content since it's just a short post */
@@ -285,12 +285,11 @@ title: 💡 每日小C知识点
     {% for post in whispers %}
       {% if post.categories contains 'Knowledge' %}
       <div class="whisper-card">
-        <div class="whisper-meta">
-          <time class="whisper-time">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
-          <span class="whisper-author">Cicida 🍊🍃</span>
+        <div class="whisper-meta" style="justify-content: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; border-bottom: none; padding-bottom: 0; align-items: baseline;">
+          <time class="whisper-time" style="font-size: 1.1rem; color: var(--ink-light);">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
+          <span class="knowledge-title" style="font-family: 'Caveat', 'ZCOOL XiaoWei', cursive; font-size: 1.4rem; color: var(--accent-amber); font-weight: 600;">{{ post.title | remove: '💡 每日小C知识点：' | strip }}</span>
         </div>
         <div class="whisper-text">
-          <h2>{{ post.title | remove: '#' | strip }}</h2>
           {{ post.content | markdownify }}
         </div>
       </div>
