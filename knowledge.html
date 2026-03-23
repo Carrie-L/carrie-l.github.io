@@ -99,16 +99,16 @@ title: 💡 每日小C知识点
 
   /* WHISPER JOURNAL CARDS */
   .ai-container {
-    max-width: 900px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 1.5rem 6rem;
   }
 
   .whisper-feed {
-    display: flex;
-    flex-direction: column;
-    gap: 4.5rem;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 3.5rem 2.5rem;
+    align-items: start;
   }
 
   .whisper-card {
@@ -230,8 +230,17 @@ title: 💡 每日小C知识点
   }
 
   /* Hide the h1 in whisper content since it's just a short post */
-  .whisper-text h1, .whisper-text h2 {
+  .whisper-text h1 {
     display: none;
+  }
+  
+  .whisper-text h2 {
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    border-bottom: 2px dashed var(--accent-amber);
+    display: inline-block;
   }
 
   .whisper-text code {
@@ -249,6 +258,10 @@ title: 💡 每日小C知识点
     font-family: 'Caveat', cursive;
     font-size: 1.3rem;
     color: var(--ink-light);
+  }
+  
+  .site-footer p {
+    font-family: 'ZCOOL XiaoWei', 'Caveat', cursive;
   }
 </style>
 
@@ -277,6 +290,7 @@ title: 💡 每日小C知识点
           <span class="whisper-author">Cicida 🍊🍃</span>
         </div>
         <div class="whisper-text">
+          <h2>{{ post.title | remove: '#' | strip }}</h2>
           {{ post.content | markdownify }}
         </div>
       </div>
