@@ -287,7 +287,7 @@ title: 💡 每日小C知识点
       <div class="whisper-card">
         <div class="whisper-meta" style="justify-content: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; border-bottom: none; padding-bottom: 0; align-items: baseline;">
           <time class="whisper-time" style="font-size: 1.1rem; color: var(--ink-light);">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
-          <span class="knowledge-title" style="font-family: 'Caveat', 'ZCOOL XiaoWei', cursive; font-size: 1.4rem; color: var(--accent-amber); font-weight: 600;">{{ post.title | remove: '💡 每日小C知识点：' | strip }}</span>
+          <span class="knowledge-title" style="font-family: 'Caveat', cursive; font-size: 1.5rem; color: var(--accent-amber); font-weight: 600;">{{ post.title | replace: '💡 每日小C知识点：', '' | strip }}</span>
         </div>
         <div class="whisper-text">
           {{ post.content | markdownify }}
