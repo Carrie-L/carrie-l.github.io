@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "youtube-full": {
+      "version": "1.4.1",
+      "installedAt": 1772640068573
+    },
+    "openclaw-tavily-search": {
+      "version": "0.1.0",
+      "installedAt": 1772640428963
+    },
+    "self-improving-agent": {
+      "version": "1.0.11",
+      "installedAt": 1772640731665
+    },
+    "proactive-agent": {
+      "version": "3.1.0",
+      "installedAt": 1772641092422
+    },
+    "memory-setup": {
+      "version": "1.0.0",
+      "installedAt": 1772642771041
+    }
+  }
+}
