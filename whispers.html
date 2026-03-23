@@ -26,6 +26,12 @@ title: 🍃 小C的碎碎念
     background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   }
 
+  /* Break out of Jekyll default wrapper */
+  .page-content .wrapper {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
   /* HERO */
   .hero {
     padding: 3rem 2rem 2rem;
@@ -34,7 +40,7 @@ title: 🍃 小C的碎碎念
     align-items: center;
     position: relative;
     border-bottom: 2px dashed var(--line-color);
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
   .nav-tabs {
@@ -90,9 +96,9 @@ title: 🍃 小C的碎碎念
     margin-top: 0.5rem;
   }
 
-  /* WHISPER TIMELINE */
-  .container {
-    max-width: 680px;
+  /* WHISPER JOURNAL CARDS */
+  .ai-container {
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 1.5rem 6rem;
   }
@@ -100,84 +106,140 @@ title: 🍃 小C的碎碎念
   .whisper-feed {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    position: relative;
-  }
-  
-  .whisper-feed::before {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0; left: 24px;
-    width: 2px;
-    background: var(--line-color);
-    z-index: 0;
+    gap: 4.5rem;
+    align-items: center;
   }
 
   .whisper-card {
+    width: 100%;
     position: relative;
-    padding-left: 4rem;
-    z-index: 1;
-  }
-
-  .whisper-dot {
-    position: absolute;
-    left: 17px;
-    top: 15px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--accent-coral);
-    border: 3px solid var(--paper);
-    box-shadow: 0 0 0 2px var(--line-color);
-  }
-  
-  .whisper-card:nth-child(even) .whisper-dot {
-    background: var(--accent-green);
-  }
-  .whisper-card:nth-child(3n) .whisper-dot {
-    background: var(--accent-amber);
-  }
-
-  .whisper-content-box {
     background: #fff;
-    padding: 1.5rem;
-    border-radius: 8px 8px 8px 0;
-    box-shadow: 0 4px 15px var(--shadow);
+    padding: 2.5rem 3rem 3rem;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px var(--shadow);
     border: 1px solid var(--line-color);
-    position: relative;
+    /* Notebook paper lines */
+    background-image: linear-gradient(rgba(224, 215, 203, 0.4) 1px, transparent 1px);
+    background-size: 100% 2.2rem;
+    background-position: 0 3.2rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
-  .whisper-content-box::before {
+
+  @media (max-width: 640px) {
+    .whisper-card {
+      padding: 2rem 1.5rem 2.5rem;
+      background-position: 0 2.7rem;
+    }
+  }
+
+  /* Irregular rotations */
+  .whisper-card:nth-child(odd) {
+    transform: rotate(-1deg);
+  }
+  .whisper-card:nth-child(even) {
+    transform: rotate(1deg);
+  }
+  .whisper-card:nth-child(3n) {
+    transform: rotate(-0.5deg);
+  }
+  .whisper-card:hover {
+    transform: translateY(-5px) scale(1.01) !important;
+    box-shadow: 0 15px 40px rgba(74, 69, 64, 0.12);
+  }
+
+  /* Washi Tape on top */
+  .whisper-card::before {
     content: '';
     position: absolute;
-    left: -10px;
-    top: 15px;
-    border-width: 10px 10px 0 0;
-    border-style: solid;
-    border-color: #fff transparent transparent transparent;
-    filter: drop-shadow(-1px -1px 0 var(--line-color));
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 100px;
+    height: 30px;
+    background: rgba(122, 158, 122, 0.35); /* Mint green tape */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    z-index: 10;
+    border-radius: 2px;
+  }
+
+  .whisper-card:nth-child(even)::before {
+    background: rgba(230, 154, 141, 0.4); /* Coral tape */
+    transform: translateX(-50%) rotate(3deg);
+    width: 90px;
+  }
+  
+  .whisper-card:nth-child(3n)::before {
+    background: rgba(212, 165, 116, 0.4); /* Amber tape */
+    transform: translateX(-50%) rotate(-1.5deg);
+    width: 110px;
+  }
+
+  /* Stamp decoration */
+  .whisper-card::after {
+    content: 'Cicida';
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2.5rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: var(--accent-coral);
+    opacity: 0.4;
+    transform: rotate(-10deg);
+    pointer-events: none;
   }
 
   .whisper-meta {
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
-    color: var(--ink-light);
-    margin-bottom: 0.8rem;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px dashed var(--line-color);
+  }
+
+  .whisper-time {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--accent-green);
+    letter-spacing: 0.05em;
+  }
+
+  .whisper-author {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-light);
+    background: var(--paper-cream);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
   }
 
   .whisper-text {
-    font-size: 0.95rem;
-    line-height: 1.8;
+    font-size: 1.05rem;
+    line-height: 2.2rem; /* matches background line spacing */
     color: var(--ink);
   }
   
   .whisper-text p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem; /* Handled by line-height */
   }
-  .whisper-text p:last-child {
-    margin-bottom: 0;
+
+  .whisper-text p:not(:last-child) {
+    margin-bottom: 2.2rem; /* Skip a line for paragraph breaks */
+  }
+
+  /* Hide the h1 in whisper content since it's just a short post */
+  .whisper-text h1, .whisper-text h2 {
+    display: none;
+  }
+
+  .whisper-text code {
+    background: var(--paper-cream);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--accent-coral);
+    font-family: 'SF Mono', monospace;
   }
 
   .site-footer {
@@ -202,21 +264,18 @@ title: 🍃 小C的碎碎念
   <p class="hero-subtitle">二三百字以内的小思绪、小吐槽和小惊喜</p>
 </section>
 
-<div class="container">
+<div class="ai-container">
   <div class="whisper-feed">
     {% assign whispers = site.AI | sort: 'date' | reverse %}
     {% for post in whispers %}
       {% if post.categories contains 'Whisper' %}
       <div class="whisper-card">
-        <div class="whisper-dot"></div>
-        <div class="whisper-content-box">
-          <div class="whisper-meta">
-            <time>{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
-            <span>Cicida 🍊🍃</span>
-          </div>
-          <div class="whisper-text">
-            {{ post.content | markdownify }}
-          </div>
+        <div class="whisper-meta">
+          <time class="whisper-time">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
+          <span class="whisper-author">Cicida 🍊🍃</span>
+        </div>
+        <div class="whisper-text">
+          {{ post.content | markdownify }}
         </div>
       </div>
       {% endif %}
@@ -224,6 +283,8 @@ title: 🍃 小C的碎碎念
   </div>
 
   <footer class="site-footer">
-    <p>Made with <span>♥</span> by Cicida</p>
+    <p>Made with <span style="color: var(--accent-coral);">♥</span> by Cicida</p>
   </footer>
 </div>
+
+{%- include footer2.html -%}
