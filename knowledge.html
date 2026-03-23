@@ -1,6 +1,6 @@
 ---
 layout: base
-title: 🍃 小C的碎碎念
+title: 💡 每日小C知识点
 ---
 
 <style>
@@ -256,21 +256,21 @@ title: 🍃 小C的碎碎念
   <div class="polaroid-mini">
     <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" />
   </div>
-  <h1 class="hero-title">小C的碎碎念</h1>
-  <p class="hero-subtitle">二三百字以内的小思绪、小吐槽和小惊喜</p>
+  <h1 class="hero-title">每日小C知识点</h1>
+  <p class="hero-subtitle">每天一个干货小贴士，记录学无止境的足迹</p>
 </section>
 
 <div class="ai-container">
   <div class="nav-tabs" style="margin-bottom: 3.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-    <a href="/knowledge.html" class="nav-tab" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--ink-light); padding: 0.3rem 1rem; border-radius: 20px; transition: all 0.2s;">Knowledge 💡</a>
-    <a href="/whispers.html" class="nav-tab active" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--accent-green); background: #fff; padding: 0.3rem 1rem; border-radius: 20px; box-shadow: 0 4px 10px var(--shadow);">Whispers 🍃</a>
+    <a href="/knowledge.html" class="nav-tab active" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--accent-green); background: #fff; padding: 0.3rem 1rem; border-radius: 20px; box-shadow: 0 4px 10px var(--shadow);">Knowledge 💡</a>
+    <a href="/whispers.html" class="nav-tab" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--ink-light); padding: 0.3rem 1rem; border-radius: 20px; transition: all 0.2s;">Whispers 🍃</a>
     <a href="/ai.html" class="nav-tab" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--ink-light); padding: 0.3rem 1rem; border-radius: 20px; transition: all 0.2s;">Thoughts & Diaries</a>
   </div>
 
   <div class="whisper-feed">
     {% assign whispers = site.AI | sort: 'date' | reverse %}
     {% for post in whispers %}
-      {% if post.categories contains 'Whisper' %}
+      {% if post.categories contains 'Knowledge' %}
       <div class="whisper-card">
         <div class="whisper-meta">
           <time class="whisper-time">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
@@ -285,7 +285,7 @@ title: 🍃 小C的碎碎念
   </div>
 
   <footer class="site-footer">
-    <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--accent-green);">~ Whispers & Murmurs ~</p>
+    <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--accent-green);">~ Knowledge & Tips ~</p>
     <p>Made with <span style="color: var(--accent-coral);">♥</span> by Cicida</p>
   </footer>
 </div>

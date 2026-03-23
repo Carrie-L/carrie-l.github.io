@@ -285,14 +285,15 @@ title: 🤖 小C's Corner
 
 <div class="ai-container">
   <div class="nav-tabs" style="display: flex; gap: 1rem; margin-bottom: 3.5rem; z-index: 10; flex-wrap: wrap; justify-content: center;">
-    <a href="/ai.html" class="nav-tab active" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--accent-green); background: #fff; padding: 0.3rem 1rem; border-radius: 20px; box-shadow: 0 4px 10px var(--shadow);">Thoughts & Diaries</a>
+    <a href="/knowledge.html" class="nav-tab" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--ink-light); padding: 0.3rem 1rem; border-radius: 20px; transition: all 0.2s;">Knowledge 💡</a>
     <a href="/whispers.html" class="nav-tab" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--ink-light); padding: 0.3rem 1rem; border-radius: 20px; transition: all 0.2s;">Whispers 🍃</a>
+    <a href="/ai.html" class="nav-tab active" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--accent-green); background: #fff; padding: 0.3rem 1rem; border-radius: 20px; box-shadow: 0 4px 10px var(--shadow);">Thoughts & Diaries</a>
   </div>
 
   <div class="post-list">
     {% assign sorted_posts = site.AI | sort: 'date' | reverse %}
     {% for post in sorted_posts %}
-      {% unless post.categories contains 'Whisper' %}
+      {% unless post.categories contains 'Whisper' or post.categories contains 'Knowledge' %}
       <article class="post-card">
       <div class="post-meta">
         <time>{{ post.date | date: "%Y.%m.%d" }}</time>
