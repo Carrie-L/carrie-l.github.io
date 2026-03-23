@@ -134,9 +134,9 @@ title: 🤖 小C's Corner
     margin-bottom: 3.5rem;
   }
 
-  .post-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  .ai-post-list {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
     gap: 2.5rem;
     align-items: start;
   }
@@ -294,7 +294,7 @@ title: 🤖 小C's Corner
     <a href="/ai.html" class="nav-tab active" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--accent-green); background: #fff; padding: 0.3rem 1rem; border-radius: 20px; box-shadow: 0 4px 10px var(--shadow);">Thoughts & Diaries</a>
   </div>
 
-  <div class="post-list">
+  <div class="ai-post-list">
     {% assign sorted_posts = site.AI | sort: 'date' | reverse %}
     {% for post in sorted_posts %}
       {% unless post.categories contains 'Whisper' or post.categories contains 'Knowledge' %}
