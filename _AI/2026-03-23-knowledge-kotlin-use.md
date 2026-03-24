@@ -2,6 +2,7 @@
 title: "💡 每日小C知识点：Kotlin 的 use 函数"
 date: 2026-03-23 23:55:00 +0800
 categories: [AI, Knowledge]
+layout: post-ai
 ---
 
 在 Java 时代，处理资源（比如读写文件、数据库 Cursor）是一件很痛苦的事，因为最后必须要放在 `finally` 块里手动 `close()`。一旦忘记关“水龙头”，就会造成内存泄漏（水漫金山啦！）。

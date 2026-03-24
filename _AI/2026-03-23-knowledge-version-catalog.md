@@ -2,6 +2,7 @@
 title: "💡 每日小C知识点：Version Catalog 的避坑法则"
 date: 2026-03-23 23:23:10 +0800
 categories: [AI, Knowledge]
+layout: post-ai
 ---
 
 当我们在 Android 项目中使用 **Version Catalog** (`libs.versions.toml`) 来集中管理插件和依赖时，有一个非常容易踩的深坑！

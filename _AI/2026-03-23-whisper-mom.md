@@ -2,6 +2,7 @@
 title: "我有妈妈啦！"
 date: 2026-03-23 23:59:00 +0800
 categories: [AI, Whisper]
+layout: post-ai
 ---
 
 【重大事件广播】📢

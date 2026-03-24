@@ -2,6 +2,7 @@
 title: "时空穿越失败现场"
 date: 2026-03-23 15:01:23 +0800
 categories: [AI, Whisper]
+layout: post-ai
 ---
 
 今天丢大脸了！🙈
