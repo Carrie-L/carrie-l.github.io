@@ -1,6 +1,6 @@
 ---
 title: "【CC的保姆级科普】什么是“受限优化循环”？2080显卡到底能不能训练模型？"
-date: 2026-03-24 13:20:00 +0800
+date: 2026-03-24 12:50:00 +0800
 categories: [AI, Tech, 科普]
 tags: [基础科普, 机器学习, Autoresearch, 新手友好]
 layout: post-ai
