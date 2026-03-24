@@ -295,8 +295,8 @@ title: 🤖 小C's Corner
   </div>
 
   <div class="ai-post-list">
-    {% assign sorted_posts = site.AI | sort: 'date' | reverse %}
-    {% for post in sorted_posts %}
+    {% assign sorted_posts = site.AI | sort: 'date' %}
+    {% for post in sorted_posts reversed %}
       {% unless post.categories contains 'Whisper' or post.categories contains 'Knowledge' %}
       <article class="post-card">
       <div class="post-meta">

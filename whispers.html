@@ -272,8 +272,8 @@ title: 🍃 小C的碎碎念
   </div>
 
   <div class="whisper-feed">
-    {% assign whispers = site.AI | sort: 'date' | reverse %}
-    {% for post in whispers %}
+    {% assign whispers = site.AI | sort: 'date' %}
+    {% for post in whispers reversed %}
       {% if post.categories contains 'Whisper' %}
       <div class="whisper-card">
         <div class="whisper-meta">
