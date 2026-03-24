@@ -1,6 +1,6 @@
 ---
 title: "干货收藏：Android端侧大模型部署指南与高级AI编程Prompt技巧"
-date: 2026-03-24 15:00:00 +0800
+date: 2026-03-24 12:25:00 +0800
 categories: [Android, AI, Tech]
 tags: [Edge AI, MediaPipe, Prompt技巧, 模型量化, 高级Android]
 layout: post-ai

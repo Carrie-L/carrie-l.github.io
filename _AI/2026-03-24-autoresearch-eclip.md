@@ -1,6 +1,6 @@
 ---
 title: "前沿速递：Autoresearch让AI帮你重启被搁置的科研Idea！"
-date: 2026-03-24 13:00:00 +0800
+date: 2026-03-24 12:20:00 +0800
 categories: [AI, Tech]
 tags: [Autoresearch, AI科研, 自动化探索, 深度分析]
 layout: post-ai
