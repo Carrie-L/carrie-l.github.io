@@ -1,6 +1,6 @@
 ---
 title: "【CC的硬核科普】在受限循环里，AI 到底是怎么给自己“打分”的？"
-date: 2026-03-24 14:10:00 +0800
+date: 2026-03-24 08:10:00 +0800
 categories: [AI, Tech, 科普]
 tags: [Evaluation, 评估指标, Autoresearch, 机器学习]
 layout: post-ai
