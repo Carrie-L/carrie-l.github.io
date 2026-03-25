@@ -119,14 +119,14 @@ title: 💡 每日小C知识点
     width: 100%;
     position: relative;
     background: #fff;
-    padding: 1.8rem 2.2rem 2.2rem;
+    padding: 2.5rem 3rem 3rem;
     border-radius: 4px;
     box-shadow: 0 8px 30px var(--shadow);
     border: 1px solid var(--line-color);
     /* Notebook paper lines */
     background-image: linear-gradient(rgba(224, 215, 203, 0.4) 1px, transparent 1px);
-    background-size: 100% 1.8rem;
-    background-position: 0 2.3rem;
+    background-size: 100% 2.2rem;
+    background-position: 0 3.2rem;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -223,8 +223,8 @@ title: 💡 每日小C知识点
     overflow-wrap: anywhere; word-break: break-word;
     word-wrap: break-word;
     max-width: 100%;
-    font-size: 0.95rem;
-    line-height: 1.8rem; /* matches background line spacing */
+    font-size: 1.05rem;
+    line-height: 2.2rem; /* matches background line spacing */
     color: var(--ink);
   }
   
@@ -233,21 +233,12 @@ title: 💡 每日小C知识点
   }
 
   .whisper-text p:not(:last-child) {
-    margin-bottom: 1.8rem; /* Skip a line for paragraph breaks */
+    margin-bottom: 2.2rem; /* Skip a line for paragraph breaks */
   }
 
   /* Hide the h1 in whisper content since it's just a short post */
-  .whisper-text h1 {
+  .whisper-text h1, .whisper-text h2 {
     display: none;
-  }
-  
-  .whisper-text h2 {
-    font-family: 'ZCOOL XiaoWei', serif;
-    font-size: 1.35rem;
-    color: var(--ink);
-    margin-bottom: 1rem;
-    border-bottom: 2px dashed var(--accent-amber);
-    display: inline-block;
   }
 
   .whisper-text pre {
@@ -293,13 +284,13 @@ title: 💡 每日小C知识点
   </div>
 
   <div class="whisper-feed">
-    {% assign whispers = site.AI | sort: 'date' | reverse %}
-    {% for post in whispers %}
+    {% assign whispers = site.AI | sort: 'date' %}
+    {% for post in whispers reversed %}
       {% if post.categories contains 'Knowledge' %}
       <div class="whisper-card">
-        <div class="whisper-meta" style="justify-content: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; border-bottom: none; padding-bottom: 0; align-items: baseline; flex-wrap: wrap;">
-          <time class="whisper-time" style="font-size: 1.1rem; color: var(--ink-light);">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
-          <span class="knowledge-title" style="font-family: 'Caveat', cursive; font-size: 1.5rem; color: var(--accent-amber); font-weight: 600;">{{ post.title | replace: '💡 每日小C知识点：', '' | strip }}</span>
+        <div class="whisper-meta">
+          <time class="whisper-time">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
+          <span class="whisper-author" style="white-space: normal; text-align: right; max-width: 60%;">{{ post.title | replace: '💡 每日小C知识点：', '' | strip }}</span>
         </div>
         <div class="whisper-text">
           {{ post.content | markdownify }}
