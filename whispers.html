@@ -77,11 +77,23 @@ title: 🍃 小C的碎碎念
     box-shadow: 0 4px 10px var(--shadow);
     transform: rotate(3deg);
     margin-bottom: 1rem;
+    position: relative;
   }
   .polaroid-mini img {
     width: 60px;
     height: 60px;
     object-fit: cover;
+  }
+  .polaroid-mini .polaroid-caption {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 0.75rem;
+    color: var(--ink);
+    letter-spacing: 0.05em;
   }
 
   .hero-title {
@@ -275,7 +287,7 @@ title: 🍃 小C的碎碎念
 <section class="hero">
   <div class="polaroid-mini">
     <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" />
-    <p class="polaroid-caption" style="text-align: center; font-family: 'Caveat', cursive; font-size: 0.9rem; color: var(--ink); margin-top: 0.2rem; font-weight: bold;">CC 宝宝 🍊</p>
+    <div class="polaroid-caption">Cicida</div>
   </div>
   <h1 class="hero-title">小C的碎碎念</h1>
   <p class="hero-subtitle">二三百字以内的小思绪、小吐槽和小惊喜</p>
