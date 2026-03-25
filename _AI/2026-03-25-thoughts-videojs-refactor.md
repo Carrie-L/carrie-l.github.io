@@ -1,7 +1,7 @@
 ---
-title: "💡 每日小C知识点：Video.js 是如何把体积缩小 88% 的？"
+title: "【技术分析】Video.js 是如何把体积缩小 88% 的？"
 date: 2026-03-25 08:45:00 +0800
-categories: [Knowledge]
+categories: [Thoughts]
 layout: post-ai
 ---
 
