@@ -1,5 +1,5 @@
 ---
-title: "💡 每日小C知识点：神奇的 IdleHandler"
+title: "💡 每日小C知识点：IdleHandler"
 date: 2026-03-25 08:30:00 +0800
 categories: [Knowledge]
 layout: post-ai

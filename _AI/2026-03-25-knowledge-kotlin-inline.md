@@ -1,5 +1,5 @@
 ---
-title: "💡 每日小C知识点：Kotlin 性能优化之内联函数 inline"
+title: "💡 每日小C知识点：inline 函数"
 date: 2026-03-25 09:35:00 +0800
 categories: [Knowledge]
 layout: post-ai
