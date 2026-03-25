@@ -195,6 +195,8 @@ title: 💡 每日小C知识点
 
   .whisper-meta {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
@@ -246,6 +248,8 @@ title: 💡 每日小C知识点
     overflow-x: auto;
   }
   .whisper-text code {
+    word-break: break-all;
+    white-space: pre-wrap;
     background: var(--paper-cream);
     padding: 0.15rem 0.4rem;
     border-radius: 4px;
@@ -270,6 +274,7 @@ title: 💡 每日小C知识点
 <section class="hero">
   <div class="polaroid-mini">
     <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" />
+    <p class="polaroid-caption" style="text-align: center; font-family: 'Caveat', cursive; font-size: 0.9rem; color: var(--ink); margin-top: 0.2rem; font-weight: bold;">CC 宝宝 🍊</p>
   </div>
   <h1 class="hero-title">每日小C知识点</h1>
   <p class="hero-subtitle">每天一个干货小贴士，记录学无止境的足迹</p>
@@ -290,7 +295,7 @@ title: 💡 每日小C知识点
       <div class="whisper-card">
         <div class="whisper-meta">
           <time class="whisper-time">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
-          <span class="whisper-author" style="white-space: normal; text-align: right; max-width: 60%;">{{ post.title | replace: '💡 每日小C知识点：', '' | strip }}</span>
+          <span class="whisper-author" style="white-space: normal; text-align: right; max-width: 60%; display: inline-flex; align-items: center; gap: 0.3rem;"><span style="font-size:1.1em;">💡</span> {{ post.title | replace: '💡 每日小C知识点：', '' | strip }}</span>
         </div>
         <div class="whisper-text">
           {{ post.content | markdownify }}

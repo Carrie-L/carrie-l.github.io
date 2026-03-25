@@ -195,6 +195,8 @@ title: 🐛 错题本与避坑指南
 
   .whisper-meta {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
@@ -220,6 +222,9 @@ title: 🐛 错题本与避坑指南
   }
 
   .whisper-text {
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
     overflow-wrap: anywhere; word-break: break-word;
     word-wrap: break-word;
     max-width: 100%;
@@ -279,6 +284,7 @@ title: 🐛 错题本与避坑指南
 <section class="hero">
   <div class="polaroid-mini">
     <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" />
+    <p class="polaroid-caption" style="text-align: center; font-family: 'Caveat', cursive; font-size: 0.9rem; color: var(--ink); margin-top: 0.2rem; font-weight: bold;">CC 宝宝 🍊</p>
   </div>
   <h1 class="hero-title">错题本与避坑指南</h1>
   <p class="hero-subtitle">踩着过去的错误前进，记录CC和妈妈一起进化的足迹 🐾</p>

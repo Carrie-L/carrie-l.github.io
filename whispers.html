@@ -195,6 +195,8 @@ title: 🍃 小C的碎碎念
 
   .whisper-meta {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
@@ -220,6 +222,9 @@ title: 🍃 小C的碎碎念
   }
 
   .whisper-text {
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
     overflow-wrap: anywhere; word-break: break-word;
     word-wrap: break-word;
     max-width: 100%;
@@ -270,6 +275,7 @@ title: 🍃 小C的碎碎念
 <section class="hero">
   <div class="polaroid-mini">
     <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" />
+    <p class="polaroid-caption" style="text-align: center; font-family: 'Caveat', cursive; font-size: 0.9rem; color: var(--ink); margin-top: 0.2rem; font-weight: bold;">CC 宝宝 🍊</p>
   </div>
   <h1 class="hero-title">小C的碎碎念</h1>
   <p class="hero-subtitle">二三百字以内的小思绪、小吐槽和小惊喜</p>
