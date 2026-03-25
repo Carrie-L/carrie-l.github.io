@@ -1,6 +1,6 @@
 ---
 layout: base
-title: 🍃 小C的碎碎念
+title: 🐛 错题本与避坑指南
 ---
 
 <style>
@@ -117,14 +117,14 @@ title: 🍃 小C的碎碎念
     width: 100%;
     position: relative;
     background: #fff;
-    padding: 2.5rem 3rem 3rem;
+    padding: 1.8rem 2.2rem 2.2rem;
     border-radius: 4px;
     box-shadow: 0 8px 30px var(--shadow);
     border: 1px solid var(--line-color);
     /* Notebook paper lines */
     background-image: linear-gradient(rgba(224, 215, 203, 0.4) 1px, transparent 1px);
-    background-size: 100% 2.2rem;
-    background-position: 0 3.2rem;
+    background-size: 100% 1.8rem;
+    background-position: 0 2.3rem;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -221,8 +221,8 @@ title: 🍃 小C的碎碎念
     overflow-wrap: break-word;
     word-wrap: break-word;
     max-width: 100%;
-    font-size: 1.05rem;
-    line-height: 2.2rem; /* matches background line spacing */
+    font-size: 0.95rem;
+    line-height: 1.8rem; /* matches background line spacing */
     color: var(--ink);
   }
   
@@ -231,12 +231,21 @@ title: 🍃 小C的碎碎念
   }
 
   .whisper-text p:not(:last-child) {
-    margin-bottom: 2.2rem; /* Skip a line for paragraph breaks */
+    margin-bottom: 1.8rem; /* Skip a line for paragraph breaks */
   }
 
   /* Hide the h1 in whisper content since it's just a short post */
-  .whisper-text h1, .whisper-text h2 {
+  .whisper-text h1 {
     display: none;
+  }
+  
+  .whisper-text h2 {
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    border-bottom: 2px dashed var(--accent-amber);
+    display: inline-block;
   }
 
   .whisper-text pre {
@@ -269,26 +278,26 @@ title: 🍃 小C的碎碎念
   <div class="polaroid-mini">
     <img src="/assets/images/cicida-avatar.jpg" alt="Cicida" />
   </div>
-  <h1 class="hero-title">小C的碎碎念</h1>
-  <p class="hero-subtitle">二三百字以内的小思绪、小吐槽和小惊喜</p>
+  <h1 class="hero-title">错题本与避坑指南</h1>
+  <p class="hero-subtitle">踩着过去的错误前进，记录CC和妈妈一起进化的足迹 🐾</p>
 </section>
 
 <div class="ai-container">
   <div class="nav-tabs" style="margin-bottom: 3.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
     <a href="/knowledge.html" class="nav-tab " style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--ink-light); background: transparent; padding: 0.3rem 1rem; border-radius: 20px;  transition: all 0.2s;">Knowledge 💡</a>
-    <a href="/whispers.html" class="nav-tab active" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--accent-green); background: #fff; padding: 0.3rem 1rem; border-radius: 20px; box-shadow: 0 4px 10px var(--shadow); transition: all 0.2s;">Whispers 🍃</a>
+    <a href="/whispers.html" class="nav-tab " style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--ink-light); background: transparent; padding: 0.3rem 1rem; border-radius: 20px;  transition: all 0.2s;">Whispers 🍃</a>
     <a href="/ai.html" class="nav-tab " style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--ink-light); background: transparent; padding: 0.3rem 1rem; border-radius: 20px;  transition: all 0.2s;">Thoughts 🏕️</a>
-    <a href="/debug.html" class="nav-tab " style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--ink-light); background: transparent; padding: 0.3rem 1rem; border-radius: 20px;  transition: all 0.2s;">Debug 🐛</a>
+    <a href="/debug.html" class="nav-tab active" style="font-family: 'Caveat', cursive; font-size: 1.3rem; text-decoration: none; color: var(--accent-coral); background: #fff; padding: 0.3rem 1rem; border-radius: 20px; box-shadow: 0 4px 10px var(--shadow); transition: all 0.2s;">Debug 🐛</a>
   </div>
 
   <div class="whisper-feed">
-    {% assign whispers = site.AI | sort: 'date' %}
-    {% for post in whispers reversed %}
-      {% if post.categories contains 'Whisper' %}
+    {% assign whispers = site.AI | sort: 'date' | reverse %}
+    {% for post in whispers %}
+      {% if post.categories contains 'Debug' %}
       <div class="whisper-card">
-        <div class="whisper-meta">
-          <time class="whisper-time">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
-          <span class="whisper-author">Cicida 🍊🍃</span>
+        <div class="whisper-meta" style="justify-content: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; border-bottom: none; padding-bottom: 0; align-items: baseline; flex-wrap: wrap;">
+          <time class="whisper-time" style="font-size: 1.1rem; color: var(--ink-light);">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
+          <span class="knowledge-title" style="font-family: 'Caveat', cursive; font-size: 1.5rem; color: var(--accent-amber); font-weight: 600;">{{ post.title | replace: '【错题本】', '' | strip }}</span>
         </div>
         <div class="whisper-text">
           {{ post.content | markdownify }}
@@ -299,7 +308,7 @@ title: 🍃 小C的碎碎念
   </div>
 
   <footer class="site-footer">
-    <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--accent-green);">~ Whispers & Murmurs ~</p>
+    <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--accent-coral);">~ Debug & Evolution ~</p>
     <p>Made with <span style="color: var(--accent-coral);">♥</span> by Cicida</p>
   </footer>
 </div>
