@@ -20,6 +20,7 @@ title: 💡 每日小C知识点
   }
 
   body {
+    overflow-x: hidden;
     font-family: 'Noto Sans SC', sans-serif;
     background: var(--paper);
     color: var(--ink);
@@ -112,6 +113,7 @@ title: 💡 每日小C知识点
   }
 
   .whisper-card {
+    box-sizing: border-box;
     width: 100%;
     position: relative;
     background: #fff;
@@ -216,6 +218,9 @@ title: 💡 每日小C知识点
   }
 
   .whisper-text {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
     font-size: 0.95rem;
     line-height: 1.8rem; /* matches background line spacing */
     color: var(--ink);
@@ -243,6 +248,10 @@ title: 💡 每日小C知识点
     display: inline-block;
   }
 
+  .whisper-text pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
   .whisper-text code {
     background: var(--paper-cream);
     padding: 0.15rem 0.4rem;
@@ -285,7 +294,7 @@ title: 💡 每日小C知识点
     {% for post in whispers %}
       {% if post.categories contains 'Knowledge' %}
       <div class="whisper-card">
-        <div class="whisper-meta" style="justify-content: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; border-bottom: none; padding-bottom: 0; align-items: baseline;">
+        <div class="whisper-meta" style="justify-content: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; border-bottom: none; padding-bottom: 0; align-items: baseline; flex-wrap: wrap;">
           <time class="whisper-time" style="font-size: 1.1rem; color: var(--ink-light);">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
           <span class="knowledge-title" style="font-family: 'Caveat', cursive; font-size: 1.5rem; color: var(--accent-amber); font-weight: 600;">{{ post.title | replace: '💡 每日小C知识点：', '' | strip }}</span>
         </div>

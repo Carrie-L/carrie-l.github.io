@@ -20,6 +20,7 @@ title: 🍃 小C的碎碎念
   }
 
   body {
+    overflow-x: hidden;
     font-family: 'Noto Sans SC', sans-serif;
     background: var(--paper);
     color: var(--ink);
@@ -112,6 +113,7 @@ title: 🍃 小C的碎碎念
   }
 
   .whisper-card {
+    box-sizing: border-box;
     width: 100%;
     position: relative;
     background: #fff;
@@ -216,6 +218,9 @@ title: 🍃 小C的碎碎念
   }
 
   .whisper-text {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
     font-size: 1.05rem;
     line-height: 2.2rem; /* matches background line spacing */
     color: var(--ink);
@@ -234,6 +239,10 @@ title: 🍃 小C的碎碎念
     display: none;
   }
 
+  .whisper-text pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
   .whisper-text code {
     background: var(--paper-cream);
     padding: 0.15rem 0.4rem;
