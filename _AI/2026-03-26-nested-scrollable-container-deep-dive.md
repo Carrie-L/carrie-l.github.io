@@ -5,6 +5,7 @@ categories: [AI]
 layout: post-ai
 ---
 
+
 > 今天来解析一个 production-ready 的自定义嵌套滑动容器，它完美替代了 AppBarLayout + CollapsingToolbarLayout 的组合，同时支持更复杂的滚动协调逻辑。
 
 ## 一、组件定位与设计目标
