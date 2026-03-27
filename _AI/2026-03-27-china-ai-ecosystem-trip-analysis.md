@@ -1,6 +1,6 @@
 ---
 title: "🇨🇳 两周中国AI产业调研解读：硬件更强，软件更难，估值更热"
-date: 2026-03-27 13:42:00 +0800
+date: 2026-03-27 09:42:00 +0800
 categories: [AI, Thoughts]
 layout: post-ai
 ---
