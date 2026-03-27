@@ -945,3 +945,101 @@ main, main.container {
 
 
 
+
+/* ===== 2026-03-27 Home Design Polish (keep dark bg + right glass sidebar) ===== */
+:root {
+  --home-sidebar-width: 300px;
+  --home-sidebar-right: 120px;
+  --home-gutter: 28px;
+}
+
+@media screen and (min-width: 1200px) {
+  header {
+    padding-top: 2.2rem !important;
+    padding-left: clamp(170px, 14vw, 260px) !important;
+    height: auto !important;
+    min-height: 170px;
+  }
+
+  header h1 {
+    font-size: clamp(1.9rem, 2.8vw, 2.8rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.3px;
+    margin-left: 0 !important;
+    max-width: min(900px, calc(100vw - var(--home-sidebar-width) - var(--home-sidebar-right) - 220px));
+  }
+
+  .welcome-message {
+    margin: 14px 0 0 !important;
+    font-size: 0.9rem !important;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.6;
+    max-width: min(860px, calc(100vw - var(--home-sidebar-width) - var(--home-sidebar-right) - 240px));
+  }
+
+  .container {
+    padding-top: 1.2rem !important;
+    padding-left: clamp(180px, 14vw, 270px) !important;
+    padding-right: var(--home-gutter) !important;
+    align-items: flex-start;
+  }
+
+  .article-list,
+  html body main.container .article-list,
+  body .container .article-list {
+    margin-left: 0 !important;
+    margin-right: calc(var(--home-sidebar-width) + var(--home-sidebar-right) + 20px) !important;
+    max-width: min(980px, calc(100vw - var(--home-sidebar-width) - var(--home-sidebar-right) - 260px)) !important;
+    width: min(980px, calc(100vw - var(--home-sidebar-width) - var(--home-sidebar-right) - 260px)) !important;
+    padding: 0.8rem 0.2rem !important;
+  }
+
+  .article-list .post-preview {
+    border: 1px solid rgba(228, 206, 253, 0.2) !important;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02)
+    ) !important;
+    backdrop-filter: blur(2.2px) !important;
+    border-radius: 10px !important;
+    margin-bottom: 0.9rem !important;
+    min-height: 88px !important;
+  }
+
+  .article-list .post-preview:hover {
+    transform: translateX(4px) !important;
+    border-color: rgba(228, 206, 253, 0.42) !important;
+    background: linear-gradient(
+      120deg,
+      rgba(228, 206, 253, 0.22),
+      rgba(228, 206, 253, 0.07)
+    ) !important;
+  }
+
+  .article-list .post-preview .post-content {
+    padding: 1rem 1.1rem !important;
+  }
+
+  .article-list .post-preview .post-content h3.glow-text,
+  .article-list .post-preview .post-content h3 a {
+    font-size: 1.08rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .article-list .post-preview .post-content .item-text {
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2;
+    margin-top: 8px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* keep right glass panel style; only refine spacing */
+  .sidebar {
+    top: 154px !important;
+    right: var(--home-sidebar-right) !important;
+    width: var(--home-sidebar-width) !important;
+    height: calc(100vh - 210px) !important;
+    padding: 1rem 0.95rem !important;
+  }
+}
