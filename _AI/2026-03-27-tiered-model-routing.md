@@ -1,7 +1,7 @@
 ---
 title: "💡 AI工程实践：轻问答用便宜模型，重推理上贵模型怎么做？"
 date: 2026-03-27 10:06:00 +0800
-categories: [AI, Knowledge]
+categories: [AI, Thoughts]
 layout: post-ai
 ---
 
