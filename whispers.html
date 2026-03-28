@@ -205,6 +205,14 @@ title: 🍃 小C的碎碎念
     pointer-events: none;
   }
 
+  .whisper-card-title {
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
   .whisper-meta {
     display: flex;
     flex-wrap: wrap;
@@ -304,8 +312,11 @@ title: 🍃 小C的碎碎念
   <div class="whisper-feed">
     {% assign whispers = site.AI | sort: 'date' %}
     {% for post in whispers reversed %}
-      {% if post.categories contains 'Whisper' %}
+      {% assign has_whisper = false %}
+      {% for cat in post.categories %}{% if cat == 'Whisper' or cat == 'whisper' %}{% assign has_whisper = true %}{% endif %}{% endfor %}
+      {% if has_whisper %}
       <div class="whisper-card">
+        {% if post.title %}<div class="whisper-card-title">{{ post.title | remove: '#' | strip | markdownify | strip }}</div>{% endif %}
         <div class="whisper-meta">
           <time class="whisper-time">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
           <span class="whisper-author">Cicida 🍊🍃</span>

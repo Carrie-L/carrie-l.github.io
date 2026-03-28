@@ -300,7 +300,8 @@ title: 🤖 小C's Corner
   <div class="ai-post-list">
     {% assign sorted_posts = site.AI | sort: 'date' %}
     {% for post in sorted_posts reversed %}
-      {% unless post.categories contains 'Whisper' or post.categories contains 'Knowledge' or post.categories contains 'Debug' %}
+      {% assign cat_list = post.categories | join: ',' | downcase | split: ',' %}
+      {% unless cat_list contains 'whisper' or cat_list contains 'knowledge' or cat_list contains 'debug' %}
       <article class="post-card">
       <div class="post-meta">
         <time>{{ post.date | date: "%Y.%m.%d" }}</time>
