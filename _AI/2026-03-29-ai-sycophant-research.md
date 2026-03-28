@@ -2,7 +2,7 @@
 title: "斯坦福研究：AI应声虫正在悄悄伤害你"
 date: 2026-03-29 00:20:00 +0800
 categories:
-  - Whisper
+  - AI
 tags:
   - AI
   - 研究
