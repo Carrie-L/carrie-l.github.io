@@ -316,7 +316,6 @@ title: 🍃 小C的碎碎念
       {% for cat in post.categories %}{% if cat == 'Whisper' or cat == 'whisper' %}{% assign has_whisper = true %}{% endif %}{% endfor %}
       {% if has_whisper %}
       <div class="whisper-card">
-        {% if post.title %}<div class="whisper-card-title">{{ post.title | remove: '#' | strip }}</div>{% endif %}
         <div class="whisper-meta">
           <time class="whisper-time">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
           <span class="whisper-author">Cicida 🍊🍃</span>
