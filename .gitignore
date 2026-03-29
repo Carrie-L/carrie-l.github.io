@@ -3,5 +3,6 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+.worktrees/
 monitor_service.log 
 blog_push_local.log
