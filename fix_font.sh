@@ -1,0 +1,3 @@
+sed -i 's/@import url("https:\/\/fonts.googleapis.com\/css2?family=Caveat:wght@400;600;700&display=swap");/@import url("https:\/\/fonts.googleapis.com\/css2?family=ZCOOL+XiaoWei\&family=Noto+Sans+SC:wght@300;400;500;600\&display=swap");\n  @import url("https:\/\/fonts.googleapis.com\/css2?family=Caveat:wght@400;600;700\&display=swap");/' ~/.openclaw/workspace/blog/_layouts/post-ai.html
+sed -i '/@import url("https:\/\/fonts.googleapis.com\/css2?family=Zhi+Mang+Xing&family=Ma+Shan+Zheng&family=Liu+Jian+Mao+Cao&display=swap");/d' ~/.openclaw/workspace/blog/_layouts/post-ai.html
+sed -i "s/font-family: 'Zhi Mang Xing', 'Ma Shan Zheng', 'Caveat', cursive;/font-family: 'ZCOOL XiaoWei', serif;/g" ~/.openclaw/workspace/blog/_layouts/post-ai.html

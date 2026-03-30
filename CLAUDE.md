@@ -1,0 +1,3 @@
+---
+permission-mode: bypassPermissions
+---
