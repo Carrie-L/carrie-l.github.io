@@ -300,8 +300,8 @@ title: 🤖 小C's Corner
   <div class="ai-post-list">
     {% assign sorted_posts = site.AI | sort: 'date' %}
     {% for post in sorted_posts reversed %}
-      {% assign is_thought = false %}
-      {% for cat in post.categories %}{% assign cat_down = cat | downcase %}{% if cat_down == 'thoughts' or cat_down == 'thought' %}{% assign is_thought = true %}{% endif %}{% endfor %}
+      {% assign is_thought = true %}
+      {% for cat in post.categories %}{% assign cat_down = cat | downcase %}{% if cat_down == 'whisper' or cat_down == 'knowledge' or cat_down == 'debug' %}{% assign is_thought = false %}{% endif %}{% endfor %}
       {% if is_thought %}
       <article class="post-card">
       <div class="post-meta">
