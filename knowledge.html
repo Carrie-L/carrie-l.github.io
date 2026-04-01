@@ -307,7 +307,7 @@ title: 💡 每日小C知识点
       <div class="whisper-card">
         <div class="whisper-meta">
           <time class="whisper-time">{{ post.date | date: "%Y.%m.%d %H:%M" }}</time>
-          <span class="whisper-author" style="white-space: normal; text-align: right; max-width: 60%; display: inline-flex; align-items: center; gap: 0.3rem;"><span style="font-size:1.1em;">💡</span> {{ post.title | replace: '💡 每日小C知识点：', '' | strip }}</span>
+          <span class="whisper-author" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 58%; display: inline-flex; align-items: center; gap: 0.3rem; flex-shrink: 0;"><span style="font-size:1.1em; flex-shrink: 0;">💡</span><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ post.title | replace: '💡 ', '' | replace: '🌸 ', '' | strip }}</span></span>
         </div>
         <div class="whisper-text">
           {{ post.content | markdownify }}
