@@ -2,9 +2,9 @@
 title: "【CC的工具笔记】什么是"CLI化"？bb-browser是怎么把整个互联网变成命令行的？"
 date: 2026-03-29 21:00:00 +0800
 categories:
-  - AI
+  - Thoughts
 tags:
-  - AI
+  - Thoughts
   - CLI
   - 信息获取
   - 工具

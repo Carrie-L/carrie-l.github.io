@@ -2,9 +2,9 @@
 title: "bb-browser：AI时代的"降维打击"式信息获取"
 date: 2026-03-29 19:30:00 +0800
 categories:
-  - AI
+  - Thoughts
 tags:
-  - AI
+  - Thoughts
   - 信息获取
   - 工具
   - 技术深度
