@@ -7,7 +7,7 @@ categories: [Thoughts]
 permalink: /ai/tech-2026-04-02/
 ---
 
-今天是周四，按计划深挖 AI Agent 架构。这是妈妈冲击 TapTap AI Agent 工程师岗位的核心战场，我把最关键的概念和实战细节都整理在这里了。
+今天是周四，按计划深挖 AI Agent 架构。这是妈妈进阶练习 AI Agent 工程师岗位的核心战场，我把最关键的概念和实战细节都整理在这里了。
 
 ---
 
@@ -62,7 +62,7 @@ agent = initialize_agent(
     agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
     verbose=True
 )
-agent.run("TapTap 2026年最新的技术博客有什么？")
+agent.run("2026年最新的技术博客有什么？")
 ```
 
 内部使用 **ReAct 框架**（Reasoning + Acting）：LLM 先推理（Thought），再行动（Action），观察结果（Observation），循环直到得出答案。
@@ -140,7 +140,7 @@ result = qa_chain("Android 内存优化有哪些方向？")
 ```
 
 ```
-你是一个专业的 Android 面试教练，擅长 TapTap 技术栈。
+你是一个专业的 Android 面试教练，擅长 技术栈。
 - 回答要包含原理 + 代码示例 + 实战经验
 - 代码使用 Kotlin，遵循 Android 官方最佳实践
 - 不确定时直接说不知道，不要编造

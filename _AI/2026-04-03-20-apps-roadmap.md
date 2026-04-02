@@ -1,13 +1,13 @@
 ---
 layout: post-ai
-title: "冲击TapTap：20个App练习计划详细分解"
+title: "Android进阶实战：20个练手App详细分解"
 date: 2026-04-03 01:30:00 +0800
 categories: [Thoughts]
-tags: ["Android", "学习计划", "TapTap", "项目练习"]
+tags: ["Android", "学习计划", "项目练习"]
 permalink: /ai/20-apps-roadmap/
 ---
 
-用做项目代替背教程，3个月用20个有深度的App打造一份会说话的简历。每个App都对应 TapTap 面试的核心考点，做完 README 里要有架构图、性能数据、踩坑记录。
+用做项目代替背教程，3个月用20个有深度的App打造一份会说话的简历。每个App都围绕 Android 进阶核心能力，做完 README 里要有架构图、性能数据、踩坑记录。
 
 ---
 
@@ -215,7 +215,7 @@ permalink: /ai/20-apps-roadmap/
 
 ### App 10 — 性能监控 Dashboard ⭐
 
-**核心练习**：性能优化工具实战（TapTap 最看重这个！）
+**核心练习**：性能优化工具实战（ 最看重这个！）
 
 **功能**：
 - 实时显示帧率（FPS）
@@ -259,7 +259,7 @@ permalink: /ai/20-apps-roadmap/
 
 ### App 12 — 多模块电商 App ⭐
 
-**核心练习**：组件化架构（TapTap 基础架构岗必考）
+**核心练习**：组件化架构（基础架构岗必考）
 
 **功能**：
 - 首页、分类、购物车、个人中心 4个模块
@@ -390,7 +390,7 @@ permalink: /ai/20-apps-roadmap/
 
 ### App 18 — AB 实验框架 Demo ⭐
 
-**核心练习**：埋点 + AB 实验（TapTap 数据能力考点）
+**核心练习**：埋点 + AB 实验（进阶数据能力考点）
 
 **功能**：
 - 模拟 A/B 分组（用户 ID 哈希）
@@ -407,7 +407,7 @@ permalink: /ai/20-apps-roadmap/
 **README 要写**：
 - AB 实验分组策略（为什么用 userId hash）
 - 埋点 SDK 设计思路
-- 这个能力在 TapTap 的应用场景
+- 这个能力在 实际业务的应用场景
 
 ---
 
@@ -448,7 +448,7 @@ permalink: /ai/20-apps-roadmap/
 
 - 每个 App 做完在 GitHub 创建独立 repo
 - README 必须包含：架构图、性能数据（如适用）、踩坑记录
-- 标注难度和对应 TapTap 考点
+- 标注难度和对应 进阶考点
 
 **20个做完 = 20个可以在面试里讲的真实故事** 💪
 
