@@ -2,7 +2,7 @@
 title: "Moshi 深度解析：从注解到自定义Adapter，一文搞懂 Kotlin JSON 序列化"
 date: 2026-04-03 08:30:00 +0800
 categories:
-  - Knowledge
+  - Thoughts
 tags:
   - Kotlin
   - Moshi
