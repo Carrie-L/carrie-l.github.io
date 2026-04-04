@@ -140,6 +140,17 @@ File: AndroidDeveloperGuideStory/Contents/{现有文件的确切文件名}
 7. **Set `status: 'done'`** in YAML frontmatter (required; AI 写完后必须改 status 为 done)
 8. Run: git add . && git commit -m "feat(chapter-{章节号}): {English summary}" — **commit message MUST be English only** (avoids encoding garbling on push)
 
+## ⚠️ 分割线禁令（CRITICAL — 违反会被 Main Agent 直接 FAIL）
+**`---` 在小说正文中**：
+- ❌ **禁止**在故事正文中使用 `---` 作为场景切换、话题分隔、段落分隔
+- ❌ **禁止**在 Task 与 Task 之间、`### 参考实现` 前后、`> 学习建议` 之后使用 `---`
+- ❌ **禁止**在 `## 今日关键词` 之前使用 `---`
+- ✅ **仅允许**以下三个位置使用 `---`：
+  1. `---` 之后是 `## 专业技术总结`（小说正文结束处）
+  2. `---` 之后是 `#### 🏕️ 动手练习`（技术总结结束处）
+  3. `---` 之后是 `> 学习建议`（动手练习结束处）
+- ✅ 场景切换用**空行自然过渡**即可
+
 CRITICAL: Write INTO the existing file. Do NOT create a new file with a different name.
 DO NOT run git push. The Main Agent handles push after review.
 ```
