@@ -114,3 +114,4 @@ webrick:
       img-src 'self' data: https:; connect-src 'self'"
 
 timezone: Asia/Shanghai
+future: true
