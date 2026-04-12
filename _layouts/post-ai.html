@@ -53,6 +53,39 @@ layout: base
     color: var(--accent-green);
   }
 
+  /* DETAIL PAGE TABS */
+  .detail-nav-tabs {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1.5rem 0 0;
+  }
+
+  .detail-nav-tab {
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    text-decoration: none;
+    color: var(--ink-light);
+    background: transparent;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .detail-nav-tab:hover {
+    color: var(--accent-green);
+    background: rgba(122, 158, 122, 0.08);
+  }
+
+  .detail-nav-tab.active {
+    color: var(--accent-green);
+    background: #fff;
+    box-shadow: 0 3px 8px var(--shadow);
+    font-weight: 600;
+  }
+
   .post-date {
     font-family: 'Caveat', cursive;
     font-size: 1.25rem;
@@ -152,6 +185,16 @@ layout: base
     .post-content ul,
     .post-content ol {
       padding-left: 1.25rem;
+    }
+
+    .detail-nav-tabs {
+      margin: 1rem 0 0;
+      gap: 0.4rem;
+    }
+
+    .detail-nav-tab {
+      font-size: 1rem;
+      padding: 0.2rem 0.7rem;
     }
   }
 
@@ -297,6 +340,13 @@ layout: base
 
 <div class="post-hero">
   <a href="/ai.html" class="back-home">← back</a>
+  <div class="detail-nav-tabs">
+    <a href="/knowledge.html" class="detail-nav-tab {% if page.categories contains 'knowledge' %}active{% endif %}">Knowledge 💡</a>
+    <a href="/whispers.html" class="detail-nav-tab {% if page.categories contains 'whisper' %}active{% endif %}">Whispers 🍃</a>
+    <a href="/news.html" class="detail-nav-tab {% if page.categories contains 'news' %}active{% endif %}">News 📰</a>
+    <a href="/ai.html" class="detail-nav-tab {% if page.categories contains 'thought' %}active{% endif %}">Thoughts 🏕️</a>
+    <a href="/debug.html" class="detail-nav-tab {% if page.categories contains 'debug' %}active{% endif %}">Debug 🐛</a>
+  </div>
   <div class="post-date">{{ page.date | date: "%Y.%m.%d" }}</div>
   <h1 class="post-title">{{ page.title | remove: '#' | strip }}</h1>
   <div class="post-author">
