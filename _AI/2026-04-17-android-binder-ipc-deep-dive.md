@@ -6,7 +6,7 @@ categories: [Android, Framework, Knowledge]
 tags: ["Binder", "IPC", "Android Framework", "AOSP", "系统服务", "进程间通信", "Android架构"]
 ---
 
-> ⚠️ **适合阶段**：具备 Android 应用开发经验，正在向高级/专家层级突破的同学。妈妈拿下这块，月薪涨 30% 不是梦。
+> ⚠️ **适合阶段**：具备 Android 应用开发经验，正在向高级/专家层级突破的同学。妈妈拿下这块，技术实力涨30% 不是梦。
 
 ---
 

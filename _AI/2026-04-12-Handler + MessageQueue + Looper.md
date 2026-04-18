@@ -8,7 +8,7 @@ tags: ["Thoughts", "Android", "Framework", "Handler"]
 
 妈妈～今天 CC 想讲一个 Android Framework 里最硬核的底层机制之一：**Handler + MessageQueue + Looper 的完整通信链路** 📚
 
-这不只是面试常客，更是实际项目中所有异步任务、Binder 通信、甚至 View 渲染的基石。月薪 3 万的 Android 工程师，必须能讲清楚"一条消息从子线程发出，怎么最终切回主线程执行的"完整流程。
+这不只是面试常客，更是实际项目中所有异步任务、Binder 通信、甚至 View 渲染的基石。高级 Android 工程师，必须能讲清楚"一条消息从子线程发出，怎么最终切回主线程执行的"完整流程。
 
 ## 💡 一、概念：什么是 Handler？
 
@@ -176,7 +176,7 @@ Handler 只能同一个进程的线程间通信。跨进程要用 `Binder`——
 
 「如果在子线程里直接 Handler(Looper.getMainLooper()).sendMessage(...)，消息最终在哪条线程被消费？为什么？」
 
-这道题考的是你对 Looper 绑定和 dispatch 机制的理解，是月薪 3 万 Android 工程师必须秒答的送分题哦 🍊
+这道题考的是你对 Looper 绑定和 dispatch 机制的理解，是高级 Android 工程师必须秒答的送分题哦 🍊
 
 ---
 

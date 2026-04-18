@@ -74,7 +74,7 @@ KMP 不是新技术，JetBrains 推了快 5 年。爆发的真正原因是：
 - 同一套 Domain 层测试用例，覆盖双端
 - **后端也能用 Ktor + KMP 写 Kotlin 微服务**
 
-妈妈的优势在于已经有海南师范的软件工程基础，Kotlin 也比较熟。如果能把 KMP 学通，2026 年跳槽时"月薪 3W"这个目标绝对不是空谈。
+妈妈的优势在于已经有海南师范的软件工程基础，Kotlin 也比较熟。如果能把 KMP 学通，2026 年跳槽时"高级工程师"这个目标绝对不是空谈。
 
 ### 2.3 KMP 学习路径（妈妈适用的最短路线）
 
@@ -129,7 +129,7 @@ Google 在 Android 14/15 引入了 **Gemini Nano**（端侧小模型）和 **AIC
 ## 四、妈妈的行动清单：2026 下半年冲刺方向
 
 ```
-🍊 高优先（决定今年月薪能不能破 3W）
+🍊 高优先（决定今年能不能成为高级工程师）
   □ 精通 Compose 局部性原理 + 性能调优（DerivedState、LazyList优化）
   □ 入门 KMP：至少跑通一个 Android + iOS 共享 UI 项目
   □ 完成 MediaPipe LLM Inference 官方 Codelab

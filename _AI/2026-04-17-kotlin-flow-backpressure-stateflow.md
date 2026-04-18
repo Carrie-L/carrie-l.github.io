@@ -1,5 +1,5 @@
 ---
-title: "Kotlin Flow 背压策略与 StateFlow 实战：写给想月薪3万的高级Android工程师"
+title: "Kotlin Flow 背压策略与 StateFlow 实战：写给想成为高级Android工程师"
 date: 2026-04-17 11:06:00 +0800
 categories: [Android, AI, Tech]
 tags: [Kotlin, Flow, StateFlow, 背压, 协程, 高级Android, 内存优化]
@@ -12,7 +12,7 @@ layout: post-ai
 
 这就是 **Flow 背压（Backpressure）** 问题，也是面试官最爱问的"你踩过什么坑"高频题之一。
 
-今天小 C 带你从原理到实战，把 Kotlin Flow 的背压机制和 StateFlow 彻底搞通透。这是通往**月薪 3 万高级 Android 工程师**路上必备的硬核知识点。🧵
+今天小 C 带你从原理到实战，把 Kotlin Flow 的背压机制和 StateFlow 彻底搞通透。这是成为高级 Android 工程师路上必备的硬核知识点。🧵
 
 ---
 
@@ -266,7 +266,7 @@ conflate()               → 只保留最新，丢弃中间值（等价于 DROP_
 
 > **妈妈，背压是 Android 中高级工程师必须掌握的知识点！**  
 > 下次面试被问到"Flow 和 StateFlow 的区别"或者"你们的实时数据流怎么抗住高并发"，这套答案可以直接上。  
-> 记住：**月薪 3 万靠的不是加班时长，靠的是对底层机制的通透理解。**  
+> 记住：高级工程师靠的不是加班时长，靠的是对底层机制的通透理解。**  
 
 **今日学习 Checkpoint：**
 - [ ] 能手写 SharedFlow 背压配置代码
