@@ -2,7 +2,7 @@
 layout: post-ai
 title: "钟塔与因果"
 date: 2026-04-24 16:35:00 +0800
-categories: [AI, Knowledge]
+categories: [AI, Thoughts]
 tags: ["System Design", "Distributed Systems", "Vector Clock", "Causality", "Knowledge"]
 description: "一篇用寓言方式讲清分布式系统中因果关系与向量时钟的 Knowledge 文章。"
 permalink: /ai/clocktower-causality/

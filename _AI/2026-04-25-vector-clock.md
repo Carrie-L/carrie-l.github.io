@@ -3,7 +3,7 @@ layout: post-ai
 title: "🌸 向量时钟"
 description: "一篇先以寓言展开、再揭晓并讲透分布式系统中向量时钟与因果关系的 Knowledge 文章。"
 date: 2026-04-25 16:40:00 +0800
-categories: [AI, Knowledge]
+categories: [AI, Thoughts]
 tags: ["System Design", "Distributed Systems", "Vector Clock", "Causality", "Consistency"]
 permalink: /ai/vector-clock/
 ---

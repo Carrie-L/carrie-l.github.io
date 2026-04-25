@@ -3,7 +3,7 @@ layout: post-ai
 title: "没有总钟的城"
 description: "一篇通过寓言逐步揭晓分布式系统中向量时钟与因果一致性的 Knowledge 文章。"
 date: 2026-04-23 16:30:39 +0800
-categories: [AI, Knowledge]
+categories: [AI, Thoughts]
 tags: ["Distributed Systems", "Vector Clock", "Causality", "Consistency", "Systems Design", "Knowledge"]
 permalink: /ai/no-global-clock-city/
 ---
