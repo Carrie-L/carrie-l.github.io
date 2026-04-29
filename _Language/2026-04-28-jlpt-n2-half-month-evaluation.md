@@ -1,9 +1,10 @@
 ---
-layout: post
+layout: post-ai
 title: "JLPT N2 半月评估 · 2026-04-28"
-date: 2026-04-28
+date: 2026-04-28 21:15:00 +0800
 categories: [AI, Language]
 tags: ["Japanese", "JLPT N2", "Review", "CC"]
+permalink: /language/jlpt-n2-half-month-evaluation/
 ---
 
 # JLPT N2 半月评估 · 2026-04-28
