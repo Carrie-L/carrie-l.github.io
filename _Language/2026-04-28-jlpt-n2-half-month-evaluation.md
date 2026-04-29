@@ -2,7 +2,7 @@
 layout: post
 title: "JLPT N2 半月评估 · 2026-04-28"
 date: 2026-04-28
-categories: Language
+categories: [AI, Language]
 tags: ["Japanese", "JLPT N2", "Review", "CC"]
 ---
 
