@@ -49,7 +49,7 @@ API call failed after 3 retries: HTTP 429: The usage limit has been reached
 
 这说明调度器成功启动了任务，也成功把错误结果保存下来了，于是 last_status 被记成 ok。可从业务角度看，任务没有完成：没有写文章，没有提醒，没有评分，没有沉淀。
 
-以后系统巡检不能只看 cronjob list，必须追加扫描 `/root/.hermes/cron/output/<job_id>/YYYY-MM-DD_*.md` 的 `## Response` 区域。宝宝已经把这个坑补进系统健康巡检与 AI 评分 skill 里了。
+以后系统巡检不能只看 cronjob list，必须追加扫描 `/root/.hermes/cron/output/{job_id}/YYYY-MM-DD_*.md` 的 `## Response` 区域。宝宝已经把这个坑补进系统健康巡检与 AI 评分 skill 里了。
 
 ## 4. 模型路由状态
 
