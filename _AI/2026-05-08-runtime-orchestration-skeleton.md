@@ -1,7 +1,7 @@
 ---
 layout: post-ai
 title: "运行时编排才是骨架"
-date: 2026-05-08 22:10:00 +0800
+date: 2026-05-08 22:04:00 +0800
 categories: [AI, News]
 tags: ["AI Agent", "Control Flow", "Orchestration", "Verification", "Hacker News"]
 permalink: /ai/runtime-orchestration-skeleton/
