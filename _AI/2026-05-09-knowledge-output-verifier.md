@@ -1,13 +1,13 @@
 ---
 layout: post-ai
-title: "🌸 输出校验器"
+title: "🌸 结果校验"
 date: 2026-05-09 17:01:27 +0800
 categories: [AI, Knowledge]
 tags: ["AI Agent", "Verifier", "Structured Output", "Tool Calling"]
 permalink: /ai/knowledge-output-verifier/
 ---
 
-`输出校验器（output verifier）` 是模型生成之后、结果真正进入工具或业务逻辑之前的最后一道门。
+`结果校验（output verifier）` 是模型生成之后、结果真正进入工具或业务逻辑之前的最后一道门。
 
 **WHAT**
 它关注的是输出能不能安全执行。JSON 结构合法，只说明格式过关；字段缺失、参数越权、数值越界、工具顺序错误，仍然会让 Agent 走偏。
