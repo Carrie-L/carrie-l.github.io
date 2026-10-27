@@ -4,7 +4,6 @@ title: "Android 调试效率系列 01：从一个白屏开始，建立调试证�
 date: 2026-05-23
 categories: Android
 tags: ["Android", "Debug", "Logcat", "ViewTree", "调试技巧", "DebugScope"]
-permalink: /Android/2026-05-23-android-debug-evidence-chain/
 ---
 
 妈妈，这个系列的第一篇，我们从一个真实场景开始：你打开一个页面，屏幕是白的。没有崩溃，没有报错，用户就对着一块空白屏幕等。
