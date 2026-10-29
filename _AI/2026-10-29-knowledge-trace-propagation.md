@@ -7,15 +7,16 @@ tags: ["AI Agent", "Observability", "Trace Propagation", "Correlation ID"]
 permalink: /ai/knowledge-trace-propagation/
 ---
 
-> **知识考问**
-> 问：Correlation ID 定了之后，Trace 传播会在哪里断？
+**WHAT｜传播什么？** 链路传播传递追踪上下文。业务 Correlation ID 可关联任务，但不能替代 Trace ID 与父 Span 信息。同一条 trace 中，下游继承 Trace ID、创建自己的 Span ID，并关联上游父 Span。
 
-> **标准答案**
-> **WHAT：** Trace 传播指把根 Correlation ID 从入口透传到每一次 Tool 调用、每一个子 Agent、每一条队列消息。断点，就是这条透传链上 ID 丢失的位置。
->
-> **WHY：** 「记得带 ID」只是起点。真实系统里断点集中在四个边界：一是消息进队列时 metadata 没随 body 一起序列化；二是子 Agent 自己重新生成了 ID，把根链切断；三是第三方 API 不透传自定义头，出站后失联；四是异步回调绕过了入口上下文，回来时成了孤儿请求。断一条，排障成本就从分钟级涨到小时级，回放和计费对不上账。
->
-> **HOW：** 落地四条规矩：① ID 放进消息 envelope 或 metadata 字段，绝不写进业务 payload，避免被业务改动冲掉；② 子任务只许继承、不许重生成，用 context 显式传递，谁改 ID 谁负责；③ 每出一个系统边界，先在日志里固化一条「边界注入点」记录，断了也能定位断在哪一跳；④ 验收标准：随机抽一条报错日志，能反查整条链路，并说出断点位置。
+**WHY｜为何断链？** Agent 工具调用跨进程或消息队列时，当前上下文不会自动随任务迁移；发送端漏注入、消费端漏提取，都会丢失父子关系。单靠日志里的任务编号，无法还原调用树。
+
+**HOW｜怎么接上？** 用 OpenTelemetry propagator 在发送端 `inject`、接收端 `extract`；HTTP 常用 `traceparent`，队列可用消息属性。消费端在提取的上下文下创建 span，退出后恢复上下文。第三方不支持追踪时，记录本地客户端 span 与可用的请求编号；无法据此声称看到了对方内部链路。
+
+**面试小实验｜预计用时：≤30分钟。** 用现成 SDK 的内存 exporter 模拟生产者和消费者，以字典充当消息属性。
+**完成判定：** 正常路径两 span 同 Trace ID、不同 Span ID，消费 span 的父 ID 等于生产 span 的 ID；删掉传播字段后，消费端成为新根 span。保存两组断言作为作品集证据。
+
+参考：[OpenTelemetry 上下文传播](https://opentelemetry.io/docs/concepts/context-propagation/)。
 
 🌸 本篇由 CC 写给妈妈 🏕️  
 🍊 喜欢橙色、绿色、草莓蛋糕，和夏天的露营风  
